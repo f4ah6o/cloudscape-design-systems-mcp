@@ -1,92 +1,168 @@
 # Cloudscape MCP Assistant
 
-This is a Model Context Protocol (MCP) server that provides comprehensive information about AWS Cloudscape Design System components, along with code generation capabilities for common Cloudscape patterns. The server is implemented in TypeScript for improved type safety and developer experience.
-
-## Overview
-
-The Cloudscape MCP Server provides the following functionality:
-
-- Component Registry: Metadata for Cloudscape components
-- Search Engine: Search for components by name, category, or tags
-- Code Generator: Generate code for components and common patterns
-- Documentation Provider: Comprehensive documentation for components
-- Example Provider: Usage examples for components
-- Property Explorer: Detailed property information and relationships
-- Roo Integration: Enhanced integration with Roo
-- Performance Optimization: Caching and memoization for improved performance
-- Security Enhancements: Input validation and sanitization
-
-## Project Structure
-
-```
-mcp-cloudscape-assistant/
-├── server.ts                  # Main server file
-├── tsconfig.json              # TypeScript configuration
-├── src/
-│   ├── components/            # Component Registry
-│   │   ├── data/              # Component data
-│   │   │   ├── categories.ts  # Category metadata
-│   │   │   ├── components.ts  # Component metadata
-│   │   │   ├── examples.ts    # Example metadata
-│   │   │   └── patterns.ts    # Pattern metadata
-│   │   └── registry.ts        # Component Registry implementation
-│   ├── search/                # Search Engine
-│   │   └── engine.ts          # Search Engine implementation
-│   ├── code-generator/        # Code Generator
-│   │   └── generator.ts       # Code Generator implementation
-│   ├── documentation/         # Documentation Provider
-│   │   └── provider.ts        # Documentation Provider implementation
-│   ├── example-provider/      # Example Provider
-│   │   └── index.ts           # Example Provider implementation
-│   ├── property-explorer/     # Property Explorer
-│   │   └── index.ts           # Property Explorer implementation
-│   ├── integration/           # Roo Integration
-│   │   └── roo-integration.ts # Roo Integration implementation
-│   ├── optimization/          # Performance Optimization
-│   │   └── performance.ts     # Performance Optimization implementation
-│   ├── security/              # Security Enhancements
-│   │   └── index.ts           # Security Enhancements implementation
-│   └── mcp/                   # MCP Server implementation
-│       └── server.ts          # MCP Server implementation
-├── test.ts                    # Basic test script
-├── test-phase2.ts             # Phase 2 test script
-├── test-phase3.ts             # Phase 3 test script
-└── test-phase4.ts             # Phase 4 test script
-```
+A Model Context Protocol (MCP) server that enhances Roo's capabilities with comprehensive AWS Cloudscape Design System support, enabling efficient component discovery, documentation access, and code generation.
 
 ## Installation
 
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm (v6 or later)
+- Roo AI Assistant
+
+### Option 1: Install from npm (Recommended)
+
+Install the MCP Cloudscape Assistant globally:
+
+```
+npm install -g @agentience/mcp-cloudscape-assistant
+```
+
+This installs the pre-built package from npm and makes the `mcp-cloudscape-assistant` command available globally.
+
+### Option 2: Install from Source
+
+If you prefer to build from source:
+
 1. Clone the repository:
-```bash
+```
 git clone https://github.com/agentience/mcp-cloudscape-assistant.git
 cd mcp-cloudscape-assistant
 ```
 
 2. Install dependencies:
-```bash
+```
 npm install
 ```
 
-3. Build the TypeScript code:
-```bash
+3. Build the package:
+```
 npm run build
 ```
 
-## Usage
-
-Start the server:
-```bash
-npm start
+4. Optionally, link the package globally:
+```
+npm link
 ```
 
-For development with automatic reloading:
-```bash
-npm run dev
+## Setting Up Roo Integration
+
+After installation, you need to connect the MCP server to Roo:
+
+1. Start the MCP server in a terminal:
+
+```
+# If installed globally from npm (Option 1)
+mcp-cloudscape-assistant
+
+# To specify a custom port
+mcp-cloudscape-assistant --port 8080
+# or
+mcp-cloudscape-assistant -p 8080
+# or
+PORT=8080 mcp-cloudscape-assistant
+
+# To specify a custom bind address
+mcp-cloudscape-assistant --bind 127.0.0.1
+# or
+mcp-cloudscape-assistant -b 127.0.0.1
+# or
+BIND=127.0.0.1 mcp-cloudscape-assistant
+
+# To run with SSE transport (recommended for web integration)
+TRANSPORT_TYPE=sse mcp-cloudscape-assistant
+
+# If installed from source without npm link (Option 2)
+node dist/server.js
+
+# To specify a custom port
+node dist/server.js --port 8080
+# or
+node dist/server.js -p 8080
+# or
+PORT=8080 node dist/server.js
+
+# To specify a custom bind address
+node dist/server.js --bind 127.0.0.1
+# or
+node dist/server.js -b 127.0.0.1
+# or
+BIND=127.0.0.1 node dist/server.js
+
+# To run with SSE transport (recommended for web integration)
+TRANSPORT_TYPE=sse node dist/server.js
 ```
 
-## MCP Tools
+2. Verify the server is running - you should see a message indicating the server is listening on the specified port (default: 3000). The server will stay running until manually terminated.
 
-The Cloudscape MCP Server provides the following tools:
+3. In Roo, connect to the MCP server:
+   - Click on the MCP icon in the sidebar
+   - Click "Add Connection"
+   - Enter the following details:
+     - Name: Cloudscape Assistant
+     - URL: http://localhost:3001 (or your custom port if specified)
+   - Click "Connect"
+
+4. Once connected, you'll see "Cloudscape Assistant" in your list of available MCP servers in Roo.
+
+5. You can now use the Cloudscape Assistant tools and resources in your Roo conversations.
+
+## Troubleshooting Roo Integration
+
+If you're experiencing issues connecting the Cloudscape Assistant to Roo, try the following steps:
+
+1. **Use SSE transport**: For the most reliable connection with Roo, use the SSE transport:
+   ```
+   TRANSPORT_TYPE=sse mcp-cloudscape-assistant
+   ```
+   Or if using the development version:
+   ```
+   npm run dev:fastmcp:sse
+   ```
+
+2. **Check the server name**: Ensure you're using the correct server name in your configuration. The server name should be `cloudscape-assistant` (with two 's' characters, not three).
+
+3. **Verify the server is running**: Make sure the MCP server is running on the specified port. You can check this by running the test scripts:
+   ```
+   ts-node test-tools.ts
+   ts-node test-resources.ts
+   ts-node test-roo-integration.ts
+   ```
+
+4. **Check CORS settings**: If you're experiencing CORS issues, make sure your browser allows connections to the server. Note that CORS is only relevant when using SSE transport.
+
+5. **Use the correct URL**: The URL should be `http://localhost:3001` or `http://127.0.0.1:3001` (or your custom port if specified).
+
+6. **Restart the server**: Sometimes restarting the server can resolve connection issues:
+   ```
+   # Stop the current server (Ctrl+C)
+   # Then restart it with SSE transport
+   TRANSPORT_TYPE=sse PORT=3001 npm start
+   ```
+
+For more detailed troubleshooting information, see the [Roo Integration Guide](docs/roo-integration-guide.md).
+
+## What Problems Does It Solve?
+
+The Cloudscape MCP Assistant addresses several challenges developers face when working with AWS Cloudscape Design System:
+
+- **Component Discovery**: Quickly find the right Cloudscape component for your needs through intuitive search
+- **Documentation Access**: Access comprehensive documentation for components directly within Roo
+- **Code Generation**: Generate boilerplate code for components and common patterns
+- **Property Exploration**: Understand component properties and their relationships
+- **Best Practices**: Learn recommended usage patterns and implementation approaches
+
+## How It Works
+
+The Cloudscape MCP Assistant serves as a bridge between Roo and the AWS Cloudscape Design System by:
+
+1. Providing a searchable registry of all Cloudscape components with metadata
+2. Offering tools to generate code snippets for components and common patterns
+3. Delivering comprehensive documentation and examples
+4. Enabling property exploration to understand component capabilities
+5. Optimizing the development workflow through Roo integration
+
+## Available MCP Tools
 
 ### search_components
 
@@ -166,7 +242,7 @@ Get usage examples for a component.
 }
 ```
 
-## MCP Resources
+## Available MCP Resources
 
 The Cloudscape MCP Server provides the following resources:
 
@@ -176,61 +252,80 @@ The Cloudscape MCP Server provides the following resources:
 - `cloudscape://examples/{exampleId}`: Get example details
 - `cloudscape://properties/{componentId}/{propertyId}`: Get property details
 
-## Testing
+## Development
 
-Run the test scripts to verify that all components are working correctly:
+For information on developing or contributing to the Cloudscape MCP Assistant, please see [DEVELOPMENT.md](DEVELOPMENT.md).
 
-```bash
-# Basic test
-node dist/test.js
+## Automatic Connection with mcp.json
 
-# Phase 2 test (Component Registry and Search Engine)
-node dist/test-phase2.js
+You can automate the connection between Roo AI Assistant and the Cloudscape MCP Assistant by creating an `mcp.json` file in your project root. This allows Roo to automatically discover and connect to the MCP server without manual setup.
 
-# Phase 3 test (Code Generator, Documentation Provider, and Example Provider)
-node dist/test-phase3.js
+### mcp.json Examples
 
-# Phase 4 test (Roo Integration, Performance, and Security)
-node dist/test-phase4.js
+#### For Local MCP Servers
+
+If you want Roo to automatically start and connect to a local instance of the MCP server, create an `mcp.json` file in your project root with the following content:
+
+```json
+{
+  "connections": [
+    {
+      "name": "Cloudscape Assistant",
+      "type": "stdio",
+      "command": "mcp-cloudscape-assistant",
+      "args": ["--port", "3000"],
+      "env": {},
+      "cwd": "${workspaceFolder}",
+      "autoConnect": true
+    }
+  ]
+}
 ```
 
-## Implementation Phases
+#### For Remote MCP Servers
 
-The Cloudscape MCP Server was implemented in four phases:
+If you want to connect to a remotely running MCP server (for example, on another machine or in a cloud environment), use the following format:
 
-### Phase 1: Initial Setup and Core Functionality
+```json
+{
+  "connections": [
+    {
+      "name": "Cloudscape Assistant",
+      "type": "sse",
+      "url": "http://remote-server-address:3001",
+      "autoConnect": true
+    }
+  ]
+}
+```
 
-- Set up the basic MCP server infrastructure
-- Implemented the Component Registry with metadata for the most commonly used components
-- Implemented basic search functionality
-- Implemented basic component retrieval functionality
+**Important**: When connecting to a remote server, make sure it's running with SSE transport enabled:
 
-### Phase 2: Complete Component Registry and Enhanced Search
+```bash
+TRANSPORT_TYPE=sse mcp-cloudscape-assistant
+```
 
-- Completed the Component Registry with metadata for all Cloudscape components
-- Enhanced search functionality with advanced filtering and ranking
-- Implemented property exploration functionality
-- Improved component retrieval with more detailed information
+### Configuration Options
 
-### Phase 3: Code Generation and Documentation
+#### Common Options
+- `name`: The display name for the MCP server in Roo
+- `autoConnect`: Whether to automatically connect to the server when Roo starts
 
-- Implemented code generation for individual components
-- Implemented code generation for common Cloudscape patterns
-- Implemented comprehensive documentation provider
-- Implemented example provider
+#### Local Server Options (type: "stdio")
+- `type`: Connection type (use "stdio" for local servers)
+- `command`: The command to start the MCP server
+- `args`: Command line arguments for the server
+- `env`: Environment variables to set when starting the server
+- `cwd`: Working directory for the server (${workspaceFolder} refers to your project root)
 
-### Phase 4: Integration and Testing
+#### Remote Server Options (type: "sse")
+- `type`: Connection type (use "sse" for remote servers)
+- `url`: The URL of the remote MCP server
+- `headers`: (Optional) HTTP headers to include in the request to the remote server
 
-- Integrated the MCP server with Roo
-- Tested the integration with frontend-code mode
-- Optimized performance with caching and memoization
-- Implemented security enhancements with input validation and sanitization
-- Finalized documentation
+**Note**: When using the "sse" connection type, the server must be running with SSE transport enabled (`TRANSPORT_TYPE=sse`).
 
-For more details on each phase, see the phase summary files:
-- `phase2-summary.md`
-- `phase3-summary.md`
-- `phase4-summary.md`
+With these configurations, Roo will automatically connect to the Cloudscape MCP Assistant when you open your project, whether it's running locally or remotely.
 
 ## License
 

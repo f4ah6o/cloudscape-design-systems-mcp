@@ -94,7 +94,7 @@ export function sanitizeInput(input: any): any {
  * @param message - Log message
  * @param data - Additional data
  */
-export function log(level: 'info' | 'warn' | 'error', message: string, data: Record<string, any> = {}): void {
+export function log(level: 'info' | 'warn' | 'error' | 'debug', message: string, data: Record<string, any> = {}): void {
   const timestamp = new Date().toISOString();
   const logEntry = {
     timestamp,
@@ -103,8 +103,46 @@ export function log(level: 'info' | 'warn' | 'error', message: string, data: Rec
     ...data
   };
   
-  // In a production environment, this would write to a log file or service
-  console.log(JSON.stringify(logEntry));
+  // Color codes for different log levels
+  const colors = {
+    info: '\x1b[36m', // Cyan
+    warn: '\x1b[33m', // Yellow
+    error: '\x1b[31m', // Red
+    debug: '\x1b[90m', // Gray
+    reset: '\x1b[0m'  // Reset
+  };
+  
+  // Format the log message for better console visibility
+  const colorCode = colors[level] || colors.reset;
+  const levelPadded = level.toUpperCase().padEnd(5, ' ');
+  const prefix = `${colorCode}[${timestamp}] [${levelPadded}]${colors.reset}`;
+  
+  // Format the message
+  console.log(`${prefix} ${message}`);
+  
+  // If there's additional data, print it with indentation
+  if (Object.keys(data).length > 0) {
+    // Filter out sensitive data and large objects
+    const sanitizedData = { ...data };
+    delete sanitizedData.stack; // Don't show full stack traces in normal logs
+    
+    // For errors, show a more concise representation
+    if (sanitizedData.error && typeof sanitizedData.error === 'object') {
+      sanitizedData.error = sanitizedData.error.message || String(sanitizedData.error);
+    }
+    
+    // Print the data in a readable format
+    const dataString = JSON.stringify(sanitizedData, null, 2);
+    console.log(`${colors.debug}  └─ ${dataString.replace(/\n/g, '\n     ')}${colors.reset}`);
+    
+    // If this is an error and we have a stack trace, print it separately
+    if (level === 'error' && data.stack) {
+      console.log(`${colors.error}  └─ Stack: ${data.stack.split('\n')[0]}${colors.reset}`);
+      data.stack.split('\n').slice(1).forEach((line: string) => {
+        console.log(`${colors.error}      ${line}${colors.reset}`);
+      });
+    }
+  }
 }
 
 /**
@@ -134,31 +172,52 @@ export function measureExecutionTime<T>(fn: (...args: any[]) => T, args: any[]):
  */
 function createWrappedHandler(handler: (input: any, ctx?: any) => any, schema: any, name: string): (input: any, ctx?: any) => any {
   return function(input: any, ctx?: any): any {
+    const requestId = Math.random().toString(36).substring(2, 10);
     try {
-      // Log request
-      log('info', `Executing ${name}`, { input });
+      // Log request with request ID
+      log('info', `[${requestId}] 📥 Executing tool: ${name}`, {
+        input: JSON.stringify(input).length > 200
+          ? { ...input, _note: "Input truncated for logging" }
+          : input
+      });
       
       // Validate input
       const validationResult = validateInput(input, schema);
       if (!validationResult.valid) {
-        log('error', `Validation failed for ${name}`, { errors: validationResult.errors });
+        log('error', `[${requestId}] ❌ Validation failed for ${name}`, { errors: validationResult.errors });
         throw new Error(`Validation failed: ${validationResult.errors.join(', ')}`);
       }
       
       // Sanitize input
       const sanitizedInput = sanitizeInput(input);
+      log('debug', `[${requestId}] 🔍 Input validated and sanitized`);
       
       // Measure execution time
+      const startTime = Date.now();
       const { result, executionTime } = measureExecutionTime(handler, [sanitizedInput, ctx]);
       
       // Log response
-      log('info', `Completed ${name}`, { executionTime });
+      const executionTimeMs = parseFloat(executionTime);
+      let performanceIndicator = '🚀'; // Fast
+      if (executionTimeMs > 500) performanceIndicator = '⚡'; // Medium
+      if (executionTimeMs > 1000) performanceIndicator = '🐢'; // Slow
+      
+      log('info', `[${requestId}] 📤 Completed ${name} ${performanceIndicator}`, {
+        executionTime: `${executionTime}ms`,
+        resultSize: JSON.stringify(result).length
+      });
       
       // Return result
       return result;
     } catch (error: any) {
-      // Log error
-      log('error', `Error executing ${name}`, { error: error.message, stack: error.stack });
+      // Log error with more details
+      log('error', `[${requestId}] ❌ Error executing ${name}`, {
+        error: error.message,
+        stack: error.stack,
+        input: JSON.stringify(input).length > 200
+          ? `${JSON.stringify(input).substring(0, 200)}... (truncated)`
+          : input
+      });
       
       // Rethrow error
       throw error;
@@ -209,11 +268,25 @@ function enhanceMCPServer(server: MCPServer): MCPServer {
   
   // Override start method
   server.start = function(): void {
-    // Log server start
-    log('info', `Starting MCP server: ${server.name}`, {
+    // Log server start with a prominent banner
+    console.log('\n' + '='.repeat(80));
+    console.log(`\x1b[1m\x1b[36m  MCP SERVER: ${server.name} v${server.version}\x1b[0m`);
+    console.log(`\x1b[36m  ${server.description}\x1b[0m`);
+    console.log('='.repeat(80) + '\n');
+    
+    log('info', `🚀 Starting MCP server: ${server.name}`, {
       version: server.version,
-      tools: Object.keys(server.tools),
-      resources: Object.keys(server.resources)
+      tools: Object.keys(server).length,
+      resources: Object.keys(server).length
+    });
+    
+    // Add event listeners for client connections and disconnections
+    server.on('connection', (clientId: string) => {
+      log('info', `🔌 Client connected: ${clientId}`);
+    });
+    
+    server.on('disconnection', (clientId: string) => {
+      log('info', `🔌 Client disconnected: ${clientId}`);
     });
     
     // Call original start method
@@ -233,9 +306,18 @@ export function initializeRooIntegration(server: MCPServer): MCPServer {
   const enhancedServer = enhanceMCPServer(server);
   
   // Log initialization
-  log('info', 'Initialized Roo integration', {
+  log('info', '🔄 Initialized Roo integration', {
     serverName: server.name,
     serverVersion: server.version
+  });
+  
+  // Add a shutdown hook to log when the server is stopping
+  process.on('SIGINT', () => {
+    log('info', '🛑 Shutting down server due to SIGINT signal...');
+  });
+  
+  process.on('SIGTERM', () => {
+    log('info', '🛑 Shutting down server due to SIGTERM signal...');
   });
   
   return enhancedServer;

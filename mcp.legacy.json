@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cloudscape-assistant": {
+      "url": "http://localhost:3001",
+      "disabled": false,
+      "alwaysAllow": []
+    }
+  }
+}

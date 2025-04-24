@@ -222,12 +222,16 @@ export function validateAndSanitizePatternCodeGenerationInput(input: Record<stri
  * @returns Enhanced MCP server
  */
 export function applySecurityEnhancements(server: MCPServer): MCPServer {
-  // Wrap tool handlers with security enhancements
-  for (const [name, tool] of Object.entries(server.tools)) {
-    const originalHandler = tool.handler;
+  // Store original methods
+  const originalTool = server.tool.bind(server);
+  const originalResource = server.resource.bind(server);
+  
+  // Override tool method to add security enhancements
+  server.tool = function(options: any): void {
+    const { name, description, inputSchema, handler } = options;
     
     // Create a new handler with security enhancements
-    tool.handler = function(input: any, ctx?: any): any {
+    const secureHandler = function(input: any, ctx?: any): any {
       let sanitizedInput = input;
       
       // Apply specific validation and sanitization based on tool name
@@ -245,16 +249,24 @@ export function applySecurityEnhancements(server: MCPServer): MCPServer {
       }
       
       // Call original handler with sanitized input
-      return originalHandler(sanitizedInput, ctx);
+      return handler(sanitizedInput, ctx);
     };
-  }
+    
+    // Register tool with original method
+    return originalTool({
+      name,
+      description,
+      inputSchema,
+      handler: secureHandler
+    });
+  };
   
-  // Wrap resource handlers with security enhancements
-  for (const [uriPattern, resource] of Object.entries(server.resources)) {
-    const originalHandler = resource.handler;
+  // Override resource method to add security enhancements
+  server.resource = function(options: any): void {
+    const { uriPattern, handler } = options;
     
     // Create a new handler with security enhancements
-    resource.handler = function(params: any, ctx?: any): any {
+    const secureHandler = function(params: any, ctx?: any): any {
       let sanitizedParams = params;
       
       // Apply specific validation and sanitization based on URI pattern
@@ -292,9 +304,19 @@ export function applySecurityEnhancements(server: MCPServer): MCPServer {
       sanitizedParams = sanitizeObject(params);
       
       // Call original handler with sanitized params
-      return originalHandler(sanitizedParams, ctx);
+      return handler(sanitizedParams, ctx);
     };
-  }
+    
+    // Register resource with original method
+    return originalResource({
+      uriPattern,
+      handler: secureHandler
+    });
+  };
+  
+  // We don't need to re-register existing tools and resources
+  // since we're overriding the tool and resource methods
+  // which will apply security enhancements to all future registrations
   
   console.log('Security enhancements applied');
   

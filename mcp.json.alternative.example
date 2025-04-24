@@ -1,0 +1,10 @@
+{
+  "connections": [
+    {
+      "name": "Cloudscape Assistant",
+      "type": "sse",
+      "url": "http://127.0.0.1:3001",
+      "autoConnect": true
+    }
+  ]
+}

@@ -19,6 +19,7 @@ import { MCPServer } from './src/mcp/server';
 import { initializeRooIntegration } from './src/integration/roo-integration';
 import { applyPerformanceOptimizations } from './src/optimization/performance';
 import { applySecurityEnhancements } from './src/security/index';
+import { getServerConfig } from './src/utils/config';
 
 // Import other modules
 import componentRegistry from './src/components/registry';
@@ -101,11 +102,16 @@ interface ComponentResponse {
 // Apply performance optimizations
 applyPerformanceOptimizations();
 
+// Get server configuration
+const config = getServerConfig();
+
 // Create a new MCP server
 const server = new MCPServer({
-  name: 'cloudscape',
+  name: 'cloudscape-assistant',
   description: 'Cloudscape Design System component information and code generation',
   version: '1.0.0',
+  port: config.port,
+  bind: config.bind
 });
 
 // Apply security enhancements
@@ -116,10 +122,10 @@ const enhancedServer = initializeRooIntegration(secureServer);
 
 /**
  * Tool: search_components
- * 
+ *
  * Search for Cloudscape components based on query, category, and tags.
  */
-server.tool({
+enhancedServer.tool({
   name: 'search_components',
   description: 'Search for Cloudscape components with advanced options',
   inputSchema: {
@@ -227,7 +233,7 @@ server.tool({
  * 
  * Get detailed information about a specific component.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_component_details',
   description: 'Get detailed information about a component',
   inputSchema: {
@@ -328,7 +334,7 @@ server.tool({
  * 
  * Generate code for a component with specified props, children, and event handlers.
  */
-server.tool({
+enhancedServer.tool({
   name: 'generate_component_code',
   description: 'Generate code for a component with advanced customization options',
   inputSchema: {
@@ -402,7 +408,7 @@ server.tool({
  * 
  * Generate code for a common Cloudscape pattern with customizations.
  */
-server.tool({
+enhancedServer.tool({
   name: 'generate_pattern_code',
   description: 'Generate code for a common pattern with advanced customization options',
   inputSchema: {
@@ -464,7 +470,7 @@ server.tool({
  *
  * Search within component documentation.
  */
-server.tool({
+enhancedServer.tool({
   name: 'search_documentation',
   description: 'Search within component documentation',
   inputSchema: {
@@ -505,7 +511,7 @@ server.tool({
  *
  * Get detailed documentation for a component with section filtering.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_component_documentation',
   description: 'Get detailed documentation for a component with section filtering',
   inputSchema: {
@@ -553,7 +559,7 @@ server.tool({
  *
  * Generate TypeScript interface for a component.
  */
-server.tool({
+enhancedServer.tool({
   name: 'generate_component_interface',
   description: 'Generate TypeScript interface for a component',
   inputSchema: {
@@ -584,7 +590,7 @@ server.tool({
  * 
  * Get usage examples for a component.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_component_examples',
   description: 'Get usage examples for a component',
   inputSchema: {
@@ -646,7 +652,7 @@ server.tool({
  * 
  * Get component details.
  */
-server.resource({
+enhancedServer.resource({
   uriPattern: 'cloudscape://components/:componentId',
   handler: async (params, ctx) => {
     const { componentId } = params;
@@ -682,7 +688,7 @@ server.resource({
  * 
  * Get category details.
  */
-server.resource({
+enhancedServer.resource({
   uriPattern: 'cloudscape://categories/:categoryId',
   handler: async (params, ctx) => {
     const { categoryId } = params;
@@ -714,7 +720,7 @@ server.resource({
  * 
  * Get pattern details.
  */
-server.resource({
+enhancedServer.resource({
   uriPattern: 'cloudscape://patterns/:patternId',
   handler: async (params, ctx) => {
     const { patternId } = params;
@@ -748,7 +754,7 @@ server.resource({
  *
  * Get example details.
  */
-server.resource({
+enhancedServer.resource({
   uriPattern: 'cloudscape://examples/:exampleId',
   handler: async (params, ctx) => {
     const { exampleId } = params;
@@ -765,7 +771,7 @@ server.resource({
  *
  * Get examples for a component with filtering and pagination.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_examples',
   description: 'Get examples for a component with filtering and pagination',
   inputSchema: {
@@ -830,7 +836,7 @@ server.tool({
  *
  * Search for examples across all components.
  */
-server.tool({
+enhancedServer.tool({
   name: 'search_examples',
   description: 'Search for examples across all components',
   inputSchema: {
@@ -890,7 +896,7 @@ server.tool({
  *
  * Get all example categories.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_example_categories',
   description: 'Get all example categories',
   inputSchema: {
@@ -913,7 +919,7 @@ server.tool({
  * 
  * Get property details.
  */
-server.resource({
+enhancedServer.resource({
   uriPattern: 'cloudscape://properties/:componentId/:propertyId',
   handler: async (params, ctx) => {
     const { componentId, propertyId } = params;
@@ -950,7 +956,7 @@ server.resource({
  *
  * Get all properties for a component.
  */
-server.resource({
+enhancedServer.resource({
   uriPattern: 'cloudscape://properties/:componentId',
   handler: async (params, ctx) => {
     const { componentId } = params;
@@ -983,7 +989,7 @@ server.resource({
  *
  * Search for components based on functionality.
  */
-server.tool({
+enhancedServer.tool({
   name: 'search_components_by_functionality',
   description: 'Search for components based on functionality',
   inputSchema: {
@@ -1033,7 +1039,7 @@ server.tool({
  *
  * Explore properties of a component.
  */
-server.tool({
+enhancedServer.tool({
   name: 'explore_component_properties',
   description: 'Explore properties of a component',
   inputSchema: {
@@ -1085,7 +1091,7 @@ server.tool({
  *
  * Get relationships between properties of a component.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_property_relationships',
   description: 'Get relationships between properties of a component',
   inputSchema: {
@@ -1117,7 +1123,7 @@ server.tool({
  *
  * Get detailed type information for a property.
  */
-server.tool({
+enhancedServer.tool({
   name: 'get_property_type_info',
   description: 'Get detailed type information for a property',
   inputSchema: {
@@ -1153,6 +1159,48 @@ server.tool({
 
 // Start the enhanced server
 enhancedServer.start();
+
+// Handle process signals for graceful shutdown
+// Add a more visible console output for process signals
+process.on('SIGINT', () => {
+  console.log('\n' + '='.repeat(80));
+  console.log('\x1b[1m\x1b[33m  RECEIVED SIGINT SIGNAL\x1b[0m');
+  console.log('='.repeat(80));
+  console.log('\x1b[33mShutting down server gracefully...\x1b[0m');
+  enhancedServer.stop();
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('\n' + '='.repeat(80));
+  console.log('\x1b[1m\x1b[33m  RECEIVED SIGTERM SIGNAL\x1b[0m');
+  console.log('='.repeat(80));
+  console.log('\x1b[33mShutting down server gracefully...\x1b[0m');
+  enhancedServer.stop();
+  process.exit(0);
+});
+
+// Log uncaught exceptions for better debugging
+process.on('uncaughtException', (error) => {
+  console.log('\n' + '='.repeat(80));
+  console.log('\x1b[1m\x1b[31m  UNCAUGHT EXCEPTION\x1b[0m');
+  console.log('='.repeat(80));
+  console.error('\x1b[31mUncaught Exception:\x1b[0m', error);
+  console.log('\x1b[31mServer will now exit\x1b[0m');
+  process.exit(1);
+});
+
+// Log unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('\n' + '='.repeat(80));
+  console.log('\x1b[1m\x1b[31m  UNHANDLED PROMISE REJECTION\x1b[0m');
+  console.log('='.repeat(80));
+  console.error('\x1b[31mUnhandled Promise Rejection:\x1b[0m', reason);
+  // We don't exit here to allow the server to continue running
+});
+
+// Keep the process running
+console.log('Server process will stay running until manually terminated');
 
 // Export the server for testing
 export default enhancedServer;

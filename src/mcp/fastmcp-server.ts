@@ -7,6 +7,8 @@
 
 import { FastMCP } from 'fastmcp';
 import { z } from 'zod'; // Using Zod for schema validation
+import fs from 'fs';
+import path from 'path';
 
 // Import other modules
 import componentRegistry from '../components/registry';
@@ -140,8 +142,8 @@ function registerTools(server: FastMCP) {
         throw new Error(`Component ${componentId} not found`);
       }
       
-      // Build response with requested details
-      const response: any = {
+      // Build component details
+      const componentDetails: any = {
         id: component.id,
         name: component.name,
         category: component.category,
@@ -154,7 +156,7 @@ function registerTools(server: FastMCP) {
       
       // Include related components if requested
       if (includeRelatedComponents) {
-        response.relatedComponents = component.relatedComponents.map(id => {
+        componentDetails.relatedComponents = component.relatedComponents.map(id => {
           const relatedComponent = componentRegistry.getComponent(id);
           return {
             id,
@@ -167,7 +169,7 @@ function registerTools(server: FastMCP) {
       
       // Include properties if requested
       if (includeProperties) {
-        response.properties = Object.values(component.properties).map(property => ({
+        componentDetails.properties = Object.values(component.properties).map(property => ({
           name: property.name,
           type: property.type,
           description: property.description,
@@ -181,7 +183,7 @@ function registerTools(server: FastMCP) {
       
       // Include examples if requested
       if (includeExamples) {
-        response.examples = componentRegistry.getComponentExamples({
+        componentDetails.examples = componentRegistry.getComponentExamples({
           componentId,
           limit: 5,
         }).map(example => ({
@@ -192,7 +194,11 @@ function registerTools(server: FastMCP) {
         }));
       }
       
-      return response;
+      // Format the response as a TextContent object
+      return {
+        type: 'text',
+        text: JSON.stringify(componentDetails, null, 2)
+      };
     },
   });
 
@@ -302,6 +308,28 @@ function registerTools(server: FastMCP) {
     },
   });
 
+  // Tool: setup
+  server.addPrompt({
+    name: 'setup',
+    description: 'Get setup instructions for the frontend-code mode',
+    arguments: [],
+    load: async () => {
+      try {
+        // Read the setup instructions file
+        const setupInstructions = fs.readFileSync(
+          path.join(__dirname, '../resources/frontend-code-setup.roo.md'),
+          'utf-8'
+        );
+        
+        // Return the instructions as plain text
+        return setupInstructions;
+      } catch (error) {
+        console.error('Error reading setup instructions:', error);
+        throw new Error('Failed to read setup instructions');
+      }
+    },
+  });
+
   // Add more tools as needed...
   // The implementation follows the same pattern as above
 }
@@ -391,4 +419,28 @@ function registerResources(server: FastMCP) {
 
   // Add more resources as needed...
   // The implementation follows the same pattern as above
+
+  // Resource: cloudscape://components-overview
+  server.addResource({
+    uri: 'cloudscape://components-overview',
+    name: 'Cloudscape Components Overview',
+    mimeType: 'text/markdown',
+    async load() {
+      try {
+        // Read the cloudscape components overview file
+        const componentsOverview = fs.readFileSync(
+          path.join(__dirname, '../resources/cloudscape-components.roo.md'),
+          'utf-8'
+        );
+        
+        // Return the overview as markdown text
+        return {
+          text: componentsOverview,
+        };
+      } catch (error) {
+        console.error('Error reading cloudscape components overview:', error);
+        throw new Error('Failed to read cloudscape components overview');
+      }
+    },
+  });
 }

@@ -23,7 +23,7 @@ This document provides templates and examples for effectively delegating tasks t
 [List specific requirements or constraints]
 
 ## Deliverables
-[Specify expected outputs or deliverables]
+[Specify expected outputs or deliverables, include passing unit tests for any code deliverables]
 
 ## Success Criteria
 [Define what successful completion looks like]

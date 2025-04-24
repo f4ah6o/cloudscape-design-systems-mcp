@@ -230,6 +230,14 @@ Generate code for a common Cloudscape pattern with customizations.
 }
 ```
 
+### setup
+
+Get setup instructions for the frontend-code mode.
+
+```javascript
+{}
+```
+
 ### get_component_examples
 
 Get usage examples for a component.

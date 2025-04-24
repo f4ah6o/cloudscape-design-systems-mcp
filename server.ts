@@ -20,6 +20,8 @@ import { initializeRooIntegration } from './src/integration/roo-integration';
 import { applyPerformanceOptimizations } from './src/optimization/performance';
 import { applySecurityEnhancements } from './src/security/index';
 import { getServerConfig } from './src/utils/config';
+import fs from 'fs';
+import path from 'path';
 
 // Import other modules
 import componentRegistry from './src/components/registry';
@@ -462,6 +464,39 @@ enhancedServer.tool({
       language,
       format
     };
+  },
+});
+
+/**
+ * Tool: setup
+ *
+ * Get setup instructions for the frontend-code mode.
+ */
+enhancedServer.tool({
+  name: 'setup',
+  description: 'Get setup instructions for the frontend-code mode',
+  inputSchema: {
+    type: 'object',
+    properties: {},
+    required: [],
+  },
+  handler: async (input, ctx) => {
+    try {
+      // Read the setup instructions file
+      const setupInstructions = fs.readFileSync(
+        path.join(__dirname, 'src/resources/frontend-code-setup.roo.md'),
+        'utf-8'
+      );
+      
+      // Return the instructions as plain text
+      return {
+        type: 'text',
+        text: setupInstructions
+      };
+    } catch (error) {
+      console.error('Error reading setup instructions:', error);
+      throw new Error('Failed to read setup instructions');
+    }
   },
 });
 

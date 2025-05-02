@@ -6,7 +6,7 @@
  */
 
 // Import required modules
-import { MCPServer, Tool, Resource } from '../mcp/server';
+import { FastMCP } from 'fastmcp';
 
 /**
  * Validate input parameters for MCP tools
@@ -164,151 +164,40 @@ export function measureExecutionTime<T>(fn: (...args: any[]) => T, args: any[]):
 }
 
 /**
- * Create a wrapped handler with validation, sanitization, logging, and performance measurement
- * @param handler - Original handler function
- * @param schema - Input schema
- * @param name - Handler name
- * @returns Wrapped handler
+ * Enhance a FastMCP server with additional logging and event handling
+ * @param server - FastMCP server instance
+ * @returns Enhanced FastMCP server
  */
-function createWrappedHandler(handler: (input: any, ctx?: any) => any, schema: any, name: string): (input: any, ctx?: any) => any {
-  return function(input: any, ctx?: any): any {
-    const requestId = Math.random().toString(36).substring(2, 10);
-    try {
-      // Log request with request ID
-      log('info', `[${requestId}] 📥 Executing tool: ${name}`, {
-        input: JSON.stringify(input).length > 200
-          ? { ...input, _note: "Input truncated for logging" }
-          : input
-      });
-      
-      // Validate input
-      const validationResult = validateInput(input, schema);
-      if (!validationResult.valid) {
-        log('error', `[${requestId}] ❌ Validation failed for ${name}`, { errors: validationResult.errors });
-        throw new Error(`Validation failed: ${validationResult.errors.join(', ')}`);
-      }
-      
-      // Sanitize input
-      const sanitizedInput = sanitizeInput(input);
-      log('debug', `[${requestId}] 🔍 Input validated and sanitized`);
-      
-      // Measure execution time
-      const startTime = Date.now();
-      const { result, executionTime } = measureExecutionTime(handler, [sanitizedInput, ctx]);
-      
-      // Log response
-      const executionTimeMs = parseFloat(executionTime);
-      let performanceIndicator = '🚀'; // Fast
-      if (executionTimeMs > 500) performanceIndicator = '⚡'; // Medium
-      if (executionTimeMs > 1000) performanceIndicator = '🐢'; // Slow
-      
-      log('info', `[${requestId}] 📤 Completed ${name} ${performanceIndicator}`, {
-        executionTime: `${executionTime}ms`,
-        resultSize: JSON.stringify(result).length
-      });
-      
-      // Return result
-      return result;
-    } catch (error: any) {
-      // Log error with more details
-      log('error', `[${requestId}] ❌ Error executing ${name}`, {
-        error: error.message,
-        stack: error.stack,
-        input: JSON.stringify(input).length > 200
-          ? `${JSON.stringify(input).substring(0, 200)}... (truncated)`
-          : input
-      });
-      
-      // Rethrow error
-      throw error;
-    }
-  };
-}
-
-/**
- * Wrap an MCP server with enhanced functionality
- * @param server - MCP server instance
- * @returns Enhanced MCP server
- */
-function enhanceMCPServer(server: MCPServer): MCPServer {
-  // Store original methods
-  const originalTool = server.tool.bind(server);
-  const originalResource = server.resource.bind(server);
-  const originalStart = server.start.bind(server);
+function enhanceFastMCPServer(server: FastMCP<any>): FastMCP<any> {
+  // Log server start with a prominent banner
+  console.log('\n' + '='.repeat(80));
+  console.log(`\x1b[1m\x1b[36m  MCP SERVER: Cloudscape Assistant\x1b[0m`);
+  console.log(`\x1b[36m  Cloudscape Design System component information and code generation\x1b[0m`);
+  console.log('='.repeat(80) + '\n');
   
-  // Override tool method
-  server.tool = function(options: any): void {
-    const { name, description, inputSchema, handler } = options;
-    
-    // Create wrapped handler
-    const wrappedHandler = createWrappedHandler(handler, inputSchema, name);
-    
-    // Register tool with original method
-    return originalTool({
-      name,
-      description,
-      inputSchema,
-      handler: wrappedHandler
-    });
-  };
+  log('info', `🚀 Starting FastMCP server: Cloudscape Assistant`, {
+    version: '1.0.0'
+  });
   
-  // Override resource method
-  server.resource = function(options: any): void {
-    const { uriPattern, handler } = options;
-    
-    // Create wrapped handler
-    const wrappedHandler = createWrappedHandler(handler, {}, uriPattern);
-    
-    // Register resource with original method
-    return originalResource({
-      uriPattern,
-      handler: wrappedHandler
-    });
-  };
-  
-  // Override start method
-  server.start = function(): void {
-    // Log server start with a prominent banner
-    console.log('\n' + '='.repeat(80));
-    console.log(`\x1b[1m\x1b[36m  MCP SERVER: ${server.name} v${server.version}\x1b[0m`);
-    console.log(`\x1b[36m  ${server.description}\x1b[0m`);
-    console.log('='.repeat(80) + '\n');
-    
-    log('info', `🚀 Starting MCP server: ${server.name}`, {
-      version: server.version,
-      tools: Object.keys(server).length,
-      resources: Object.keys(server).length
-    });
-    
-    // Add event listeners for client connections and disconnections
-    server.on('connection', (clientId: string) => {
-      log('info', `🔌 Client connected: ${clientId}`);
-    });
-    
-    server.on('disconnection', (clientId: string) => {
-      log('info', `🔌 Client disconnected: ${clientId}`);
-    });
-    
-    // Call original start method
-    return originalStart();
-  };
+  // Add custom event handlers if needed
+  // FastMCP handles events differently than the old implementation
   
   return server;
 }
 
 /**
  * Initialize the Roo integration
- * @param server - MCP server instance
- * @returns Enhanced MCP server
+ * @param server - FastMCP server instance
+ * @returns Enhanced FastMCP server
  */
-export function initializeRooIntegration(server: MCPServer): MCPServer {
-  // Enhance MCP server with validation, logging, and performance measurement
-  const enhancedServer = enhanceMCPServer(server);
+export function initializeRooIntegration(server: FastMCP<any>): FastMCP<any> {
+  // Enhance FastMCP server with logging and event handling
+  const enhancedServer = enhanceFastMCPServer(server);
   
   // Log initialization
   log('info', '🔄 Initialized Roo integration', {
-    serverName: server.name,
-    serverVersion: server.version
+    serverName: 'Cloudscape Assistant',
+    serverVersion: '1.0.0'
   });
   
   // Add a shutdown hook to log when the server is stopping

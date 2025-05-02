@@ -20,7 +20,7 @@ mkdir -p .roo/rules-frontend-code
 
 # Then, retrieve the components documentation from the MCP server
 <access_mcp_resource>
-<server_name>cloudscape</server_name>
+<server_name>cloudscape-assistant</server_name>
 <uri>cloudscape://components-overview</uri>
 </access_mcp_resource>
 ```
@@ -46,69 +46,38 @@ For example, using the `write_to_file` tool:
 </write_to_file>
 ```
 
-3. Update your `.roomodes.yaml` file to include the frontend-code mode configuration:
+3. Update the `.roomodes` file in your project root to include the frontend-code mode configuration:
 
-```yaml
-frontend-code:
-  name: "Frontend Code"
-  description: "Specialized mode for UI development with Cloudscape components"
-  extends: "code"
-  model: "claude-3-7-sonnet-20250219"
-  rules:
-    - ".roo/rules-code/*.roo.md"
-    - ".roo/rules-frontend-code/*.roo.md"
-  mcp_servers:
-    - "cloudscape"
+```json
+{
+  "customModes": [
+    {
+      "slug": "frontend-code",
+      "name": "Frontend Code",
+      "roleDefinition": "You are Roo, a highly skilled frontend developer with expertise in AWS Cloudscape Design System components and React development",
+      "customInstructions": "Focus on implementing UI components using AWS Cloudscape Design System best practices. Provide code examples that follow Cloudscape patterns and accessibility guidelines.",
+      "extends": "code",
+      "rules": [
+        ".roo/rules-code/*.roo.md",
+        ".roo/rules-frontend-code/*.roo.md"
+      ],
+      "mcp_servers": [
+        "cloudscape-assistant"
+      ],
+      "groups": ["read", "edit", "browser", "command", "mcp"],
+      "source": "project"      
+    }
+  ]
+}
 ```
 
-4. Start the Cloudscape MCP server:
-
-```bash
-npx mcp-cloudscape-assistant
-```
-
-5. Switch to the frontend-code mode in Roo:
-
-```
-<switch_mode>
-<mode_slug>frontend-code</mode_slug>
-<reason>Need to work with Cloudscape components</reason>
-</switch_mode>
-```
+4. Instruct the user to restart Roo.
 
 ## Rules Files
 
 The frontend-code mode includes the following rules files:
 
 - `cloudscape-components.roo.md`: Provides an overview of the AWS Cloudscape Design System and its components, along with instructions for accessing the full component library via the Cloudscape MCP server.
-
-You can access the contents of this file through the Cloudscape MCP server's setup tool:
-
-```
-<use_mcp_tool>
-<server_name>cloudscape</server_name>
-<tool_name>setup</tool_name>
-<arguments>
-{}
-</arguments>
-</use_mcp_tool>
-```
-
-## Adding Custom Rules
-
-You can add additional rules files to the `.roo/rules-frontend-code` directory to customize the frontend-code mode. For example, you might want to add rules for:
-
-- Project-specific UI patterns
-- Custom Cloudscape component extensions
-- UI development best practices
-- Accessibility guidelines
-- Performance optimization tips
-
-To add a custom rules file:
-
-1. Create a new `.roo.md` file in the `.roo/rules-frontend-code` directory
-2. Add your custom rules to the file
-3. Restart Roo to apply the changes
 
 ## Updating Rules
 
@@ -123,6 +92,6 @@ To update the rules for the frontend-code mode:
 If you encounter issues with the frontend-code mode:
 
 1. Make sure the Cloudscape MCP server is running
-2. Check that the `.roomodes.yaml` file includes the correct configuration
+2. Check that the `.roomodes` file includes the correct configuration
 3. Verify that the rules files are in the correct location
 4. Restart Roo to apply any changes

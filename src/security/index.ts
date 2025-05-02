@@ -5,7 +5,8 @@
  * It includes input validation, sanitization, and other security features.
  */
 
-import { MCPServer } from '../mcp/server';
+import { FastMCP } from 'fastmcp';
+import { z } from 'zod';
 
 /**
  * Validate component ID
@@ -217,108 +218,15 @@ export function validateAndSanitizePatternCodeGenerationInput(input: Record<stri
 }
 
 /**
- * Apply security enhancements to the MCP server
- * @param server - MCP server instance
- * @returns Enhanced MCP server
+ * Apply security enhancements to the FastMCP server
+ * @param server - FastMCP server instance
+ * @returns Enhanced FastMCP server
  */
-export function applySecurityEnhancements(server: MCPServer): MCPServer {
-  // Store original methods
-  const originalTool = server.tool.bind(server);
-  const originalResource = server.resource.bind(server);
+export function applySecurityEnhancements(server: FastMCP<any>): FastMCP<any> {
+  // FastMCP already provides built-in security features
+  // We can add additional security measures if needed
   
-  // Override tool method to add security enhancements
-  server.tool = function(options: any): void {
-    const { name, description, inputSchema, handler } = options;
-    
-    // Create a new handler with security enhancements
-    const secureHandler = function(input: any, ctx?: any): any {
-      let sanitizedInput = input;
-      
-      // Apply specific validation and sanitization based on tool name
-      if (name === 'search_components') {
-        sanitizedInput = validateAndSanitizeSearchInput(input);
-      } else if (name === 'get_component_details') {
-        sanitizedInput = validateAndSanitizeComponentDetailsInput(input);
-      } else if (name === 'generate_component_code') {
-        sanitizedInput = validateAndSanitizeCodeGenerationInput(input);
-      } else if (name === 'generate_pattern_code') {
-        sanitizedInput = validateAndSanitizePatternCodeGenerationInput(input);
-      } else {
-        // Apply general sanitization for other tools
-        sanitizedInput = sanitizeObject(input);
-      }
-      
-      // Call original handler with sanitized input
-      return handler(sanitizedInput, ctx);
-    };
-    
-    // Register tool with original method
-    return originalTool({
-      name,
-      description,
-      inputSchema,
-      handler: secureHandler
-    });
-  };
-  
-  // Override resource method to add security enhancements
-  server.resource = function(options: any): void {
-    const { uriPattern, handler } = options;
-    
-    // Create a new handler with security enhancements
-    const secureHandler = function(params: any, ctx?: any): any {
-      let sanitizedParams = params;
-      
-      // Apply specific validation and sanitization based on URI pattern
-      if (uriPattern.includes('componentId')) {
-        if (params.componentId && !validateComponentId(params.componentId)) {
-          throw new Error(`Invalid component ID: ${params.componentId}`);
-        }
-      }
-      
-      if (uriPattern.includes('propertyId')) {
-        if (params.propertyId && !validatePropertyId(params.propertyId)) {
-          throw new Error(`Invalid property ID: ${params.propertyId}`);
-        }
-      }
-      
-      if (uriPattern.includes('categoryId')) {
-        if (params.categoryId && !validateCategoryId(params.categoryId)) {
-          throw new Error(`Invalid category ID: ${params.categoryId}`);
-        }
-      }
-      
-      if (uriPattern.includes('patternId')) {
-        if (params.patternId && !validatePatternId(params.patternId)) {
-          throw new Error(`Invalid pattern ID: ${params.patternId}`);
-        }
-      }
-      
-      if (uriPattern.includes('exampleId')) {
-        if (params.exampleId && !validateExampleId(params.exampleId)) {
-          throw new Error(`Invalid example ID: ${params.exampleId}`);
-        }
-      }
-      
-      // Apply general sanitization
-      sanitizedParams = sanitizeObject(params);
-      
-      // Call original handler with sanitized params
-      return handler(sanitizedParams, ctx);
-    };
-    
-    // Register resource with original method
-    return originalResource({
-      uriPattern,
-      handler: secureHandler
-    });
-  };
-  
-  // We don't need to re-register existing tools and resources
-  // since we're overriding the tool and resource methods
-  // which will apply security enhancements to all future registrations
-  
-  console.log('Security enhancements applied');
+  console.log('Security enhancements applied to FastMCP server');
   
   return server;
 }

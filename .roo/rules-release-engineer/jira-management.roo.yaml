@@ -1,0 +1,147 @@
+# Jira Ticket Management Configuration
+
+title: "Jira Ticket Management"
+description: "Practices and procedures for managing Jira tickets throughout the development lifecycle"
+
+ticket_creation_workflow:
+  principles:
+    - name: "Create Tickets Before Development"
+      description: "Always create or ensure a Jira ticket exists BEFORE starting any development work"
+  
+  required_fields:
+    story:
+      - "Acceptance criteria that clearly define when the story is complete"
+      - "Reference to parent Epic (if applicable)"
+      - "User-focused description in the format 'As a [user], I want [capability] so that [benefit]'"
+    bug:
+      - "Steps to reproduce"
+      - "Expected behavior"
+    task:
+      - "Clear definition of done"
+    epic:
+      - "A clear business objective or goal the epic addresses"
+      - "High-level scope definition with boundaries"
+      - "Success metrics or KPIs to measure completion"
+      - "Dependencies on other epics or systems (if any)"
+      - "Estimated timeline (sprints/iterations)"
+  
+  programmatic_creation:
+    example:
+      tool: "jira-server"
+      action: "create_issue"
+      parameters:
+        projectKey: "{project-key}"
+        summary: "Implement feature X"
+        issueType: "Story"
+        description: "As a user, I want to...\n\n*Acceptance Criteria:*\n1. Feature works when...\n2. Tests are added for...\n3. Documentation is updated with..."
+        priority: "Medium"
+
+ticket_status_management:
+  guidelines:
+    - "Set ticket to 'In Progress' when starting work using update_issue tool"
+    - "Include ticket ID in branch names and commits"
+    - "Reference tickets in PR descriptions"
+    - "Run all tests before marking any work as complete"
+    - "Update ticket status to 'Done' ONLY after all acceptance criteria are met and tests pass"
+    - "Use update_issue tool to update status throughout the development lifecycle"
+
+ticket_completion_requirements:
+  steps:
+    - name: "Verify All Acceptance Criteria"
+      description: "Each item in the acceptance criteria must be explicitly verified"
+    - name: "Run All Tests"
+      description: "All test suites relevant to the changes must pass"
+      example: "python -m pytest tests/unit/ tests/integration/"
+    - name: "Update Documentation"
+      description: "Ensure documentation reflects any changes made"
+    - name: "Update Jira Status"
+      description: "Only after all above requirements are met"
+      example:
+        tool: "jira-server"
+        action: "update_issue"
+        parameters:
+          issueKey: "{project-key}-123"
+          status: "Done"
+
+issue_linking:
+  guidelines:
+    - "Link related issues appropriately"
+    - "Use proper link types (e.g., 'blocks', 'is blocked by')"
+    - "Include linked issues in PR descriptions"
+
+issue_hierarchy:
+  epic_story_relationship:
+    guidelines:
+      - "Stories should be linked to their parent Epic using the 'Epic Link' field"
+      - "When creating a Story, always verify if it belongs to an Epic"
+      - "Stories without an Epic should be exceptions, not the norm"
+      - "When describing a Story's context, reference its parent Epic"
+      - "Story acceptance criteria should align with Epic success metrics"
+  
+  creating_child_stories:
+    example:
+      tool: "jira-server"
+      action: "create_issue"
+      parameters:
+        projectKey: "{project-key}"
+        summary: "Implement configuration validation"
+        issueType: "Story"
+        description: "As a developer, I want to validate my configuration file so that I can catch errors before runtime.\n\n*Part of Epic: {project-key}-8 (Configuration System)*\n\n*Acceptance Criteria:*\n1. Validates against JSON schema\n2. Provides clear error messages\n3. Tests cover validation edge cases"
+        priority: "Medium"
+        customFields:
+          epic-link: "{project-key}-8"
+
+project_key_configuration:
+  description: "Configuration for identifying and using the project's Jira key"
+  
+  key_location:
+    - name: "Environment File"
+      path: ".env"
+      variable: "JIRA_PROJECT_KEY"
+      description: "Project key stored as an environment variable in the project root"
+      example: "JIRA_PROJECT_KEY=PROJ"
+    
+    - name: "Jira Configuration File"
+      path: ".jira"
+      variable: "JIRA_PROJECT_KEY"
+      description: "Project key stored in a dedicated Jira configuration file"
+      example: "JIRA_PROJECT_KEY=PROJ"
+  
+  key_detection:
+    steps:
+      - "Check for .env file in project root and look for JIRA_PROJECT_KEY variable"
+      - "If not found, check for .jira file in project root and look for JIRA_PROJECT_KEY variable"
+      - "If still not found, prompt user to provide the project key"
+    example: |
+      # Example code to detect project key
+      project_key = None
+      
+      # Check .env file
+      if os.path.exists('.env'):
+          with open('.env', 'r') as f:
+              for line in f:
+                  if line.startswith('JIRA_PROJECT_KEY='):
+                      project_key = line.split('=')[1].strip()
+                      break
+      
+      # Check .jira file if not found in .env
+      if project_key is None and os.path.exists('.jira'):
+          with open('.jira', 'r') as f:
+              for line in f:
+                  if line.startswith('JIRA_PROJECT_KEY='):
+                      project_key = line.split('=')[1].strip()
+                      break
+  
+  key_usage:
+    guidelines:
+      - "Always use the detected project key when creating or updating Jira issues"
+      - "Replace {project-key} placeholder in examples with the actual project key"
+      - "Include the project key in branch names according to branch naming conventions"
+      - "Use the project key when referencing issues in commit messages and PR descriptions"
+    example:
+      tool: "jira-server"
+      action: "create_issue"
+      parameters:
+        projectKey: "${JIRA_PROJECT_KEY}"
+        summary: "Implement feature X"
+        issueType: "Story"

@@ -17,18 +17,30 @@
 // Import from TypeScript files
 import { createFastMCPServer } from './src/mcp/fastmcp-server';
 import { getServerConfig } from './src/utils/config';
+import { applySecurityEnhancements } from './src/security/index';
+import { initializeRooIntegration } from './src/integration/roo-integration';
+import { applyPerformanceOptimizations } from './src/optimization/performance';
 
 // Get server configuration
 const config = getServerConfig();
 
+// Apply performance optimizations
+applyPerformanceOptimizations();
+
 // Create a new FastMCP server
-const server = createFastMCPServer({
+let server = createFastMCPServer({
   name: 'cloudscape-assistant',
   description: 'Cloudscape Design System component information and code generation',
   version: '1.0.0',
   port: config.port,
   bind: config.bind
 });
+
+// Apply security enhancements
+server = applySecurityEnhancements(server);
+
+// Initialize Roo integration
+server = initializeRooIntegration(server);
 
 // Start the server
 if (process.env.TRANSPORT_TYPE === 'sse') {

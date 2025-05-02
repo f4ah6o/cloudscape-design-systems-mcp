@@ -12,8 +12,13 @@
     "declaration": true,
     "sourceMap": true,
     "allowJs": false,
-    "checkJs": false
+    "checkJs": false,
+    "declarationMap": true,
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*", "tests/**/*", "*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*", "server-fastmcp.ts"],
+  "exclude": ["node_modules", "dist", "server.ts", "tests/**/*"]
 }

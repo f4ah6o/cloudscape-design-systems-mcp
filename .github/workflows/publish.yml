@@ -28,7 +28,7 @@ jobs:
             echo "No package-lock.json found, using npm install"
             npm install
           fi
-      - run: npm test
+      - run: npm run test:ci
       - run: npm run build
       - run: chmod +x dist/server-fastmcp.js
       

@@ -56,9 +56,9 @@ This checklist ensures that the package is ready for publication to npm.
 
 ## Executable
 
-- [ ] Executable has proper shebang line (`#!/usr/bin/env node`)
-- [ ] Executable has proper permissions (chmod +x)
-- [ ] Executable handles command-line arguments properly (--help, etc.)
+- [x] Executable has proper shebang line (`#!/usr/bin/env node`)
+- [x] Executable has proper permissions (chmod +x)
+- [x] Executable handles command-line arguments properly (--help, etc.)
 
 ## Testing
 
@@ -68,7 +68,7 @@ This checklist ensures that the package is ready for publication to npm.
 
 ## Final Checks
 
-- [ ] Package has been tested with `npm pack` to verify contents
-- [ ] Package has been linked locally for testing (`npm link`)
-- [ ] Package has been tested in a clean environment
-- [ ] Version has been updated if this is an update to an existing package
+- [x] Package has been tested with `npm pack` to verify contents
+- [x] Package has been linked locally for testing (`npm link`)
+- [x] Package has been tested in a clean environment
+- [x] Version has been updated if this is an update to an existing package

@@ -33,7 +33,7 @@
     "prebuild": "npm run clean",
     "postbuild": "node -e \"require('fs').cpSync('src/components/data', 'dist/components/data', {recursive: true}); require('fs').chmodSync('dist/server-fastmcp.js', '755');\"",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm run test:ci"
   },
   "keywords": [
     "mcp",

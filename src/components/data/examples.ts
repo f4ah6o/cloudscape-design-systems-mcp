@@ -228,7 +228,7 @@ function BasicForm() {
   const [email, setEmail] = useState("");
   
   const handleSubmit = () => {
-    console.log("Form submitted:", { name, email });
+    console.error("Form submitted:", { name, email });
   };
   
   return (

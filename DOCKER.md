@@ -103,3 +103,30 @@ docker build --no-cache -t react-design-systems-mcp .
 - The SSE endpoint does not require authentication by default
 - The server is configured to listen on all interfaces (0.0.0.0)
 - Consider using a reverse proxy with TLS for production deployments
+
+## Publishing to GitHub Container Registry
+
+The Docker image for this project can be published to GitHub Container Registry (ghcr.io). This allows for easier distribution and versioning of the Docker image.
+
+For detailed instructions on building and publishing the Docker image, see [Docker Publishing Guide](docs/docker-publishing-guide.md).
+
+### Using the Published Image
+
+Once published, you can use the image directly without building it locally:
+
+```bash
+# Pull the image
+docker pull ghcr.io/agentience/react-design-systems-mcp:latest
+
+# Run the container
+docker run -d -p 3005:3005 --name react-design-systems-mcp ghcr.io/agentience/react-design-systems-mcp:latest
+```
+
+Or in your docker-compose.yml:
+
+```yaml
+services:
+  react-design-systems-mcp:
+    image: ghcr.io/agentience/react-design-systems-mcp:latest
+    # other configuration...
+```

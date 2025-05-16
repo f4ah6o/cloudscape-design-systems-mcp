@@ -98,8 +98,8 @@ export class MCPServer extends EventEmitter {
     this.port = options.port || 3000;
     this.bind = options.bind || '0.0.0.0';
     
-    console.log(`Creating MCP server: ${this._name} (${this._version})`);
-    console.log(`Description: ${this._description}`);
+    console.error(`Creating MCP server: ${this._name} (${this._version})`);
+    console.error(`Description: ${this._description}`);
   }
   
   /**
@@ -109,7 +109,7 @@ export class MCPServer extends EventEmitter {
   tool(options: ToolOptions): void {
     const { name, description, inputSchema, handler } = options;
     this.tools[name] = { name, description, inputSchema, handler };
-    console.log(`Registered tool: ${name}`);
+    console.error(`Registered tool: ${name}`);
   }
   
   /**
@@ -119,7 +119,7 @@ export class MCPServer extends EventEmitter {
   resource(options: ResourceOptions): void {
     const { uriPattern, handler } = options;
     this.resources[uriPattern] = { uriPattern, handler };
-    console.log(`Registered resource: ${uriPattern}`);
+    console.error(`Registered resource: ${uriPattern}`);
   }
   
   /**
@@ -195,7 +195,7 @@ export class MCPServer extends EventEmitter {
       'Connection': 'keep-alive'
     });
     
-    console.log(`\x1b[32m[SSE] Client connected: ${clientId} from ${req.socket.remoteAddress}\x1b[0m`);
+    console.error(`\x1b[32m[SSE] Client connected: ${clientId} from ${req.socket.remoteAddress}\x1b[0m`);
     
     // Send initial connection message
     res.write(`data: ${JSON.stringify({
@@ -223,7 +223,7 @@ export class MCPServer extends EventEmitter {
     
     // Handle client disconnect
     req.on('close', () => {
-      console.log(`\x1b[33m[SSE] Client disconnected: ${clientId}\x1b[0m`);
+      console.error(`\x1b[33m[SSE] Client disconnected: ${clientId}\x1b[0m`);
       this.clients.delete(res);
       this.emit('disconnection', clientId);
     });
@@ -252,7 +252,7 @@ export class MCPServer extends EventEmitter {
     const { method, params, id } = request;
     const requestId = `req_${Math.random().toString(36).substring(2, 10)}`;
     
-    console.log(`\x1b[36m[RPC] ${requestId} Received request: ${method}\x1b[0m`);
+    console.error(`\x1b[36m[RPC] ${requestId} Received request: ${method}\x1b[0m`);
     
     try {
       let result: any;
@@ -260,43 +260,43 @@ export class MCPServer extends EventEmitter {
       // Handle different methods
       switch (method) {
         case 'tools/list':
-          console.log(`\x1b[36m[RPC] ${requestId} Listing tools\x1b[0m`);
+          console.error(`\x1b[36m[RPC] ${requestId} Listing tools\x1b[0m`);
           result = this.handleListTools();
           break;
           
         case 'tools/call':
           if (!params.name || !params.arguments) {
-            console.log(`\x1b[31m[RPC] ${requestId} Invalid params for tools/call\x1b[0m`);
+            console.error(`\x1b[31m[RPC] ${requestId} Invalid params for tools/call\x1b[0m`);
             this.sendErrorResponse(res, id, -32602, 'Invalid params');
             return;
           }
-          console.log(`\x1b[36m[RPC] ${requestId} Calling tool: ${params.name}\x1b[0m`);
+          console.error(`\x1b[36m[RPC] ${requestId} Calling tool: ${params.name}\x1b[0m`);
           result = await this.handleCallTool(params.name, params.arguments);
           break;
           
         case 'resources/list':
-          console.log(`\x1b[36m[RPC] ${requestId} Listing resources\x1b[0m`);
+          console.error(`\x1b[36m[RPC] ${requestId} Listing resources\x1b[0m`);
           result = this.handleListResources();
           break;
           
         case 'resources/read':
           if (!params.uri) {
-            console.log(`\x1b[31m[RPC] ${requestId} Invalid params for resources/read\x1b[0m`);
+            console.error(`\x1b[31m[RPC] ${requestId} Invalid params for resources/read\x1b[0m`);
             this.sendErrorResponse(res, id, -32602, 'Invalid params');
             return;
           }
-          console.log(`\x1b[36m[RPC] ${requestId} Reading resource: ${params.uri}\x1b[0m`);
+          console.error(`\x1b[36m[RPC] ${requestId} Reading resource: ${params.uri}\x1b[0m`);
           result = await this.handleReadResource(params.uri);
           break;
           
         default:
-          console.log(`\x1b[31m[RPC] ${requestId} Method not found: ${method}\x1b[0m`);
+          console.error(`\x1b[31m[RPC] ${requestId} Method not found: ${method}\x1b[0m`);
           this.sendErrorResponse(res, id, -32601, 'Method not found');
           return;
       }
       
       // Send successful response
-      console.log(`\x1b[32m[RPC] ${requestId} Successfully handled ${method}\x1b[0m`);
+      console.error(`\x1b[32m[RPC] ${requestId} Successfully handled ${method}\x1b[0m`);
       this.sendSuccessResponse(res, id, result);
     } catch (error: any) {
       console.error(`\x1b[31m[RPC] ${requestId} Error handling method ${method}:\x1b[0m`, error);
@@ -332,8 +332,8 @@ export class MCPServer extends EventEmitter {
       throw new Error(`Tool not found: ${name}`);
     }
     
-    console.log(`\x1b[35m[TOOL] Executing tool: ${name}\x1b[0m`);
-    console.log(`\x1b[90m[TOOL] Arguments: ${JSON.stringify(args).substring(0, 200)}${JSON.stringify(args).length > 200 ? '...' : ''}\x1b[0m`);
+    console.error(`\x1b[35m[TOOL] Executing tool: ${name}\x1b[0m`);
+    console.error(`\x1b[90m[TOOL] Arguments: ${JSON.stringify(args).substring(0, 200)}${JSON.stringify(args).length > 200 ? '...' : ''}\x1b[0m`);
     
     const startTime = Date.now();
     
@@ -341,7 +341,7 @@ export class MCPServer extends EventEmitter {
       const result = await tool.handler(args);
       const executionTime = Date.now() - startTime;
       
-      console.log(`\x1b[32m[TOOL] Tool ${name} executed successfully in ${executionTime}ms\x1b[0m`);
+      console.error(`\x1b[32m[TOOL] Tool ${name} executed successfully in ${executionTime}ms\x1b[0m`);
       return result;
     } catch (error: any) {
       const executionTime = Date.now() - startTime;
@@ -371,15 +371,15 @@ export class MCPServer extends EventEmitter {
     // Parse URI to extract parameters
     const params: Record<string, string> = {};
     
-    console.log(`\x1b[34m[RESOURCE] Accessing resource: ${uri}\x1b[0m`);
+    console.error(`\x1b[34m[RESOURCE] Accessing resource: ${uri}\x1b[0m`);
     
     // Find matching resource
     for (const [pattern, resource] of Object.entries(this.resources)) {
       const match = this.matchUriPattern(uri, pattern, params);
       
       if (match) {
-        console.log(`\x1b[34m[RESOURCE] Matched pattern: ${pattern}\x1b[0m`);
-        console.log(`\x1b[90m[RESOURCE] Extracted params: ${JSON.stringify(params)}\x1b[0m`);
+        console.error(`\x1b[34m[RESOURCE] Matched pattern: ${pattern}\x1b[0m`);
+        console.error(`\x1b[90m[RESOURCE] Extracted params: ${JSON.stringify(params)}\x1b[0m`);
         
         const startTime = Date.now();
         
@@ -387,7 +387,7 @@ export class MCPServer extends EventEmitter {
           const result = await resource.handler(params);
           const executionTime = Date.now() - startTime;
           
-          console.log(`\x1b[32m[RESOURCE] Resource ${uri} handled successfully in ${executionTime}ms\x1b[0m`);
+          console.error(`\x1b[32m[RESOURCE] Resource ${uri} handled successfully in ${executionTime}ms\x1b[0m`);
           return result;
         } catch (error: any) {
           const executionTime = Date.now() - startTime;
@@ -478,7 +478,7 @@ export class MCPServer extends EventEmitter {
    */
   start(): void {
     if (this.isRunning) {
-      console.warn('Server is already running');
+      console.error('Server is already running');
       return;
     }
     
@@ -504,16 +504,16 @@ export class MCPServer extends EventEmitter {
         this.isRunning = true;
         
         // Create a visually distinct server start message
-        console.log('\n' + '='.repeat(80));
-        console.log(`\x1b[1m\x1b[32m  MCP SERVER STARTED: ${this._name} v${this._version}\x1b[0m`);
-        console.log(`\x1b[32m  ${this._description}\x1b[0m`);
-        console.log(`\x1b[32m  Listening on ${this.bind}:${this.port}\x1b[0m`);
-        console.log('='.repeat(80));
+        console.error('\n' + '='.repeat(80));
+        console.error(`\x1b[1m\x1b[32m  MCP SERVER STARTED: ${this._name} v${this._version}\x1b[0m`);
+        console.error(`\x1b[32m  ${this._description}\x1b[0m`);
+        console.error(`\x1b[32m  Listening on ${this.bind}:${this.port}\x1b[0m`);
+        console.error('='.repeat(80));
         
         // Log registered tools and resources
-        console.log(`\x1b[36m[SERVER] Registered tools (${Object.keys(this.tools).length}): ${Object.keys(this.tools).join(', ')}\x1b[0m`);
-        console.log(`\x1b[36m[SERVER] Registered resources (${Object.keys(this.resources).length}): ${Object.keys(this.resources).join(', ')}\x1b[0m`);
-        console.log(`\x1b[32m[SERVER] Server started successfully and ready to accept connections\x1b[0m\n`);
+        console.error(`\x1b[36m[SERVER] Registered tools (${Object.keys(this.tools).length}): ${Object.keys(this.tools).join(', ')}\x1b[0m`);
+        console.error(`\x1b[36m[SERVER] Registered resources (${Object.keys(this.resources).length}): ${Object.keys(this.resources).join(', ')}\x1b[0m`);
+        console.error(`\x1b[32m[SERVER] Server started successfully and ready to accept connections\x1b[0m\n`);
         
         this.emit('start');
       });
@@ -534,17 +534,17 @@ export class MCPServer extends EventEmitter {
    */
   stop(): void {
     if (!this.isRunning || !this.httpServer) {
-      console.warn('\x1b[33m[SERVER] Server is not running\x1b[0m');
+      console.error('\x1b[33m[SERVER] Server is not running\x1b[0m');
       return;
     }
     
     try {
-      console.log('\n' + '='.repeat(80));
-      console.log(`\x1b[1m\x1b[33m  MCP SERVER STOPPING: ${this._name}\x1b[0m`);
-      console.log('='.repeat(80));
+      console.error('\n' + '='.repeat(80));
+      console.error(`\x1b[1m\x1b[33m  MCP SERVER STOPPING: ${this._name}\x1b[0m`);
+      console.error('='.repeat(80));
       
       // Log active connections that will be closed
-      console.log(`\x1b[33m[SERVER] Closing ${this.clients.size} active client connections\x1b[0m`);
+      console.error(`\x1b[33m[SERVER] Closing ${this.clients.size} active client connections\x1b[0m`);
       
       // Close all SSE connections
       for (const client of this.clients) {
@@ -564,13 +564,13 @@ export class MCPServer extends EventEmitter {
       
       // Close HTTP server
       this.httpServer.close(() => {
-        console.log(`\x1b[32m[SERVER] HTTP server closed successfully\x1b[0m`);
+        console.error(`\x1b[32m[SERVER] HTTP server closed successfully\x1b[0m`);
         this.isRunning = false;
         this.httpServer = null;
         this.emit('stop');
       });
       
-      console.log(`\x1b[33m[SERVER] MCP server stopping...\x1b[0m`);
+      console.error(`\x1b[33m[SERVER] MCP server stopping...\x1b[0m`);
       
     } catch (error) {
       console.error('\x1b[31m[SERVER] Error stopping server:\x1b[0m', error);

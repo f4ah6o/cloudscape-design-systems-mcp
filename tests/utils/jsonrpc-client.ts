@@ -133,7 +133,7 @@ export class JsonRpcClient {
     const result = await this.request<T>('tools/call', { name, arguments: args }, id);
     
     // Debug the response
-    console.log(`DEBUG callTool ${name} response:`, JSON.stringify(result, null, 2));
+    console.error(`DEBUG callTool ${name} response:`, JSON.stringify(result, null, 2));
     
     // Transform the response for component details tool
     if (name === 'get_component_details' && result) {
@@ -143,7 +143,7 @@ export class JsonRpcClient {
           isError: false,
           content: Array.isArray(result) ? result : (result ? [result] : [])
         };
-        console.log(`DEBUG adapted result:`, JSON.stringify(adaptedResult, null, 2));
+        console.error(`DEBUG adapted result:`, JSON.stringify(adaptedResult, null, 2));
         return adaptedResult as unknown as T;
       }
     }
@@ -161,7 +161,7 @@ export class JsonRpcClient {
     const result = await this.request('tools/list', {}, id);
     
     // Debug the response
-    console.log('DEBUG listTools response:', JSON.stringify(result, null, 2));
+    console.error('DEBUG listTools response:', JSON.stringify(result, null, 2));
     
     // Transform the response to match the expected format
     if (result && !result.tools) {
@@ -186,7 +186,7 @@ export class JsonRpcClient {
     const result = await this.request('resources/list', {}, id);
     
     // Debug the response
-    console.log('DEBUG listResources response:', JSON.stringify(result, null, 2));
+    console.error('DEBUG listResources response:', JSON.stringify(result, null, 2));
     
     // Transform the response to match the expected format
     if (result && !result.resources) {

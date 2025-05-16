@@ -118,7 +118,7 @@ export function log(level: 'info' | 'warn' | 'error' | 'debug', message: string,
   const prefix = `${colorCode}[${timestamp}] [${levelPadded}]${colors.reset}`;
   
   // Format the message
-  console.log(`${prefix} ${message}`);
+  console.error(`${prefix} ${message}`);
   
   // If there's additional data, print it with indentation
   if (Object.keys(data).length > 0) {
@@ -133,13 +133,13 @@ export function log(level: 'info' | 'warn' | 'error' | 'debug', message: string,
     
     // Print the data in a readable format
     const dataString = JSON.stringify(sanitizedData, null, 2);
-    console.log(`${colors.debug}  └─ ${dataString.replace(/\n/g, '\n     ')}${colors.reset}`);
+    console.error(`${colors.debug}  └─ ${dataString.replace(/\n/g, '\n     ')}${colors.reset}`);
     
     // If this is an error and we have a stack trace, print it separately
     if (level === 'error' && data.stack) {
-      console.log(`${colors.error}  └─ Stack: ${data.stack.split('\n')[0]}${colors.reset}`);
+      console.error(`${colors.error}  └─ Stack: ${data.stack.split('\n')[0]}${colors.reset}`);
       data.stack.split('\n').slice(1).forEach((line: string) => {
-        console.log(`${colors.error}      ${line}${colors.reset}`);
+        console.error(`${colors.error}      ${line}${colors.reset}`);
       });
     }
   }
@@ -170,10 +170,10 @@ export function measureExecutionTime<T>(fn: (...args: any[]) => T, args: any[]):
  */
 function enhanceFastMCPServer(server: FastMCP<any>): FastMCP<any> {
   // Log server start with a prominent banner
-  console.log('\n' + '='.repeat(80));
-  console.log(`\x1b[1m\x1b[36m  MCP SERVER: Cloudscape Assistant\x1b[0m`);
-  console.log(`\x1b[36m  Cloudscape Design System component information and code generation\x1b[0m`);
-  console.log('='.repeat(80) + '\n');
+  console.error('\n' + '='.repeat(80));
+  console.error(`\x1b[1m\x1b[36m  MCP SERVER: Cloudscape Assistant\x1b[0m`);
+  console.error(`\x1b[36m  Cloudscape Design System component information and code generation\x1b[0m`);
+  console.error('='.repeat(80) + '\n');
   
   log('info', `🚀 Starting FastMCP server: Cloudscape Assistant`, {
     version: '1.0.0'

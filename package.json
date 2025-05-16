@@ -1,6 +1,6 @@
 {
   "name": "@agentience/react-design-systems-mcp",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "MCP server for React design systems, currently supporting AWS Cloudscape with more to come",
   "main": "dist/index.js",
   "bin": {

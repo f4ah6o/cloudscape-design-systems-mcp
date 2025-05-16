@@ -84,7 +84,7 @@ import Button from "@cloudscape-design/components/button";
 
 <Button
   variant="primary"
-  onClick={() => console.log("Button clicked")}
+  onClick={() => console.error("Button clicked")}
 >
   Submit
 </Button>

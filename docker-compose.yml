@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: react-design-systems-mcp:latest
+    image: ghcr.io/agentience/react-design-systems-mcp:latest
     container_name: react-design-systems-mcp
     ports:
       - "3005:3005"

@@ -218,7 +218,7 @@ function MyComponent() {
   return (
     <Button
       variant="primary"
-      onClick={() => console.log("Button clicked")}
+      onClick={() => console.error("Button clicked")}
     >
       Submit
     </Button>

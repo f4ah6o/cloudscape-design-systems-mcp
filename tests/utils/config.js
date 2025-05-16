@@ -50,7 +50,7 @@ function shouldSkipInCI(testName) {
   const shouldSkip = config.ci.enabled && config.ci.skipLongRunning;
   
   if (shouldSkip && testName) {
-    console.log(`Skipping test "${testName}" in CI environment`);
+    console.error(`Skipping test "${testName}" in CI environment`);
   }
   
   return shouldSkip;

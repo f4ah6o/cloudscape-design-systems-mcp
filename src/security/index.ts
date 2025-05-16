@@ -226,7 +226,7 @@ export function applySecurityEnhancements(server: FastMCP<any>): FastMCP<any> {
   // FastMCP already provides built-in security features
   // We can add additional security measures if needed
   
-  console.log('Security enhancements applied to FastMCP server');
+  //console.error('Security enhancements applied to FastMCP server');
   
   return server;
 }

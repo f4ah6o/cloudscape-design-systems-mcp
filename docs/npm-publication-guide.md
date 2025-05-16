@@ -52,7 +52,7 @@ Before publishing, ensure you have:
    react-design-systems-mcp --help
    
    # Test importing the package
-   node -e "const { createCloudscapeAssistant } = require('@agentience/react-design-systems-mcp'); console.log(typeof createCloudscapeAssistant === 'function');"
+   node -e "const { createCloudscapeAssistant } = require('@agentience/react-design-systems-mcp'); console.error(typeof createCloudscapeAssistant === 'function');"
    ```
 
 ## Publishing Process
@@ -104,7 +104,7 @@ Before publishing, ensure you have:
    npx react-design-systems-mcp
    
    # Test importing the package
-   node -e "const { createCloudscapeAssistant } = require('@agentience/react-design-systems-mcp'); console.log(typeof createCloudscapeAssistant === 'function');"
+   node -e "const { createCloudscapeAssistant } = require('@agentience/react-design-systems-mcp'); console.error(typeof createCloudscapeAssistant === 'function');"
    ```
 
 ### Option 2: Automated Publishing with GitHub Actions (Recommended for Future Releases)
@@ -143,9 +143,9 @@ Before publishing, ensure you have:
          - name: Check if package is scoped
            id: package-check
            run: |
-             IS_SCOPED=$(node -e "const pkg = require('./package.json'); console.log(pkg.name.startsWith('@') ? 'true' : 'false');")
+             IS_SCOPED=$(node -e "const pkg = require('./package.json'); console.error(pkg.name.startsWith('@') ? 'true' : 'false');")
              echo "IS_SCOPED=$IS_SCOPED" >> $GITHUB_ENV
-             echo "Package name from package.json: $(node -e "console.log(require('./package.json').name)")"
+             echo "Package name from package.json: $(node -e "console.error(require('./package.json').name)")"
          
          # Publish package based on whether it's scoped or not
          - name: Publish package

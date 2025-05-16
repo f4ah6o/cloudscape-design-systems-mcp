@@ -71,13 +71,13 @@ const coldStart = true;
 
 exports.handler = async (event) => {
   if (coldStart) {
-    console.log('COLD START');
+    console.error('COLD START');
     coldStart = false;
   }
   
   const startTime = Date.now();
   // Function logic
-  console.log(`Execution time: ${Date.now() - startTime}ms`);
+  console.error(`Execution time: ${Date.now() - startTime}ms`);
 };
 ```
 

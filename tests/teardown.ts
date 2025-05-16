@@ -6,9 +6,9 @@
  */
 
 export default async function globalTeardown() {
-  console.log('\n' + '='.repeat(80));
-  console.log(`\x1b[1m\x1b[36m  TEST SUITE COMPLETED\x1b[0m`);
-  console.log('='.repeat(80) + '\n');
+  console.error('\n' + '='.repeat(80));
+  console.error(`\x1b[1m\x1b[36m  TEST SUITE COMPLETED\x1b[0m`);
+  console.error('='.repeat(80) + '\n');
   
   // Add any global teardown logic here
   // For example:

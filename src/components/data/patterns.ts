@@ -163,7 +163,7 @@ function FormLayout({ fields, onSubmit }) {
         name: "onSubmit",
         type: "function",
         description: "Function called when the form is submitted.",
-        defaultValue: "data => console.log(data)"
+        defaultValue: "data => console.error(data)"
       }
     }
   }

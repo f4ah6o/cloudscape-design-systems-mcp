@@ -76,6 +76,33 @@ npm run dev:sse
 npm test
 ```
 
+## Docker Deployment
+
+This project can be deployed using Docker. For detailed instructions, see [Docker Deployment Guide](DOCKER.md).
+
+### Quick Start with Docker
+
+```bash
+# Pull the image from GitHub Container Registry
+docker pull ghcr.io/agentience/react-design-systems-mcp:latest
+
+# Run the container
+docker run -d -p 3005:3005 --name react-design-systems-mcp ghcr.io/agentience/react-design-systems-mcp:latest
+```
+
+### Using Docker Compose
+
+```bash
+# Clone the repository
+git clone https://github.com/agentience/mcp-cloudscape-assistant.git
+cd mcp-cloudscape-assistant
+
+# Start with Docker Compose
+docker-compose up -d
+```
+
+For information on building and publishing the Docker image to GitHub Container Registry, see [Docker Publishing Guide](docs/docker-publishing-guide.md).
+
 ## FastMCP Implementation
 
 This project uses the FastMCP framework, which provides a more structured and type-safe approach to building MCP servers. FastMCP offers several advantages:
@@ -106,6 +133,8 @@ For more information about the FastMCP implementation, see [FastMCP Migration](d
 - [MCP Protocol Guide](docs/mcp-protocol-guide.md)
 - [Roo Integration Guide](docs/roo-integration-guide.md)
 - [Usage Guide](docs/usage-guide.md)
+- [Docker Deployment Guide](DOCKER.md)
+- [Docker Publishing Guide](docs/docker-publishing-guide.md)
 
 ## Roadmap
 

@@ -1183,7 +1183,7 @@ function generateFormLayout(componentCodes: string[]): string {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission
-    console.log('Form submitted');
+    console.error('Form submitted');
   };
 
   return (

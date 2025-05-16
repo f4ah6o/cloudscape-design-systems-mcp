@@ -169,7 +169,7 @@ export class TestReporter {
         console.debug(`\x1b[90m${formattedMessage}\x1b[0m`);
         break;
       case LogLevel.INFO:
-        console.log(`\x1b[36m${formattedMessage}\x1b[0m`);
+        console.error(`\x1b[36m${formattedMessage}\x1b[0m`);
         break;
       case LogLevel.WARN:
         console.warn(`\x1b[33m${formattedMessage}\x1b[0m`);
@@ -184,7 +184,7 @@ export class TestReporter {
    * Log a separator line
    */
   private logSeparator(): void {
-    console.log('-'.repeat(80));
+    console.error('-'.repeat(80));
   }
 
   /**
@@ -193,9 +193,9 @@ export class TestReporter {
    * @param message The banner message
    */
   private logBanner(message: string): void {
-    console.log('\n' + '='.repeat(80));
-    console.log(`\x1b[1m\x1b[36m  ${message}\x1b[0m`);
-    console.log('='.repeat(80) + '\n');
+    console.error('\n' + '='.repeat(80));
+    console.error(`\x1b[1m\x1b[36m  ${message}\x1b[0m`);
+    console.error('='.repeat(80) + '\n');
   }
 
   /**

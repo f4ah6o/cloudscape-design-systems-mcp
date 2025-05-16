@@ -258,7 +258,7 @@ export function applyPerformanceOptimizations(): void {
             Object.assign(documentationProvider.default, optimizedDocumentationProvider);
             Object.assign(exampleProvider.default, optimizedExampleProvider);
             
-            console.log('Performance optimizations applied');
+            console.error('Performance optimizations applied');
           });
         });
       });

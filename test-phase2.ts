@@ -25,52 +25,52 @@ interface SearchResult {
 }
 
 // Test Component Registry
-console.log('=== Testing Component Registry ===');
+console.error('=== Testing Component Registry ===');
 const allComponents = componentRegistry.getAllComponents();
-console.log(`Total components: ${Object.keys(allComponents).length}`);
-console.log('Component IDs:', Object.keys(allComponents).join(', '));
-console.log('\n');
+console.error(`Total components: ${Object.keys(allComponents).length}`);
+console.error('Component IDs:', Object.keys(allComponents).join(', '));
+console.error('\n');
 
 // Test a specific component
 const testComponentId = 'box';
 const boxComponent = componentRegistry.getComponent(testComponentId);
-console.log(`Component details for '${testComponentId}':`);
-console.log(JSON.stringify(boxComponent, null, 2));
-console.log('\n');
+console.error(`Component details for '${testComponentId}':`);
+console.error(JSON.stringify(boxComponent, null, 2));
+console.error('\n');
 
 // Test Enhanced Search Engine
-console.log('=== Testing Enhanced Search Engine ===');
+console.error('=== Testing Enhanced Search Engine ===');
 
 // Test basic search
-console.log('Basic search for "layout":');
+console.error('Basic search for "layout":');
 const basicSearchResults = searchEngine.searchComponents({
   query: 'layout',
   limit: 5
 });
-console.log(`Found ${basicSearchResults.totalResults} results`);
-console.log('Top 5 results:');
+console.error(`Found ${basicSearchResults.totalResults} results`);
+console.error('Top 5 results:');
 basicSearchResults.results.forEach((result, index) => {
-  console.log(`${index + 1}. ${result.name} (Relevance: ${result.relevance})`);
+  console.error(`${index + 1}. ${result.name} (Relevance: ${result.relevance})`);
 });
-console.log('\n');
+console.error('\n');
 
 // Test fuzzy search
-console.log('Fuzzy search for "buttn":');
+console.error('Fuzzy search for "buttn":');
 const fuzzySearchResults = searchEngine.searchComponents({
   query: 'buttn',
   fuzzyMatch: true,
   fuzzyThreshold: 0.7,
   limit: 3
 });
-console.log(`Found ${fuzzySearchResults.totalResults} results`);
-console.log('Top 3 results:');
+console.error(`Found ${fuzzySearchResults.totalResults} results`);
+console.error('Top 3 results:');
 fuzzySearchResults.results.forEach((result, index) => {
-  console.log(`${index + 1}. ${result.name} (Relevance: ${result.relevance}, Matched: ${result.matchedFields?.join(', ')})`);
+  console.error(`${index + 1}. ${result.name} (Relevance: ${result.relevance}, Matched: ${result.matchedFields?.join(', ')})`);
 });
-console.log('\n');
+console.error('\n');
 
 // Test advanced filtering
-console.log('Search with advanced filtering:');
+console.error('Search with advanced filtering:');
 const filteredSearchResults = searchEngine.searchComponents({
   query: 'input',
   filters: {
@@ -80,66 +80,66 @@ const filteredSearchResults = searchEngine.searchComponents({
   sortOrder: 'asc',
   limit: 5
 });
-console.log(`Found ${filteredSearchResults.totalResults} results`);
-console.log('Top 5 results (sorted by name):');
+console.error(`Found ${filteredSearchResults.totalResults} results`);
+console.error('Top 5 results (sorted by name):');
 filteredSearchResults.results.forEach((result, index) => {
-  console.log(`${index + 1}. ${result.name} (Category: ${result.category})`);
+  console.error(`${index + 1}. ${result.name} (Category: ${result.category})`);
 });
-console.log('\n');
+console.error('\n');
 
 // Test functionality search
-console.log('Search by functionality:');
+console.error('Search by functionality:');
 const functionalityResults = searchEngine.searchComponentsByFunctionality('selection', {
   limit: 3
 });
-console.log(`Found ${functionalityResults.totalResults} results for functionality "selection"`);
-console.log('Top 3 results:');
+console.error(`Found ${functionalityResults.totalResults} results for functionality "selection"`);
+console.error('Top 3 results:');
 functionalityResults.results.forEach((result, index) => {
-  console.log(`${index + 1}. ${result.name} (Relevance: ${result.relevance})`);
+  console.error(`${index + 1}. ${result.name} (Relevance: ${result.relevance})`);
 });
-console.log('\n');
+console.error('\n');
 
 // Test Property Explorer
-console.log('=== Testing Property Explorer ===');
+console.error('=== Testing Property Explorer ===');
 
 // Get all properties for a component
-console.log('All properties for Button:');
+console.error('All properties for Button:');
 const buttonProperties = propertyExplorer.getComponentProperties({
   componentId: 'button'
 });
-console.log(`Found ${buttonProperties ? Object.keys(buttonProperties).length : 0} properties`);
+console.error(`Found ${buttonProperties ? Object.keys(buttonProperties).length : 0} properties`);
 if (buttonProperties) {
-  console.log('Property names:', Object.keys(buttonProperties).join(', '));
+  console.error('Property names:', Object.keys(buttonProperties).join(', '));
 }
-console.log('\n');
+console.error('\n');
 
 // Get filtered properties
-console.log('Required properties for Form:');
+console.error('Required properties for Form:');
 const requiredFormProperties = propertyExplorer.getComponentProperties({
   componentId: 'form',
   filter: {
     required: true
   }
 });
-console.log(`Found ${requiredFormProperties ? Object.keys(requiredFormProperties).length : 0} required properties`);
+console.error(`Found ${requiredFormProperties ? Object.keys(requiredFormProperties).length : 0} required properties`);
 if (requiredFormProperties) {
-  console.log('Required property names:', Object.keys(requiredFormProperties).join(', '));
+  console.error('Required property names:', Object.keys(requiredFormProperties).join(', '));
 }
-console.log('\n');
+console.error('\n');
 
 // Get property relationships
-console.log('Property relationships for Table:');
+console.error('Property relationships for Table:');
 const tableRelationships = propertyExplorer.getPropertyRelationships('table');
-console.log(JSON.stringify(tableRelationships, null, 2));
-console.log('\n');
+console.error(JSON.stringify(tableRelationships, null, 2));
+console.error('\n');
 
 // Get property type info
-console.log('Type information for Button variant property:');
+console.error('Type information for Button variant property:');
 const variantTypeInfo = propertyExplorer.getPropertyTypeInfo({
   componentId: 'button',
   propertyId: 'variant'
 });
-console.log(JSON.stringify(variantTypeInfo, null, 2));
-console.log('\n');
+console.error(JSON.stringify(variantTypeInfo, null, 2));
+console.error('\n');
 
-console.log('=== All Tests Completed ===');
+console.error('=== All Tests Completed ===');

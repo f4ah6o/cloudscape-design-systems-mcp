@@ -1,7 +1,7 @@
-# Debug Mode Error Management Configuration
+# MUST FOLLOW RULE: Error Management
 
-title: "Debug Mode Error Management"
-description: "Guidelines for error checking, resolution, and documentation in debug mode"
+title: "Error Management"
+description: "Guidelines for error checking, resolution, and documentation in all modes."
 
 tribal_mcp_integration:
   description: "Integration with the tribal MCP server for error checking and knowledge management"
@@ -22,37 +22,53 @@ tribal_mcp_integration:
         - "Analyze returned results for relevance"
         - "Apply found solutions if appropriate"
       example: |
-        call_tool("tribal", "find_similar_errors", {
-            "query": "TypeError: Cannot read property 'data' of undefined in React component",
-            "max_results": 5
+        use_mcp_tool({
+          server_name: "tribal",
+          tool_name: "find_similar_errors",
+          arguments: {
+            query: "TypeError: Cannot read property 'data' of undefined in React component",
+            max_results: 5
+          }
         })
     
     search_strategies:
       - name: "Error Type Search"
         description: "Search by specific error type (e.g., TypeError, ImportError)"
         example: |
-          call_tool("tribal", "search_errors", {
-              "error_type": "TypeError",
-              "language": "javascript",
-              "max_results": 5
+          use_mcp_tool({
+            server_name: "tribal",
+            tool_name: "search_errors",
+            arguments: {
+              error_type: "TypeError",
+              language: "javascript",
+              max_results: 5
+            }
           })
       
       - name: "Context-Based Search"
         description: "Search using contextual information about where the error occurred"
         example: |
-          call_tool("tribal", "search_errors", {
-              "language": "python",
-              "framework": "fastapi",
-              "task_description": "Authentication middleware error",
-              "max_results": 5
+          use_mcp_tool({
+            server_name: "tribal",
+            tool_name: "search_errors",
+            arguments: {
+              language: "python",
+              framework: "fastapi",
+              task_description: "Authentication middleware error",
+              max_results: 5
+            }
           })
       
       - name: "Code Snippet Search"
         description: "Search using the problematic code snippet"
         example: |
-          call_tool("tribal", "search_errors", {
-              "code_snippet": "const data = response.data.items.map(item => item.value);",
-              "max_results": 5
+          use_mcp_tool({
+            server_name: "tribal",
+            tool_name: "search_errors",
+            arguments: {
+              code_snippet: "const data = response.data.items.map(item => item.value);",
+              max_results: 5
+            }
           })
   
   solution_application:
@@ -89,17 +105,21 @@ error_documentation:
       - "Add appropriate tags for future searchability"
       - "Store the knowledge in the tribal MCP server"
     example: |
-      call_tool("tribal", "track_error", {
-          "error_type": "ReferenceError",
-          "error_message": "Cannot access 'config' before initialization",
-          "language": "javascript",
-          "framework": "react",
-          "code_snippet": "const data = config.apiEndpoint + '/users';",
-          "task_description": "Initializing API client in React component",
-          "solution_description": "Move config import before usage or use dynamic import",
-          "solution_code_fix": "import config from './config';\nconst data = config.apiEndpoint + '/users';",
-          "solution_explanation": "The error occurred because the config variable was being used before its import statement. JavaScript hoists declarations but not initializations, so the variable existed but was undefined.",
-          "solution_references": ["https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined"]
+      use_mcp_tool({
+        server_name: "tribal",
+        tool_name: "track_error",
+        arguments: {
+          error_type: "ReferenceError",
+          error_message: "Cannot access 'config' before initialization",
+          language: "javascript",
+          framework: "react",
+          code_snippet: "const data = config.apiEndpoint + '/users';",
+          task_description: "Initializing API client in React component",
+          solution_description: "Move config import before usage or use dynamic import",
+          solution_code_fix: "import config from './config';\nconst data = config.apiEndpoint + '/users';",
+          solution_explanation: "The error occurred because the config variable was being used before its import statement. JavaScript hoists declarations but not initializations, so the variable existed but was undefined.",
+          solution_references: ["https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined"]
+        }
       })
   
   failed_attempts_documentation:
@@ -130,7 +150,7 @@ error_documentation:
          - Lesson: Need to verify the base object exists before attempting to access properties"
 
 debug_workflow_integration:
-  description: "Integration of error checking and documentation into the debug workflow"
+  description: "Integration of error checking and documentation into the workflow"
   
   initial_error_assessment:
     steps:
@@ -168,7 +188,7 @@ debug_workflow_integration:
       - "Update existing knowledge if better solutions are found"
 
 automatic_triggers:
-  description: "Automatic triggers for tribal knowledge integration in debug mode"
+  description: "Automatic triggers for tribal knowledge integration"
   
   error_search_triggers:
     - "When an exception is caught during execution"

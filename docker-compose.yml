@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  react-design-systems-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: react-design-systems-mcp:latest
+    container_name: react-design-systems-mcp
+    ports:
+      - "3005:3005"
+    environment:
+      - PORT=3005
+      - TRANSPORT_TYPE=sse
+      - BIND=0.0.0.0
+    restart: unless-stopped

@@ -30,7 +30,10 @@ jobs:
           fi
       - run: npm run test:ci
       - run: npm run build
-      - run: chmod +x dist/server-fastmcp.js
+      # The postbuild script already makes dist/server.js executable
+      # Ensure the server file is executable
+      - name: Make server file executable
+        run: chmod +x dist/server.js
       
       # Check if package name is scoped (starts with @)
       - name: Check if package is scoped

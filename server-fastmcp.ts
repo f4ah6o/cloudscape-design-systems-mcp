@@ -94,7 +94,7 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 // Keep the process running
-console.error('Server process will stay running until manually terminated');
+//console.error('Server process will stay running until manually terminated');
 
 // Export the server for testing
 export default server;

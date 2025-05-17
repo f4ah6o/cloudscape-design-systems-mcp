@@ -170,14 +170,16 @@ export function measureExecutionTime<T>(fn: (...args: any[]) => T, args: any[]):
  */
 function enhanceFastMCPServer(server: FastMCP<any>): FastMCP<any> {
   // Log server start with a prominent banner
+  /*
   console.error('\n' + '='.repeat(80));
   console.error(`\x1b[1m\x1b[36m  MCP SERVER: Cloudscape Assistant\x1b[0m`);
   console.error(`\x1b[36m  Cloudscape Design System component information and code generation\x1b[0m`);
   console.error('='.repeat(80) + '\n');
-  
+
   log('info', `🚀 Starting FastMCP server: Cloudscape Assistant`, {
     version: '1.0.0'
   });
+  */
   
   // Add custom event handlers if needed
   // FastMCP handles events differently than the old implementation
@@ -195,10 +197,12 @@ export function initializeRooIntegration(server: FastMCP<any>): FastMCP<any> {
   const enhancedServer = enhanceFastMCPServer(server);
   
   // Log initialization
+  /*
   log('info', '🔄 Initialized Roo integration', {
     serverName: 'Cloudscape Assistant',
     serverVersion: '1.0.0'
   });
+  */
   
   // Add a shutdown hook to log when the server is stopping
   process.on('SIGINT', () => {

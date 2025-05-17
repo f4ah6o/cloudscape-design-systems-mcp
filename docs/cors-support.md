@@ -34,7 +34,7 @@ This implementation:
 
 ## CORS in FastMCP Implementation
 
-The FastMCP framework (`server-fastmcp.ts`) has built-in CORS support. According to the FastMCP documentation (see `docs/fastmcp-implementation.md`), CORS support is one of the features provided by the framework.
+The FastMCP framework (`server.ts`) has built-in CORS support. According to the FastMCP documentation (see `docs/fastmcp-implementation.md`), CORS support is one of the features provided by the framework.
 
 The FastMCP implementation handles CORS automatically when using the SSE transport type. When the server is started with the `transportType: 'sse'` option, the FastMCP framework sets up an HTTP server with appropriate CORS headers.
 

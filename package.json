@@ -4,7 +4,7 @@
   "description": "MCP server for React design systems, currently supporting AWS Cloudscape with more to come",
   "main": "dist/index.js",
   "bin": {
-    "react-design-systems-mcp": "./dist/server-fastmcp.js"
+    "react-design-systems-mcp": "./dist/server.js"
   },
   "types": "dist/index.d.ts",
   "exports": {
@@ -15,10 +15,9 @@
     }
   },
   "scripts": {
-    "start": "node dist/server-fastmcp.js",
-    "dev": "nodemon --exec ts-node server-fastmcp.ts",
-    "dev:legacy": "nodemon --exec ts-node server.ts",
-    "dev:sse": "PORT=3005 TRANSPORT_TYPE=sse nodemon --exec ts-node server-fastmcp.ts",
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec ts-node server.ts",
+    "dev:sse": "PORT=3005 nodemon --exec ts-node server.ts --transport sse",
     "build": "tsc -p tsconfig.build.json",
     "test": "jest",
     "test:unit": "jest --selectProjects unit",
@@ -31,7 +30,7 @@
     "lint": "eslint .",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "postbuild": "node -e \"require('fs').cpSync('src/components/data', 'dist/components/data', {recursive: true}); require('fs').chmodSync('dist/server-fastmcp.js', '755');\"",
+    "postbuild": "node -e \"require('fs').cpSync('src/components/data', 'dist/components/data', {recursive: true}); require('fs').chmodSync('dist/server.js', '755');\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm run test:ci"
   },

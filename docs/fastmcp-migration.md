@@ -22,8 +22,8 @@ The MCP Cloudscape Assistant has been migrated from a custom implementation to u
 
 The migration was completed in the following steps:
 
-1. Implemented all tools and resources in the FastMCP server (`src/mcp/fastmcp-server.ts`)
-2. Created a new entry point (`server-fastmcp.ts`) that uses the FastMCP implementation
+1. Implemented all tools and resources in the FastMCP server (`src/mcp/server.ts`)
+2. Created a new entry point (`server.ts`) that uses the FastMCP implementation
 3. Updated package.json to make the FastMCP implementation the main entry point
 4. Updated dependent files to use the FastMCP implementation
 5. Ran comprehensive tests to ensure all functionality works as expected
@@ -45,7 +45,7 @@ The migration was completed in the following steps:
 
 ### Entry Point
 
-- Created a new entry point (`server-fastmcp.ts`) that uses the FastMCP implementation
+- Created a new entry point (`server.ts`) that uses the FastMCP implementation
 - Applied security enhancements and Roo integration to the FastMCP server
 
 ## Running the Server

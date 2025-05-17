@@ -66,7 +66,6 @@ services:
       - "3005:3005"
     environment:
       - PORT=3005
-      - TRANSPORT_TYPE=sse
       - BIND=0.0.0.0
     restart: unless-stopped
 ```
@@ -78,7 +77,6 @@ docker pull ghcr.io/agentience/react-design-systems-mcp:latest
 
 docker run -p 3005:3005 \
   -e PORT=3005 \
-  -e TRANSPORT_TYPE=sse \
   -e BIND=0.0.0.0 \
   ghcr.io/agentience/react-design-systems-mcp:latest
 ```

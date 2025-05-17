@@ -11,6 +11,5 @@ services:
       - "3005:3005"
     environment:
       - PORT=3005
-      - TRANSPORT_TYPE=sse
       - BIND=0.0.0.0
     restart: unless-stopped

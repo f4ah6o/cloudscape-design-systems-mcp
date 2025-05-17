@@ -9,6 +9,7 @@ import yaml from 'js-yaml';
 interface ServerConfig {
   port: number;
   bind: string;
+  transportType: 'stdio' | 'sse';
 }
 
 /**
@@ -20,7 +21,8 @@ export function getServerConfig(): ServerConfig {
   // Default configuration
   const defaultConfig: ServerConfig = {
     port: 3001,
-    bind: '0.0.0.0'
+    bind: '0.0.0.0',
+    transportType: 'stdio'
   };
 
   // Read from config file if it exists
@@ -39,6 +41,11 @@ export function getServerConfig(): ServerConfig {
       if (parsedConfig.bind && typeof parsedConfig.bind === 'string') {
         fileConfig.bind = parsedConfig.bind;
       }
+
+      if (parsedConfig.transportType && 
+          (parsedConfig.transportType === 'stdio' || parsedConfig.transportType === 'sse')) {
+        fileConfig.transportType = parsedConfig.transportType;
+      }
     } catch (error) {
       console.warn(`Warning: Failed to parse config file at ${configPath}`, error);
     }
@@ -56,6 +63,13 @@ export function getServerConfig(): ServerConfig {
   
   if (process.env.BIND) {
     envConfig.bind = process.env.BIND;
+  }
+
+  if (process.env.TRANSPORT_TYPE) {
+    const transportType = process.env.TRANSPORT_TYPE.toLowerCase();
+    if (transportType === 'stdio' || transportType === 'sse') {
+      envConfig.transportType = transportType as 'stdio' | 'sse';
+    }
   }
 
   // Parse command line arguments
@@ -92,6 +106,19 @@ export function getServerConfig(): ServerConfig {
       const bindValue = arg.split('=')[1];
       if (bindValue) {
         argConfig.bind = bindValue;
+      }
+    } else if (arg === '--transport' || arg === '-t') {
+      const transportValue = args[i + 1];
+      if (transportValue && !transportValue.startsWith('-')) {
+        if (transportValue === 'stdio' || transportValue === 'sse') {
+          argConfig.transportType = transportValue as 'stdio' | 'sse';
+          i++; // Skip the next argument since we've used it as the value
+        }
+      }
+    } else if (arg.startsWith('--transport=')) {
+      const transportValue = arg.split('=')[1];
+      if (transportValue === 'stdio' || transportValue === 'sse') {
+        argConfig.transportType = transportValue as 'stdio' | 'sse';
       }
     }
   }

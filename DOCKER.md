@@ -50,8 +50,9 @@ http://localhost:3005/sse
 The following environment variables can be configured:
 
 - `PORT`: The port on which the server will listen (default: 3005)
-- `TRANSPORT_TYPE`: The transport type to use (set to 'sse' for SSE support)
 - `BIND`: The address to bind to (default: 0.0.0.0)
+
+Note: The server is configured to use SSE transport in Docker mode.
 
 ## Managing the Container
 

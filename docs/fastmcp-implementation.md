@@ -22,10 +22,10 @@ The MCP Cloudscape Assistant has been refactored to use the FastMCP framework, w
 
 ### Server Structure
 
-The FastMCP implementation consists of two main files:
+The MCP server implementation consists of two main files:
 
-1. `src/mcp/fastmcp-server.ts` - Contains the core server implementation with tool and resource definitions
-2. `server-fastmcp.ts` - The entry point that creates and starts the server
+1. `src/mcp/server.ts` - Contains the core server implementation with tool and resource definitions
+2. `server.ts` - The entry point that creates and starts the server
 
 ### Key Components
 
@@ -210,36 +210,48 @@ The FastMCP server supports two transport types:
 
 ### Running with stdio Transport (Default)
 
-To run the FastMCP server with the default stdio transport:
+To run the MCP server with the default stdio transport:
 
 ```bash
-npm run dev:fastmcp
+npm run dev
 ```
 
 ### Running with SSE Transport
 
-To run the FastMCP server with SSE transport:
+To run the MCP server with SSE transport:
 
 ```bash
-TRANSPORT_TYPE=sse npm run dev:fastmcp
+npm run dev:sse
+```
+
+Or using the command-line argument:
+
+```bash
+npm run dev -- --transport sse
 ```
 
 This will start an HTTP server on the configured port (default: 3001) with the SSE endpoint at `/sse`.
 
-### Adding a Dedicated Script for SSE
+### Command-line Arguments
+
+The server supports the following command-line arguments:
+
+- `--transport` or `-t`: Transport type (`stdio` or `sse`), defaults to `stdio`
+- `--port` or `-p`: Port for SSE transport, defaults to 3001
+- `--bind` or `-b`: Bind address for SSE transport, defaults to 0.0.0.0
 
 You can add a dedicated script to your `package.json` for running with SSE transport:
 
 ```json
 "scripts": {
-  "dev:fastmcp:sse": "TRANSPORT_TYPE=sse nodemon --exec ts-node server-fastmcp.ts"
+  "dev:sse": "nodemon --exec ts-node server.ts --transport sse"
 }
 ```
 
 Then you can simply run:
 
 ```bash
-npm run dev:fastmcp:sse
+npm run dev:sse
 ```
 
 ### Verifying SSE Transport
@@ -248,7 +260,7 @@ To verify that the server is running with SSE transport:
 
 1. Start the server with SSE transport:
    ```bash
-   TRANSPORT_TYPE=sse npm run dev:fastmcp
+   npm run dev:sse
    ```
 
 2. Run the test script:

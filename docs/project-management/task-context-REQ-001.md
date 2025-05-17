@@ -31,14 +31,14 @@
 
 4.  **Existing Codebase Considerations:**
     *   The server already supports SSE through the FastMCP framework
-    *   The Docker container should use a similar invocation to `npm run dev:sse` (which sets `PORT=3005 TRANSPORT_TYPE=sse`)
+    *   The Docker container should use a similar invocation to `npm run dev:sse` (which uses the `--transport sse` argument)
     *   No specific code migration needed as SSE support already exists
 
 5.  **Testing:**
     *   Manual testing with a client connecting to the SSE endpoint within the container is sufficient
 
 **Relevant Files:**
-*   `server-fastmcp.ts` (Current implementation with SSE support)
+*   `server.ts` (Current implementation with SSE support)
 *   `package.json` (Contains the `dev:sse` script)
 *   `tsconfig.json` (TypeScript config)
 *   `/docs/project-management/workflow-state.md` (Overall tracking)

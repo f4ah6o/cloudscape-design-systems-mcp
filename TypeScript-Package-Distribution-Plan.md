@@ -99,8 +99,8 @@ flowchart TD
 #### 5. Executable Setup Verification
 
 **Current Status:**
-- ✅ Main entry point is server-fastmcp.ts (NOT cli.ts)
-- ✅ bin field in package.json is configured to use dist/server-fastmcp.js
+- ✅ Main entry point is server.ts (NOT cli.ts)
+- ✅ bin field in package.json is configured to use dist/server.js
 - ✅ postbuild script makes the executable file executable
 
 **Action Items:**
@@ -157,7 +157,7 @@ Total estimated time: 5-7 days
 
 ## Important Notes
 
-- The main entry point for this package is server-fastmcp.ts, which will be compiled to dist/server-fastmcp.js
+- The main entry point for this package is server.ts, which will be compiled to dist/server.js
 - We are NOT using cli.ts as the entry point
 - The package.json bin field should point to dist/server-fastmcp.js
 - All references to the entry point should be consistent throughout the configuration

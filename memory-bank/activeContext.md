@@ -21,7 +21,7 @@ This file tracks the project's current status, including recent changes, current
 * Initialized productContext.md with project overview
 * Accessed ts-pkg-distro://resource/orchestrator guide for TypeScript package distribution
 * Created and finalized TypeScript Package Distribution plan
-* Clarified that server-fastmcp.ts is the main entry point, not cli.ts
+* Clarified that server.ts is the main entry point, not cli.ts
 * Completed Phase 1 (Assessment): Code Mode identified configuration issues and requirements
 * Completed Phase 2 (Configuration): Code Mode implemented necessary changes to package.json, tsconfig.json, and other files
 * Completed Phase 3 (Validation): Debug Mode verified the build process, output structure, and package functionality

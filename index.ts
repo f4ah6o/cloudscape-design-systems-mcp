@@ -6,7 +6,7 @@
  * for common Cloudscape patterns.
  */
 
-import { createFastMCPServer } from './src/mcp/fastmcp-server';
+import { createFastMCPServer } from './src/mcp/server';
 import { getServerConfig } from './src/utils/config';
 import { applySecurityEnhancements } from './src/security/index';
 import { initializeRooIntegration } from './src/integration/roo-integration';
@@ -47,5 +47,5 @@ export function createCloudscapeAssistant(options: any = {}) {
 export default createCloudscapeAssistant;
 
 // Re-export key components for advanced usage
-export { createFastMCPServer } from './src/mcp/fastmcp-server';
+export { createFastMCPServer } from './src/mcp/server';
 export { getServerConfig } from './src/utils/config';

@@ -2,6 +2,11 @@
 
 This document contains development-specific information for the Cloudscape MCP Assistant project.
 
+## Requirements
+
+- **Node.js**: 24.0.1 or higher
+- **npm**: 10.x or higher (comes with Node.js 24.0.1)
+
 ## Project Structure
 
 ```
@@ -42,18 +47,24 @@ mcp-cloudscape-assistant/
 
 ## Development Installation
 
-1. Clone the repository:
+1. Ensure you have Node.js 24.0.1 or higher installed:
+```bash
+node --version
+# Should output v24.0.1 or higher
+```
+
+2. Clone the repository:
 ```bash
 git clone https://github.com/agentience/mcp-cloudscape-assistant.git
 cd mcp-cloudscape-assistant
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Build the TypeScript code:
+4. Build the TypeScript code:
 ```bash
 npm run build
 ```
@@ -160,6 +171,15 @@ For more details on each phase, see the phase summary files:
 - `docs/phase2-summary.md`
 - `docs/phase3-summary.md`
 - `docs/phase4-summary.md`
+
+## Node.js 24.x Compatibility
+
+This project requires Node.js 24.0.1 or higher. If you encounter any issues related to the Node.js version, please refer to the [Node.js 24 Upgrade Guide](docs/nodejs-24-upgrade-guide.md) for detailed information about compatibility considerations and potential issues.
+
+Key considerations:
+- TypeScript 5.4+ is recommended for better Node.js 24 support
+- Some users have reported issues with ts-node on Node.js 24
+- HTTP parser changes may affect behavior in some cases
 
 ## Publishing
 

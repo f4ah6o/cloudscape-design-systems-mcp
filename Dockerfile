@@ -1,5 +1,5 @@
-# Use Node.js 20.11.1 as the base image for better ESM support and security
-FROM node:20.11.1-alpine3.19
+# Use Node.js 24.0.1 as the base image for better ESM support, performance, and security
+FROM node:24.0.1-alpine3.20
 
 # Set working directory
 WORKDIR /app

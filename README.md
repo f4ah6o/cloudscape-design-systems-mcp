@@ -18,6 +18,11 @@ A Model Context Protocol (MCP) server that provides comprehensive information ab
 - Compare components
 - Generate multi-component layouts
 
+## Requirements
+
+- **Node.js**: 24.0.1 or higher
+- **npm**: 10.x or higher (comes with Node.js 24.0.1)
+
 ## Installation
 
 ### For Development
@@ -180,4 +185,22 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT - See [LICENSE](LICENSE) for more information.
+MIT - See [LICENSE](LICENSE) for more information.## Available Documentation
+
+- [Cloudscape MCP Assistant Development](./DEVELOPMENT.md)
+- [Docker Deployment for React Design Systems MCP](./DOCKER.md)
+- [React Design Systems MCP v1.0.4](./release-notes.md)
+
+## Subdirectories
+
+- [.git](./.git/)
+- [.github](./.github/)
+- [.practices](./.practices/)
+- [.roo](./.roo/)
+- [Coverage](./coverage/)
+- [Dist](./dist/)
+- [Docs](./docs/)
+- [Memory Bank](./memory-bank/)
+- [Scripts](./scripts/)
+- [Src](./src/)
+- [Tests](./tests/)

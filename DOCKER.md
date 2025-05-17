@@ -7,6 +7,15 @@ This document provides instructions for deploying the React Design Systems MCP s
 - [Docker](https://docs.docker.com/get-docker/) installed on your system
 - [Docker Compose](https://docs.docker.com/compose/install/) (optional, for using docker-compose.yml)
 
+## Docker Image Details
+
+The Docker image for this project is based on Node.js 24.0.1 Alpine (specifically `node:24.0.1-alpine3.20`). This provides:
+
+- A lightweight container based on Alpine Linux 3.20
+- Node.js 24.0.1 runtime environment
+- npm 10.x package manager
+- Minimal attack surface for improved security
+
 ## Quick Start
 
 ### Using Docker Compose (Recommended)
@@ -99,11 +108,24 @@ If you encounter any issues with the Docker deployment, try the following:
 docker build --no-cache -t react-design-systems-mcp .
 ```
 
+### Node.js Version Issues
+
+If you encounter issues related to the Node.js version:
+
+1. Verify that your Dockerfile is using the correct Node.js image:
+   ```
+   FROM node:24.0.1-alpine3.20
+   ```
+
+2. Check for any compatibility issues with dependencies by reviewing the container logs
+3. For detailed information about Node.js 24.0.1 compatibility, refer to the [Node.js 24 Upgrade Guide](docs/nodejs-24-upgrade-guide.md)
+
 ## Security Considerations
 
 - The SSE endpoint does not require authentication by default
 - The server is configured to listen on all interfaces (0.0.0.0)
 - Consider using a reverse proxy with TLS for production deployments
+- Node.js 24.0.1 includes security improvements over previous versions
 
 ## Publishing to GitHub Container Registry
 
@@ -130,4 +152,3 @@ services:
   react-design-systems-mcp:
     image: ghcr.io/agentience/react-design-systems-mcp:latest
     # other configuration...
-```

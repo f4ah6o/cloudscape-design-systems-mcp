@@ -1,13 +1,33 @@
 ## Subdirectories
 
 - [Aws](./aws/)
+- [Devops](./devops/)
 - [Errors](./errors/)
-- [Guides](./guides/)
 - [Project Management](./project-management/)
 - [Standards](./standards/)
 - [Templates](./templates/)
 
 ## Available Documentation
 
+- [Cloudscape MCP Server Architecture](./architecture.md)
+- [Cloudscape Component Library](./component-library.md)
+- [CORS Support in MCP Cloudscape Assistant](./cors-support.md)
+- [Docker Image Publishing Guide](./docker-publishing-guide.md)
+- [FastMCP Implementation Guide](./fastmcp-implementation.md)
+- [FastMCP Migration](./fastmcp-migration.md)
+- [Frontend-Code Mode Documentation](./frontend-code-mode.md)
+- [GitHub Packages Publishing Implementation](./devops/github-packages-publishing.md)
+- [Cloudscape MCP Server Implementation Plan](./implementation-plan.md)
+- [MCP Protocol Guide](./mcp-protocol-guide.md)
 - [Mode Set Refactoring Implementation Plan](./modeset-refactoring-plan.md)
-
+- [Node.js 24 Upgrade Guide](./nodejs-24-upgrade-guide.md)
+- [npm Publication Guide for React Design Systems MCP](./npm-publication-guide.md)
+- [Phase 2 Implementation Summary](./phase2-summary.md)
+- [Phase 3 Implementation Summary](./phase3-summary.md)
+- [Cloudscape MCP Server - Phase 4 Summary](./phase4-summary.md)
+- [Pre-Publication Checklist for React Design Systems MCP](./pre-publication-checklist.md)
+- [Package Rename Summary](./rename-summary.md)
+- [Roo Integration Guide](./roo-integration-guide.md)
+- [Frontend-Code Mode Rules](./rules-frontend-code-README.md)
+- [Cloudscape MCP Server and Frontend-Code Mode Summary](./SUMMARY.md)
+- [Frontend-Code Mode Usage Guide](./usage-guide.md)

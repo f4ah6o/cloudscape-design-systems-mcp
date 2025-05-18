@@ -35,6 +35,7 @@ This file tracks the decomposition, delegation, and status of tasks for the curr
 | | GIT-002 | GitMaster | Completed | GIT-001 | Clean up branches and ensure synchronization | Branch cleanup report | 2025-05-17 | 2025-05-17 | Successfully removed merged feature branches and synchronized develop/main branches. Created docs/devops/branch-cleanup-report.md |
 | | REL-002 | GitMaster | Completed | GIT-002 | Create new release v1.0.5 | GitHub release, updated package.json, docs/devops/release-v1.0.5-summary.md | 2025-05-17 | 2025-05-17 | Successfully created v1.0.5 release incorporating Node.js 24.0.1 upgrade changes |
 | | FIX-001 | GitMaster | Completed | REL-002 | Fix GitHub workflow publish.yml file | Updated workflow file, PR #3 | 2025-05-17 | 2025-05-17 | Fixed GitHub workflow by adding explicit chmod command for server.js file |
+| | PUB-001 | Maestro | Completed | FIX-001 | Update GitHub workflow to publish to GitHub Packages | Updated workflow file and documentation | 2025-05-17 | 2025-05-17 | Modified publish.yml to publish to both npm and GitHub Packages, updated related documentation |
 
 ## Key Decisions
 

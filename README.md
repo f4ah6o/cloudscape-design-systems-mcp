@@ -6,17 +6,29 @@ A Model Context Protocol (MCP) server that provides comprehensive information ab
 
 ## Features
 
-- Search for Cloudscape components with advanced options
-- Get detailed information about components
+### Component Information & Search
+- Search for Cloudscape components with advanced filtering options
+- Get detailed information about components including properties, events, and functions
+- Access component usage guidelines and best practices
+- Search across component usage guidelines by content, section, or specific component
+- Get component examples with detailed code snippets
+- Compare components and their capabilities
+
+### Code Generation
 - Generate code for components with customization options
-- Generate code for common patterns
-- Get setup instructions for the frontend-code mode
-- Get component properties
-- Get component examples
-- Validate component props
-- Get component patterns
-- Compare components
-- Generate multi-component layouts
+- Generate code for common UI patterns and layouts
+- Generate multi-component layouts and compositions
+- Validate component props and configurations
+
+### Advanced Functionality
+- **Usage Guidelines**: Comprehensive access to component usage guidelines with hybrid resource/tool approach
+  - Direct access via `cloudscape://usage/{componentId}` resource URIs
+  - Advanced search capabilities across all usage content
+  - Section-specific filtering (Features, General guidelines, etc.)
+  - Cross-component content search
+- **Events & Functions**: Search and explore component events and function APIs
+- **Pattern Library**: Access to design patterns and architectural guidance
+- **Setup Instructions**: Get frontend-code mode setup and configuration guidance
 
 ## Requirements
 
@@ -125,6 +137,62 @@ This project uses the FastMCP framework, which provides a more structured and ty
 - Prompt argument auto-completion
 
 For more information about the FastMCP implementation, see [FastMCP Migration](docs/fastmcp-migration.md).
+
+## Available Tools and Resources
+
+### MCP Tools
+
+#### Component Information
+- `search_components` - Search for components with advanced filtering
+- `get_component_details` - Get detailed component information
+- `get_component_properties` - Get component properties and their specifications
+- `get_component_events` - Get component events and event handling information
+- `get_component_functions` - Get component functions and method APIs
+- `get_component_examples` - Get component examples with optional filtering by example ID
+
+#### Usage Guidelines
+- `get_component_usage` - Get usage guidelines for a specific component with optional section filtering
+- `search_usage_guidelines` - Search across component usage guidelines with query, section, and component filters
+
+#### Code Generation
+- `generate_component_code` - Generate code for components with customization
+- `generate_pattern_code` - Generate code for common UI patterns
+- `validate_component_props` - Validate component properties and configurations
+
+#### Patterns and Search
+- `search_patterns` - Search through design patterns and architectural guidance
+- `search_properties` - Search for component properties across all components
+- `search_events` - Search for component events with filtering options
+- `search_functions` - Search for component functions and methods
+
+#### Utility Tools
+- `compare_components` - Compare multiple components and their capabilities
+- `generate_layout_code` - Generate multi-component layouts
+- `get_frontend_setup` - Get setup instructions for frontend-code mode
+
+### MCP Resources
+
+#### Component Usage Guidelines
+- `cloudscape://usage/{componentId}` - Direct access to component usage guidelines in markdown format
+
+### Example Usage
+
+```bash
+# Search for button-related components
+search_components({"query": "button", "category": "actions"})
+
+# Get detailed information about a specific component
+get_component_details({"componentId": "button"})
+
+# Access usage guidelines directly
+Resource: cloudscape://usage/button
+
+# Search across usage guidelines
+search_usage_guidelines({"query": "primary button", "section": "Features"})
+
+# Generate component code
+generate_component_code({"componentId": "button", "variant": "primary"})
+```
 
 ## Documentation
 

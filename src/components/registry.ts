@@ -35,7 +35,16 @@ export interface ComponentMetadata {
   relatedComponents?: string[];
   tags?: string[];
   properties: Record<string, PropertyMetadata>;
+  events: Record<string, EventMetadata>;
+  functions: Record<string, FunctionMetadata>;
+  regions?: Array<{
+    name: string;
+    description: string;
+    isDefault: boolean;
+    deprecatedTag?: string;
+  }>;
   examples: string[];
+  usageGuidelines?: string;
 }
 
 export interface CategoryMetadata {
@@ -98,13 +107,27 @@ interface ApiJsonEvent {
   name: string;
   description: string;
   cancelable: boolean;
+  detail?: {
+    type: string;
+    properties?: Array<{
+      name: string;
+      type: string;
+      optional?: boolean;
+      description?: string;
+    }>;
+  };
 }
 
 interface ApiJsonFunction {
   name: string;
   description: string;
   returnType: string;
-  parameters: any[];
+  parameters: Array<{
+    name: string;
+    type: string;
+    optional?: boolean;
+    description?: string;
+  }>;
 }
 
 interface ApiJsonRegion {
@@ -127,6 +150,32 @@ interface ApiJson {
     source: string;
     extracted_at: string;
   };
+}
+
+// Public interfaces for events and functions
+export interface EventMetadata {
+  name: string;
+  description: string;
+  cancelable: boolean;
+  detailType?: string;
+  detailProperties?: Array<{
+    name: string;
+    type: string;
+    optional?: boolean;
+    description?: string;
+  }>;
+}
+
+export interface FunctionMetadata {
+  name: string;
+  description: string;
+  returnType: string;
+  parameters: Array<{
+    name: string;
+    type: string;
+    optional?: boolean;
+    description?: string;
+  }>;
 }
 
 // Cache for component metadata
@@ -227,6 +276,27 @@ function convertApiJsonProperty(apiProperty: ApiJsonProperty): PropertyMetadata 
   };
 }
 
+// Convert API JSON event to EventMetadata
+function convertApiJsonEvent(apiEvent: ApiJsonEvent): EventMetadata {
+  return {
+    name: apiEvent.name,
+    description: apiEvent.description,
+    cancelable: apiEvent.cancelable,
+    detailType: apiEvent.detail?.type,
+    detailProperties: apiEvent.detail?.properties
+  };
+}
+
+// Convert API JSON function to FunctionMetadata
+function convertApiJsonFunction(apiFunction: ApiJsonFunction): FunctionMetadata {
+  return {
+    name: apiFunction.name,
+    description: apiFunction.description,
+    returnType: apiFunction.returnType,
+    parameters: apiFunction.parameters || []
+  };
+}
+
 // Convert example file to ExampleMetadata
 function createExampleMetadata(componentId: string, exampleFile: string): ExampleMetadata {
   // Format the example name from the file name
@@ -280,7 +350,11 @@ function loadAllComponents(): void {
       relatedComponents: [], // Would need additional logic to determine related components
       tags: determineTags(componentId, apiJson),
       properties: {},
-      examples: exampleFiles
+      events: {},
+      functions: {},
+      regions: apiJson.regions,
+      examples: exampleFiles,
+      usageGuidelines: loadUsageMd(componentDir) || undefined
     };
 
     // Convert properties
@@ -288,12 +362,22 @@ function loadAllComponents(): void {
       componentMetadata.properties[prop.name] = convertApiJsonProperty(prop);
     });
 
+    // Convert events
+    apiJson.events.forEach(event => {
+      componentMetadata.events[event.name] = convertApiJsonEvent(event);
+    });
+
+    // Convert functions
+    apiJson.functions.forEach(func => {
+      componentMetadata.functions[func.name] = convertApiJsonFunction(func);
+    });
+
     // Store in cache
     componentCache[componentId] = componentMetadata;
 
     // Process examples
     exampleFiles.forEach(exampleFile => {
-      const exampleMetadata = createExampleMetadata(componentDir, exampleFile);
+      const exampleMetadata = createExampleMetadata(componentId, exampleFile);
       exampleCache[exampleMetadata.id] = exampleMetadata;
     });
   });
@@ -463,6 +547,304 @@ export function getComponentExamples(options: {
   return limit ? componentExamples.slice(0, limit) : componentExamples;
 }
 
+/**
+ * Search for properties across components
+ * @param options - Search options
+ * @returns Matching properties with component information
+ */
+export function searchProperties(options: {
+  query?: string;
+  type?: string;
+  required?: boolean;
+  deprecated?: boolean;
+  componentId?: string;
+}): Array<{ componentId: string; componentName: string; property: PropertyMetadata }> {
+  const { query, type, required, deprecated, componentId } = options;
+  const results: Array<{ componentId: string; componentName: string; property: PropertyMetadata }> = [];
+  
+  // Ensure components are loaded
+  const components = getAllComponents();
+  
+  // Search through all components or specific component
+  const componentsToSearch = componentId 
+    ? { [componentId]: components[componentId] } 
+    : components;
+  
+  Object.entries(componentsToSearch).forEach(([compId, component]) => {
+    if (!component) return;
+    
+    Object.values(component.properties).forEach(property => {
+      // Apply filters
+      if (query && !property.name.toLowerCase().includes(query.toLowerCase()) && 
+          !(property.description || '').toLowerCase().includes(query.toLowerCase())) {
+        return;
+      }
+      
+      if (type && property.type !== type) return;
+      if (required !== undefined && property.required !== required) return;
+      if (deprecated !== undefined && property.isDeprecated !== deprecated) return;
+      
+      results.push({
+        componentId: compId,
+        componentName: component.name,
+        property
+      });
+    });
+  });
+  
+  return results;
+}
+
+/**
+ * Search for events across components
+ * @param options - Search options
+ * @returns Matching events with component information
+ */
+export function searchEvents(options: {
+  query?: string;
+  cancelable?: boolean;
+  componentId?: string;
+}): Array<{ componentId: string; componentName: string; event: EventMetadata }> {
+  const { query, cancelable, componentId } = options;
+  const results: Array<{ componentId: string; componentName: string; event: EventMetadata }> = [];
+  
+  // Ensure components are loaded
+  const components = getAllComponents();
+  
+  // Search through all components or specific component
+  const componentsToSearch = componentId 
+    ? { [componentId]: components[componentId] } 
+    : components;
+  
+  Object.entries(componentsToSearch).forEach(([compId, component]) => {
+    if (!component) return;
+    
+    Object.values(component.events).forEach(event => {
+      // Apply filters
+      if (query && !event.name.toLowerCase().includes(query.toLowerCase()) && 
+          !(event.description || '').toLowerCase().includes(query.toLowerCase())) {
+        return;
+      }
+      
+      if (cancelable !== undefined && event.cancelable !== cancelable) return;
+      
+      results.push({
+        componentId: compId,
+        componentName: component.name,
+        event
+      });
+    });
+  });
+  
+  return results;
+}
+
+/**
+ * Search for functions across components
+ * @param options - Search options
+ * @returns Matching functions with component information
+ */
+export function searchFunctions(options: {
+  query?: string;
+  returnType?: string;
+  componentId?: string;
+}): Array<{ componentId: string; componentName: string; function: FunctionMetadata }> {
+  const { query, returnType, componentId } = options;
+  const results: Array<{ componentId: string; componentName: string; function: FunctionMetadata }> = [];
+  
+  // Ensure components are loaded
+  const components = getAllComponents();
+  
+  // Search through all components or specific component
+  const componentsToSearch = componentId 
+    ? { [componentId]: components[componentId] } 
+    : components;
+  
+  Object.entries(componentsToSearch).forEach(([compId, component]) => {
+    if (!component) return;
+    
+    Object.values(component.functions).forEach(func => {
+      // Apply filters
+      if (query && !func.name.toLowerCase().includes(query.toLowerCase()) && 
+          !(func.description || '').toLowerCase().includes(query.toLowerCase())) {
+        return;
+      }
+      
+      if (returnType && func.returnType !== returnType) return;
+      
+      results.push({
+        componentId: compId,
+        componentName: component.name,
+        function: func
+      });
+    });
+  });
+  
+  return results;
+}
+
+/**
+ * Get detailed example content by ID
+ * @param exampleId - Example ID
+ * @returns Example metadata with full code
+ */
+export function getExampleById(exampleId: string): ExampleMetadata | undefined {
+  // Ensure components are loaded
+  getAllComponents();
+  
+  return exampleCache[exampleId];
+}
+
+/**
+ * Search for patterns
+ * @param options - Search options
+ * @returns Matching patterns
+ */
+export function searchPatterns(options: {
+  query?: string;
+  component?: string;
+  tags?: string[];
+}): PatternMetadata[] {
+  const { query, component, tags } = options;
+  const results: PatternMetadata[] = [];
+  
+  // Get all patterns
+  const patterns = getAllPatterns();
+  
+  Object.values(patterns).forEach(pattern => {
+    // Apply filters
+    if (query && !pattern.name.toLowerCase().includes(query.toLowerCase()) && 
+        !(pattern.description || '').toLowerCase().includes(query.toLowerCase())) {
+      return;
+    }
+    
+    if (component && !pattern.components.includes(component)) {
+      return;
+    }
+    
+    if (tags && tags.length > 0) {
+      // For patterns, we can search in component list as tags
+      const hasMatchingTag = tags.some(tag => 
+        pattern.components.some(comp => comp.toLowerCase().includes(tag.toLowerCase()))
+      );
+      if (!hasMatchingTag) {
+        return;
+      }
+    }
+    
+    results.push(pattern);
+  });
+  
+  return results;
+}
+
+/**
+ * Get component usage guidelines from usage.md file
+ * @param componentId - Component ID
+ * @returns Usage guidelines content
+ */
+export function getComponentUsage(componentId: string): string | null {
+  try {
+    // Check if component exists
+    const component = getComponent(componentId);
+    if (!component) {
+      return null;
+    }
+    
+    // Return the usage guidelines already loaded in the component metadata
+    return component.usageGuidelines || null;
+  } catch (error) {
+    console.error(`Error getting usage for ${componentId}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Search usage guidelines across components
+ * @param options - Search options
+ * @returns Matching usage content with component information
+ */
+export function searchUsageGuidelines(options: {
+  query?: string;
+  section?: string;
+  componentId?: string;
+}): Array<{ componentId: string; componentName: string; content: string; matchedSections?: string[] }> {
+  const { query, section, componentId } = options;
+  const results: Array<{ componentId: string; componentName: string; content: string; matchedSections?: string[] }> = [];
+  
+  // Get all components
+  const components = getAllComponents();
+  
+  // Search through all components or specific component
+  const componentsToSearch = componentId 
+    ? { [componentId]: components[componentId] } 
+    : components;
+  
+  Object.entries(componentsToSearch).forEach(([compId, component]) => {
+    if (!component || !component.usageGuidelines) return;
+    
+    const usageContent = component.usageGuidelines;
+    let matches = false;
+    const matchedSections: string[] = [];
+    
+    // If no query, include all components with usage guidelines
+    if (!query && !section) {
+      matches = true;
+    } else {
+      let queryMatches = true;  // Default to true if no query
+      let sectionMatches = true;  // Default to true if no section
+      
+      // Search in content
+      if (query) {
+        queryMatches = usageContent.toLowerCase().includes(query.toLowerCase());
+        
+        if (queryMatches) {
+          // Try to identify which sections contain the query
+          const lines = usageContent.split('\n');
+          let currentSection = '';
+          lines.forEach(line => {
+            if (line.startsWith('## ')) {
+              currentSection = line.replace('## ', '').trim();
+            } else if (line.startsWith('### ')) {
+              currentSection = line.replace('### ', '').trim();
+            }
+            
+            if (line.toLowerCase().includes(query.toLowerCase()) && currentSection) {
+              if (!matchedSections.includes(currentSection)) {
+                matchedSections.push(currentSection);
+              }
+            }
+          });
+        }
+      }
+      
+      // Search by section
+      if (section) {
+        const sectionRegex = new RegExp(`^##\\s+${section}`, 'im');
+        sectionMatches = sectionRegex.test(usageContent);
+        
+        if (sectionMatches && !matchedSections.includes(section)) {
+          matchedSections.push(section);
+        }
+      }
+      
+      // Use AND logic: both conditions must be true
+      matches = queryMatches && sectionMatches;
+    }
+    
+    if (matches) {
+      results.push({
+        componentId: compId,
+        componentName: component.name,
+        content: usageContent,
+        matchedSections: matchedSections.length > 0 ? matchedSections : undefined
+      });
+    }
+  });
+  
+  return results;
+}
+
 // Export the module
 export default {
   getAllComponents,
@@ -471,5 +853,12 @@ export default {
   getCategory,
   getAllPatterns,
   getPattern,
-  getComponentExamples
+  getComponentExamples,
+  searchProperties,
+  searchEvents,
+  searchFunctions,
+  getExampleById,
+  searchPatterns,
+  getComponentUsage,
+  searchUsageGuidelines
 };

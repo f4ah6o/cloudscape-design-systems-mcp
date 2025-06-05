@@ -44,7 +44,7 @@ export default () => {
             { x: new Date(1601045100000), y: 229492 },
             { x: new Date(1601046000000), y: 293910 },
           ],
-          valueFormatter: function s(e) {
+          valueFormatter: function o(e) {
             return Math.abs(e) >= 1e9
               ? (e / 1e9).toFixed(1).replace(/\.0$/, "") + "G"
               : Math.abs(e) >= 1e6
@@ -92,7 +92,7 @@ export default () => {
             { x: new Date(1601045100000), y: 152975 },
             { x: new Date(1601046000000), y: 157299 },
           ],
-          valueFormatter: function s(e) {
+          valueFormatter: function o(e) {
             return Math.abs(e) >= 1e9
               ? (e / 1e9).toFixed(1).replace(/\.0$/, "") + "G"
               : Math.abs(e) >= 1e6
@@ -106,7 +106,7 @@ export default () => {
           title: "Performance goal",
           type: "threshold",
           y: 250000,
-          valueFormatter: function s(e) {
+          valueFormatter: function o(e) {
             return Math.abs(e) >= 1e9
               ? (e / 1e9).toFixed(1).replace(/\.0$/, "") + "G"
               : Math.abs(e) >= 1e6
@@ -131,7 +131,7 @@ export default () => {
             })
             .split(",")
             .join("\n"),
-        yTickFormatter: function s(e) {
+        yTickFormatter: function o(e) {
           return Math.abs(e) >= 1e9
             ? (e / 1e9).toFixed(1).replace(/\.0$/, "") + "G"
             : Math.abs(e) >= 1e6

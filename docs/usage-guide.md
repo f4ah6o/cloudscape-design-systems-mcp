@@ -163,6 +163,52 @@ To access comprehensive documentation for a component, use the `access_mcp_resou
 
 This will return detailed documentation for the component, including usage guidelines, best practices, and accessibility considerations.
 
+### Accessing Component Usage Guidelines
+
+For detailed usage guidelines and best practices, use the dedicated usage guidelines resource:
+
+```
+<access_mcp_resource>
+<server_name>cloudscape</server_name>
+<uri>cloudscape://usage/table</uri>
+</access_mcp_resource>
+```
+
+Or get specific usage information with the `get_component_usage` tool:
+
+```
+<use_mcp_tool>
+<server_name>cloudscape</server_name>
+<tool_name>get_component_usage</tool_name>
+<arguments>
+{
+  "componentId": "table",
+  "section": "Features"
+}
+</arguments>
+</use_mcp_tool>
+```
+
+### Searching Usage Guidelines
+
+To search across all component usage guidelines for specific content:
+
+```
+<use_mcp_tool>
+<server_name>cloudscape</server_name>
+<tool_name>search_usage_guidelines</tool_name>
+<arguments>
+{
+  "query": "accessibility",
+  "section": "General guidelines",
+  "limit": 5
+}
+</arguments>
+</use_mcp_tool>
+```
+
+This will find components that have both the specified query and section in their usage guidelines.
+
 ## Common UI Development Tasks
 
 ### Creating a Data Table

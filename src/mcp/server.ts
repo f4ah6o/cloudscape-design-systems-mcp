@@ -364,23 +364,57 @@ function registerTools(server: FastMCP) {
   // Tool: get_component_examples
   server.addTool({
     name: 'get_component_examples',
-    description: 'Get usage examples for a specific component',
+    description: 'Get usage examples for a specific component, or a specific example by ID',
     parameters: z.object({
       componentId: z.string().describe('Component ID'),
-      type: z.string().optional().describe('Example type'),
-      limit: z.number().optional().describe('Maximum number of examples to return'),
-      tags: z.array(z.string()).optional().describe('Tags to filter by'),
+      exampleId: z.string().optional().describe('Specific example ID to retrieve (format: componentId-exampleName)'),
+      type: z.string().optional().describe('Example type (ignored if exampleId is provided)'),
+      limit: z.number().optional().describe('Maximum number of examples to return (ignored if exampleId is provided)'),
+      tags: z.array(z.string()).optional().describe('Tags to filter by (ignored if exampleId is provided)'),
     }),
     execute: async (args) => {
       const {
         componentId,
+        exampleId,
         type,
         limit = 5,
         tags = []
       } = args;
       
-      // Get component examples
-      const examples = exampleProvider.getExamples({
+      // If exampleId is provided, get that specific example
+      if (exampleId) {
+        const example = componentRegistry.getExampleById(exampleId);
+        
+        if (!example) {
+          throw new Error(`Example ${exampleId} not found`);
+        }
+        
+        // Verify the example belongs to the specified component
+        if (example.component !== componentId) {
+          throw new Error(`Example ${exampleId} does not belong to component ${componentId}`);
+        }
+        
+        return {
+          type: 'text',
+          text: JSON.stringify({
+            requestType: 'single_example',
+            componentId,
+            exampleId,
+            example: {
+              id: example.id,
+              name: example.name,
+              description: example.description,
+              component: example.component,
+              type: example.type,
+              tags: example.tags,
+              code: example.code
+            }
+          }, null, 2)
+        };
+      }
+      
+      // Otherwise, get multiple examples using the existing logic
+      const examplesResponse = exampleProvider.getExamples({
         componentId,
         type,
         limit,
@@ -389,7 +423,21 @@ function registerTools(server: FastMCP) {
       
       return {
         type: 'text',
-        text: JSON.stringify(examples)
+        text: JSON.stringify({
+          requestType: 'multiple_examples',
+          componentId,
+          filters: { type, limit, tags },
+          totalResults: examplesResponse.totalExamples,
+          examples: examplesResponse.examples.map((example: any) => ({
+            id: example.id,
+            name: example.name,
+            description: example.description,
+            type: example.type,
+            tags: example.tags,
+            // Include code for examples but truncate if very long
+            code: example.code && example.code.length > 1000 ? example.code.substring(0, 1000) + '...' : example.code
+          }))
+        }, null, 2)
       };
     },
   });
@@ -506,7 +554,7 @@ function registerTools(server: FastMCP) {
   // Tool: get_component_events
   server.addTool({
     name: 'get_component_events',
-    description: 'Get information about events emitted by a component',
+    description: 'Get information about events emitted by a component and event handler properties',
     parameters: z.object({
       componentId: z.string().describe('Component ID'),
     }),
@@ -520,14 +568,24 @@ function registerTools(server: FastMCP) {
         throw new Error(`Component ${componentId} not found`);
       }
       
-      // Extract event handlers from properties
+      // Get events from the enhanced component metadata
+      const events = Object.values(component.events || {}).map(event => ({
+        name: event.name,
+        description: event.description,
+        cancelable: event.cancelable,
+        detailType: event.detailType,
+        detailProperties: event.detailProperties
+      }));
+      
+      // Also get event handler properties for backward compatibility
       const eventHandlers = Object.values(component.properties)
-        .filter(prop => prop.name.startsWith('on') && prop.type === 'function')
+        .filter(prop => prop.name.startsWith('on') && (prop.type === 'function' || prop.type.includes('function')))
         .map(prop => ({
           name: prop.name,
           description: prop.description,
-          parameters: prop.type === 'function' ? 'event' : prop.type,
+          type: prop.type,
           isRequired: prop.required,
+          isDeprecated: prop.isDeprecated,
           examples: prop.examples || []
         }));
       
@@ -536,7 +594,10 @@ function registerTools(server: FastMCP) {
         text: JSON.stringify({
           componentId,
           componentName: component.name,
-          eventHandlers
+          events,
+          eventHandlers,
+          totalEvents: events.length,
+          totalEventHandlers: eventHandlers.length
         }, null, 2)
       };
     },
@@ -726,6 +787,362 @@ function registerTools(server: FastMCP) {
       };
     },
   });
+
+  // Tool: search_component_properties
+  server.addTool({
+    name: 'search_component_properties',
+    description: 'Search for specific properties across components',
+    parameters: z.object({
+      query: z.string().optional().describe('Search query for property name or description'),
+      type: z.string().optional().describe('Property type to filter by'),
+      required: z.boolean().optional().describe('Filter by required status'),
+      deprecated: z.boolean().optional().describe('Filter by deprecated status'),
+      componentId: z.string().optional().describe('Limit search to specific component'),
+    }),
+    execute: async (args) => {
+      const results = componentRegistry.searchProperties(args);
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          query: args,
+          totalResults: results.length,
+          results: results.map(r => ({
+            componentId: r.componentId,
+            componentName: r.componentName,
+            property: {
+              name: r.property.name,
+              type: r.property.type,
+              description: r.property.description,
+              required: r.property.required,
+              deprecated: r.property.isDeprecated,
+              defaultValue: r.property.defaultValue,
+              acceptedValues: r.property.acceptedValues
+            }
+          }))
+        }, null, 2)
+      };
+    },
+  });
+
+  // Tool: search_component_events  
+  server.addTool({
+    name: 'search_component_events',
+    description: 'Search for events across components',
+    parameters: z.object({
+      query: z.string().optional().describe('Search query for event name or description'),
+      cancelable: z.boolean().optional().describe('Filter by cancelable status'),
+      componentId: z.string().optional().describe('Limit search to specific component'),
+    }),
+    execute: async (args) => {
+      const results = componentRegistry.searchEvents(args);
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          query: args,
+          totalResults: results.length,
+          results: results.map(r => ({
+            componentId: r.componentId,
+            componentName: r.componentName,
+            event: {
+              name: r.event.name,
+              description: r.event.description,
+              cancelable: r.event.cancelable,
+              detailType: r.event.detailType,
+              detailProperties: r.event.detailProperties
+            }
+          }))
+        }, null, 2)
+      };
+    },
+  });
+
+  // Tool: search_component_functions
+  server.addTool({
+    name: 'search_component_functions',
+    description: 'Search for functions/methods across components',
+    parameters: z.object({
+      query: z.string().optional().describe('Search query for function name or description'),
+      returnType: z.string().optional().describe('Filter by return type'),
+      componentId: z.string().optional().describe('Limit search to specific component'),
+    }),
+    execute: async (args) => {
+      const results = componentRegistry.searchFunctions(args);
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          query: args,
+          totalResults: results.length,
+          results: results.map(r => ({
+            componentId: r.componentId,
+            componentName: r.componentName,
+            function: {
+              name: r.function.name,
+              description: r.function.description,
+              returnType: r.function.returnType,
+              parameters: r.function.parameters
+            }
+          }))
+        }, null, 2)
+      };
+    },
+  });
+
+  // Tool: get_example_code
+  server.addTool({
+    name: 'get_example_code',
+    description: 'Get the full code for a specific example',
+    parameters: z.object({
+      exampleId: z.string().describe('Example ID (format: componentId-exampleName)'),
+    }),
+    execute: async (args) => {
+      const { exampleId } = args;
+      
+      const example = componentRegistry.getExampleById(exampleId);
+      
+      if (!example) {
+        throw new Error(`Example ${exampleId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          id: example.id,
+          name: example.name,
+          description: example.description,
+          component: example.component,
+          type: example.type,
+          tags: example.tags,
+          code: example.code
+        }, null, 2)
+      };
+    },
+  });
+
+  // Tool: search_patterns
+  server.addTool({
+    name: 'search_patterns',
+    description: 'Search for design patterns and common component combinations',
+    parameters: z.object({
+      query: z.string().optional().describe('Search query for pattern name or description'),
+      component: z.string().optional().describe('Filter patterns that use a specific component'),
+      tags: z.array(z.string()).optional().describe('Filter patterns by component tags (searches within pattern components)'),
+    }),
+    execute: async (args) => {
+      const results = componentRegistry.searchPatterns(args);
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          query: args,
+          totalResults: results.length,
+          patterns: results.map(pattern => ({
+            id: pattern.id,
+            name: pattern.name,
+            description: pattern.description,
+            components: pattern.components,
+            customizationOptions: Object.keys(pattern.customizationOptions || {}),
+            // Include code but truncate if very long
+            code: pattern.code && pattern.code.length > 2000 
+              ? pattern.code.substring(0, 2000) + '...\n\n// Code truncated. Use get_pattern_code for full code.'
+              : pattern.code
+          }))
+        }, null, 2)
+      };
+    },
+  });
+
+  // Tool: get_pattern_code
+  server.addTool({
+    name: 'get_pattern_code',
+    description: 'Get the full code for a specific design pattern',
+    parameters: z.object({
+      patternId: z.string().describe('Pattern ID (e.g., "data-table", "form-layout")'),
+    }),
+    execute: async (args) => {
+      const { patternId } = args;
+      
+      const pattern = componentRegistry.getPattern(patternId);
+      
+      if (!pattern) {
+        throw new Error(`Pattern ${patternId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          id: pattern.id,
+          name: pattern.name,
+          description: pattern.description,
+          components: pattern.components,
+          customizationOptions: pattern.customizationOptions,
+          code: pattern.code
+        }, null, 2)
+      };
+    },
+  });
+
+  // Tool: get_component_usage
+  server.addTool({
+    name: 'get_component_usage',
+    description: 'Get usage guidelines for a component with optional section filtering',
+    parameters: z.object({
+      componentId: z.string().describe('Component ID'),
+      section: z.string().optional().describe('Specific section to extract (e.g., "General guidelines", "Features")'),
+      format: z.enum(['markdown', 'text', 'json']).optional().describe('Output format (default: markdown)'),
+    }),
+    execute: async (args) => {
+      const { componentId, section, format = 'markdown' } = args;
+      
+      const usageContent = componentRegistry.getComponentUsage(componentId);
+      
+      if (!usageContent) {
+        throw new Error(`Usage guidelines for component ${componentId} not found`);
+      }
+      
+      let content = usageContent;
+      
+      // Extract specific section if requested
+      if (section) {
+        const lines = usageContent.split('\n');
+        const sectionStart = lines.findIndex(line => 
+          line.toLowerCase().includes(section.toLowerCase()) && 
+          (line.startsWith('##') || line.startsWith('###'))
+        );
+        
+        if (sectionStart === -1) {
+          throw new Error(`Section "${section}" not found in usage guidelines for ${componentId}`);
+        }
+        
+        // Find the end of the section (next section or end of content)
+        let sectionEnd = lines.length;
+        for (let i = sectionStart + 1; i < lines.length; i++) {
+          if (lines[i].startsWith('## ')) {
+            sectionEnd = i;
+            break;
+          }
+        }
+        
+        content = lines.slice(sectionStart, sectionEnd).join('\n').trim();
+      }
+      
+      // Format the content based on requested format
+      let formattedContent = content;
+      if (format === 'text') {
+        // Strip markdown formatting for plain text
+        formattedContent = content
+          .replace(/#{1,6}\s+/g, '') // Remove headers
+          .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
+          .replace(/\*(.*?)\*/g, '$1') // Remove italic
+          .replace(/`(.*?)`/g, '$1') // Remove inline code
+          .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links, keep text
+          .trim();
+      } else if (format === 'json') {
+        // Parse into structured format
+        const parsedSections = parseMarkdownSections(content);
+        formattedContent = JSON.stringify({
+          componentId,
+          requestedSection: section,
+          sections: parsedSections
+        }, null, 2);
+      }
+      
+      return {
+        type: 'text',
+        text: format === 'json' ? formattedContent : formattedContent
+      };
+    },
+  });
+
+  // Tool: search_usage_guidelines
+  server.addTool({
+    name: 'search_usage_guidelines',
+    description: 'Search usage guidelines across all components',
+    parameters: z.object({
+      query: z.string().optional().describe('Search query to find in usage content'),
+      section: z.string().optional().describe('Filter by specific section name'),
+      componentId: z.string().optional().describe('Limit search to specific component'),
+      limit: z.number().optional().describe('Maximum number of results to return'),
+    }),
+    execute: async (args) => {
+      const { query, section, componentId, limit } = args;
+      
+      if (!query && !section && !componentId) {
+        throw new Error('At least one search parameter (query, section, or componentId) must be provided');
+      }
+      
+      const results = componentRegistry.searchUsageGuidelines({
+        query,
+        section,
+        componentId
+      });
+      
+      // Apply limit if specified
+      const limitedResults = limit ? results.slice(0, limit) : results;
+      
+      return {
+        type: 'text',
+        text: JSON.stringify({
+          searchParams: { query, section, componentId, limit },
+          totalResults: results.length,
+          returnedResults: limitedResults.length,
+          results: limitedResults.map(result => ({
+            componentId: result.componentId,
+            componentName: result.componentName,
+            matchedSections: result.matchedSections,
+            // Truncate content for search results, full content available via resource
+            contentPreview: result.content.length > 500 
+              ? result.content.substring(0, 500) + '...\n\n[Content truncated. Access full content via cloudscape://usage/' + result.componentId + ']'
+              : result.content
+          }))
+        }, null, 2)
+      };
+    },
+  });
+}
+
+/**
+ * Parse markdown content into structured sections
+ * @param content - Markdown content
+ * @returns Parsed sections
+ */
+function parseMarkdownSections(content: string): Array<{ title: string; level: number; content: string }> {
+  const lines = content.split('\n');
+  const sections: Array<{ title: string; level: number; content: string }> = [];
+  let currentSection: { title: string; level: number; content: string } | null = null;
+  
+  lines.forEach(line => {
+    const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
+    
+    if (headerMatch) {
+      // Save previous section if exists
+      if (currentSection) {
+        sections.push(currentSection);
+      }
+      
+      // Start new section
+      currentSection = {
+        title: headerMatch[2],
+        level: headerMatch[1].length,
+        content: ''
+      };
+    } else if (currentSection) {
+      // Add content to current section
+      currentSection.content += (currentSection.content ? '\n' : '') + line;
+    }
+  });
+  
+  // Add the last section
+  if (currentSection) {
+    sections.push(currentSection);
+  }
+  
+  return sections.map(section => ({
+    ...section,
+    content: section.content.trim()
+  }));
 }
 
 /**
@@ -1089,6 +1506,31 @@ function registerResources(server: FastMCP) {
       return {
         type: 'text',
         text: JSON.stringify(example, null, 2),
+      };
+    },
+  });
+
+  // Register component usage guidelines resource
+  (server.addResourceTemplate as any)({
+    uriTemplate: 'cloudscape://usage/{componentId}',
+    name: 'Component Usage Guidelines',
+    parameters: [
+      {
+        name: 'componentId',
+        description: 'Component ID',
+      }
+    ],
+    handler: async (params: { componentId: string }) => {
+      const { componentId } = params;
+      const usageContent = componentRegistry.getComponentUsage(componentId);
+      
+      if (!usageContent) {
+        throw new Error(`Usage guidelines for component ${componentId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: usageContent,
       };
     },
   });

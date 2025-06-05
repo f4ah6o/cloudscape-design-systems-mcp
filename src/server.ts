@@ -15,11 +15,11 @@
  */
 
 // Import from TypeScript files
-import { createFastMCPServer } from './src/mcp/server';
-import { getServerConfig } from './src/utils/config';
-import { applySecurityEnhancements } from './src/security/index';
-import { initializeRooIntegration } from './src/integration/roo-integration';
-import { applyPerformanceOptimizations } from './src/optimization/performance';
+import { createFastMCPServer } from './mcp/server';
+import { getServerConfig } from './utils/config';
+import { applySecurityEnhancements } from './security/index';
+import { initializeRooIntegration } from './integration/roo-integration';
+import { applyPerformanceOptimizations } from './optimization/performance';
 
 // Get server configuration
 const config = getServerConfig();

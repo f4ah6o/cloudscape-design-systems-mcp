@@ -1,0 +1,120 @@
+{
+  "name": "Tiles",
+  "dashCaseName": "tiles",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [
+    {
+      "name": "focus",
+      "description": "Sets input focus onto the UI control.",
+      "returnType": "void",
+      "parameters": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "ariaControls",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-controls` attribute to the component.\nIf the component controls any secondary content (for example, another form field), use this to provide an ID referring to the secondary content."
+    },
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-describedby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for each element that you want to use as a description\nand set the property to a string of each ID separated by spaces (for example, `\"id1 id2 id3\"`)."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-label` on the group. Don't set this property if you are using this form element within a form field\nbecause the form field component automatically sets the correct labels to make the component accessible."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for the element you want to use as label and set the property to that ID."
+    },
+    {
+      "name": "ariaRequired",
+      "type": "boolean",
+      "optional": true,
+      "description": "Adds `aria-required` on the group."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "columns",
+      "type": "number",
+      "optional": true,
+      "description": "The number of columns for the tiles to be displayed in. Valid values are integers between 1 and 4.\nIf no value is specified, the number of columns is determined based on the number of items, with a maximum of 3.\nIt is set to 2 if 4 or 8 items are supplied in order to optimize the layout."
+    },
+    {
+      "name": "controlId",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the ID of the native form element. You can use it to relate\na label element's `for` attribute to this control.\n\nIt defaults to an automatically generated ID that\nis provided by its parent form field component."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "items",
+      "type": "ReadonlyArray<TilesProps.TilesDefinition>",
+      "optional": true,
+      "description": "List of tile definitions. Each tile has the following properties:\n\n- `value` [string] - The value that will be associated with the tile. This is the value the tiles will get when the radio button is selected.\n- `label` [ReactNode] - A short description for the option the tile represents.\n- `description` [ReactNode] - (Optional) Further explanatory guidance on the tile option, shown below the `label`.\n- `image` [ReactNode] - (Optional) Visually distinctive image for the tile option, shown below the `description`.\n- `disabled` [boolean] - (Optional) Specifies whether the tile is disabled. Users can't select disabled tiles.\n- `controlId` [string] - (Optional) The ID of the internal input. You can use this to relate a label element's `for` attribute to this control.\n           We recommend that you don't set this property because it's automatically set by the tiles component."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "optional": true,
+      "description": "Specify a custom name for the native radio buttons. If not provided, the tiles component generates a random name."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies if the control is read-only, which prevents the\nuser from modifying the value, but does not prevent the value from\nbeing included in a form submission. A read-only control is still focusable."
+    },
+    {
+      "name": "value",
+      "type": "string | null",
+      "optional": false,
+      "description": "Specifies the value of the selected tile.\nIf you want to clear the selection, use `null`."
+    }
+  ],
+  "events": [
+    {
+      "name": "onChange",
+      "description": "Called when the user selects a different tile.",
+      "cancelable": false,
+      "detailType": "TilesProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "TilesProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "value",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "tiles",
+    "source": "tiles.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/tiles.js"
+  }
+}

@@ -1,4 +1,4 @@
-const { createFastMCPServer } = require('./dist/src/mcp/server');
+const { createFastMCPServer } = require('./dist/mcp/server');
 const port = 3039;
 
 // Create a server instance

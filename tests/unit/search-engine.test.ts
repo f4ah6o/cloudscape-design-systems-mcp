@@ -14,6 +14,8 @@ describe('Search Engine', () => {
       const results = searchEngine.searchComponents({
         query: ''
       });
+
+      console.log('results', results)
       
       // Verify search results structure
       expect(results).toBeDefined();

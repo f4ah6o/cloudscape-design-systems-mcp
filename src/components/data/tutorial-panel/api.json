@@ -1,0 +1,172 @@
+{
+  "name": "TutorialPanel",
+  "dashCaseName": "tutorial-panel",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "downloadUrl",
+      "type": "string",
+      "optional": true,
+      "description": "The link to a file documenting all tutorials (usually a PDF)."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "TutorialPanelProps.I18nStrings",
+      "inlineType": {
+        "name": "TutorialPanelProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "completionScreenTitle",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "dismissTutorialButtonText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "feedbackLinkText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "labelExitTutorial",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "labelLearnMoreExternalIcon",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "labelLearnMoreLink",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelsTaskStatus",
+            "type": "{ pending: string; 'in-progress': string; success: string; }",
+            "optional": false
+          },
+          {
+            "name": "labelTotalSteps",
+            "type": "(totalStepCount: number) => string",
+            "optional": false
+          },
+          {
+            "name": "labelTutorialListDownloadLink",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "learnMoreLinkText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "loadingText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "restartTutorialButtonText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "startTutorialButtonText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "stepTitle",
+            "type": "(stepIndex: number, stepTitle: string) => string",
+            "optional": false
+          },
+          {
+            "name": "taskTitle",
+            "type": "(taskIndex: number, taskTitle: string) => string",
+            "optional": false
+          },
+          {
+            "name": "tutorialCompletedText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "tutorialListDescription",
+            "type": "React.ReactNode",
+            "optional": true
+          },
+          {
+            "name": "tutorialListDownloadLinkText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "tutorialListTitle",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      },
+      "optional": false,
+      "description": "An object containing all the necessary localized strings required by the component."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "optional": true,
+      "description": "Whether the content of the panel is currently loading. If this property\nis set to `true`, the panel displays a spinner and the loadingText that is\nspecified in the `i18nStrings` property."
+    },
+    {
+      "name": "tutorials",
+      "type": "ReadonlyArray<TutorialPanelProps.Tutorial>",
+      "optional": false,
+      "description": "List of all available tutorials. An array of objects with the following properties:\n\n* `title` (string) - Name of the tutorial\n\n* `description` (ReactNode) - Short description of the tutorial's content.\n\n* `tasks` - Array of tasks (in intended order). Each Task has the following properties:\n  * `title` (string) - Name of this task. This is shown in the task list overview of the tutorial's detail view.\n  * `steps` - Array of steps in this task (in intended order). Each step has the following properties:\n    * `title` (string) - Title of this step. This is shown in the step list in the tutorial's detail view.\n    * `content` (ReactNode) - Content to be shown in the popover of this step. Can be JSX or plain text.\n    * `warningAlert` (ReactNode) - (Optional) If this field is present, a warning alert will be displayed\n       inside the step's popover, showing this field's content. Can be JSX or plain text.\n    * `hotspotId` (string) - ID of the hotspot that this tutorial step points to.\n\n       A hotspot with this ID needs to be added manually to the code of the application and represents a location\n       in the application that a tutorial step can be attached to. It can be re-used by multiple tutorials. Hotspot\n       IDs need to be unique in the scope of the whole application that uses this tutorial.\n\n* `completedScreenDescription` (ReactNode) - Description to be shown on the last page of the tutorial, when the\n   user has successfully completed the tutorial.\n\n* `prerequisitesAlert` (ReactNode) - (Optional) If the application determines that the user cannot start the tutorial\n   yet (by specifying the property `prerequisitesNeeded` on the tutorial object), the content of `prerequisitesAlert`\n   will be shown in the tutorial list underneath the tutorial title.\n\n   Example: `<><Link>Create a bucket first</Link> to complete this tutorial.</>`\n\n* `prerequisitesNeeded` (boolean) - (Optional) If this property is set to `true`, the tutorial list will disable the\n  `Start tutorial` button for this tutorial, and it will show the contents of the tutorial's `prerequisitesAlert` field\n   in an alert underneath the tutorial title.\n\n* `learnMoreUrl` (string | null) - (Optional) If present, the tutorial list will show a \"Learn More\" link pointing to\n   this URL underneath the tutorial's description.\n\n* `completed` (boolean) - Whether the user has already completed this tutorial.\n\n  If this property is set to `true`, the tutorial list will show a status indicator underneath the tutorial title with\n  a message that indicates that this tutorial has already been completed by the user (e.g. \"Tutorial completed\"), and\n  the \"Start tutorial\" button will be replaced by a \"Restart tutorial\" button."
+    }
+  ],
+  "events": [
+    {
+      "name": "onFeedbackClick",
+      "description": "Fired when the user clicks on the feedback link at the end of a tutorial.",
+      "cancelable": false,
+      "detailType": "TutorialPanelProps.TutorialDetail",
+      "detailInlineType": {
+        "name": "TutorialPanelProps.TutorialDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "tutorial",
+            "type": "TutorialPanelProps.Tutorial",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "tutorial-panel",
+    "source": "tutorial-panel.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/tutorial-panel.js"
+  }
+}

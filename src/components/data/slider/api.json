@@ -1,0 +1,178 @@
+{
+  "name": "Slider",
+  "dashCaseName": "slider",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-describedby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for each element that you want to use as a description\nand set the property to a string of each ID separated by spaces (for example, `\"id1 id2 id3\"`)."
+    },
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an aria-description for slider labels.\n\nUse when sliders have formatted reference values."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the native control.\n\nUse this if you don't have a visible label for this control."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for the element you want to use as label and set the property to that ID."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "controlId",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the ID of the native form element. You can use it to relate\na label element's `for` attribute to this control.\n\nIt defaults to an automatically generated ID that\nis provided by its parent form field component."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "optional": true,
+      "description": "Whether or not the slider is disabled."
+    },
+    {
+      "name": "hideFillLine",
+      "type": "boolean",
+      "optional": true,
+      "description": "Hides the colored fill line, so only the handle is visible."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "SliderProps.I18nStrings",
+      "inlineType": {
+        "name": "SliderProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "valueTextRange",
+            "type": "(previousValue: string, value: number, nextValue: string) => string",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "optional": true,
+      "description": "Overrides the invalidation state. Usually the invalid state\ncomes from the parent `FormField`component,\nhowever sometimes you need to override its\nstate when you have more than one input within a\nsingle form field."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "optional": false,
+      "description": "Indicates the maximum value."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "optional": false,
+      "description": "Indicates the minimum value."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies if the control is read-only, which prevents the\nuser from modifying the value, but does not prevent the value from\nbeing included in a form submission. A read-only control is still focusable."
+    },
+    {
+      "name": "referenceValues",
+      "type": "ReadonlyArray<number>",
+      "optional": true,
+      "description": "Labels shown between the minimum and maximum values."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "optional": true,
+      "description": "How big the step size is."
+    },
+    {
+      "name": "tickMarks",
+      "type": "boolean",
+      "optional": true,
+      "description": "Show the tick marks along the slider line. Use with stepped sliders, except in extreme cases."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "optional": true,
+      "description": "Indicates the current value."
+    },
+    {
+      "name": "valueFormatter",
+      "type": "((value: number) => string)",
+      "inlineType": {
+        "name": "(value: number) => string",
+        "type": "function",
+        "returnType": "string",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "number"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Formats the values. This will format both the labels and the tooltip."
+    },
+    {
+      "name": "warning",
+      "type": "boolean",
+      "optional": true,
+      "description": "Overrides the warning state. Usually the warning state\ncomes from the parent `FormField`component,\nhowever sometimes you need to override its\nstate when you have more than one input within a\nsingle form field.\nWhen you use it, provide additional context with\ninformation on the input state, and associate it\nwith the input using `ariaDescribedby`."
+    }
+  ],
+  "events": [
+    {
+      "name": "onChange",
+      "description": "Called when the user selects a value.\nThe event `detail` contains the current `value`.",
+      "cancelable": false,
+      "detailType": "SliderProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "SliderProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "value",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "slider",
+    "source": "slider.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/slider.js"
+  }
+}

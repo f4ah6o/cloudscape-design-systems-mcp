@@ -6,11 +6,11 @@
  * for common Cloudscape patterns.
  */
 
-import { createFastMCPServer } from './src/mcp/server';
-import { getServerConfig } from './src/utils/config';
-import { applySecurityEnhancements } from './src/security/index';
-import { initializeRooIntegration } from './src/integration/roo-integration';
-import { applyPerformanceOptimizations } from './src/optimization/performance';
+import { createFastMCPServer } from './mcp/server';
+import { getServerConfig } from './utils/config';
+import { applySecurityEnhancements } from './security/index';
+import { initializeRooIntegration } from './integration/roo-integration';
+import { applyPerformanceOptimizations } from './optimization/performance';
 
 /**
  * Creates a configured Cloudscape Assistant MCP server
@@ -47,5 +47,5 @@ export function createCloudscapeAssistant(options: any = {}) {
 export default createCloudscapeAssistant;
 
 // Re-export key components for advanced usage
-export { createFastMCPServer } from './src/mcp/server';
-export { getServerConfig } from './src/utils/config';
+export { createFastMCPServer } from './mcp/server';
+export { getServerConfig } from './utils/config';

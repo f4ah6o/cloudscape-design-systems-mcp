@@ -1,0 +1,85 @@
+{
+  "name": "SpaceBetween",
+  "dashCaseName": "space-between",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "description": "Content of this component.",
+      "isDefault": true
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "alignItems",
+      "type": "string",
+      "inlineType": {
+        "name": "SpaceBetweenProps.AlignItems",
+        "type": "union",
+        "values": [
+          "center",
+          "end",
+          "start"
+        ]
+      },
+      "optional": true,
+      "description": "Determines how the child elements will be aligned based on the [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) property of the CSS Flexbox."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "direction",
+      "type": "string",
+      "inlineType": {
+        "name": "SpaceBetweenProps.Direction",
+        "type": "union",
+        "values": [
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "optional": true,
+      "description": "Defines the direction in which the content is laid out.",
+      "defaultValue": "'vertical'"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "inlineType": {
+        "name": "SpaceBetweenProps.Size",
+        "type": "union",
+        "values": [
+          "s",
+          "m",
+          "xxxs",
+          "xxs",
+          "xs",
+          "l",
+          "xl",
+          "xxl"
+        ]
+      },
+      "optional": false,
+      "description": "Defines the spacing between the individual items of the content."
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "space-between",
+    "source": "space-between.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/space-between.js"
+  }
+}

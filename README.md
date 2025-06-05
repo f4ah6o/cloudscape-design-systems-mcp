@@ -6,6 +6,9 @@ React Design Systems is a Model Context Protocol (MCP) server that provides comp
 
 Future versions will expand to support additional popular React design systems including Material UI, Chakra UI, Ant Design, Blueprint, and Mantine.
 
+## Change Log
+See [CHANGELOG.md]
+
 ## Features
 
 ### Component Information & Search
@@ -39,17 +42,6 @@ Future versions will expand to support additional popular React design systems i
 
 ## Installation
 
-### For Development
-
-```bash
-# Clone the repository
-git clone https://github.com/agentience/react-design-systems-mcp.git
-cd react-design-systems-mcp
-
-# Install dependencies
-npm install
-```
-
 ### For Usage as a Dependency
 
 ```bash
@@ -66,54 +58,6 @@ npm install -g @agentience/react-design-systems-mcp
 # Then you can run it directly
 react-design-systems-mcp
 ```
-
-## Usage
-
-### Running the Server
-
-#### Standard Mode (stdio)
-
-```bash
-npm start
-```
-
-or
-
-```bash
-npm run dev
-```
-
-#### SSE Mode (for Web Applications)
-
-```bash
-npm run dev:sse
-```
-
-### Testing
-
-```bash
-npm test
-```
-
-### Building
-
-The build process includes automatic processing of usage.md files to convert internal links:
-
-```bash
-# Full build with link processing
-npm run build
-
-# Individual build steps
-npm run prepare      # Compile TypeScript
-npm run update-links # Process markdown links
-npm run postbuild    # Copy data files
-
-# Link processing utilities
-npm run update-links:dry-run    # Preview changes without modifying files
-npm run update-links:verbose    # Show detailed processing information
-```
-
-The build automatically converts internal markdown links in usage.md files from regular format to the `get_link_resource` tool call format, enabling the MCP server to resolve component, pattern, and foundation references.
 
 ## Claude Desktop Configuration
 
@@ -360,17 +304,3 @@ MIT - See [LICENSE](LICENSE) for more information.## Available Documentation
 - [React Design Systems Development](./DEVELOPMENT.md)
 - [Docker Deployment for React Design Systems](./DOCKER.md)
 - [React Design Systems v1.0.4](./release-notes.md)
-
-## Subdirectories
-
-- [.git](./.git/)
-- [.github](./.github/)
-- [.practices](./.practices/)
-- [.roo](./.roo/)
-- [Coverage](./coverage/)
-- [Dist](./dist/)
-- [Docs](./docs/)
-- [Memory Bank](./memory-bank/)
-- [Scripts](./scripts/)
-- [Src](./src/)
-- [Tests](./tests/)

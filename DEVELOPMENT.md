@@ -45,7 +45,18 @@ react-design-systems-mcp/
 └── test-phase4.ts             # Phase 4 test script
 ```
 
-## Development Installation
+## Installation for Development
+
+```bash
+# Clone the repository
+git clone https://github.com/agentience/react-design-systems-mcp.git
+cd react-design-systems-mcp
+
+# Install dependencies
+npm install
+```
+
+### Setup Steps
 
 1. Ensure you have Node.js 24.0.1 or higher installed:
 ```bash
@@ -53,23 +64,34 @@ node --version
 # Should output v24.0.1 or higher
 ```
 
-2. Clone the repository:
-```bash
-git clone https://github.com/agentience/react-design-systems-mcp.git
-cd react-design-systems-mcp
-```
-
-3. Install dependencies:
-```bash
-npm install
-```
-
-4. Build the TypeScript code:
+2. Build the TypeScript code:
 ```bash
 npm run build
 ```
 
-## Development Usage
+## Usage (Development Environment)
+
+### Running the Server
+
+#### Standard Mode (stdio)
+
+```bash
+npm start
+```
+
+or
+
+```bash
+npm run dev
+```
+
+#### SSE Mode (for Web Applications)
+
+```bash
+npm run dev:sse
+```
+
+#### Advanced Development Usage
 
 Start the server:
 ```bash
@@ -100,6 +122,32 @@ npm run dev -- --bind 127.0.0.1
 # or
 BIND=127.0.0.1 npm run dev
 ```
+
+### Testing
+
+```bash
+npm test
+```
+
+### Building
+
+The build process includes automatic processing of usage.md files to convert internal links:
+
+```bash
+# Full build with link processing
+npm run build
+
+# Individual build steps
+npm run prepare      # Compile TypeScript
+npm run update-links # Process markdown links
+npm run postbuild    # Copy data files
+
+# Link processing utilities
+npm run update-links:dry-run    # Preview changes without modifying files
+npm run update-links:verbose    # Show detailed processing information
+```
+
+The build automatically converts internal markdown links in usage.md files from regular format to the `get_link_resource` tool call format, enabling the MCP server to resolve component, pattern, and foundation references.
 
 ## Core Components
 

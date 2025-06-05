@@ -1,0 +1,599 @@
+{
+  "name": "S3ResourceSelector",
+  "dashCaseName": "s3-resource-selector",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "alert",
+      "description": "Specifies additional information about component status.",
+      "isDefault": false
+    }
+  ],
+  "functions": [
+    {
+      "name": "focus",
+      "description": "Focuses the S3 URI input field",
+      "returnType": "void",
+      "parameters": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-describedby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for each element that you want to use as a description\nand set the property to a string of each ID separated by spaces (for example, `\"id1 id2 id3\"`)."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-label` to the component."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for the element you want to use as label and set the property to that ID."
+    },
+    {
+      "name": "bucketsIsItemDisabled",
+      "type": "((item: S3ResourceSelectorProps.Bucket) => boolean)",
+      "inlineType": {
+        "name": "(item: S3ResourceSelectorProps.Bucket) => boolean",
+        "type": "function",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "S3ResourceSelectorProps.Bucket"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Optionally overrides whether a bucket should be disabled for selection in the Buckets view or not.\nIt has higher priority than `selectableItemsTypes`. Example: if `selectableItemsTypes` has `['buckets']` value and\n`bucketsIsItemDisabled` returns false for a bucket, then the bucket is disabled for selection."
+    },
+    {
+      "name": "bucketsVisibleColumns",
+      "type": "ReadonlyArray<string>",
+      "optional": true,
+      "description": "Optionally overrides the set of visible columns in the Buckets view. Available columns: 'Name', 'CreationDate',\nand 'Region'.",
+      "defaultValue": "['Name', 'CreationDate']"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "fetchBuckets",
+      "type": "() => Promise<ReadonlyArray<S3ResourceSelectorProps.Bucket>>",
+      "inlineType": {
+        "name": "() => Promise<ReadonlyArray<S3ResourceSelectorProps.Bucket>>",
+        "type": "function",
+        "returnType": "Promise<ReadonlyArray<S3ResourceSelectorProps.Bucket>>",
+        "parameters": []
+      },
+      "optional": false,
+      "description": "Specifies a function that returns all available buckets. The return type of the function should be a promise\nthat resolves to a list of objects with the following properties:\n- `Name` (string) - Name of the bucket.\n- `CreationDate` (string) - (Optional) Creation date of the bucket.\n- `Region` (string) - (Optional) Region of the bucket."
+    },
+    {
+      "name": "fetchObjects",
+      "type": "(bucketName: string, pathPrefix: string) => Promise<ReadonlyArray<S3ResourceSelectorProps.Object>>",
+      "inlineType": {
+        "name": "(bucketName: string, pathPrefix: string) => Promise<ReadonlyArray<S3ResourceSelectorProps.Object>>",
+        "type": "function",
+        "returnType": "Promise<ReadonlyArray<S3ResourceSelectorProps.Object>>",
+        "parameters": [
+          {
+            "name": "bucketName",
+            "type": "string"
+          },
+          {
+            "name": "pathPrefix",
+            "type": "string"
+          }
+        ]
+      },
+      "optional": false,
+      "description": "Specifies a function that returns available objects and object prefixes for the given `bucketName` and `pathPrefix`.\nThe return type of the function should be a promise that resolves to a list of objects with the following properties:\n- `Key` (string) - Name of the object or object prefix.\n- `LastModified` (string) - (Optional) Date when this object was last modified.\n- `Size` (number) - (Optional) Size of the object.\n- `IsFolder` (boolean) - (Optional)  Determines whether the entry is an object prefix (folder)."
+    },
+    {
+      "name": "fetchVersions",
+      "type": "(bucketName: string, pathPrefix: string) => Promise<ReadonlyArray<S3ResourceSelectorProps.Version>>",
+      "inlineType": {
+        "name": "(bucketName: string, pathPrefix: string) => Promise<ReadonlyArray<S3ResourceSelectorProps.Version>>",
+        "type": "function",
+        "returnType": "Promise<ReadonlyArray<S3ResourceSelectorProps.Version>>",
+        "parameters": [
+          {
+            "name": "bucketName",
+            "type": "string"
+          },
+          {
+            "name": "pathPrefix",
+            "type": "string"
+          }
+        ]
+      },
+      "optional": false,
+      "description": "Specifies a function that returns available versions for the given `bucketName` and `pathPrefix`.\nThe return type of the function should be a promise that resolves to a list of versions with the following properties:\n- `VersionId` (string) - Version ID of an object.\n- `LastModified` (string) - (Optional) Date when this object was last modified.\n- `Size` (number) - (Optional) Size of the object version."
+    },
+    {
+      "name": "getModalRoot",
+      "type": "(() => Promise<HTMLElement>)",
+      "inlineType": {
+        "name": "() => Promise<HTMLElement>",
+        "type": "function",
+        "returnType": "Promise<HTMLElement>",
+        "parameters": []
+      },
+      "optional": true,
+      "description": "Use this property to specify a different dynamic modal root for the dialog.\nThe function will be called when a user clicks on the trigger button."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "S3ResourceSelectorProps.I18nStrings",
+      "inlineType": {
+        "name": "S3ResourceSelectorProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "clearFilterButtonText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnBucketCreationDate",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnBucketName",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnBucketRegion",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnObjectKey",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnObjectLastModified",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnObjectSize",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnVersionID",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnVersionLastModified",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "columnVersionSize",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "filteringCantFindMatch",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "filteringCounterText",
+            "type": "((count: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "filteringNoMatches",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextBrowseButton",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextInputClearAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextInputPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextLoadingText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextSelectPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextUriLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextVersionSelectLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextViewButton",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "inContextViewButtonAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelBreadcrumbs",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelClearFilter",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelExpandBreadcrumbs",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelFiltering",
+            "type": "((itemsType: string) => string)",
+            "optional": true
+          },
+          {
+            "name": "labelIconFolder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelIconObject",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelModalDismiss",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelNotSorted",
+            "type": "SortingColumnContainingString",
+            "optional": true
+          },
+          {
+            "name": "labelRefresh",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "labelsBucketsSelection",
+            "type": "SelectionLabels<S3ResourceSelectorProps.Bucket>",
+            "optional": true
+          },
+          {
+            "name": "labelsObjectsSelection",
+            "type": "SelectionLabels<S3ResourceSelectorProps.Object>",
+            "optional": true
+          },
+          {
+            "name": "labelSortedAscending",
+            "type": "SortingColumnContainingString",
+            "optional": true
+          },
+          {
+            "name": "labelSortedDescending",
+            "type": "SortingColumnContainingString",
+            "optional": true
+          },
+          {
+            "name": "labelsPagination",
+            "type": "PaginationProps.Labels",
+            "optional": true
+          },
+          {
+            "name": "labelsVersionsSelection",
+            "type": "SelectionLabels<S3ResourceSelectorProps.Version>",
+            "optional": true
+          },
+          {
+            "name": "modalBreadcrumbRootItem",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "modalCancelButton",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "modalLastUpdatedText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "modalSubmitButton",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "modalTitle",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionBuckets",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionBucketsLoading",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionBucketsNoItems",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionBucketsSearchPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionObjects",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionObjectsLoading",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionObjectsNoItems",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionObjectsSearchPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionVersions",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionVersionsLoading",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionVersionsNoItems",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "selectionVersionsSearchPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "validationBucketLength",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "validationBucketLowerCase",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "validationBucketMustComplyDns",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "validationBucketMustNotContain",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "validationPathMustBegin",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "inputAriaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the S3 URI input. If you're using this component within a form field,\nyou do not need to set this property, as the form field component will set it automatically.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for the element you want to use as label and set the property to that ID."
+    },
+    {
+      "name": "inputPlaceholder",
+      "type": "string",
+      "optional": true,
+      "description": "Adds a placeholder to the S3 URI input."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "optional": true,
+      "description": "Whether the S3 URI input field is in invalid state."
+    },
+    {
+      "name": "objectsIsItemDisabled",
+      "type": "((item: S3ResourceSelectorProps.Object) => boolean)",
+      "inlineType": {
+        "name": "(item: S3ResourceSelectorProps.Object) => boolean",
+        "type": "function",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "S3ResourceSelectorProps.Object"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Optionally overrides whether an object should be disabled for selection in the Objects view or not. Similar to\n`bucketsIsItemDisabled` this property takes precedence over the `selectableItemsTypes` property."
+    },
+    {
+      "name": "objectsVisibleColumns",
+      "type": "ReadonlyArray<string>",
+      "optional": true,
+      "description": "Optionally overrides the set of visible columns in the Objects view. Available columns: 'Key', 'LastModified',\nand 'Size'.",
+      "defaultValue": "['Key', 'LastModified', 'Size']"
+    },
+    {
+      "name": "removeModalRoot",
+      "type": "((rootElement: HTMLElement) => void)",
+      "inlineType": {
+        "name": "(rootElement: HTMLElement) => void",
+        "type": "function",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "rootElement",
+            "type": "HTMLElement"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Use this property when `getModalRoot` is used to clean up the modal root\nelement after a user closes the dialog. The function receives the return value\nof the most recent getModalRoot call as an argument."
+    },
+    {
+      "name": "resource",
+      "type": "S3ResourceSelectorProps.Resource",
+      "inlineType": {
+        "name": "S3ResourceSelectorProps.Resource",
+        "type": "object",
+        "properties": [
+          {
+            "name": "uri",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "versionId",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": false,
+      "description": "The current selected resource. Resource has the following properties:\n- `uri` (string) - URI of the resource.\n- `versionId` (string) - (Optional) Version ID of the selected resource."
+    },
+    {
+      "name": "selectableItemsTypes",
+      "type": "ReadonlyArray<S3ResourceSelectorProps.SelectableItems>",
+      "optional": true,
+      "description": "An array of the item types that are selectable in the table view. The array may contain the following items:\n'buckets', 'objects', or 'versions'. Example: ['buckets', 'objects']. By default, no items are selectable.\nThis property determines whether the component operates in Read mode or Write mode:\n* Read mode - When 'objects' and 'versions' values are provided (folder selection should be disabled by\ncustomizing `objectsIsItemDisabled` function).\n* Write mode - When 'buckets' and 'objects' values are provided (file selection should be disabled by\ncustomizing `objectsIsItemDisabled` function).",
+      "defaultValue": "[]"
+    },
+    {
+      "name": "versionsIsItemDisabled",
+      "type": "((item: S3ResourceSelectorProps.Version) => boolean)",
+      "inlineType": {
+        "name": "(item: S3ResourceSelectorProps.Version) => boolean",
+        "type": "function",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "S3ResourceSelectorProps.Version"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Optionally overrides whether a version should be disabled for selection in the Versions view or not. Similar to\n`bucketsIsItemDisabled` this property takes precedence over the `selectableItemsTypes` property."
+    },
+    {
+      "name": "versionsVisibleColumns",
+      "type": "ReadonlyArray<string>",
+      "optional": true,
+      "description": "Optionally overrides the set of visible columns in the Versions view. Available columns: 'ID', 'CreationDate',\nand 'Size'.",
+      "defaultValue": "['ID', 'LastModified', 'Size']"
+    },
+    {
+      "name": "viewHref",
+      "type": "string",
+      "optional": true,
+      "description": "Href of the selected object that is applied to the View button."
+    }
+  ],
+  "events": [
+    {
+      "name": "onChange",
+      "description": "Fired when the resource selection is changed. The event detail object contains resource that represents the full\npath of the selected resource and `errorText` that may contain a validation error.",
+      "cancelable": false,
+      "detailType": "S3ResourceSelectorProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "S3ResourceSelectorProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resource",
+            "type": "S3ResourceSelectorProps.Resource",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "s3-resource-selector",
+    "source": "s3-resource-selector.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/s3-resource-selector.js"
+  }
+}

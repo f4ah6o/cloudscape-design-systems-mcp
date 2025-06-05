@@ -1,10 +1,10 @@
 # Frontend-Code Mode Documentation
 
-This document provides documentation for the frontend-code mode, which extends the standard Code mode with Cloudscape component awareness.
+This document provides documentation for the frontend-code mode, which extends the standard Code mode with React design system component awareness.
 
 ## Overview
 
-The frontend-code mode is a specialized mode for UI development with AWS Cloudscape Design System components. It extends the standard Code mode with additional capabilities for working with Cloudscape components, including:
+The frontend-code mode is a specialized mode for UI development with React design systems. Currently focused on AWS Cloudscape Design System components, it extends the standard Code mode with additional capabilities for working with design system components, including:
 
 - Component search and retrieval
 - Code generation for common Cloudscape patterns
@@ -26,7 +26,7 @@ frontend-code:
     - ".roo/rules-code/*.roo.md"
     - ".roo/rules-frontend-code/*.roo.md"
   mcp_servers:
-    - "cloudscape"
+    - "react-design-systems"
 ```
 
 ### Configuration Details
@@ -36,7 +36,7 @@ frontend-code:
 - **extends**: The mode that this mode extends (in this case, "code")
 - **model**: The model to use for this mode
 - **rules**: The rules files to load for this mode
-- **mcp_servers**: The MCP servers to connect to for this mode
+- **mcp_servers**: The MCP servers to connect to for this mode (react-design-systems server)
 
 ## Rules File
 
@@ -44,14 +44,14 @@ The frontend-code mode includes a minimal rules file (`.roo/rules-frontend-code/
 
 - Overview of Cloudscape Design System
 - List of 10-15 most commonly used components with brief descriptions
-- Instructions for accessing the full component library via MCP server
+- Instructions for accessing the full component library via React Design Systems MCP server
 
 ### Rules File Content
 
 ```markdown
 # Cloudscape Components
 
-This document provides an overview of the AWS Cloudscape Design System and its components, along with instructions for accessing the full component library via the Cloudscape MCP server.
+This document provides an overview of the AWS Cloudscape Design System and its components, along with instructions for accessing the full component library via the React Design Systems MCP server.
 
 ## Overview
 
@@ -326,7 +326,7 @@ Use the `search_components` tool to search for Cloudscape components:
 
 ```
 <use_mcp_tool>
-<server_name>cloudscape</server_name>
+<server_name>react-design-systems</server_name>
 <tool_name>search_components</tool_name>
 <arguments>
 {
@@ -344,7 +344,7 @@ Use the `get_component_details` tool to get detailed information about a compone
 
 ```
 <use_mcp_tool>
-<server_name>cloudscape</server_name>
+<server_name>react-design-systems</server_name>
 <tool_name>get_component_details</tool_name>
 <arguments>
 {
@@ -360,7 +360,7 @@ Use the `generate_component_code` tool to generate code for a component:
 
 ```
 <use_mcp_tool>
-<server_name>cloudscape</server_name>
+<server_name>react-design-systems</server_name>
 <tool_name>generate_component_code</tool_name>
 <arguments>
 {
@@ -391,7 +391,7 @@ Use the `generate_pattern_code` tool to generate code for a common pattern:
 
 ```
 <use_mcp_tool>
-<server_name>cloudscape</server_name>
+<server_name>react-design-systems</server_name>
 <tool_name>generate_pattern_code</tool_name>
 <arguments>
 {
@@ -422,7 +422,7 @@ Use the `get_component_examples` tool to get usage examples for a component:
 
 ```
 <use_mcp_tool>
-<server_name>cloudscape</server_name>
+<server_name>react-design-systems</server_name>
 <tool_name>get_component_examples</tool_name>
 <arguments>
 {
@@ -440,7 +440,7 @@ Use the `access_mcp_resource` tool to access component documentation:
 
 ```
 <access_mcp_resource>
-<server_name>cloudscape</server_name>
+<server_name>react-design-systems</server_name>
 <uri>cloudscape://components/table</uri>
 </access_mcp_resource>
 ```

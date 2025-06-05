@@ -1,0 +1,182 @@
+{
+  "name": "AnnotationContext",
+  "dashCaseName": "annotation-context",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "description": "Put all page content inside this component's children. This component\nwill provide a context which is used by the Hotspot elements throughout\nthe page.",
+      "isDefault": true
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "currentTutorial",
+      "type": "TutorialPanelProps.Tutorial | null",
+      "inlineType": {
+        "name": "TutorialPanelProps.Tutorial",
+        "type": "object",
+        "properties": [
+          {
+            "name": "completed",
+            "type": "boolean",
+            "optional": false
+          },
+          {
+            "name": "completedScreenDescription",
+            "type": "React.ReactNode",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "React.ReactNode",
+            "optional": true
+          },
+          {
+            "name": "learnMoreUrl",
+            "type": "string | null",
+            "optional": true
+          },
+          {
+            "name": "prerequisitesAlert",
+            "type": "React.ReactNode",
+            "optional": true
+          },
+          {
+            "name": "prerequisitesNeeded",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "tasks",
+            "type": "ReadonlyArray<TutorialPanelProps.Task>",
+            "optional": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      },
+      "optional": false,
+      "description": "The currently launched tutorial. This should be the object received\nin the `detail` property of the `onStartTutorial` event."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "AnnotationContextProps.I18nStrings",
+      "inlineType": {
+        "name": "AnnotationContextProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "finishButtonText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "labelDismissAnnotation",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "labelHotspot",
+            "type": "(openState: boolean, stepIndex: number, totalStepCount: number) => string",
+            "optional": false
+          },
+          {
+            "name": "nextButtonText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "previousButtonText",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "stepCounterText",
+            "type": "(stepIndex: number, totalStepCount: number) => string",
+            "optional": false
+          },
+          {
+            "name": "taskTitle",
+            "type": "(taskIndex: number, taskTitle: string) => string",
+            "optional": false
+          }
+        ]
+      },
+      "optional": false,
+      "description": "An object containing all the necessary localized strings required by the component. The object should contain:\n\n* `finishButtonText` - Specifies the text that's displayed in the finish button.\n* `labelDismissAnnotation` - Specifies the aria-label for the dismiss button.\n* `labelHotspot` - Specifies the aria-label for the hotspot button. The `openState` argument is deprecated, it's handled by the hotspot button aria-expanded attribute.\n* `nextButtonText` - Specifies the text that's displayed in the next button.\n* `previousButtonText` - Specifies the text that's displayed in the previous button.\n* `stepCounterText` - Specifies the step counter text that's displayed in the annotation popover.\n* `taskTitle` - Specifies the title text that's displayed in the annotation popover."
+    }
+  ],
+  "events": [
+    {
+      "name": "onExitTutorial",
+      "description": "Fired when the user exits the current tutorial.",
+      "cancelable": false,
+      "detailType": "TutorialPanelProps.TutorialDetail",
+      "detailInlineType": {
+        "name": "TutorialPanelProps.TutorialDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "tutorial",
+            "type": "TutorialPanelProps.Tutorial",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onFinish",
+      "description": "Fired when the user clicks the \"Finish\" button on the last step of\nthe tutorial.",
+      "cancelable": false
+    },
+    {
+      "name": "onStartTutorial",
+      "description": "Fired when the user selects a tutorial from the list.",
+      "cancelable": false,
+      "detailType": "TutorialPanelProps.TutorialDetail",
+      "detailInlineType": {
+        "name": "TutorialPanelProps.TutorialDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "tutorial",
+            "type": "TutorialPanelProps.Tutorial",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onStepChange",
+      "description": "This event is fired when a user clicks the \"Next\" or \"Previous\"\nbutton on a popover, when the user clicks on a closed hotspot icon,\nor when the AnnotationOverlay determines that the current hotspot\nhas disappeared from the page and a different one should be\nselected (e.g. when navigating between pages).\n\nUse the `reason` property of the event detail to determine why\nthis event was fired.",
+      "cancelable": false,
+      "detailType": "AnnotationContextProps.StepChangeDetail",
+      "detailInlineType": {
+        "name": "AnnotationContextProps.StepChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "reason",
+            "type": "\"open\" | \"next\" | \"previous\" | \"auto-fallback\"",
+            "optional": false
+          },
+          {
+            "name": "step",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "annotation-context",
+    "source": "annotation-context.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/annotation-context.js"
+  }
+}

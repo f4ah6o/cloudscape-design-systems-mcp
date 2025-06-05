@@ -1,0 +1,396 @@
+{
+  "name": "PieChart",
+  "dashCaseName": "pie-chart",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "additionalFilters",
+      "description": "Additional filters that you can add above the chart component.\nMake sure you update the `data` property when any of your custom filters change the data that's displayed.",
+      "isDefault": false
+    },
+    {
+      "name": "empty",
+      "description": "Content that's displayed when the data passed to the component is empty.",
+      "isDefault": false
+    },
+    {
+      "name": "noMatch",
+      "description": "Content that's displayed when there is no data to display because it doesn't match the specified filter.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "ariaDescription",
+      "type": "string",
+      "optional": true,
+      "description": "A description of the chart that assistive technologies can use (through `aria-describedby` and `<title>`).\nProvide a concise summary of the data visualized in the chart."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "ARIA label that's assigned to the chart. It should match the visible label on the page\n(for example, in the container header). Use either `ariaLabel` or `ariaLabelledby` (you can't use both)."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Sets `aria-labelledby` on the chart. If there is a visible label for the chart on the page\n(for example, in the container header), set this property to the ID of that header element.\nUse either `ariaLabel` or `ariaLabelledby` (you can't use both)."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "data",
+      "type": "ReadonlyArray<T>",
+      "optional": false,
+      "description": "An array that represents the source of data for the displayed segments.\nEach element can have the following properties:\n\n* `title` (string) - A human-readable title for this data point.\n* `value` (number) - Numeric value that determines the segment size.\n                       A segment with a value of zero (0) or lower (negative number) won't have a segment.\n* `color`: (string) - (Optional) Color value for this segment that takes priority over the automatically assigned color.\n                       Can be any valid CSS color identifier.\n\nAs long as your data object implements the properties above, you can also define additional properties\nthat are relevant to your data visualization.\nThe full data object will be passed down to events and properties like `detailPopoverContent`."
+    },
+    {
+      "name": "detailPopoverContent",
+      "type": "PieChartProps.DetailPopoverContentFunction<T>",
+      "inlineType": {
+        "name": "PieChartProps.DetailPopoverContentFunction<T>",
+        "type": "function",
+        "returnType": "ReadonlyArray<ChartDetailPair>",
+        "parameters": [
+          {
+            "name": "segment",
+            "type": "T"
+          },
+          {
+            "name": "visibleDataSum",
+            "type": "number"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "A function that determines the details that are displayed in the popover when hovering over a segment.\nThe function is called with the data of the target segment and is expected to return an array of detail pairs.\nBy default, each segment displays two detail pairs: count and percentage.\n\nEach pair has the following properties:\n* `key` (ReactNode) - Name of the detail or metric.\n* `value` (ReactNode) - The value of this detail for the target segment."
+    },
+    {
+      "name": "detailPopoverFooter",
+      "type": "PieChartProps.DetailPopoverFooter<T>",
+      "inlineType": {
+        "name": "PieChartProps.DetailPopoverFooter<T>",
+        "type": "function",
+        "returnType": "React.ReactNode",
+        "parameters": [
+          {
+            "name": "segment",
+            "type": "T"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Additional content that is displayed at the bottom of the detail popover."
+    },
+    {
+      "name": "detailPopoverSize",
+      "type": "string",
+      "inlineType": {
+        "name": "PopoverProps.Size",
+        "type": "union",
+        "values": [
+          "small",
+          "medium",
+          "large"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the maximum width of the popover.",
+      "defaultValue": "'medium'"
+    },
+    {
+      "name": "errorText",
+      "type": "string",
+      "optional": true,
+      "description": "Text that's displayed when the chart is in error state (that is, when `statusType` is set to `error`).",
+      "i18nTag": true
+    },
+    {
+      "name": "fitHeight",
+      "type": "boolean",
+      "optional": true,
+      "description": "Enable this property to make the chart fit into the available height of the parent container."
+    },
+    {
+      "name": "hideDescriptions",
+      "type": "boolean",
+      "optional": true,
+      "description": "Hides the label descriptions next to the chart segments when set to `true`.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "hideFilter",
+      "type": "boolean",
+      "optional": true,
+      "description": "Hides the default filtering dropdown when set to `true`.\nYou can still display additional filters with the `additionalFilters` slot.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "hideLegend",
+      "type": "boolean",
+      "optional": true,
+      "description": "Hides legend beneath the chart when set to `true`.\nWe highly recommend that you leave this unspecified or set to `false`.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "hideTitles",
+      "type": "boolean",
+      "optional": true,
+      "description": "Hides label titles next to the chart segments when set to `true`.\nWe highly recommend that you leave this unspecified or set to `false`.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "highlightedSegment",
+      "type": "T | null",
+      "inlineType": {
+        "name": "T",
+        "type": "object",
+        "properties": [
+          {
+            "name": "color",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the currently highlighted data segment. Highlighting is typically the result of\na user hovering over or selecting a segment in the chart or the legend.\nA value of `null` means no segment is being highlighted.\n\n- If you don't set this property, segments are highlighted automatically when a user hovers over or selects one of the triggers (that is, uncontrolled behavior).\n- If you explicitly set this property, you must set an `onHighlightChange` listener to update this property when a segment should be highlighted (that is, controlled behavior)."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "PieChartProps.I18nStrings",
+      "inlineType": {
+        "name": "PieChartProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "chartAriaRoleDescription",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "detailPopoverDismissAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "detailsPercentage",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "detailsValue",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "filterLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "filterPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "filterSelectedAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "legendAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "segmentAriaRoleDescription",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object that contains all of the localized strings required by the component.",
+      "defaultValue": "{}",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "innerMetricDescription",
+      "type": "string",
+      "optional": true,
+      "description": "Additional description that's displayed in the center of the chart below `innerMetricValue` if `variant` is set to `donut`.\nThis is usually the unit of the `innerMetricValue`."
+    },
+    {
+      "name": "innerMetricValue",
+      "type": "string",
+      "optional": true,
+      "description": "Additional metric number that's displayed in the center of the chart if `variant` is set to `donut`."
+    },
+    {
+      "name": "legendTitle",
+      "type": "string",
+      "optional": true,
+      "description": "Title for the legend."
+    },
+    {
+      "name": "loadingText",
+      "type": "string",
+      "optional": true,
+      "description": "Text that's displayed when the chart is loading (that is, when `statusType` is set to `loading`).",
+      "i18nTag": true
+    },
+    {
+      "name": "recoveryText",
+      "type": "string",
+      "optional": true,
+      "description": "Text for the recovery button that's displayed next to the error text.",
+      "i18nTag": true
+    },
+    {
+      "name": "segmentDescription",
+      "type": "PieChartProps.SegmentDescriptionFunction<T>",
+      "inlineType": {
+        "name": "PieChartProps.SegmentDescriptionFunction<T>",
+        "type": "function",
+        "returnType": "string",
+        "parameters": [
+          {
+            "name": "segment",
+            "type": "T"
+          },
+          {
+            "name": "visibleDataSum",
+            "type": "number"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "A function that determines the description of a segment that is displayed on the chart, unless `hideDescriptions` is set to `true`.\nThis is an optional description that explains the segment and is displayed underneath the label.\nThe function is called with the data object of each segment and is expected to return the description as a string."
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "inlineType": {
+        "name": "\"small\" | \"medium\" | \"large\"",
+        "type": "union",
+        "values": [
+          "small",
+          "medium",
+          "large"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the size of the pie or donut chart.\nWhen used with `fitHeight`, this property defines the minimum size of the chart area.",
+      "defaultValue": "'medium'"
+    },
+    {
+      "name": "statusType",
+      "type": "string",
+      "inlineType": {
+        "name": "\"error\" | \"finished\" | \"loading\"",
+        "type": "union",
+        "values": [
+          "error",
+          "finished",
+          "loading"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the current status of loading data.\n* `loading` - Indicates that data fetching is in progress.\n* `finished` - Indicates that data has loaded successfully.\n* `error` - Indicates that an error occurred during fetch. You should provide an option to enable the user to recover.",
+      "defaultValue": "'finished'"
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "inlineType": {
+        "name": "\"pie\" | \"donut\"",
+        "type": "union",
+        "values": [
+          "pie",
+          "donut"
+        ]
+      },
+      "optional": true,
+      "description": "Visual variant of the pie chart. Currently supports the default `pie` variant and the `donut` variant.\nThe donut variant provides a slot in the center of the chart that can contain additional information.\nFor more information, see `innerContent`.",
+      "defaultValue": "'pie'"
+    },
+    {
+      "name": "visibleSegments",
+      "type": "ReadonlyArray<T>",
+      "optional": true,
+      "description": "An array of data segment objects that determines which data segments are currently visible (that is, not filtered out).\n\n- If you don't set this property, segments are filtered automatically when using the default filtering of the component (that is, uncontrolled behavior).\n- If you explicitly set this property, you must set an `onFilterChange` listener to update this property when the list of filtered segments changes (that is, controlled behavior)."
+    }
+  ],
+  "events": [
+    {
+      "name": "onFilterChange",
+      "description": "Called when the values of the internal filter component changes.\nThis isn't called for any custom filter components you've defined in `additionalFilters`.",
+      "cancelable": false,
+      "detailType": "PieChartProps.FilterChangeDetail<T>",
+      "detailInlineType": {
+        "name": "PieChartProps.FilterChangeDetail<T>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "visibleSegments",
+            "type": "ReadonlyArray<T>",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onHighlightChange",
+      "description": "Called when the highlighted segmented changes because of a user interaction.",
+      "cancelable": false,
+      "detailType": "PieChartProps.HighlightChangeDetail<T>",
+      "detailInlineType": {
+        "name": "PieChartProps.HighlightChangeDetail<T>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "highlightedSegment",
+            "type": "T | null",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onRecoveryClick",
+      "description": "Called when the user clicks the recovery button that appears when there is an error state.\nUse this to enable the user to retry a failed request or provide another option for the user\nto recover from the error.",
+      "cancelable": false
+    }
+  ],
+  "_meta": {
+    "component": "pie-chart",
+    "source": "pie-chart.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/pie-chart.js"
+  }
+}

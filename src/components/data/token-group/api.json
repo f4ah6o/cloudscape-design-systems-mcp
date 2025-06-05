@@ -1,0 +1,122 @@
+{
+  "name": "TokenGroup",
+  "dashCaseName": "token-group",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "alignment",
+      "type": "string",
+      "inlineType": {
+        "name": "TokenGroupProps.Alignment",
+        "type": "union",
+        "values": [
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the direction in which tokens are aligned (`horizontal | vertical`).",
+      "defaultValue": "'horizontal'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "disableOuterPadding",
+      "type": "boolean",
+      "optional": true,
+      "description": "Removes any outer padding from the component.\nWe recommend to always enable this property."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "TokenGroupProps.I18nStrings",
+      "inlineType": {
+        "name": "TokenGroupProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "limitShowFewer",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "limitShowMore",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "items",
+      "type": "ReadonlyArray<TokenGroupProps.Item>",
+      "optional": true,
+      "description": "\nAn array of objects representing token items. Each token has the following properties:\n\n- `label` (string) - Title text of the token.\n- `description` (string) - (Optional) Further information about the token that appears below the label.\n- `disabled` [boolean] - (Optional) Determines whether the token is disabled.\n- `labelTag` (string) - (Optional) A label tag that provides additional guidance, shown next to the label.\n- `tags` [string[]] - (Optional) A list of tags giving further guidance about the token.\n- `dismissLabel` (string) - (Optional) Adds an `aria-label` to the dismiss button.\n- `iconName` (string) - (Optional) Specifies the name of an [icon](/components/icon/) to display in the token.\n- `iconAlt` (string) - (Optional) Specifies alternate text for a custom icon, for use with `iconUrl`.\n- `iconUrl` (string) - (Optional) URL of a custom icon.\n- `iconSvg` (ReactNode) - (Optional) Custom SVG icon. Equivalent to the `svg` slot of the [icon component](/components/icon/).",
+      "defaultValue": "[]"
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "optional": true,
+      "description": "Specifies the maximum number of displayed tokens. If the property isn't set, all of the tokens are displayed."
+    },
+    {
+      "name": "limitShowFewerAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the \"Show fewer\" button.\nUse to assign unique labels when there are multiple token groups with the same `limitShowFewer` label on one page."
+    },
+    {
+      "name": "limitShowMoreAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the \"Show more\" button.\nUse to assign unique labels when there are multiple token groups with the same `limitShowMore` label on one page."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies if the control is read-only, which prevents the\nuser from modifying the value. A read-only control is still focusable."
+    }
+  ],
+  "events": [
+    {
+      "name": "onDismiss",
+      "description": "Called when the user clicks on the dismiss button. The token won't be automatically removed.\nMake sure that you add a listener to this event to update your application state.",
+      "cancelable": false,
+      "detailType": "TokenGroupProps.DismissDetail",
+      "detailInlineType": {
+        "name": "TokenGroupProps.DismissDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "itemIndex",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "token-group",
+    "source": "token-group.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/token-group.js"
+  }
+}

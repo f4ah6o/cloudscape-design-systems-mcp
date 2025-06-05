@@ -1,0 +1,156 @@
+{
+  "name": "FileTokenGroup",
+  "dashCaseName": "file-token-group",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "alignment",
+      "type": "string",
+      "inlineType": {
+        "name": "FileTokenGroupProps.Alignment",
+        "type": "union",
+        "values": [
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the direction in which tokens are aligned (`horizontal | vertical`)."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "FileTokenGroupProps.I18nStrings",
+      "inlineType": {
+        "name": "FileTokenGroupProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "formatFileLastModified",
+            "type": "((date: Date) => string)",
+            "optional": true
+          },
+          {
+            "name": "formatFileSize",
+            "type": "((sizeInBytes: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "limitShowFewer",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "limitShowMore",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "removeFileAriaLabel",
+            "type": "((fileIndex: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "warningIconAriaLabel",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the localized strings required by the component:\n* `removeFileAriaLabel` (function): A function to render the ARIA label for file token remove button.\n* `errorIconAriaLabel` (string): The ARIA label to be shown on the error file icon.\n* `warningIconAriaLabel` (string): The ARIA label to be shown on the warning file icon.\n* `formatFileSize` (function): (Optional) A function that takes file size in bytes, and produces a formatted string.\n* `formatFileLastModified` (function): (Optional) A function that takes the files last modified date, and produces a formatted string."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "items",
+      "type": "ReadonlyArray<FileTokenGroupProps.Item>",
+      "optional": false,
+      "description": "\nAn array of objects representing token items. Each token has the following properties:\n\n- `file` (string) - File value.\n- `loading` (boolean) - (Optional) Determine whether the token is loading.\n- `errorText` (string) - (Optional) Text that displays as a validation error message.\n- `warningText` (string) - (Optional) - Text that displays as a validation warning message."
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "optional": true,
+      "description": "Specifies the maximum number of displayed tokens. If the property isn't set, all of the tokens are displayed."
+    },
+    {
+      "name": "limitShowFewerAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the \"Show fewer\" button.\nUse to assign unique labels when there are multiple file token groups with the same `limitShowFewer` label on one page."
+    },
+    {
+      "name": "limitShowMoreAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the \"Show more\" button.\nUse to assign unique labels when there are multiple file token groups with the same `limitShowMore` label on one page."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies if the control is read-only, which prevents the\nuser from modifying the value. A read-only control is still focusable."
+    },
+    {
+      "name": "showFileLastModified",
+      "type": "boolean",
+      "optional": true,
+      "description": "Show file last modified timestamp in the token. Use `i18nStrings.formatFileLastModified` to customize it."
+    },
+    {
+      "name": "showFileSize",
+      "type": "boolean",
+      "optional": true,
+      "description": "Show file size in the token. Use `i18nStrings.formatFileSize` to customize it."
+    },
+    {
+      "name": "showFileThumbnail",
+      "type": "boolean",
+      "optional": true,
+      "description": "Show file thumbnail in the token. Only supported for images."
+    }
+  ],
+  "events": [
+    {
+      "name": "onDismiss",
+      "description": "Called when the user clicks on the dismiss button. The token won't be automatically removed.\nMake sure that you add a listener to this event to update your application state.",
+      "cancelable": false,
+      "detailType": "FileTokenGroupProps.DismissDetail",
+      "detailInlineType": {
+        "name": "FileTokenGroupProps.DismissDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "fileIndex",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "file-token-group",
+    "source": "file-token-group.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/file-token-group.js"
+  }
+}

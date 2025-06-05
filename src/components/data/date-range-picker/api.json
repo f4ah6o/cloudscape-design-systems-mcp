@@ -1,0 +1,529 @@
+{
+  "name": "DateRangePicker",
+  "dashCaseName": "date-range-picker",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [
+    {
+      "name": "focus",
+      "description": "Sets the browser focus on the UI control",
+      "returnType": "void",
+      "parameters": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "absoluteFormat",
+      "type": "string",
+      "inlineType": {
+        "name": "DateRangePickerProps.AbsoluteFormat",
+        "type": "union",
+        "values": [
+          "iso",
+          "long-localized"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the time format to use for displaying the absolute time range.\n\nIt can take the following values:\n* `iso`: ISO 8601 format, e.g.: 2024-01-30T13:32:32+01:00 (or 2024-01-30 when `dateOnly` is true)\n* `long-localized`: a more human-readable, localized format, e.g.: January 30, 2024, 13:32:32 (UTC+1) (or January 30, 2024 when `dateOnly` is true)\n\nDefaults to `iso`.",
+      "defaultValue": "'iso'"
+    },
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-describedby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for each element that you want to use as a description\nand set the property to a string of each ID separated by spaces (for example, `\"id1 id2 id3\"`)."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for the element you want to use as label and set the property to that ID."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "controlId",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the ID of the native form element. You can use it to relate\na label element's `for` attribute to this control.\n\nIt defaults to an automatically generated ID that\nis provided by its parent form field component."
+    },
+    {
+      "name": "customAbsoluteRangeControl",
+      "type": "DateRangePickerProps.AbsoluteRangeControl",
+      "inlineType": {
+        "name": "DateRangePickerProps.AbsoluteRangeControl",
+        "type": "function",
+        "returnType": "React.ReactNode",
+        "parameters": [
+          {
+            "name": "selectedRange",
+            "type": "DateRangePickerProps.PendingAbsoluteValue"
+          },
+          {
+            "name": "setSelectedRange",
+            "type": "React.Dispatch<React.SetStateAction<DateRangePickerProps.PendingAbsoluteValue>>"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies an additional control displayed in the dropdown, located below the range calendar."
+    },
+    {
+      "name": "customRelativeRangeUnits",
+      "type": "Array<DateRangePickerProps.TimeUnit>",
+      "optional": true,
+      "description": "Specifies which time units to allow in the custom relative range control."
+    },
+    {
+      "name": "dateDisabledReason",
+      "type": "DateRangePickerProps.DateDisabledReasonFunction",
+      "inlineType": {
+        "name": "DateRangePickerProps.DateDisabledReasonFunction",
+        "type": "function",
+        "returnType": "string",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "Date"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Provides a reason why a particular date in the calendar is not enabled (only when `isDateEnabled` returns `false`).\nIf provided, the date becomes focusable."
+    },
+    {
+      "name": "dateOnly",
+      "type": "boolean",
+      "optional": true,
+      "description": "Hides time inputs and changes the input format to date-only, e.g. 2021-04-06.\n\nDo not use `dateOnly` flag conditionally. The component does not trigger the value update\nwhen the flag changes which means the value format can become inconsistent.\n\nThis does not apply when the 'granularity' is set to 'month'\n\nDefault: `false`.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies that the component is disabled, preventing the user from\nmodifying the value. A disabled component cannot receive focus.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "expandToViewport",
+      "type": "boolean",
+      "optional": true,
+      "description": "By default, the dropdown height is constrained to fit inside the height of its next scrollable container element.\nEnabling this property will allow the dropdown to extend beyond that container by using fixed positioning and\n[React Portals](https://reactjs.org/docs/portals.html).\n\nSet this property if the dropdown would otherwise be constrained by a scrollable container,\nfor example inside table and split view layouts.\n\nWe recommend you use discretion, and don't enable this property unless necessary\nbecause fixed positioning results in a slight, visible lag when scrolling complex pages.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "getTimeOffset",
+      "type": "DateRangePickerProps.GetTimeOffsetFunction",
+      "inlineType": {
+        "name": "DateRangePickerProps.GetTimeOffsetFunction",
+        "type": "function",
+        "returnType": "number",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "Date"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "A function that defines timezone offset from UTC in minutes for selected dates.\nUse it to define time relative to the desired timezone.\n\nThe function is called for the start date and the end date and takes a UTC date\ncorresponding the selected value as an argument.\n\nHas no effect when `dateOnly` is true.\n\nDefault: the user's current time offset as provided by the browser."
+    },
+    {
+      "name": "granularity",
+      "type": "string",
+      "inlineType": {
+        "name": "CalendarProps.Granularity",
+        "type": "union",
+        "values": [
+          "day",
+          "month"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the granularity at which users will be able to select a date.\nDefaults to `day`.",
+      "defaultValue": "'day'"
+    },
+    {
+      "name": "hideTimeOffset",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies whether to hide the time offset in the displayed absolute time range.\nDefaults to `false`."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "DateRangePickerProps.I18nStrings",
+      "inlineType": {
+        "name": "DateRangePickerProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "absoluteModeTitle",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "applyButtonLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "ariaDescribedby",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "ariaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "ariaLabelledby",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "cancelButtonLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "clearButtonLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "currentMonthAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "customRelativeRangeDurationLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "customRelativeRangeDurationPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "customRelativeRangeOptionDescription",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "customRelativeRangeOptionLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "customRelativeRangeUnitLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "dateConstraintText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "dateTimeConstraintText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "endDateLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "endMonthLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "endTimeLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "errorIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "formatRelativeRange",
+            "type": "((value: DateRangePickerProps.RelativeValue) => string)",
+            "optional": true
+          },
+          {
+            "name": "formatUnit",
+            "type": "((unit: DateRangePickerProps.TimeUnit, value: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "modeSelectionLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "monthConstraintText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "nextMonthAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "nextYearAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "previousMonthAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "previousYearAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "relativeModeTitle",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "relativeRangeSelectionHeading",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "relativeRangeSelectionMonthlyDescription",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "renderSelectedAbsoluteRangeAriaLive",
+            "type": "((startDate: string, endDate: string) => string)",
+            "optional": true
+          },
+          {
+            "name": "startDateLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "startMonthLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "startTimeLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "todayAriaLabel",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "invalid",
+      "type": "boolean",
+      "optional": true,
+      "description": "Overrides the invalidation state. Usually the invalid state\ncomes from the parent `FormField`component,\nhowever sometimes you need to override its\nstate when you have more than one input within a\nsingle form field."
+    },
+    {
+      "name": "isDateEnabled",
+      "type": "DateRangePickerProps.IsDateEnabledFunction",
+      "inlineType": {
+        "name": "DateRangePickerProps.IsDateEnabledFunction",
+        "type": "function",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "Date"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "A function that defines whether a particular date should be enabled\nin the calendar or not. Note that disabling a date in the calendar\nstill allows users to enter this date via keyboard. We therefore\nrecommend that you also validate these constraints client- and\nserver-side, in the same way as for other form elements.",
+      "defaultValue": "() => true"
+    },
+    {
+      "name": "isValidRange",
+      "type": "DateRangePickerProps.ValidationFunction",
+      "inlineType": {
+        "name": "DateRangePickerProps.ValidationFunction",
+        "type": "function",
+        "returnType": "DateRangePickerProps.ValidationResult",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "DateRangePickerProps.Value | null"
+          }
+        ]
+      },
+      "optional": false,
+      "description": "A function that defines whether a particular range is valid or not.\n\nEnsure that your function checks for missing fields in the value.",
+      "defaultValue": "() => ({ valid: true })"
+    },
+    {
+      "name": "locale",
+      "type": "string",
+      "optional": true,
+      "description": "The locale to be used for rendering month names and defining the\nstarting date of the week. If not provided, it will be determined\nfrom the page and browser locales. Supported values and formats\nare as-per the [JavaScript Intl API specification](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).",
+      "defaultValue": "''"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the placeholder text that is rendered when the value is empty."
+    },
+    {
+      "name": "rangeSelectorMode",
+      "type": "string",
+      "inlineType": {
+        "name": "DateRangePickerProps.RangeSelectorMode",
+        "type": "union",
+        "values": [
+          "default",
+          "absolute-only",
+          "relative-only"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the range selector mode as follows:\n\n* `default` for combined absolute/relative range selector.\n* `absolute-only` for absolute-only range selector.\n* `relative-only` for relative-only range selector.\n\nBy default, the range selector mode is `default`.",
+      "defaultValue": "'default'"
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies that the component is read-only, preventing the user from\nmodifying the value. A read-only component can receive focus.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "relativeOptions",
+      "type": "ReadonlyArray<DateRangePickerProps.RelativeOption>",
+      "optional": false,
+      "description": "A list of relative time ranges that are shown as suggestions.",
+      "defaultValue": "[]"
+    },
+    {
+      "name": "showClearButton",
+      "type": "boolean",
+      "optional": true,
+      "description": "Specifies whether the component should show a button that\nallows the user to clear the selected value.",
+      "defaultValue": "true"
+    },
+    {
+      "name": "startOfWeek",
+      "type": "number",
+      "optional": true,
+      "description": "Starting day of the week. [0-6] maps to [Sunday-Saturday].\nBy default the starting day of the week is defined by the locale,\nbut you can override it using this property."
+    },
+    {
+      "name": "timeInputFormat",
+      "type": "string",
+      "inlineType": {
+        "name": "TimeInputProps.Format",
+        "type": "union",
+        "values": [
+          "hh",
+          "hh:mm",
+          "hh:mm:ss"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the format of the time input for absolute ranges.\n\nUse to restrict the granularity of time that the user can enter.\n\nHas no effect when `dateOnly` is true or `granularity` is set to 'month'.",
+      "defaultValue": "'hh:mm:ss'"
+    },
+    {
+      "name": "timeOffset",
+      "type": "number",
+      "optional": true,
+      "description": "The time offset from UTC in minutes that should be used to\ndisplay and produce values.\n\nHas no effect when `dateOnly` is true.\n\nDefault: the user's current time offset as provided by the browser.",
+      "deprecatedTag": "Use `getTimeOffset` instead."
+    },
+    {
+      "name": "value",
+      "type": "DateRangePickerProps.Value",
+      "inlineType": {
+        "name": "DateRangePickerProps.Value",
+        "type": "union",
+        "values": [
+          "DateRangePickerProps.AbsoluteValue",
+          "DateRangePickerProps.RelativeValue"
+        ]
+      },
+      "optional": false,
+      "description": "The current date range value. Can be either an absolute time range\nor a relative time range."
+    },
+    {
+      "name": "warning",
+      "type": "boolean",
+      "optional": true,
+      "description": "Overrides the warning state. Usually the warning state\ncomes from the parent `FormField`component,\nhowever sometimes you need to override its\nstate when you have more than one input within a\nsingle form field.\nWhen you use it, provide additional context with\ninformation on the input state, and associate it\nwith the input using `ariaDescribedby`."
+    }
+  ],
+  "events": [
+    {
+      "name": "onBlur",
+      "description": "Fired when keyboard focus is removed from the UI control.",
+      "cancelable": false
+    },
+    {
+      "name": "onChange",
+      "description": "Fired whenever a user changes the component's value.\nThe event `detail` contains the current value of the field.",
+      "cancelable": false,
+      "detailType": "DateRangePickerProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "DateRangePickerProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "value",
+            "type": "DateRangePickerProps.Value | null",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onFocus",
+      "description": "Fired when keyboard focus is set onto the UI control.",
+      "cancelable": false
+    }
+  ],
+  "_meta": {
+    "component": "date-range-picker",
+    "source": "date-range-picker.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/date-range-picker.js"
+  }
+}

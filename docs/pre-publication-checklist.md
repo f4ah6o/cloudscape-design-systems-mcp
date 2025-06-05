@@ -1,6 +1,6 @@
 # Pre-Publication Checklist for React Design Systems MCP
 
-This checklist ensures that the package is ready for publication to npm.
+This checklist ensures that the package is ready for publication to npm and GitHub Packages.
 
 ## Package Metadata
 
@@ -72,3 +72,10 @@ This checklist ensures that the package is ready for publication to npm.
 - [x] Package has been linked locally for testing (`npm link`)
 - [x] Package has been tested in a clean environment
 - [x] Version has been updated if this is an update to an existing package
+
+## GitHub Packages Checks
+
+- [x] Package name matches GitHub organization/repository structure (@agentience/react-design-systems-mcp)
+- [x] GitHub workflow is configured to publish to GitHub Packages
+- [x] GitHub repository has appropriate permissions for GitHub Actions
+- [x] Package can be installed from GitHub Packages registry

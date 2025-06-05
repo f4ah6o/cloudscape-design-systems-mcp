@@ -1,0 +1,119 @@
+{
+  "name": "ProgressBar",
+  "dashCaseName": "progress-bar",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "additionalInfo",
+      "description": "Information that's displayed below the progress bar or status text.",
+      "isDefault": false
+    },
+    {
+      "name": "description",
+      "description": "More detailed information about the operation that appears below the label.",
+      "isDefault": false
+    },
+    {
+      "name": "label",
+      "description": "Short description of the operation that appears at the top of the component.\n\nMake sure that you always provide a label for accessibility.",
+      "isDefault": false
+    },
+    {
+      "name": "resultText",
+      "description": "Content that's displayed when `status` is set to `error` or `success`.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-describedby` to the progress bar."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the progress bar."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the progress bar."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "resultButtonText",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the text for the button that's displayed when the `status` is set to `error` or `success`.\nIf `resultButtonText` is empty, the result button isn't displayed.\n\nNote: If you use the `flash` variant, the result button isn't displayed.\nAdd a button using the `action` property of the flashbar item instead."
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "inlineType": {
+        "name": "ProgressBarProps.Status",
+        "type": "union",
+        "values": [
+          "error",
+          "in-progress",
+          "success"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the status of the progress bar. You can set it to one of the following:\n\n- `\"in-progress\"` - Displays a progress bar.\n- `\"success\"` or `\"error\"` - Displays a result state and replaces the progress element with a status indicator,\n`resultText`, and a result button.",
+      "defaultValue": "'in-progress'"
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "optional": true,
+      "description": "Indicates the current progress as a percentage. The value must be between 0 and 100. Decimals are rounded.",
+      "defaultValue": "0"
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "inlineType": {
+        "name": "ProgressBarProps.Variant",
+        "type": "union",
+        "values": [
+          "flash",
+          "standalone",
+          "key-value"
+        ]
+      },
+      "optional": true,
+      "description": "Enables the correct styling of the progress bar in different contexts. You can set it to one of the following:\n\n- `\"flash\"` - Use this variatn when using the progress bar within a flash component.\n             Note that the result button isn't displayed when using this variant.\n             Use the `buttonText` property and the `onButtonClick` event listener of the flashbar item instead of the result button provided by the progress bar.\n- `\"key-value\"` - Use this variant when using the progress bar within the key-value pairs pattern.\n- `\"standalone\"` Use in all other cases. This is the default value.",
+      "defaultValue": "'standalone'"
+    }
+  ],
+  "events": [
+    {
+      "name": "onResultButtonClick",
+      "description": "Called when the user clicks the result state button.\n\nNote: If you are using the `flash` variant, the result button isn't displayed.\nUse the `buttonText` property and the `onButtonClick` event listener of the flashbar item instead.",
+      "cancelable": false
+    }
+  ],
+  "_meta": {
+    "component": "progress-bar",
+    "source": "progress-bar.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/progress-bar.js"
+  }
+}

@@ -1,10 +1,10 @@
 # FastMCP Implementation Guide
 
-This document outlines the implementation of the MCP Cloudscape Assistant server using the FastMCP framework.
+This document outlines the implementation of React Design Systems using the FastMCP framework.
 
 ## Overview
 
-The MCP Cloudscape Assistant has been refactored to use the FastMCP framework, which provides a more structured and type-safe approach to building MCP servers. FastMCP offers several advantages over the custom implementation:
+React Design Systems has been built using the FastMCP framework, which provides a more structured and type-safe approach to building MCP servers. FastMCP offers several advantages:
 
 - Simplified tool and resource definition
 - Built-in support for authentication

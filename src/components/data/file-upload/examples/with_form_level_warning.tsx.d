@@ -1,0 +1,32 @@
+import * as React from "react";
+import FileUpload from "@cloudscape-design/components/file-upload";
+import FormField from "@cloudscape-design/components/form-field";
+export default () => {
+  const [value, setValue] = React.useState([]);
+  return (
+    <FormField label="Form field label" description="Description">
+      {" "}
+      <FileUpload
+        onChange={({ detail }) => setValue(detail.value)}
+        value={value}
+        i18nStrings={{
+          uploadButtonText: (e) => (e ? "Choose files" : "Choose file"),
+          dropzoneText: (e) =>
+            e ? "Drop files to upload" : "Drop file to upload",
+          removeFileAriaLabel: (e) => `Remove file ${e + 1}`,
+          limitShowFewer: "Show fewer files",
+          limitShowMore: "Show more files",
+          errorIconAriaLabel: "Error",
+          warningIconAriaLabel: "Warning",
+        }}
+        multiple
+        showFileLastModified
+        showFileSize
+        showFileThumbnail
+        tokenLimit={3}
+        constraintText="Hint text for file requirements"
+        warningText="This is a warning message related to the file upload form input"
+      />{" "}
+    </FormField>
+  );
+};

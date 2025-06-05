@@ -175,7 +175,7 @@ describe('Roo Integration', () => {
     // Generate legacy format (mcpServers)
     const legacyConfig = {
       mcpServers: {
-        "cloudscape-assistant": {
+        "react-design-systems": {
           url: `http://${serverHelper.getConfig().server.host}:${serverHelper.getConfig().server.port}`,
           disabled: false,
           alwaysAllow: []
@@ -187,7 +187,7 @@ describe('Roo Integration', () => {
     const modernConfig = {
       connections: [
         {
-          name: "Cloudscape Assistant",
+          name: "React Design Systems",
           type: "sse",
           url: `http://${serverHelper.getConfig().server.host}:${serverHelper.getConfig().server.port}`,
           autoConnect: true
@@ -199,9 +199,9 @@ describe('Roo Integration', () => {
     const stdioConfig = {
       connections: [
         {
-          name: "Cloudscape Assistant",
+          name: "React Design Systems",
           type: "stdio",
-          command: "mcp-cloudscape-assistant",
+          command: "react-design-systems-mcp",
           args: ["--port", serverHelper.getConfig().server.port.toString()],
           env: {},
           cwd: "${workspaceFolder}",

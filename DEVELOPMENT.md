@@ -1,6 +1,6 @@
-# Cloudscape MCP Assistant Development
+# React Design Systems MCP Development
 
-This document contains development-specific information for the Cloudscape MCP Assistant project.
+This document contains development-specific information for the React Design Systems MCP project.
 
 ## Requirements
 
@@ -10,7 +10,7 @@ This document contains development-specific information for the Cloudscape MCP A
 ## Project Structure
 
 ```
-mcp-cloudscape-assistant/
+react-design-systems-mcp/
 ├── server.ts                  # Main server file
 ├── tsconfig.json              # TypeScript configuration
 ├── src/
@@ -55,8 +55,8 @@ node --version
 
 2. Clone the repository:
 ```bash
-git clone https://github.com/agentience/mcp-cloudscape-assistant.git
-cd mcp-cloudscape-assistant
+git clone https://github.com/agentience/react-design-systems-mcp.git
+cd react-design-systems-mcp
 ```
 
 3. Install dependencies:
@@ -103,7 +103,7 @@ BIND=127.0.0.1 npm run dev
 
 ## Core Components
 
-The Cloudscape MCP Server provides the following functionality:
+The React Design Systems MCP server provides the following functionality:
 
 - **Component Registry**: Metadata for Cloudscape components
 - **Search Engine**: Search for components by name, category, or tags
@@ -136,7 +136,7 @@ node dist/test-phase4.js
 
 ## Implementation Phases
 
-The Cloudscape MCP Server was implemented in four phases:
+The React Design Systems MCP server was implemented in four phases:
 
 ### Phase 1: Initial Setup and Core Functionality
 
@@ -171,6 +171,49 @@ For more details on each phase, see the phase summary files:
 - `docs/phase2-summary.md`
 - `docs/phase3-summary.md`
 - `docs/phase4-summary.md`
+
+## FastMCP Implementation
+
+This project uses the FastMCP framework, which provides a more structured and type-safe approach to building MCP servers. FastMCP offers several advantages over traditional MCP implementations:
+
+### Key Features
+
+- **Simplified tool and resource definition**: Easier API for defining MCP tools and resources
+- **Built-in support for authentication**: Streamlined authentication handling
+- **Session management**: Automatic session tracking and management
+- **Image and audio content handling**: Support for multimedia content types
+- **Improved logging**: Enhanced logging capabilities for debugging and monitoring
+- **Better error handling**: More robust error handling and reporting
+- **Support for SSE (Server-Sent Events)**: Real-time communication capabilities
+- **CORS support**: Built-in Cross-Origin Resource Sharing support
+- **Progress notifications**: Ability to send progress updates for long-running operations
+- **Typed server events**: Type-safe event handling
+- **Prompt argument auto-completion**: Enhanced development experience
+
+### Transport Types
+
+The FastMCP server supports two transport types:
+
+1. **stdio (default)**: Standard input/output transport for local server communication
+2. **SSE (Server-Sent Events)**: HTTP-based transport for web applications and remote clients
+
+#### Running with stdio Transport
+
+```bash
+npm start
+# or
+npm run dev
+```
+
+#### Running with SSE Transport
+
+```bash
+npm run dev:sse
+```
+
+### Implementation Details
+
+For detailed technical information about the FastMCP implementation, including tool and resource registration patterns, see [FastMCP Implementation Guide](docs/fastmcp-implementation.md).
 
 ## Node.js 24.x Compatibility
 

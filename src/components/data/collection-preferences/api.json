@@ -1,0 +1,434 @@
+{
+  "name": "CollectionPreferences",
+  "dashCaseName": "collection-preferences",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "contentBefore",
+      "description": "Content displayed before the preferences. Use it to display additional information relating to the preferences.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Label of the cancel button in the modal footer.",
+      "i18nTag": true
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "closeAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an aria-label to the close button, for accessibility.",
+      "i18nTag": true
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Label of the confirm button in the modal footer.",
+      "i18nTag": true
+    },
+    {
+      "name": "contentDensityPreference",
+      "type": "CollectionPreferencesProps.ContentDensityPreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.ContentDensityPreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the content density preference (Comfortable / Compact).\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `label` (string) - Specifies the label for the option checkbox.\n- `description` (string) - Specifies the text displayed below the checkbox label.\n\nYou must set the current value in the `preferences.contentDensity` property.",
+      "i18nTag": true
+    },
+    {
+      "name": "contentDisplayPreference",
+      "type": "CollectionPreferencesProps.ContentDisplayPreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.ContentDisplayPreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "dragHandleAriaDescription",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "dragHandleAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "enableColumnFiltering",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "i18nStrings",
+            "type": "CollectionPreferencesProps.ContentDisplayPreferenceI18nStrings",
+            "optional": true
+          },
+          {
+            "name": "liveAnnouncementDndDiscarded",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "liveAnnouncementDndItemCommitted",
+            "type": "((initialPosition: number, finalPosition: number, total: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "liveAnnouncementDndItemReordered",
+            "type": "((initialPosition: number, currentPosition: number, total: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "liveAnnouncementDndStarted",
+            "type": "((position: number, total: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "options",
+            "type": "ReadonlyArray<CollectionPreferencesProps.ContentDisplayOption>",
+            "optional": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the built-in content display preference for order and visibility of the table columns.\n\nRecommended for table and not applicable for cards.\n\nCannot be used together with `visibleContentPreference`.\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `title` (string) - Specifies the text displayed at the top of the preference.\n- `description` (string) - Specifies the description displayed below the title.\n- `options` - Specifies an array of options for reordering and visible content selection.\n- `enableColumnFiltering` (boolean) - Adds a columns filter.\n- `liveAnnouncementDndStarted` ((position: number, total: number) => string) - (Optional) Adds a message to be announced by screen readers when an option is picked.\n- `liveAnnouncementDndDiscarded` (string) - (Optional) Adds a message to be announced by screen readers when a reordering action is canceled.\n- `liveAnnouncementDndItemReordered` ((initialPosition: number, currentPosition: number, total: number) => string) - (Optional) Adds a message to be announced by screen readers when an item is being moved.\n- `liveAnnouncementDndItemCommitted` ((initialPosition: number, finalPosition: number, total: number) => string) - (Optional) Adds a message to be announced by screen readers when a reordering action is committed.\n- `dragHandleAriaDescription` (string) - (Optional) Adds an ARIA description for the drag handle.\n- `dragHandleAriaLabel` (string) - (Optional) Adds an ARIA label for the drag handle.\n\nEach option contains the following:\n- `id` (string) - Corresponds to a table column `id`.\n- `label` (string) - Specifies a short description of the content.\n- `alwaysVisible` (boolean) - (Optional) Determines whether the visibility is always on and therefore cannot be toggled. This is set to `false` by default.\n\nYou must provide an ordered list of the items to display in the `preferences.contentDisplay` property.",
+      "i18nTag": true
+    },
+    {
+      "name": "customPreference",
+      "type": "((customValue: CustomPreferenceType, setCustomValue: React.Dispatch<CustomPreferenceType>) => React.ReactNode)",
+      "inlineType": {
+        "name": "(customValue: CustomPreferenceType, setCustomValue: React.Dispatch<CustomPreferenceType>) => React.ReactNode",
+        "type": "function",
+        "returnType": "React.ReactNode",
+        "parameters": [
+          {
+            "name": "customValue",
+            "type": "CustomPreferenceType"
+          },
+          {
+            "name": "setCustomValue",
+            "type": "React.Dispatch<CustomPreferenceType>"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures custom preferences. The function receives two parameters:\n\n- `customValue` (CustomPreferenceType) - Current value for your custom preference. It is initialized using the value you provide in `preferences.custom`.\n- `setCustomValue` - A function that is called to notify a state update.\n\nIt should return the content of your custom preference, for example:\n```\n(customValue, setCustomValue) => (\n  <Checkbox checked={customValue} onChange={({ detail }) => setCustomValue(detail.checked)} />\n)\n```\n\nWhen the user confirms the changes, the new value is passed in the `detail.custom` property of the `onConfirm` listener.\nWhen the user cancels the changes, the `customValue` is reset to the one present in `preferences.custom` property.\n\n**Display**\n- If any of the built-in preferences (`pageSizePreference`, `wrapLinesPreference`, or `visibleContentPreference`) are displayed,\nthe custom content is displayed at the bottom of the left column within the modal.\n- If no built-in preference is displayed, the custom content occupies the whole modal."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the preferences trigger button is disabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "getModalRoot",
+      "type": "(() => Promise<HTMLElement>)",
+      "inlineType": {
+        "name": "() => Promise<HTMLElement>",
+        "type": "function",
+        "returnType": "Promise<HTMLElement>",
+        "parameters": []
+      },
+      "optional": true,
+      "description": "Use this property to specify a different dynamic modal root for the dialog.\nThe function will be called when a user clicks on the trigger button."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "pageSizePreference",
+      "type": "CollectionPreferencesProps.PageSizePreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.PageSizePreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "options",
+            "type": "ReadonlyArray<CollectionPreferencesProps.PageSizeOption>",
+            "optional": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the built-in \"page size selection\" preference.\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `title` (string) - Specifies the text displayed at the top of the preference.\n- `options` - Specifies an array of options for page size selection. Each entry contains:\n  - `value` (number) - The value for the radio button (that is, the number of items per page).\n  - `label` (string) - A label for the radio button (for example, \"10 resources\").\n\nYou must set the current value in the `preferences.pageSize` property.",
+      "i18nTag": true
+    },
+    {
+      "name": "preferences",
+      "type": "CollectionPreferencesProps.Preferences<CustomPreferenceType>",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.Preferences<CustomPreferenceType>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "contentDensity",
+            "type": "\"compact\" | \"comfortable\"",
+            "optional": true
+          },
+          {
+            "name": "contentDisplay",
+            "type": "ReadonlyArray<CollectionPreferencesProps.ContentDisplayItem>",
+            "optional": true
+          },
+          {
+            "name": "custom",
+            "type": "CustomPreferenceType",
+            "optional": true
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "optional": true
+          },
+          {
+            "name": "stickyColumns",
+            "type": "StickyColumns",
+            "optional": true
+          },
+          {
+            "name": "stripedRows",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "visibleContent",
+            "type": "ReadonlyArray<string>",
+            "optional": true
+          },
+          {
+            "name": "wrapLines",
+            "type": "boolean",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the current preference values. This includes both built-in and custom preferences.\n\nIt contains the following:\n- `pageSize` (number) - (Optional)\n- `wrapLines` (boolean) - (Optional)\n- `contentDisplay` (ReadonlyArray<ContentDisplayItem>) - (Optional) Specifies the list of content and their visibility. The order of the elements influences the display.\n- `visibleContent` (ReadonlyArray<string>) - Specifies the list of visible content `id`s. The order of the `id`s does not influence the display. If the `contentDisplay` property is set, this property is ignored.\n- `custom` (CustomPreferenceType) - Specifies the value for your custom preference."
+    },
+    {
+      "name": "removeModalRoot",
+      "type": "((rootElement: HTMLElement) => void)",
+      "inlineType": {
+        "name": "(rootElement: HTMLElement) => void",
+        "type": "function",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "rootElement",
+            "type": "HTMLElement"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Use this property when `getModalRoot` is used to clean up the modal root\nelement after a user closes the dialog. The function receives the return value\nof the most recent getModalRoot call as an argument."
+    },
+    {
+      "name": "stickyColumnsPreference",
+      "type": "CollectionPreferencesProps.StickyColumnsPreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.StickyColumnsPreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "firstColumns",
+            "type": "StickyColumnPreference",
+            "optional": true
+          },
+          {
+            "name": "lastColumns",
+            "type": "StickyColumnPreference",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the sticky columns preference that can be set for both left and right columns.\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `label` (string) - Specifies the label for each radio group.\n- `description` (string) - Specifies the text displayed below each radio group label.\n\nYou must set the current value in the `preferences.stickyColumns` property."
+    },
+    {
+      "name": "stripedRowsPreference",
+      "type": "CollectionPreferencesProps.StripedRowsPreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.StripedRowsPreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the built-in \"striped rows\" preference.\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `label` (string) - Specifies the label for the option checkbox.\n- `description` (string) - Specifies the text displayed below the checkbox label.\n\nYou must set the current value in the `preferences.stripedRows` property.",
+      "i18nTag": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the title of the preferences modal dialog. It is also used as an `aria-label` for the trigger button.",
+      "i18nTag": true
+    },
+    {
+      "name": "visibleContentPreference",
+      "type": "CollectionPreferencesProps.VisibleContentPreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.VisibleContentPreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "options",
+            "type": "ReadonlyArray<CollectionPreferencesProps.VisibleContentOptionsGroup>",
+            "optional": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the built-in visible sections preference for cards or visible columns for table.\n\nRecommended for cards. For table use `contentDisplayPreference` instead.\n\nCannot be used together with `contentDisplayPreference`.\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `title` (string) - Specifies the text displayed at the top of the preference.\n- `options` - Specifies an array of groups of options for visible content selection.\n\nEach group of options contains the following:\n- `label` (string) - The text to display as a title for the options group.\n- `options` - Specifies an array of options in the group. Each option contains the following:\n  - `id` (string) - Corresponds to a column `id` for tables or to a section `id` for cards.\n  - `label` (string) - Specifies a short description of the content.\n  - `editable` (boolean) - (Optional) Determines whether the user is able to toggle its visibility. This is `true` by default.\n\nYou must set the current list of visible content `id`s in the `preferences.visibleContent` property.\n\n**Deprecated** in table, replaced by `contentDisplayPreference`."
+    },
+    {
+      "name": "wrapLinesPreference",
+      "type": "CollectionPreferencesProps.WrapLinesPreference",
+      "inlineType": {
+        "name": "CollectionPreferencesProps.WrapLinesPreference",
+        "type": "object",
+        "properties": [
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Configures the built-in \"wrap lines\" preference.\n\nIf you set it, the component displays this preference in the modal.\n\nIt contains the following:\n- `label` (string) - Specifies the label for the option checkbox.\n- `description` (string) - Specifies the text displayed below the checkbox label.\n\nYou must set the current value in the `preferences.wrapLines` property.",
+      "i18nTag": true
+    }
+  ],
+  "events": [
+    {
+      "name": "onCancel",
+      "description": "Called when the user cancels a preference change using the cancel button in the modal footer or by dismissing the modal.",
+      "cancelable": false
+    },
+    {
+      "name": "onConfirm",
+      "description": "Called when the user confirms a preference change using the confirm button in the modal footer.\n\nThe event `detail` contains the following:\n- `contentDensity` (boolean) - (Optional) The current content density preference value. Available only if you specify the `contentDensityPreference` property.\n- `contentDisplay` (ReadonlyArray<ContentDisplayItem>) - (Optional) The ordered list of table columns and their visibility. Available only if you specify the `contentDisplayPreference` property.\n- `custom` (CustomPreferenceType) - (Optional) The selected value for your custom preference.\n- `pageSize` (number) - (Optional) The selected page size value. Available only if you specify the `pageSizePreference` property.\n- `stickyColumns` (CollectionPreferencesProps.StickyColumns) - (Optional) The current sticky columns preference value. Available only if you specify the `stickyColumnsPreference` property.\n- `stripedRows` (boolean) - (Optional) The current striped rows preference value. Available only if you specify the `stripedRowsPreference` property.\n- `visibleContent` (ReadonlyArray<string>) - (Optional) The list of selected content `id`s. Available only if you specify the `visibleContentPreference` property.\n- `wrapLines` (boolean) - (Optional) The current line wrapping preference value. Available only if you specify the `wrapLinesPreference` property.\n\nThe values for all configured preferences are present even if the user didn't change their values.",
+      "cancelable": false,
+      "detailType": "CollectionPreferencesProps.Preferences<CustomPreferenceType>",
+      "detailInlineType": {
+        "name": "CollectionPreferencesProps.Preferences<CustomPreferenceType>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "contentDensity",
+            "type": "\"compact\" | \"comfortable\"",
+            "optional": true
+          },
+          {
+            "name": "contentDisplay",
+            "type": "ReadonlyArray<CollectionPreferencesProps.ContentDisplayItem>",
+            "optional": true
+          },
+          {
+            "name": "custom",
+            "type": "CustomPreferenceType",
+            "optional": true
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "optional": true
+          },
+          {
+            "name": "stickyColumns",
+            "type": "StickyColumns",
+            "optional": true
+          },
+          {
+            "name": "stripedRows",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "visibleContent",
+            "type": "ReadonlyArray<string>",
+            "optional": true
+          },
+          {
+            "name": "wrapLines",
+            "type": "boolean",
+            "optional": true
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "collection-preferences",
+    "source": "collection-preferences.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/collection-preferences.js"
+  }
+}

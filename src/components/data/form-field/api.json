@@ -1,0 +1,130 @@
+{
+  "name": "FormField",
+  "dashCaseName": "form-field",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "displayName": "control",
+      "description": "The primary form control (for example, input, textarea, etc.).",
+      "isDefault": true
+    },
+    {
+      "name": "constraintText",
+      "description": "Constraint text that's displayed below the control. Use this to provide\nadditional information about valid formats, etc.",
+      "isDefault": false
+    },
+    {
+      "name": "description",
+      "description": "Detailed information about the form field that's displayed below the label.",
+      "isDefault": false
+    },
+    {
+      "name": "errorText",
+      "description": "Text that displays as a validation error message. If this is set to a\nnon-empty string, it will render the form field as invalid.",
+      "isDefault": false
+    },
+    {
+      "name": "info",
+      "description": "Use to display an 'Info' link next to the label.",
+      "isDefault": false
+    },
+    {
+      "name": "label",
+      "description": "The main label for the form field.",
+      "isDefault": false
+    },
+    {
+      "name": "secondaryControl",
+      "description": "A secondary control. You can use this for custom actions and content.",
+      "isDefault": false
+    },
+    {
+      "name": "warningText",
+      "description": "Text that displays as a validation warning message. If this is set to a\nnon-empty string, it will render the form field in a warning state.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "analyticsMetadata",
+      "type": "FormFieldProps.AnalyticsMetadata",
+      "inlineType": {
+        "name": "FormFieldProps.AnalyticsMetadata",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorContext",
+            "type": "ErrorContext",
+            "optional": true
+          },
+          {
+            "name": "instanceIdentifier",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies additional analytics-related metadata.\n* `instanceIdentifier` - A unique string that identifies this component instance in your application.\n* `errorContext` - Identifies the error category and sub-category.",
+      "analyticsTag": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "controlId",
+      "type": "string",
+      "optional": true,
+      "description": "The ID of the primary form control. You can use this to set the\n`for` attribute of a label for accessibility.\n\nIf you don't set this property, the control group automatically sets\nthe label to the ID of an inner form control (for example, an [input](/components/input) component).\nThis only works well if you're using a single control in the form field."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "FormFieldProps.I18nStrings",
+      "inlineType": {
+        "name": "FormFieldProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "warningIconAriaLabel",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "stretch",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the primary control should expand to 12 columns.\n\nBy default (or when this property is set to `false`), the primary control\noccupies 9 columns. The secondary control uses the remaining 3 columns.\nOn smaller viewports, both components occupy 12 columns and stack on top of each other.\n\nIf this property is set to `true`, the primary control uses the full\n12 columns. The secondary control (if present) also uses 12 columns, and the two\ncontrols stack on top of each other.",
+      "defaultValue": "false"
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "form-field",
+    "source": "form-field.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/form-field.js"
+  }
+}

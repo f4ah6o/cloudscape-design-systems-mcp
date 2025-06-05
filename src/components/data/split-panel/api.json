@@ -1,0 +1,136 @@
+{
+  "name": "SplitPanel",
+  "dashCaseName": "split-panel",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "isDefault": true
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "closeBehavior",
+      "type": "string",
+      "inlineType": {
+        "name": "\"hide\" | \"collapse\"",
+        "type": "union",
+        "values": [
+          "hide",
+          "collapse"
+        ]
+      },
+      "optional": true,
+      "description": "Determines whether the split panel collapses or hides completely when closed.",
+      "defaultValue": "'collapse'"
+    },
+    {
+      "name": "header",
+      "type": "string",
+      "optional": false,
+      "description": "Header of the split panel."
+    },
+    {
+      "name": "hidePreferencesButton",
+      "type": "boolean",
+      "optional": true,
+      "description": "When set to `true`, the preferences button is not displayed.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "i18nStrings",
+      "type": "SplitPanelProps.I18nStrings",
+      "inlineType": {
+        "name": "SplitPanelProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "closeButtonAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "openButtonAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesCancel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesCloseAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesConfirm",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesPositionBottom",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesPositionDescription",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesPositionLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesPositionSide",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesTitle",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resizeHandleAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resizeHandleTooltipText",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.\n- `closeButtonAriaLabel` - The text of the panel close button aria label.\n- `openButtonAriaLabel` - The text of the panel open button aria label.\n- `preferencesTitle` - The text of the preferences modal header.\n- `preferencesPositionLabel` - The text of the position preference label.\n- `preferencesPositionDescription` - The text of the position preference description.\n- `preferencesPositionSide` - The text of the side position preference label.\n- `preferencesPositionBottom` - The text of the bottom position preference label.\n- `preferencesConfirm` - The text of the preference modal confirm button.\n- `preferencesCancel` - The text of the preference modal cancel button.\n- `resizeHandleAriaLabel` - The label of the resize handle aria label.",
+      "defaultValue": "{}",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "split-panel",
+    "source": "split-panel.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/split-panel.js"
+  }
+}

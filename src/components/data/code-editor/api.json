@@ -1,0 +1,564 @@
+{
+  "name": "CodeEditor",
+  "dashCaseName": "code-editor",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [
+    {
+      "name": "focus",
+      "description": "Sets input focus onto the code editor control.",
+      "returnType": "void",
+      "parameters": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "ace",
+      "type": "any",
+      "optional": false,
+      "description": "The ace object."
+    },
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-describedby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for each element that you want to use as a description\nand set the property to a string of each ID separated by spaces (for example, `\"id1 id2 id3\"`)."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-label` to the code editor's textarea element."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the component. If you're using this component within a form field,\ndon't set this property because the form field component automatically sets it.\n\nUse this property if the component isn't surrounded by a form field, or you want to override the value\nautomatically set by the form field (for example, if you have two components within a single form field).\n\nTo use it correctly, define an ID for the element you want to use as label and set the property to that ID."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "controlId",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the ID of the native form element. You can use it to relate\na label element's `for` attribute to this control.\n\nIt defaults to an automatically generated ID that\nis provided by its parent form field component."
+    },
+    {
+      "name": "editorContentHeight",
+      "type": "number",
+      "optional": true,
+      "description": "Specifies the height of the code editor document."
+    },
+    {
+      "name": "getModalRoot",
+      "type": "(() => Promise<HTMLElement>)",
+      "inlineType": {
+        "name": "() => Promise<HTMLElement>",
+        "type": "function",
+        "returnType": "Promise<HTMLElement>",
+        "parameters": []
+      },
+      "optional": true,
+      "description": "Use this property to specify a different dynamic modal root for the dialog.\nThe function will be called when a user clicks on the trigger button."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "CodeEditorProps.I18nStrings",
+      "inlineType": {
+        "name": "CodeEditorProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "cursorPosition",
+            "type": "((row: number, column: number) => string)",
+            "optional": true
+          },
+          {
+            "name": "editorGroupAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "errorsTab",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "errorState",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "errorStateRecovery",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "loadingState",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "paneCloseButtonAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesButtonAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalCancel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalCloseAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalConfirm",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalDarkThemes",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalHeader",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalLightThemes",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalTheme",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalThemeFilteringAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalThemeFilteringClearAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalThemeFilteringPlaceholder",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "preferencesModalWrapLines",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resizeHandleAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resizeHandleTooltipText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "statusBarGroupAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "warningsTab",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.\nThe object should contain, among others:\n\n* `loadingState` - Specifies the text to display while the component is loading.\n* `errorState` - Specifies the text to display if there is an error loading Ace.\n* `errorStateRecovery`: Specifies the text for the recovery button that's displayed next to the error text.\n   Use the `recoveryClick` event to do a recovery action (for example, retrying the request).",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "language",
+      "type": "CodeEditorProps.Language",
+      "inlineType": {
+        "name": "CodeEditorProps.Language",
+        "type": "union",
+        "values": [
+          "\"stylus\"",
+          "\"mask\"",
+          "\"html\"",
+          "\"ruby\"",
+          "\"svg\"",
+          "\"text\"",
+          "\"json\"",
+          "\"red\"",
+          "\"space\"",
+          "\"dot\"",
+          "\"d\"",
+          "\"r\"",
+          "\"properties\"",
+          "\"slim\"",
+          "\"abap\"",
+          "\"abc\"",
+          "\"actionscript\"",
+          "\"ada\"",
+          "\"alda\"",
+          "\"apache_conf\"",
+          "\"apex\"",
+          "\"aql\"",
+          "\"asciidoc\"",
+          "\"asl\"",
+          "\"assembly_x86\"",
+          "\"autohotkey\"",
+          "\"batchfile\"",
+          "\"c_cpp\"",
+          "\"c9search\"",
+          "\"cirru\"",
+          "\"clojure\"",
+          "\"cobol\"",
+          "\"coffee\"",
+          "\"coldfusion\"",
+          "\"crystal\"",
+          "\"csharp\"",
+          "\"csound_document\"",
+          "\"csound_orchestra\"",
+          "\"csound_score\"",
+          "\"css\"",
+          "\"curly\"",
+          "\"dart\"",
+          "\"diff\"",
+          "\"django\"",
+          "\"dockerfile\"",
+          "\"drools\"",
+          "\"edifact\"",
+          "\"eiffel\"",
+          "\"ejs\"",
+          "\"elixir\"",
+          "\"elm\"",
+          "\"erlang\"",
+          "\"forth\"",
+          "\"fortran\"",
+          "\"fsharp\"",
+          "\"fsl\"",
+          "\"ftl\"",
+          "\"gcode\"",
+          "\"gherkin\"",
+          "\"gitignore\"",
+          "\"glsl\"",
+          "\"gobstones\"",
+          "\"golang\"",
+          "\"graphqlschema\"",
+          "\"groovy\"",
+          "\"haml\"",
+          "\"handlebars\"",
+          "\"haskell\"",
+          "\"haskell_cabal\"",
+          "\"haxe\"",
+          "\"hjson\"",
+          "\"html_elixir\"",
+          "\"html_ruby\"",
+          "\"ini\"",
+          "\"io\"",
+          "\"jack\"",
+          "\"jade\"",
+          "\"java\"",
+          "\"javascript\"",
+          "\"json5\"",
+          "\"jsoniq\"",
+          "\"jsp\"",
+          "\"jssm\"",
+          "\"jsx\"",
+          "\"julia\"",
+          "\"kotlin\"",
+          "\"latex\"",
+          "\"less\"",
+          "\"liquid\"",
+          "\"lisp\"",
+          "\"livescript\"",
+          "\"logiql\"",
+          "\"lsl\"",
+          "\"lua\"",
+          "\"luapage\"",
+          "\"lucene\"",
+          "\"makefile\"",
+          "\"markdown\"",
+          "\"matlab\"",
+          "\"maze\"",
+          "\"mediawiki\"",
+          "\"mel\"",
+          "\"mixal\"",
+          "\"mushcode\"",
+          "\"mysql\"",
+          "\"nginx\"",
+          "\"nim\"",
+          "\"nix\"",
+          "\"nsis\"",
+          "\"nunjucks\"",
+          "\"objectivec\"",
+          "\"ocaml\"",
+          "\"pascal\"",
+          "\"perl\"",
+          "\"perl6\"",
+          "\"pgsql\"",
+          "\"php\"",
+          "\"php_laravel_blade\"",
+          "\"pig\"",
+          "\"powershell\"",
+          "\"praat\"",
+          "\"prisma\"",
+          "\"prolog\"",
+          "\"protobuf\"",
+          "\"puppet\"",
+          "\"python\"",
+          "\"qml\"",
+          "\"razor\"",
+          "\"rdoc\"",
+          "\"rhtml\"",
+          "\"rst\"",
+          "\"rust\"",
+          "\"sass\"",
+          "\"scad\"",
+          "\"scala\"",
+          "\"scheme\"",
+          "\"scss\"",
+          "\"sh\"",
+          "\"sjs\"",
+          "\"smarty\"",
+          "\"snippets\"",
+          "\"soy_template\"",
+          "\"sql\"",
+          "\"sqlserver\"",
+          "\"swift\"",
+          "\"tcl\"",
+          "\"terraform\"",
+          "\"tex\"",
+          "\"textile\"",
+          "\"toml\"",
+          "\"tsx\"",
+          "\"twig\"",
+          "\"typescript\"",
+          "\"vala\"",
+          "\"vbscript\"",
+          "\"velocity\"",
+          "\"verilog\"",
+          "\"vhdl\"",
+          "\"visualforce\"",
+          "\"wollok\"",
+          "\"xml\"",
+          "\"xquery\"",
+          "\"yaml\"",
+          "\"zeek\"",
+          "string & { _?: undefined; }"
+        ]
+      },
+      "optional": false,
+      "description": "Specifies the programming language. You can use any of the programming languages supported by the `ace` object that you provide.\nAlternatively, this can be used to set a language that is not supported by the default `language` list. Make sure you've added the highlighting support for this language to the Ace instance.\nFor more info on custom languages, see the [Code editor API](/components/code-editor?tabId=api) page."
+    },
+    {
+      "name": "languageLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies a custom label language. If set, it overrides the default language label."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "optional": true,
+      "description": "Renders the code editor in a loading state."
+    },
+    {
+      "name": "preferences",
+      "type": "Partial<CodeEditorProps.Preferences>",
+      "inlineType": {
+        "name": "Partial<CodeEditorProps.Preferences>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "theme",
+            "type": "CodeEditorProps.Theme",
+            "optional": false
+          },
+          {
+            "name": "wrapLines",
+            "type": "boolean",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the component preferences.\n\nIf set to `undefined`, the component uses the following default value:\n\n```\n{\n  wrapLines: true,\n  theme: 'dawn'\n}\n```\n\nYou can use any theme provided by Ace."
+    },
+    {
+      "name": "removeModalRoot",
+      "type": "((rootElement: HTMLElement) => void)",
+      "inlineType": {
+        "name": "(rootElement: HTMLElement) => void",
+        "type": "function",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "rootElement",
+            "type": "HTMLElement"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Use this property when `getModalRoot` is used to clean up the modal root\nelement after a user closes the dialog. The function receives the return value\nof the most recent getModalRoot call as an argument."
+    },
+    {
+      "name": "themes",
+      "type": "CodeEditorProps.AvailableThemes",
+      "inlineType": {
+        "name": "CodeEditorProps.AvailableThemes",
+        "type": "object",
+        "properties": [
+          {
+            "name": "dark",
+            "type": "ReadonlyArray<string>",
+            "optional": false
+          },
+          {
+            "name": "light",
+            "type": "ReadonlyArray<string>",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "List of Ace themes available for selection in preferences dialog. Make sure you include at least one light and at\nleast one dark theme. If not set explicitly, it will render all Ace themes available for selection, except\n\"cloud_editor\" and \"cloud_editor_dark\"."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "optional": false,
+      "description": "Specifies the content that's displayed in the code editor."
+    }
+  ],
+  "events": [
+    {
+      "name": "onChange",
+      "description": "An event handler called when the value changes.\nThe event `detail` contains the current value of the code editor content.\n**Deprecated** Replaced by `onDelayedChange`.",
+      "cancelable": false,
+      "detailType": "CodeEditorProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "CodeEditorProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "value",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onDelayedChange",
+      "description": "An event handler called when the value changes.\nThe event `detail` contains the current value of the code editor content.\nA user interaction can cause multiple change events to be emitted by the Ace editor. They are batched together into a single `onDelayedChange` event to avoid bugs when controlling the `value` field.",
+      "cancelable": false,
+      "detailType": "CodeEditorProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "CodeEditorProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "value",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onEditorContentResize",
+      "description": "Called when the user resizes the editor by dragging the resize icon.\nThe event `detail` contains the new height of the editor in pixels.",
+      "cancelable": false,
+      "detailType": "CodeEditorProps.ResizeDetail",
+      "detailInlineType": {
+        "name": "CodeEditorProps.ResizeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "height",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onPreferencesChange",
+      "description": "Called when any of the preferences change.\nThe event `detail` contains the value of all the preferences as submitted by the user.",
+      "cancelable": false,
+      "detailType": "CodeEditorProps.Preferences",
+      "detailInlineType": {
+        "name": "CodeEditorProps.Preferences",
+        "type": "object",
+        "properties": [
+          {
+            "name": "theme",
+            "type": "CodeEditorProps.Theme",
+            "optional": false
+          },
+          {
+            "name": "wrapLines",
+            "type": "boolean",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onRecoveryClick",
+      "description": "Called when the user clicks the recovery button in the error state.\nUse this to retry loading the code editor or to provide another option for the user to recover from the error.",
+      "cancelable": false
+    },
+    {
+      "name": "onValidate",
+      "description": "Annotations returned from Ace syntax checker after code validation.",
+      "cancelable": false,
+      "detailType": "CodeEditorProps.ValidateDetail",
+      "detailInlineType": {
+        "name": "CodeEditorProps.ValidateDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "annotations",
+            "type": "Array<Ace.Annotation>",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "code-editor",
+    "source": "code-editor.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/code-editor.js"
+  }
+}

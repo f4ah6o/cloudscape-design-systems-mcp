@@ -1,0 +1,218 @@
+{
+  "name": "AttributeEditor",
+  "dashCaseName": "attribute-editor",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "additionalInfo",
+      "description": "Displayed below the add button. Use it for additional information related to the attribute editor.",
+      "isDefault": false
+    },
+    {
+      "name": "empty",
+      "description": "Displayed when there are no items to display.",
+      "isDefault": false
+    }
+  ],
+  "functions": [
+    {
+      "name": "focusAddButton",
+      "description": "Focuses the 'add' button. Use this, for example, after a user removes the last row.",
+      "returnType": "void",
+      "parameters": []
+    },
+    {
+      "name": "focusRemoveButton",
+      "description": "Focuses the 'remove' button for the given row index.",
+      "returnType": "void",
+      "parameters": [
+        {
+          "name": "itemIndex",
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "addButtonText",
+      "type": "string",
+      "optional": false,
+      "description": "Specifies the text that's displayed in the add button."
+    },
+    {
+      "name": "addButtonVariant",
+      "type": "string",
+      "inlineType": {
+        "name": "AttributeEditorProps.AddButtonVariant",
+        "type": "union",
+        "values": [
+          "normal",
+          "inline-link"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the variant to use for the add button. By default a normal button is used.\nUse `inline-link` when using an attribute editor nested inside complex attribute editing\nwith expandable sections.",
+      "defaultValue": "'normal'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "customRowActions",
+      "type": "((props: AttributeEditorProps.RowActionsProps<T>) => React.ReactNode)",
+      "inlineType": {
+        "name": "(props: AttributeEditorProps.RowActionsProps<T>) => React.ReactNode",
+        "type": "function",
+        "returnType": "React.ReactNode",
+        "parameters": [
+          {
+            "name": "props",
+            "type": "AttributeEditorProps.RowActionsProps<T>"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies a custom action trigger for each row, in place of the remove button.\nOnly button and button dropdown components are supported.\nIf you provide this, `removeButtonText`, `removeButtonAriaLabel`,\nand `onRemoveButtonClick` will be ignored.\nThe trigger must be given the provided `ref` in order for `focusRemoveButton`\nto work.\nThe function receives the following properties:\n- `item`: The item being rendered in the current row.\n- `itemIndex` (`number`): The index of the item.\n- `ref` (`ReactRef`): A React ref that should be passed to the rendered button.\n- `breakpoint` (`Breakpoint`): The current breakpoint, for responsive behavior.\n- `ownRow` (`boolean`): Whether the button is rendered on its own row."
+    },
+    {
+      "name": "definition",
+      "type": "ReadonlyArray<AttributeEditorProps.FieldDefinition<T>>",
+      "optional": false,
+      "description": "Defines the editor configuration. Each object in the array represents one form field in the row.\nIf more than 6 attributes are specified, a `gridLayout` must be provided.\n\n* `label` (ReactNode) - Text label for the form field.\n* `info` (ReactNode) - Info link for the form field.\n* `errorText` ((item, itemIndex) => ReactNode) - Error message text to display as a control validation message.\n   It renders the form field as invalid if the returned value is not `null` or `undefined`.\n* `warningText` ((item, itemIndex) => ReactNode) - Warning message text to display as a control validation message.\n   It renders the form field in a warning state if the returned value is not `null` or `undefined`.\n* `constraintText` ((item, itemIndex) => ReactNode) - Text to display as a constraint message below the field.\n* `control` ((item, itemIndex) => ReactNode) - A control to use as the input for the field."
+    },
+    {
+      "name": "disableAddButton",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the add button is disabled."
+    },
+    {
+      "name": "gridLayout",
+      "type": "ReadonlyArray<AttributeEditorProps.GridLayout>",
+      "optional": true,
+      "description": "Optionally specifies the layout of the attributes. By default, all attributes will be\nequally spaced and wrapped into multiple rows on smaller viewports.\n\nA `gridLayout` is an array of breakpoint definitions. Each definition consists of:\n- `rows` (`number[][]`): the rows in which to display the attributes. Each row consists of a list of numbers indicating\n  the relative width of each attribute. For example, `[[1, 1, 1, 1]]` is a single row of four evenly-spaced attributes,\n  or `[[1, 2], [1, 1, 1]]` splits five attributes onto two rows.\n- `breakpoint` (`string`): optionally specifies that the given entry should only be used when at least that much width is available.\n- `removeButton`: optionally configures the remove (or row action) button placement. If this is not provided, the button will be\n  placed at the end of a single row, or below if multiple rows are present. The `removeButton` property supports contains two properties:\n  - `ownRow` (`boolean`): forces the remove button onto its own row.\n  - `width` (`number | 'auto'`): a number indicating the relative width (equivalent to a `rows` entry), or 'auto' to fit to the button width."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "AttributeEditorProps.I18nStrings<T>",
+      "inlineType": {
+        "name": "AttributeEditorProps.I18nStrings<T>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "itemRemovedAriaLive",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "removeButtonAriaLabel",
+            "type": "((item: T) => string)",
+            "optional": true
+          },
+          {
+            "name": "warningIconAriaLabel",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "isItemRemovable",
+      "type": "AttributeEditorProps.IsItemRemovableFunction<T>",
+      "inlineType": {
+        "name": "AttributeEditorProps.IsItemRemovableFunction<T>",
+        "type": "function",
+        "returnType": "boolean",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "T"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Function that determines whether an item is removable. When this function returns `false`, the remove\nbutton is not rendered and the user can't remove the item.\nBy default, all items are removable.",
+      "defaultValue": "() => true"
+    },
+    {
+      "name": "items",
+      "type": "ReadonlyArray<T>",
+      "optional": true,
+      "description": "Specifies the items that serve as the data source for all rows.\nThe display of a row is handled by the `definition` property.",
+      "defaultValue": "[]"
+    },
+    {
+      "name": "removeButtonAriaLabel",
+      "type": "((item: T) => string)",
+      "inlineType": {
+        "name": "(item: T) => string",
+        "type": "function",
+        "returnType": "string",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "T"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Adds an `aria-label` to the remove button."
+    },
+    {
+      "name": "removeButtonText",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the text that's displayed in the remove button.",
+      "i18nTag": true
+    }
+  ],
+  "events": [
+    {
+      "name": "onAddButtonClick",
+      "description": "Called when add button is clicked.",
+      "cancelable": false
+    },
+    {
+      "name": "onRemoveButtonClick",
+      "description": "Called when remove button is clicked.\nThe event `detail` contains the index of the corresponding item.",
+      "cancelable": false,
+      "detailType": "AttributeEditorProps.RemoveButtonClickDetail",
+      "detailInlineType": {
+        "name": "AttributeEditorProps.RemoveButtonClickDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "itemIndex",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "attribute-editor",
+    "source": "attribute-editor.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/attribute-editor.js"
+  }
+}

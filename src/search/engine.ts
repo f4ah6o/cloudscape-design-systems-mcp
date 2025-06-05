@@ -75,7 +75,9 @@ export function searchComponents(options: SearchOptions): SearchResults {
 
       // Filter by tags
       if (tags && tags.length > 0) {
-        if (!tags.some(tag => component.tags.includes(tag))) {
+        // Check if component has tags and if any of the search tags match
+        const componentTags = component.tags || [];
+        if (!componentTags.some(tag => tags.includes(tag))) {
           return false;
         }
       }
@@ -178,14 +180,14 @@ export function searchComponents(options: SearchOptions): SearchResults {
   const searchResults = paginatedResults.map(component => ({
     id: component.id,
     name: component.name,
-    category: component.category,
-    description: component.description,
+    category: component.category || 'other',
+    description: component.description || '',
     relevance: (component as any).relevance,
     matchedFields: (component as any).matchedFields,
-    tags: component.tags,
-    importPath: component.importPath,
-    version: component.version,
-    isExperimental: component.isExperimental
+    tags: component.tags || [],
+    importPath: component.importPath || '',
+    version: component.version || '3.0.0',
+    isExperimental: component.isExperimental || false
   }));
 
   return {

@@ -1,0 +1,53 @@
+{
+  "name": "Steps",
+  "dashCaseName": "steps",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "ariaDescribedby",
+      "type": "string",
+      "optional": true,
+      "description": "Sets the `aria-describedby` property on the progress steps container."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Provides an `aria-label` to the progress steps container.\nDon't use `ariaLabel` and `ariaLabelledby` at the same time."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Sets the `aria-labelledby` property on the progress steps container.\nIf there's a visible label element that you can reference, use this instead of `ariaLabel`.\nDon't use `ariaLabel` and `ariaLabelledby` at the same time."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "steps",
+      "type": "ReadonlyArray<StepsProps.Step>",
+      "optional": false,
+      "description": "An array of individual steps\n\nEach step definition has the following properties:\n * `status` (string) - Status of the step corresponding to a status indicator.\n * `statusIconAriaLabel` - (string) - (Optional) Alternative text for the status icon.\n * `header` (ReactNode) - Summary corresponding to the step.\n * `details` (ReactNode) - (Optional) Additional information corresponding to the step."
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "steps",
+    "source": "steps.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/steps.js"
+  }
+}

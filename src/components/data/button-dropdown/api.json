@@ -1,0 +1,311 @@
+{
+  "name": "ButtonDropdown",
+  "dashCaseName": "button-dropdown",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "displayName": "text",
+      "description": "Text displayed in the button dropdown trigger.",
+      "isDefault": true
+    }
+  ],
+  "functions": [
+    {
+      "name": "focus",
+      "description": "Focuses the underlying native button. If a main action is defined this will focus that button.",
+      "returnType": "void",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "FocusOptions"
+        }
+      ]
+    },
+    {
+      "name": "focusDropdownTrigger",
+      "description": "Focuses the underlying native button for the dropdown.",
+      "returnType": "void",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "FocusOptions"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-label` to the button dropdown trigger.\nUse this to provide an accessible name for buttons that don't have visible text."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the button dropdown is disabled. Users cannot interact with the control if it's disabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "disabledReason",
+      "type": "string",
+      "optional": true,
+      "description": "Provides a reason why the button dropdown is disabled (only when `disabled` is `true`).\nIf provided, the disabled button becomes focusable."
+    },
+    {
+      "name": "expandableGroups",
+      "type": "boolean",
+      "optional": true,
+      "description": "Controls expandability of the item groups.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "expandToViewport",
+      "type": "boolean",
+      "optional": true,
+      "description": "By default, the dropdown height is constrained to fit inside the height of its next scrollable container element.\nEnabling this property will allow the dropdown to extend beyond that container by using fixed positioning and\n[React Portals](https://reactjs.org/docs/portals.html).\n\nSet this property if the dropdown would otherwise be constrained by a scrollable container,\nfor example inside table and split view layouts.\n\nWe recommend you use discretion, and don't enable this property unless necessary\nbecause fixed positioning results in a slight, visible lag when scrolling complex pages.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "optional": true,
+      "description": "Sets the button width to be 100% of the parent container width. Button content is centered."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "items",
+      "type": "ReadonlyArray<ButtonDropdownProps.ItemOrGroup>",
+      "optional": false,
+      "description": "Array of objects with a number of supported types.\n\nThe following properties are supported across all types:\n\n- `type` (string) - The type of the item. Can be `action`, `group`, `checkbox`. Defaults to `action` if `items` undefined and `group` otherwise.\n- `id` (string) - allows to identify the item that the user clicked on. Mandatory for individual items, optional for categories.\n- `text` (string) - description shown in the menu for this item. Mandatory for individual items, optional for categories.\n- `lang` (string) - (Optional) The language of the item, provided as a BCP 47 language tag.\n- `disabled` (boolean) - whether the item is disabled. Disabled items are not clickable, but they can be highlighted with the keyboard to make them accessible.\n- `disabledReason` (string) - (Optional) Displays text near the `text` property when item is disabled. Use to provide additional context.\n- `description` (string) - additional data that will be passed to a `data-description` attribute.\n- `ariaLabel` (string) - (Optional) - ARIA label of the item element.\n\n### action\n\n- `href` (string) - (Optional) Defines the target URL of the menu item, turning it into a link.\n- `external` (boolean) - Marks a menu item as external by adding an icon after the menu item text. The link will open in a new tab when clicked. Note that this only works when `href` is also provided.\n- `externalIconAriaLabel` (string) - Adds an `aria-label` to the external icon.\n- `iconName` (string) - (Optional) Specifies the name of the icon, used with the [icon component](/components/icon/).\n- `iconAlt` (string) - (Optional) Specifies alternate text for the icon when using `iconUrl`.\n- `iconUrl` (string) - (Optional) Specifies the URL of a custom icon.\n- `iconSvg` (ReactNode) - (Optional) Custom SVG icon. Equivalent to the `svg` slot of the [icon component](/components/icon/).\n\n### checkbox\n\nWhen `type` is set to \"checkbox\", the values set to `href`, `external` and `externalIconAriaLabel` will be ignored.\n\n- `checked` (boolean) - Controls the state of the checkbox item.\n- `iconName` (string) - (Optional) Specifies the name of the icon, used with the [icon component](/components/icon/).\n- `iconAlt` (string) - (Optional) Specifies alternate text for the icon when using `iconUrl`.\n- `iconUrl` (string) - (Optional) Specifies the URL of a custom icon.\n- `iconSvg` (ReactNode) - (Optional) Custom SVG icon. Equivalent to the `svg` slot of the [icon component](/components/icon/).\n\n### group\n\n- `items` (ReadonlyArray<Item>) - an array of item objects. Items will be rendered as nested menu items but only for the first nesting level, multi-nesting is not supported.\nAn item which belongs to nested group has the following properties: `id`, `text`, `disabled`, and `description`."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "optional": true,
+      "description": "Renders the button as being in a loading state. It takes precedence over the `disabled` if both are set to `true`.\nIt prevents clicks.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "loadingText",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the text that screen reader announces when the button dropdown is in a loading state."
+    },
+    {
+      "name": "mainAction",
+      "type": "ButtonDropdownProps.MainAction",
+      "inlineType": {
+        "name": "ButtonDropdownProps.MainAction",
+        "type": "object",
+        "properties": [
+          {
+            "name": "ariaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "disabledReason",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "download",
+            "type": "string | boolean",
+            "optional": true
+          },
+          {
+            "name": "external",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "externalIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "iconAlt",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "iconName",
+            "type": "IconProps.Name",
+            "optional": true
+          },
+          {
+            "name": "iconSvg",
+            "type": "React.ReactNode",
+            "optional": true
+          },
+          {
+            "name": "iconUrl",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "loading",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "loadingText",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "onClick",
+            "type": "CancelableEventHandler<ClickDetail>",
+            "optional": true
+          },
+          {
+            "name": "onFollow",
+            "type": "CancelableEventHandler<BaseNavigationDetail>",
+            "optional": true
+          },
+          {
+            "name": "rel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "A standalone action that is shown prior to the dropdown trigger.\nUse it with \"primary\" and \"normal\" variant only.\n\nMain action properties:\n* `text` (string) - Specifies the text shown in the main action.\n* `external` (boolean) - Marks the main action as external by adding an icon after the text. The link will open in a new tab when clicked. Note that this only works when `href` is also provided.\n* `externalIconAriaLabel` (string) - Adds an ARIA label to the external icon.\n\nThe main action also supports the following properties of the [button](/components/button/?tabId=api) component:\n`ariaLabel`, `disabled`, `loading`, `loadingText`, `href`, `target`, `rel`, `download`, `iconAlt`, `iconName`, `iconUrl`, `iconSvg`, `onClick`, `onFollow`."
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "inlineType": {
+        "name": "ButtonDropdownProps.Variant",
+        "type": "union",
+        "values": [
+          "normal",
+          "icon",
+          "primary",
+          "inline-icon"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the general styling of the button dropdown.\n* `primary` for primary buttons\n* `normal` for secondary buttons\n* `icon` for icon buttons\n* `inline-icon` for icon buttons with no outer padding",
+      "defaultValue": "'normal'"
+    }
+  ],
+  "events": [
+    {
+      "name": "onItemClick",
+      "description": "Called when the user clicks on an item, and the item is not disabled.  The event detail object contains the id of the clicked item.",
+      "cancelable": true,
+      "detailType": "ButtonDropdownProps.ItemClickDetails",
+      "detailInlineType": {
+        "name": "ButtonDropdownProps.ItemClickDetails",
+        "type": "object",
+        "properties": [
+          {
+            "name": "checked",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "external",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "onItemFollow",
+      "description": "Called when the user clicks on an item with the left mouse button without pressing\nmodifier keys (that is, CTRL, ALT, SHIFT, META), and the item has an `href` set.",
+      "cancelable": true,
+      "detailType": "ButtonDropdownProps.ItemClickDetails",
+      "detailInlineType": {
+        "name": "ButtonDropdownProps.ItemClickDetails",
+        "type": "object",
+        "properties": [
+          {
+            "name": "checked",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "external",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "button-dropdown",
+    "source": "button-dropdown.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/button-dropdown.js"
+  }
+}

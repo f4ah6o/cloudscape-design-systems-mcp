@@ -1,0 +1,162 @@
+{
+  "name": "Modal",
+  "dashCaseName": "modal",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "description": "Body of the modal.",
+      "isDefault": true
+    },
+    {
+      "name": "footer",
+      "description": "Specifies a footer for the modal. If empty, the footer isn't displayed.",
+      "isDefault": false
+    },
+    {
+      "name": "header",
+      "description": "Specifies a title for the modal. Although this can be empty, we suggest that you always provide a title.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "analyticsMetadata",
+      "type": "ModalProps.AnalyticsMetadata",
+      "inlineType": {
+        "name": "ModalProps.AnalyticsMetadata",
+        "type": "object",
+        "properties": [
+          {
+            "name": "flowType",
+            "type": "FlowType",
+            "optional": true
+          },
+          {
+            "name": "instanceIdentifier",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resourceType",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies additional analytics-related metadata.\n* `instanceIdentifier` - A unique string that identifies this component instance in your application.\n* `flowType` - Identifies the type of flow represented by the component.\n* `resourceType` - Identifies the type of resource represented by the flow. **Note:** This API is currently experimental.",
+      "analyticsTag": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "closeAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an `aria-label` to the close button, for accessibility.",
+      "i18nTag": true
+    },
+    {
+      "name": "disableContentPaddings",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the modal content has padding. If `true`, removes the default padding from the content area."
+    },
+    {
+      "name": "getModalRoot",
+      "type": "(() => Promise<HTMLElement>)",
+      "inlineType": {
+        "name": "() => Promise<HTMLElement>",
+        "type": "function",
+        "returnType": "Promise<HTMLElement>",
+        "parameters": []
+      },
+      "optional": true,
+      "description": "Use this property to specify a different dynamic modal root for the dialog.\nThe function will be called when a user clicks on the trigger button."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "modalRoot",
+      "type": "HTMLElement",
+      "optional": true,
+      "description": "Specifies the HTML element where the modal is rendered.\nIf neither `modalRoot` or `getModalRoot` properties are provided, the modal will\nrender to an element under `document.body`."
+    },
+    {
+      "name": "removeModalRoot",
+      "type": "((rootElement: HTMLElement) => void)",
+      "inlineType": {
+        "name": "(rootElement: HTMLElement) => void",
+        "type": "function",
+        "returnType": "void",
+        "parameters": [
+          {
+            "name": "rootElement",
+            "type": "HTMLElement"
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Use this property when `getModalRoot` is used to clean up the modal root\nelement after a user closes the dialog. The function receives the return value\nof the most recent getModalRoot call as an argument."
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "inlineType": {
+        "name": "ModalProps.Size",
+        "type": "union",
+        "values": [
+          "small",
+          "max",
+          "medium",
+          "large"
+        ]
+      },
+      "optional": true,
+      "description": "Sets the width of the modal. `max` uses variable width up to the\nlargest size allowed by the design guidelines. Other sizes\n(`small`/`medium`/`large`) have fixed widths.",
+      "defaultValue": "'medium'"
+    },
+    {
+      "name": "visible",
+      "type": "boolean",
+      "optional": false,
+      "description": "Determines whether the modal is displayed on the screen. Modals are hidden by default.\nSet this property to `true` to show them."
+    }
+  ],
+  "events": [
+    {
+      "name": "onDismiss",
+      "description": "Called when a user closes the modal by using the close icon button,\nclicking outside of the modal, or pressing ESC.\nThe event detail contains the `reason`, which can be any of the following:\n`['closeButton', 'overlay', 'keyboard']`.",
+      "cancelable": false,
+      "detailType": "ModalProps.DismissDetail",
+      "detailInlineType": {
+        "name": "ModalProps.DismissDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "reason",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "modal",
+    "source": "modal.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/modal.js"
+  }
+}

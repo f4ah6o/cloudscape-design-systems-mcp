@@ -1,0 +1,49 @@
+{
+  "name": "Grid",
+  "dashCaseName": "grid",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "description": "The elements to align in the grid.\n\nYou can provide any elements here. The number of elements\nshould match the number of objects defined in the `gridDefinition`\nproperty.",
+      "isDefault": true
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "disableGutters",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether horizontal and vertical gutters are hidden.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "gridDefinition",
+      "type": "ReadonlyArray<GridProps.ElementDefinition>",
+      "optional": true,
+      "description": "An array of element definitions that specifies how the columns must be\narranged. Each element definition can have the following properties:\n\n- `colspan` (number | GridProps.BreakpointMapping) - The number (1-12) of grid elements for this column to span.\n- `offset` (number | GridProps.BreakpointMapping) - The number (0-11) of grid elements by which to offset the column.\n- `pull` (number | GridProps.BreakpointMapping) - The number (0-12) of grid elements by which to pull the column to the left.\n- `push` (number | GridProps.BreakpointMapping) - The number (0-12) of grid elements by which to push the column to the right.\n\nThe value for the each property can be a number (which applies for all\nbreakpoints) or an object where the key is one of the supported breakpoints\n(`xxs`, `xs`, `s`, `m`, `l`, `xl`) or `default`. The value of this key is a number of columns,\napplied for that breakpoint and those above it. You must provide a `default` value for `colspan`.\n\nWe recommend that you don't use the `pull` and `push` properties of the element definition\nfor accessibility reasons.",
+      "defaultValue": "[]"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "grid",
+    "source": "grid.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/grid.js"
+  }
+}

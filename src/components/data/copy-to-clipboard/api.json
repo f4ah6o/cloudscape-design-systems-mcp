@@ -1,0 +1,88 @@
+{
+  "name": "CopyToClipboard",
+  "dashCaseName": "copy-to-clipboard",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "copyButtonAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-label` to the copy button. Use this to provide an accessible name for buttons that don't have visible text,\nand to distinguish between multiple buttons with identical visible text. The text will also be added to the `title` attribute of the button."
+    },
+    {
+      "name": "copyButtonText",
+      "type": "string",
+      "optional": true,
+      "description": "The text of the copy button (for variant=\"button\")."
+    },
+    {
+      "name": "copyErrorText",
+      "type": "string",
+      "optional": false,
+      "description": "The message shown when the text is not copied due to an error, see [https://w3c.github.io/clipboard-apis/#dom-clipboard-writetext](https://w3c.github.io/clipboard-apis/#dom-clipboard-writetext)."
+    },
+    {
+      "name": "copySuccessText",
+      "type": "string",
+      "optional": false,
+      "description": "The message shown when the text is copied successfully."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "popoverRenderWithPortal",
+      "type": "boolean",
+      "optional": true,
+      "description": "By default, the popover is constrained to fit inside its parent\n[stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context).\nEnabling this property will allow the popover to be rendered in the root stack context using\n[React Portals](https://reactjs.org/docs/portals.html).\nEnable this setting if you need the popover to ignore its parent stacking context.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "textToCopy",
+      "type": "string",
+      "optional": false,
+      "description": "The text content to be copied. It is displayed next to the copy button when `variant=\"inline\"` unless when `content` is specified, and is not shown otherwise."
+    },
+    {
+      "name": "textToDisplay",
+      "type": "string",
+      "optional": true,
+      "description": "The text content to display next to the copy button when `variant=\"inline\"`. If not provided, `textToCopy` will be displayed instead."
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "inlineType": {
+        "name": "CopyToClipboardProps.Variant",
+        "type": "union",
+        "values": [
+          "inline",
+          "button",
+          "icon"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the general styling of the copy button as follows:\n\n* `button` to display a standalone secondary button with an icon, and `copyButtonText` as text.\n* `icon` to display a standalone icon-only (no text) button.\n* `inline` to display an icon-only (no text) button within a text context.\n\nDefaults to `button`.",
+      "defaultValue": "'button'"
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "copy-to-clipboard",
+    "source": "copy-to-clipboard.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/copy-to-clipboard.js"
+  }
+}

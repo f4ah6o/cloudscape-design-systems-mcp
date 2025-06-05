@@ -1,31 +1,40 @@
-# Cloudscape MCP Server Architecture
+# React Design Systems MCP Server Architecture
 
-This document outlines the detailed architecture of the Cloudscape MCP Server, which provides comprehensive information about AWS Cloudscape Design System components and code generation capabilities.
+This document outlines the detailed architecture of React Design Systems MCP server, which provides comprehensive information about design systems created for React. The current version focuses exclusively on the AWS Cloudscape Design System components, along with code generation capabilities.
 
 ## System Architecture
 
-The Cloudscape MCP Server follows a modular architecture with the following key components:
+React Design Systems follows a modular architecture with the following key components:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  Cloudscape MCP Server                      │
-│                                                             │
-│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐   │
-│  │   Component   │  │     Search    │  │     Code      │   │
-│  │   Registry    │  │     Engine    │  │   Generator   │   │
-│  └───────────────┘  └───────────────┘  └───────────────┘   │
-│                                                             │
-│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐   │
-│  │ Documentation │  │    Property   │  │    Example    │   │
-│  │   Provider    │  │    Explorer   │  │   Provider    │   │
-│  └───────────────┘  └───────────────┘  └───────────────┘   │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph RDS["React Design Systems MCP Server"]
+        CR[Component Registry]
+        SE[Search Engine]
+        CG[Code Generator]
+        DP[Documentation Provider]
+        PE[Property Explorer]
+        EP[Example Provider]
+    end
+    
+    CR --- SE
+    CR --- CG
+    CR --- DP
+    CR --- PE
+    CR --- EP
+    
+    style RDS fill:#e1f5fe
+    style CR fill:#bbdefb
+    style SE fill:#bbdefb
+    style CG fill:#bbdefb
+    style DP fill:#bbdefb
+    style PE fill:#bbdefb
+    style EP fill:#bbdefb
 ```
 
 ### Component Registry
 
-The Component Registry is the core of the Cloudscape MCP Server. It stores metadata and documentation for all Cloudscape components.
+The Component Registry is the core of React Design Systems. It stores metadata and documentation for all supported design system components, currently focusing on Cloudscape components.
 
 **Key Responsibilities:**
 - Maintain a comprehensive registry of all 84+ Cloudscape components
@@ -148,7 +157,47 @@ The Example Provider offers usage examples for components.
 
 ## Integration with Roo
 
-The Cloudscape MCP Server integrates with Roo through the Model Context Protocol (MCP). It provides the following tools and resources:
+The React Design Systems MCP server integrates with Roo through the Model Context Protocol (MCP). It provides the following tools and resources:
+
+```mermaid
+graph TB
+    RC[Roo Client]
+    
+    subgraph MCP[MCP Server API]
+        direction TB
+        subgraph Tools[Tools]
+            T1[search_components]
+            T2[get_component_details]
+            T3[generate_component_code]
+            T4[generate_pattern_code]
+            T5[get_component_examples]
+        end
+        
+        subgraph Resources[Resources]
+            R1["cloudscape://components/{id}"]
+            R2["cloudscape://usage/{id}"]
+            R3["cloudscape://categories/{id}"]
+            R4["cloudscape://patterns/{id}"]
+            R5["cloudscape://examples/{id}"]
+        end
+    end
+    
+    RC --> T1
+    RC --> T2
+    RC --> T3
+    RC --> T4
+    RC --> T5
+    RC --> R1
+    RC --> R2
+    RC --> R3
+    RC --> R4
+    RC --> R5
+    
+    style MCP fill:#e3f2fd
+    style Tools fill:#f3e5f5
+    style Resources fill:#e8f5e8
+    style RC fill:#fff3e0
+```
 
 ### Tools
 
@@ -206,25 +255,40 @@ The Cloudscape MCP Server integrates with Roo through the Model Context Protocol
 
 ## Data Flow
 
-The following diagram illustrates the data flow within the Cloudscape MCP Server:
+The following diagram illustrates the data flow within the React Design Systems MCP server:
 
-```
-┌──────────┐     ┌───────────────┐     ┌───────────────┐
-│   Roo    │────▶│  MCP Server   │────▶│   Component   │
-│  Client  │◀────│   Interface   │◀────│   Registry    │
-└──────────┘     └───────────────┘     └───────────────┘
-                         │                     │
-                         ▼                     ▼
-                 ┌───────────────┐     ┌───────────────┐
-                 │     Search    │     │ Documentation │
-                 │     Engine    │     │   Provider    │
-                 └───────────────┘     └───────────────┘
-                         │                     │
-                         ▼                     ▼
-                 ┌───────────────┐     ┌───────────────┐
-                 │     Code      │     │    Example    │
-                 │   Generator   │     │   Provider    │
-                 └───────────────┘     └───────────────┘
+```mermaid
+flowchart TD
+    RC[Roo Client] <--> MI[MCP Server Interface]
+    
+    MI --> CR[Component Registry]
+    MI --> SE[Search Engine]
+    MI --> CG[Code Generator]
+    MI --> DP[Documentation Provider]
+    MI --> PE[Property Explorer]
+    MI --> EP[Example Provider]
+    
+    CR --> SE
+    CR --> CG
+    CR --> DP
+    CR --> PE
+    CR --> EP
+    
+    SE --> MI
+    CG --> MI
+    DP --> MI
+    PE --> MI
+    EP --> MI
+    CR --> MI
+    
+    style RC fill:#fff2cc
+    style MI fill:#d5e8d4
+    style CR fill:#dae8fc
+    style SE fill:#f8cecc
+    style CG fill:#e1d5e7
+    style DP fill:#ffe6cc
+    style PE fill:#e1d5e7
+    style EP fill:#f8cecc
 ```
 
 1. Roo client sends a request to the MCP Server Interface

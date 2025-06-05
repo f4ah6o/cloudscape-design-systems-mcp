@@ -55,9 +55,10 @@ class MockMCPTools {
       formattedContent = content
         .replace(/#{1,6}\s+/g, '') // Remove headers
         .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-        .replace(/\*(.*?)\*/g, '$1') // Remove italic
+        .replace(/(?<!\s)\*([^*\n]+)\*(?!\s)/g, '$1') // Remove italic (single asterisks not preceded/followed by whitespace)
         .replace(/`(.*?)`/g, '$1') // Remove inline code
         .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Remove links, keep text
+        .replace(/^\s*\*\s+/gm, '• ') // Convert markdown bullets to unicode bullets
         .trim();
     } else if (format === 'json') {
       // Parse into structured format
@@ -188,7 +189,10 @@ describe('Usage Guidelines MCP Tools', () => {
       // Should not contain markdown headers
       expect(result.text).not.toContain('##');
       expect(result.text).not.toContain('**');
-      expect(result.text).not.toContain('*');
+      // Should convert bullet points to unicode bullets
+      expect(result.text).toContain('•');
+      // Should not contain markdown italic formatting
+      expect(result.text).not.toMatch(/(?<!\s)\*[^*\n]+\*(?!\s)/);
     });
     
     it('should convert to JSON format when requested', async () => {
@@ -257,9 +261,12 @@ describe('Usage Guidelines MCP Tools', () => {
       const parsed = JSON.parse(result.text);
       expect(parsed.totalResults).toBeGreaterThan(0);
       
-      // All results should have Features section
+      // All results should have Features in matchedSections
       parsed.results.forEach((resultItem: any) => {
-        expect(resultItem.contentPreview).toMatch(/features/i);
+        expect(resultItem.matchedSections).toBeDefined();
+        expect(resultItem.matchedSections.some((section: string) => 
+          section.toLowerCase().includes('features')
+        )).toBe(true);
       });
     });
     
@@ -414,11 +421,9 @@ More content`;
       // The actual registry should prevent this, but testing edge case
       jest.spyOn(componentRegistry, 'getComponentUsage').mockReturnValueOnce('');
       
-      const result = await MockMCPTools.get_component_usage({
+      await expect(MockMCPTools.get_component_usage({
         componentId: 'button'
-      });
-      
-      expect(result.text).toBe('');
+      })).rejects.toThrow('Usage guidelines for component button not found');
       
       jest.restoreAllMocks();
     });

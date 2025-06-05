@@ -1,6 +1,6 @@
-# React Design Systems Architecture
+# React Design Systems MCP Server Architecture
 
-This document outlines the detailed architecture of React Design Systems, which provides comprehensive information about design systems created for React. The current version focuses exclusively on the AWS Cloudscape Design System components, along with code generation capabilities.
+This document outlines the detailed architecture of React Design Systems MCP server, which provides comprehensive information about design systems created for React. The current version focuses exclusively on the AWS Cloudscape Design System components, along with code generation capabilities.
 
 ## System Architecture
 
@@ -148,7 +148,7 @@ The Example Provider offers usage examples for components.
 
 ## Integration with Roo
 
-The Cloudscape MCP Server integrates with Roo through the Model Context Protocol (MCP). It provides the following tools and resources:
+The React Design Systems MCP server integrates with Roo through the Model Context Protocol (MCP). It provides the following tools and resources:
 
 ### Tools
 
@@ -206,7 +206,7 @@ The Cloudscape MCP Server integrates with Roo through the Model Context Protocol
 
 ## Data Flow
 
-The following diagram illustrates the data flow within the Cloudscape MCP Server:
+The following diagram illustrates the data flow within the React Design Systems MCP server:
 
 ```
 ┌──────────┐     ┌───────────────┐     ┌───────────────┐

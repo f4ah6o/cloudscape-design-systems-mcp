@@ -1,6 +1,6 @@
-# Cloudscape MCP Assistant Development
+# React Design Systems MCP Development
 
-This document contains development-specific information for the Cloudscape MCP Assistant project.
+This document contains development-specific information for the React Design Systems MCP project.
 
 ## Requirements
 
@@ -10,7 +10,7 @@ This document contains development-specific information for the Cloudscape MCP A
 ## Project Structure
 
 ```
-mcp-cloudscape-assistant/
+react-design-systems-mcp/
 ├── server.ts                  # Main server file
 ├── tsconfig.json              # TypeScript configuration
 ├── src/
@@ -55,8 +55,8 @@ node --version
 
 2. Clone the repository:
 ```bash
-git clone https://github.com/agentience/mcp-cloudscape-assistant.git
-cd mcp-cloudscape-assistant
+git clone https://github.com/agentience/react-design-systems-mcp.git
+cd react-design-systems-mcp
 ```
 
 3. Install dependencies:
@@ -103,7 +103,7 @@ BIND=127.0.0.1 npm run dev
 
 ## Core Components
 
-The Cloudscape MCP Server provides the following functionality:
+The React Design Systems MCP server provides the following functionality:
 
 - **Component Registry**: Metadata for Cloudscape components
 - **Search Engine**: Search for components by name, category, or tags
@@ -136,7 +136,7 @@ node dist/test-phase4.js
 
 ## Implementation Phases
 
-The Cloudscape MCP Server was implemented in four phases:
+The React Design Systems MCP server was implemented in four phases:
 
 ### Phase 1: Initial Setup and Core Functionality
 

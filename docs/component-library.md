@@ -1,6 +1,6 @@
-# Cloudscape Component Library
+# React Design Systems Component Library
 
-This document provides an overview of the AWS Cloudscape Design System component library that is supported by React Design Systems.
+This document provides an overview of the AWS Cloudscape Design System component library that is supported by React Design Systems MCP server.
 
 ## Overview
 
@@ -125,7 +125,7 @@ The following components are the most commonly used in Cloudscape applications a
 
 ## Component Properties
 
-Each component has a set of properties that control its appearance and behavior. The Cloudscape MCP Server will provide detailed information about all component properties, including:
+Each component has a set of properties that control its appearance and behavior. The React Design Systems MCP server provides detailed information about all component properties, including:
 
 - Property name
 - Property type
@@ -198,7 +198,7 @@ interface ButtonProps {
 
 ## Component Examples
 
-The Cloudscape MCP Server will provide examples for each component, including:
+The React Design Systems MCP server provides examples for each component, including:
 
 - Basic usage
 - With different props
@@ -228,7 +228,7 @@ function MyComponent() {
 
 ## Common Patterns
 
-The Cloudscape MCP Server will provide code generation capabilities for common Cloudscape patterns, including:
+The React Design Systems MCP server provides code generation capabilities for common Cloudscape patterns, including:
 
 ### 1. Data Tables
 
@@ -342,7 +342,7 @@ function ApplicationLayout() {
 
 ## Accessibility
 
-The Cloudscape MCP Server will provide accessibility information for each component, including:
+The React Design Systems MCP server provides accessibility information for each component, including:
 
 - ARIA attributes
 - Keyboard navigation
@@ -352,7 +352,7 @@ The Cloudscape MCP Server will provide accessibility information for each compon
 
 ## Theming
 
-Cloudscape components support theming through the use of design tokens. The Cloudscape MCP Server will provide information about:
+Cloudscape components support theming through the use of design tokens. The React Design Systems MCP server provides information about:
 
 - Available themes
 - Theme customization
@@ -361,7 +361,7 @@ Cloudscape components support theming through the use of design tokens. The Clou
 
 ## Responsive Design
 
-Cloudscape components are designed to be responsive. The Cloudscape MCP Server will provide information about:
+Cloudscape components are designed to be responsive. The React Design Systems MCP server provides information about:
 
 - Responsive behavior
 - Breakpoints
@@ -370,7 +370,7 @@ Cloudscape components are designed to be responsive. The Cloudscape MCP Server w
 
 ## Best Practices
 
-The Cloudscape MCP Server will provide best practices for using Cloudscape components, including:
+The React Design Systems MCP server provides best practices for using Cloudscape components, including:
 
 - Component selection
 - Component composition

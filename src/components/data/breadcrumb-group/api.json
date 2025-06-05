@@ -1,0 +1,124 @@
+{
+  "name": "BreadcrumbGroup",
+  "dashCaseName": "breadcrumb-group",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Provides an `aria-label` to the breadcrumb group that screen readers can read (for accessibility)."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "expandAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Provides an `aria-label` to the ellipsis button that screen readers can read (for accessibility).",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "items",
+      "type": "ReadonlyArray<T>",
+      "optional": false,
+      "description": "An array of breadcrumb items that describes the link hierarchy for this navigation.\nEach option has the following properties:\n\n* `text` (string) - Specifies the title text of the breadcrumb item.\n* `href` (string) - Specifies the URL for the link in the breadcrumb item.\nYou should specify the link even if you have a click handler for a breadcrumb item\nto ensure that valid markup is generated.\n\nNote: The last breadcrumb item is automatically considered the current item, and it's\nnot a link.",
+      "defaultValue": "[]"
+    }
+  ],
+  "events": [
+    {
+      "name": "onClick",
+      "description": "Called when the user clicks on a breadcrumb item.",
+      "cancelable": true,
+      "detailType": "BreadcrumbGroupProps.ClickDetail<T>",
+      "detailInlineType": {
+        "name": "BreadcrumbGroupProps.ClickDetail<T>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "external",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "item",
+            "type": "T",
+            "optional": false
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onFollow",
+      "description": "Called when the user clicks on a breadcrumb item with the left mouse button\nwithout pressing modifier keys (that is, CTRL, ALT, SHIFT, META).",
+      "cancelable": true,
+      "detailType": "BreadcrumbGroupProps.ClickDetail<T>",
+      "detailInlineType": {
+        "name": "BreadcrumbGroupProps.ClickDetail<T>",
+        "type": "object",
+        "properties": [
+          {
+            "name": "external",
+            "type": "boolean",
+            "optional": true
+          },
+          {
+            "name": "href",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "item",
+            "type": "T",
+            "optional": false
+          },
+          {
+            "name": "target",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "breadcrumb-group",
+    "source": "breadcrumb-group.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/breadcrumb-group.js"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "name": "Form",
+  "dashCaseName": "form",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "actions",
+      "description": "Specifies actions for the form. You should wrap action buttons in a [space between component](/components/space-between) with `direction=\"horizontal\"` and `size=\"xs\"`.",
+      "isDefault": false
+    },
+    {
+      "name": "children",
+      "description": "Specifies the main form content.",
+      "isDefault": true
+    },
+    {
+      "name": "errorText",
+      "description": "Specifies a form-level validation message.",
+      "isDefault": false
+    },
+    {
+      "name": "header",
+      "description": "Specifies the form title and optional description. Use the [header component](/components/header/).",
+      "isDefault": false
+    },
+    {
+      "name": "secondaryActions",
+      "description": "Specifies left-aligned secondary actions for the form. Use a button dropdown if multiple actions are required.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "analyticsMetadata",
+      "type": "FormProps.AnalyticsMetadata",
+      "inlineType": {
+        "name": "FormProps.AnalyticsMetadata",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorContext",
+            "type": "ErrorContext",
+            "optional": true
+          },
+          {
+            "name": "flowType",
+            "type": "FlowType",
+            "optional": true
+          },
+          {
+            "name": "instanceIdentifier",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "resourceType",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies additional analytics-related metadata.\n* `instanceIdentifier` - A unique string that identifies this component instance in your application.\n* `flowType` - Identifies the type of flow represented by the component.\n* `resourceType` - Identifies the type of resource represented by the flow. **Note:** This API is currently experimental.\n* `errorContext` - Identifies the error category and sub-category.",
+      "analyticsTag": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "errorIconAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Provides a text alternative for the error icon in the error alert.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "inlineType": {
+        "name": "\"embedded\" | \"full-page\"",
+        "type": "union",
+        "values": [
+          "embedded",
+          "full-page"
+        ]
+      },
+      "optional": true,
+      "description": "Specify a form variant with one of the following:\n* `full-page` - Use this variant when the form contains the entire content of the page.\n* `embedded` - Use this variant when the form doesn't occupy the full page.",
+      "defaultValue": "'full-page'",
+      "deprecatedTag": "You can safely remove this property as there is no longer any visual difference between `full-page` and `embedded` variants."
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "form",
+    "source": "form.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/form.js"
+  }
+}

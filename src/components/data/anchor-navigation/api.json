@@ -1,0 +1,119 @@
+{
+  "name": "AnchorNavigation",
+  "dashCaseName": "anchor-navigation",
+  "releaseStatus": "stable",
+  "regions": [],
+  "functions": [],
+  "properties": [
+    {
+      "name": "activeHref",
+      "type": "string",
+      "optional": true,
+      "description": "Specifies the active anchor href. When set, the component will operate in a\ncontrolled manner, and internal scroll-spy will be disabled."
+    },
+    {
+      "name": "anchors",
+      "type": "Array<AnchorNavigationProps.Anchor>",
+      "optional": false,
+      "description": "List of anchors. Each anchor object has the following properties:\n\n* `text` (string) - The text for the anchor item.\n* `href` (string) - The `id` attribute of the target HTML element that the anchor refers to.\nFor example: `\"#section1.1\"`\n* `level` (number) - Level of nesting of the anchor.\n* `info` (string | undefined) - Additional information to display next to the link, for example: \"New\" or \"Updated\".\n\nNote: The list of anchors should be sorted in the order they appear on the page."
+    },
+    {
+      "name": "ariaLabelledby",
+      "type": "string",
+      "optional": true,
+      "description": "Adds `aria-labelledby` to the component.\n\nUse this property for identifying the header or title that labels the anchor navigation.\nTo use it correctly, define an ID for the element either as label, and set the property to that ID."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "scrollSpyOffset",
+      "type": "number",
+      "optional": true,
+      "description": "Specifies the height (in pixels) to be considered as an offset when activating anchors.\nThis is useful when you have a fixed or sticky header that might overlap with the content as you scroll.\n\nDefaults to 0.",
+      "defaultValue": "0"
+    }
+  ],
+  "events": [
+    {
+      "name": "onActiveHrefChange",
+      "description": "Fired when an active anchor link changes.\n\nNote: This event is triggered both by the component's internal scroll-spy logic,\nor when the `activeHref` prop is manually updated.",
+      "cancelable": false,
+      "detailType": "AnchorNavigationProps.Anchor",
+      "detailInlineType": {
+        "name": "AnchorNavigationProps.Anchor",
+        "type": "object",
+        "properties": [
+          {
+            "name": "href",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "info",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "level",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onFollow",
+      "description": "Fired when an anchor link is clicked without any modifier keys.",
+      "cancelable": true,
+      "detailType": "AnchorNavigationProps.Anchor",
+      "detailInlineType": {
+        "name": "AnchorNavigationProps.Anchor",
+        "type": "object",
+        "properties": [
+          {
+            "name": "href",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "info",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "level",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "anchor-navigation",
+    "source": "anchor-navigation.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/anchor-navigation.js"
+  }
+}

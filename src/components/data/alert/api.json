@@ -1,0 +1,171 @@
+{
+  "name": "Alert",
+  "dashCaseName": "alert",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "action",
+      "description": "Specifies an action for the alert message.\nAlthough it is technically possible to insert any content, our UX guidelines only allow you to add a button.",
+      "isDefault": false
+    },
+    {
+      "name": "buttonText",
+      "description": "Displays an action button next to the message area when set.\nAn `onButtonClick` event is fired when the user clicks it.",
+      "isDefault": false,
+      "deprecatedTag": "Replaced by `action`."
+    },
+    {
+      "name": "children",
+      "description": "Primary text displayed in the element.",
+      "isDefault": true
+    },
+    {
+      "name": "header",
+      "description": "Heading text.",
+      "isDefault": false
+    }
+  ],
+  "functions": [
+    {
+      "name": "focus",
+      "description": "Sets focus on the alert content.",
+      "returnType": "void",
+      "parameters": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "analyticsMetadata",
+      "type": "AlertProps.AnalyticsMetadata",
+      "inlineType": {
+        "name": "AlertProps.AnalyticsMetadata",
+        "type": "object",
+        "properties": [
+          {
+            "name": "errorContext",
+            "type": "ErrorContext",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies additional analytics-related metadata.\n* `errorContext` - Identifies the error category and sub-category.",
+      "analyticsTag": ""
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "dismissAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Adds an aria-label to the dismiss button.",
+      "deprecatedTag": "Use `i18nStrings.dismissAriaLabel` instead.\nIf the label is assigned via the `i18nStrings` property, this label will be ignored.",
+      "i18nTag": true
+    },
+    {
+      "name": "dismissible",
+      "type": "boolean",
+      "optional": true,
+      "description": "Adds a close button to the alert when set to `true`.\nAn `onDismiss` event is fired when a user clicks the button."
+    },
+    {
+      "name": "i18nStrings",
+      "type": "AlertProps.I18nStrings",
+      "inlineType": {
+        "name": "AlertProps.I18nStrings",
+        "type": "object",
+        "properties": [
+          {
+            "name": "dismissAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "errorIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "infoIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "successIconAriaLabel",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "warningIconAriaLabel",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "An object containing all the necessary localized strings required by the component.",
+      "i18nTag": true
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "statusIconAriaLabel",
+      "type": "string",
+      "optional": true,
+      "description": "Provides a text alternative for the icon.",
+      "deprecatedTag": "Use the label properties inside `i18nStrings` instead.\nIf the label is assigned via the `i18nStrings` property, this label will be ignored."
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "inlineType": {
+        "name": "AlertProps.Type",
+        "type": "union",
+        "values": [
+          "error",
+          "success",
+          "warning",
+          "info"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the type of message you want to display.",
+      "defaultValue": "'info'"
+    },
+    {
+      "name": "visible",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the alert is displayed.",
+      "defaultValue": "true",
+      "deprecatedTag": "Use conditional rendering in your code instead of this prop."
+    }
+  ],
+  "events": [
+    {
+      "name": "onButtonClick",
+      "description": "Fired when the user clicks the action button.\n**Deprecated** Replaced by `action`.",
+      "cancelable": false
+    },
+    {
+      "name": "onDismiss",
+      "description": "Fired when the user clicks the close icon that is displayed\nwhen the `dismissible` property is set to `true`.",
+      "cancelable": false
+    }
+  ],
+  "_meta": {
+    "component": "alert",
+    "source": "alert.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/alert.js"
+  }
+}

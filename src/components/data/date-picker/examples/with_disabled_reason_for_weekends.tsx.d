@@ -1,0 +1,29 @@
+import * as React from "react";
+import DatePicker from "@cloudscape-design/components/date-picker";
+import FormField from "@cloudscape-design/components/form-field";
+export default () => {
+  const [value, setValue] = React.useState("");
+  return (
+    <FormField
+      label="Certificate expiry"
+      constraintText="Use YYYY/MM/DD format."
+    >
+      {" "}
+      <DatePicker
+        onChange={({ detail }) => setValue(detail.value)}
+        value={value}
+        isDateEnabled={(date) => date.getDay() !== 6 && date.getDay() !== 0}
+        openCalendarAriaLabel={(selectedDate) =>
+          "Choose certificate expiry date" +
+          (selectedDate ? `, selected date is ${selectedDate}` : "")
+        }
+        dateDisabledReason={(date) =>
+          date.getDay() === 6 || date.getDay() === 0
+            ? "You can only select a weekday."
+            : ""
+        }
+        placeholder="YYYY/MM/DD"
+      />{" "}
+    </FormField>
+  );
+};

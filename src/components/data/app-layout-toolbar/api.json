@@ -1,0 +1,458 @@
+{
+  "name": "AppLayoutToolbar",
+  "dashCaseName": "app-layout-toolbar",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "breadcrumbs",
+      "description": "Use this slot to add the [breadcrumb group component](/components/breadcrumb-group/) to the app layout.",
+      "isDefault": false
+    },
+    {
+      "name": "content",
+      "description": "Main content.",
+      "isDefault": false
+    },
+    {
+      "name": "contentHeader",
+      "description": "Top area of the page content.",
+      "isDefault": false,
+      "visualRefreshTag": "",
+      "deprecatedTag": "Replaced by the `header` slot of the [content layout](/components/content-layout/) component."
+    },
+    {
+      "name": "navigation",
+      "description": "Navigation drawer.",
+      "isDefault": false
+    },
+    {
+      "name": "notifications",
+      "description": "Displayed on top of the main content in the scrollable area.\n\nConceived to contain notifications (flash messages).",
+      "isDefault": false
+    },
+    {
+      "name": "splitPanel",
+      "description": "Use this slot to add the [split panel component](/components/split-panel/) to the app layout.\n\nNote: If provided, this property should be set to `null` or `undefined` if a split panel should not be rendered.",
+      "isDefault": false
+    },
+    {
+      "name": "tools",
+      "description": "Tools drawer.",
+      "isDefault": false
+    }
+  ],
+  "functions": [
+    {
+      "name": "closeNavigationIfNecessary",
+      "description": "Manually closes the navigation drawer if it is necessary for the current\nviewport size.",
+      "returnType": "void",
+      "parameters": []
+    },
+    {
+      "name": "focusActiveDrawer",
+      "description": "Focuses the active drawer. Use this to focus the active drawer after opening it programmatically.",
+      "returnType": "void",
+      "parameters": []
+    },
+    {
+      "name": "focusNavigation",
+      "description": "Focuses the navigation. Use this to focus the navigation after opening it programmatically.",
+      "returnType": "void",
+      "parameters": []
+    },
+    {
+      "name": "focusSplitPanel",
+      "description": "Focuses the split panel if it is open.",
+      "returnType": "void",
+      "parameters": []
+    },
+    {
+      "name": "focusToolsClose",
+      "description": "Focuses the tools panel if it is open. Use this to focus the tools panel\nafter changing the content, for example when clicking on an 'info' link while\nthe panel is already open.",
+      "returnType": "void",
+      "parameters": []
+    },
+    {
+      "name": "openTools",
+      "description": "Opens the tools panel if it is not already open. Note that it is preferable\nto control the state by listening to `toolsChange` and providing `toolsOpen`.",
+      "returnType": "void",
+      "parameters": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "activeDrawerId",
+      "type": "string | null",
+      "optional": true,
+      "description": "The active drawer id. If you want to clear the active drawer, use `null`."
+    },
+    {
+      "name": "analyticsMetadata",
+      "type": "AppLayoutProps.AnalyticsMetadata",
+      "inlineType": {
+        "name": "AppLayoutProps.AnalyticsMetadata",
+        "type": "object",
+        "properties": [
+          {
+            "name": "flowType",
+            "type": "FlowType",
+            "optional": true
+          },
+          {
+            "name": "instanceIdentifier",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Specifies additional analytics-related metadata.\n* `instanceIdentifier` - A unique string that identifies this component instance in your application.\n* `flowType` -  Identifies the type of flow represented by the component.\n**Note:** This API is currently experimental.",
+      "analyticsTag": ""
+    },
+    {
+      "name": "ariaLabels",
+      "type": "AppLayoutProps.Labels",
+      "inlineType": {
+        "name": "AppLayoutProps.Labels",
+        "type": "object",
+        "properties": [
+          {
+            "name": "drawers",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "drawersOverflow",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "drawersOverflowWithBadge",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "navigation",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "navigationClose",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "navigationToggle",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "notifications",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "tools",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "toolsClose",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "toolsToggle",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Aria labels for the drawer operating buttons. Use this property to ensure accessibility.\n\n* `navigation` (string) - Label for the landmark that wraps the navigation drawer.\n* `navigationClose` (string) - Label for the button that closes the navigation drawer.\n* `navigationToggle` (string) - Label for the button that opens the navigation drawer.\n* `notification` (string) - Label for the region that contains notification messages.\n* `tools` (string) - Label for the landmark that wraps the tools drawer.\n* `toolsClose` (string) - Label for the button that closes the tools drawer.\n* `toolsToggle` (string) - Label for the button that opens the tools drawer.\n* `drawers` (string) - Label for the landmark that wraps the active drawer.\n* `drawersOverflow` (string) - Label for the ellipsis button with any overflow drawers.\n* `drawersOverflowWithBadge` (string) - Label for the ellipsis button with any overflow drawers, with a badge.\n\nExample:\n```\n{\n  navigation: \"Navigation drawer\",\n  navigationClose: \"Close navigation drawer\",\n  navigationToggle: \"Open navigation drawer\",\n  notifications: \"Notifications\",\n  tools: \"Help panel\",\n  toolsClose: \"Close help panel\",\n  toolsToggle: \"Open help panel\",\n  drawers: \"Drawers\",\n  drawersOverflow: \"Overflow drawers\",\n  drawersOverflowWithBadge: \"Overflow drawers (Unread notifications)\"\n}\n```",
+      "i18nTag": true
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "contentType",
+      "type": "string",
+      "inlineType": {
+        "name": "AppLayoutProps.ContentType",
+        "type": "union",
+        "values": [
+          "default",
+          "form",
+          "table",
+          "dashboard",
+          "cards",
+          "wizard"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the default behavior of the component based on some predefined page layouts.\nIndividual properties will always take precedence over the default coming from the content type.",
+      "defaultValue": "'default'"
+    },
+    {
+      "name": "disableContentHeaderOverlap",
+      "type": "boolean",
+      "optional": true,
+      "description": "Disables overlap between `contentHeader` and `content` slots.",
+      "visualRefreshTag": "",
+      "deprecatedTag": "Replaced by the `disableOverlap` property of the [content layout](/components/content-layout/) component."
+    },
+    {
+      "name": "disableContentPaddings",
+      "type": "boolean",
+      "optional": true,
+      "description": "If `true`, disables outer paddings for the content slot."
+    },
+    {
+      "name": "drawers",
+      "type": "Array<AppLayoutProps.Drawer>",
+      "optional": true,
+      "description": "Drawers property. If you set both `drawers` and `tools`, `drawers` will take precedence.\n\nEach Drawer is an item in the drawers wrapper with the following properties:\n* id (string) - the id of the drawer.\n* content (React.ReactNode) - the content in the drawer.\n* trigger (DrawerTrigger) - (Optional) the button that opens and closes the active drawer.\nIf not set, a corresponding trigger button is not displayed, while the drawer might be displayed, but opened using a custom trigger.\n* ariaLabels (DrawerAriaLabels) - the labels for the interactive elements of the drawer.\n* badge (boolean) - (Optional) Adds a badge to the corner of the icon to indicate a state change. For example: Unread notifications.\n* resizable (boolean) - (Optional) if the drawer is resizable or not.\n* defaultSize (number) - (Optional) starting size of the drawer. if not set, defaults to 290.\n* onResize (({ size: number }) => void) - (Optional) Fired when the active drawer is resized.\n\n#### DrawerTrigger\n- `iconName` (IconProps.Name) - (Optional) Specifies the icon to be displayed.\n- `iconSvg` (React.ReactNode) - (Optional) Specifies the SVG of a custom icon. For more information, see [SVG icon guidelines](/components/icon/?tabId=api#slots)\n\n#### DrawerAriaLabels\n- `drawerName` (string) - Label for the drawer itself, and for the drawer trigger button tooltip text.\n- `closeButton` (string) - (Optional) Label for the close button.\n- `triggerButton` (string) - (Optional) Label for the trigger button.\n- `resizeHandle` (string) - (Optional) Label for the resize handle."
+    },
+    {
+      "name": "footerSelector",
+      "type": "string",
+      "optional": true,
+      "description": "CSS selector for the application footer.",
+      "defaultValue": "'#b #f'"
+    },
+    {
+      "name": "headerSelector",
+      "type": "string",
+      "optional": true,
+      "description": "CSS selector for the application header.",
+      "defaultValue": "'#b #h'"
+    },
+    {
+      "name": "headerVariant",
+      "type": "string",
+      "inlineType": {
+        "name": "\"default\" | \"high-contrast\"",
+        "type": "union",
+        "values": [
+          "default",
+          "high-contrast"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the visual treatment for the breadcrumbs and notifications slots. Specifically:\n* `default` - Does not apply any visual treatment.\n* `high-contrast` - Applies high-contrast to both slots. Use in conjunction with `headerVariant=\"high-contrast\"` in ContentLayout.",
+      "visualRefreshTag": ""
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "maxContentWidth",
+      "type": "number",
+      "optional": true,
+      "description": "Maximum main content panel width in pixels.\n\nIf set to `Number.MAX_VALUE`, the main content panel will occupy the full available width."
+    },
+    {
+      "name": "minContentWidth",
+      "type": "number",
+      "optional": true,
+      "description": "Minimum main content panel width in pixels."
+    },
+    {
+      "name": "navigationHide",
+      "type": "boolean",
+      "optional": true,
+      "description": "If `true`, the navigation drawer is not displayed at all."
+    },
+    {
+      "name": "navigationOpen",
+      "type": "boolean",
+      "optional": true,
+      "description": "State of the navigation drawer."
+    },
+    {
+      "name": "navigationTriggerHide",
+      "type": "boolean",
+      "optional": true,
+      "description": "If `true`, the navigation trigger is not displayed at all,\nwhile navigation drawer might be displayed, but opened using a custom trigger."
+    },
+    {
+      "name": "navigationWidth",
+      "type": "number",
+      "optional": true,
+      "description": "Navigation drawer width in pixels.",
+      "defaultValue": "280"
+    },
+    {
+      "name": "splitPanelOpen",
+      "type": "boolean",
+      "optional": true,
+      "description": "State of the split panel."
+    },
+    {
+      "name": "splitPanelPreferences",
+      "type": "AppLayoutProps.SplitPanelPreferences",
+      "inlineType": {
+        "name": "AppLayoutProps.SplitPanelPreferences",
+        "type": "object",
+        "properties": [
+          {
+            "name": "position",
+            "type": "\"bottom\" | \"side\"",
+            "optional": false
+          }
+        ]
+      },
+      "optional": true,
+      "description": "Controls the split panel preferences.\n\nBy default, the preference is `{ position: 'bottom' }`"
+    },
+    {
+      "name": "splitPanelSize",
+      "type": "number",
+      "optional": true,
+      "description": "The size of the split panel in pixels."
+    },
+    {
+      "name": "stickyNotifications",
+      "type": "boolean",
+      "optional": true,
+      "description": "If true, the notification slot is rendered above the scrollable\ncontent area so it is always visible."
+    },
+    {
+      "name": "toolsHide",
+      "type": "boolean",
+      "optional": true,
+      "description": "If `true`, the tools drawer is not displayed at all."
+    },
+    {
+      "name": "toolsOpen",
+      "type": "boolean",
+      "optional": true,
+      "description": "State of the tools drawer."
+    },
+    {
+      "name": "toolsWidth",
+      "type": "number",
+      "optional": true,
+      "description": "Tools drawer width in pixels.",
+      "defaultValue": "290"
+    }
+  ],
+  "events": [
+    {
+      "name": "onDrawerChange",
+      "description": "Fired when the active drawer is toggled.",
+      "cancelable": false,
+      "detailType": "AppLayoutProps.DrawerChangeDetail",
+      "detailInlineType": {
+        "name": "AppLayoutProps.DrawerChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "activeDrawerId",
+            "type": "string | null",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onNavigationChange",
+      "description": "Fired when the navigation drawer is toggled.",
+      "cancelable": false,
+      "detailType": "AppLayoutProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "AppLayoutProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "open",
+            "type": "boolean",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onSplitPanelPreferencesChange",
+      "description": "Fired when the split panel preferences change.",
+      "cancelable": false,
+      "detailType": "AppLayoutProps.SplitPanelPreferences",
+      "detailInlineType": {
+        "name": "AppLayoutProps.SplitPanelPreferences",
+        "type": "object",
+        "properties": [
+          {
+            "name": "position",
+            "type": "\"bottom\" | \"side\"",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onSplitPanelResize",
+      "description": "Fired when the split panel is resized.",
+      "cancelable": false,
+      "detailType": "AppLayoutProps.SplitPanelResizeDetail",
+      "detailInlineType": {
+        "name": "AppLayoutProps.SplitPanelResizeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "size",
+            "type": "number",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onSplitPanelToggle",
+      "description": "Fired when the split panel is toggled.",
+      "cancelable": false,
+      "detailType": "AppLayoutProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "AppLayoutProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "open",
+            "type": "boolean",
+            "optional": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "onToolsChange",
+      "description": "Fired when the tools drawer is toggled.",
+      "cancelable": false,
+      "detailType": "AppLayoutProps.ChangeDetail",
+      "detailInlineType": {
+        "name": "AppLayoutProps.ChangeDetail",
+        "type": "object",
+        "properties": [
+          {
+            "name": "open",
+            "type": "boolean",
+            "optional": false
+          }
+        ]
+      }
+    }
+  ],
+  "_meta": {
+    "component": "app-layout-toolbar",
+    "source": "app-layout-toolbar.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/app-layout-toolbar.js"
+  }
+}

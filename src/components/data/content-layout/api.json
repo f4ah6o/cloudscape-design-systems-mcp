@@ -1,0 +1,105 @@
+{
+  "name": "ContentLayout",
+  "dashCaseName": "content-layout",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "breadcrumbs",
+      "description": "Use this slot to add the [breadcrumb group component](/components/breadcrumb-group/) to the content layout:\n* if your application does not use the [app layout component](/components/app-layout/), which already offers a `breadcrumbs` slot.\n* If your page uses the [app layout component](/components/app-layout/) with `disableContentPaddings=true`.\n\nDo not use in conjunction with the `breadcrumbs` slot in the [app layout component](/components/app-layout/).",
+      "isDefault": false
+    },
+    {
+      "name": "children",
+      "displayName": "content",
+      "description": "Use this slot to render the main content of the layout below the header.",
+      "isDefault": true
+    },
+    {
+      "name": "header",
+      "description": "Use this slot to render the header content for the layout.",
+      "isDefault": false
+    },
+    {
+      "name": "notifications",
+      "description": "Use this slot to display [notifications](/components/flashbar/) to the content layout:\n* If your page does not use the [app layout component](/components/app-layout/), which already offers a `notifications` slot.\n* If your page uses the [app layout component](/components/app-layout/) with `disableContentPaddings=true`.\n\nDo not use in conjunction with the `notifications` slot in the [app layout component](/components/app-layout/).",
+      "isDefault": false
+    },
+    {
+      "name": "secondaryHeader",
+      "description": "Use this slot to add a secondary element inside the header. The secondary element will be displayed next to main header and occupy 25% of the available space.\nNote that the secondary header will not have a high-contrast treatement, even if you set `headerVariant` to `high-contrast`.",
+      "isDefault": false
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "defaultPadding",
+      "type": "boolean",
+      "optional": true,
+      "description": "Set it to `true` if your page uses the [app layout component](/components/app-layout/) with `disableContentPaddings=true`.\nIn that case, the content layout will become sensitive to the state of drawers in app layout and leave the necessary padding to avoid visual overlap with those elements."
+    },
+    {
+      "name": "disableOverlap",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the layout has an overlap between the header and content.\nIf true, the overlap will be removed.",
+      "visualRefreshTag": ""
+    },
+    {
+      "name": "headerBackgroundStyle",
+      "type": "string | ((mode: \"dark\" | \"light\") => string)",
+      "inlineType": {
+        "name": "string | ((mode: \"dark\" | \"light\") => string)",
+        "type": "union",
+        "values": [
+          "string",
+          "(mode: \"dark\" | \"light\") => string"
+        ]
+      },
+      "optional": true,
+      "description": "Use this property to style the background of the header.\n\nIt can be:\n* a string representing the CSS `background` value for the header element.\n* a function that receives the mode (\"light\" or \"dark\") as a parameter and returns a string.\n\n The header background spans across the full available width, independent of the specified `maxContentWidth`.\n If set, the component will not add the default background color to the header."
+    },
+    {
+      "name": "headerVariant",
+      "type": "string",
+      "inlineType": {
+        "name": "\"default\" | \"divider\" | \"high-contrast\"",
+        "type": "union",
+        "values": [
+          "default",
+          "divider",
+          "high-contrast"
+        ]
+      },
+      "optional": true,
+      "description": "Determines the visual treatment for the header. Specifically:\n* `default` - Does not apply any visual treatment.\n* `high-contrast` - Applies high-contrast to the background of the header and the elements contained within it.\n    If you are using the AppLayout component, set `headerVariant=\"high-contrast\"` to apply the same treatment to the breadcrumbs and notifications slots.\n* `divider` - Adds a horizontal separator between the header and the content.",
+      "visualRefreshTag": "`high-contrast` headerVariant"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "maxContentWidth",
+      "type": "number",
+      "optional": true,
+      "description": "Maximum width for the content.\nIf set, all elements of the content layout (header, content, notifications, breadcrumbs) will be center-aligned and have the desired maximum width.\nIf not set, all elements will occupy the full available width."
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "content-layout",
+    "source": "content-layout.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/content-layout.js"
+  }
+}

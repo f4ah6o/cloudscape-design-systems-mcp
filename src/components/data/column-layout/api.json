@@ -1,0 +1,87 @@
+{
+  "name": "ColumnLayout",
+  "dashCaseName": "column-layout",
+  "releaseStatus": "stable",
+  "regions": [
+    {
+      "name": "children",
+      "description": "The columns to render.",
+      "isDefault": true
+    }
+  ],
+  "functions": [],
+  "properties": [
+    {
+      "name": "borders",
+      "type": "string",
+      "inlineType": {
+        "name": "ColumnLayoutProps.Borders",
+        "type": "union",
+        "values": [
+          "all",
+          "none",
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "optional": true,
+      "description": "Controls whether dividers are placed between rows and columns.\n\nNote: This is not supported when used with `minColumnWidth`.",
+      "defaultValue": "'none'"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified classes to the root element of the component.",
+      "deprecatedTag": "Custom CSS is not supported. For testing and other use cases, use [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)."
+    },
+    {
+      "name": "columns",
+      "type": "number",
+      "optional": true,
+      "description": "Specifies the number of columns in each grid row.\nWhen `minColumnWidth` is not set, only up to 4 columns are supported.",
+      "defaultValue": "1"
+    },
+    {
+      "name": "disableGutters",
+      "type": "boolean",
+      "optional": true,
+      "description": "Determines whether the default gutters between columns are removed.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "optional": true,
+      "description": "Adds the specified ID to the root element of the component.",
+      "deprecatedTag": "The usage of the `id` attribute is reserved for internal use cases. For testing and other use cases,\nuse [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes). If you must\nuse the `id` attribute, consider setting it on a parent element instead."
+    },
+    {
+      "name": "minColumnWidth",
+      "type": "number",
+      "optional": true,
+      "description": "Use together with `columns` to specify the desired minimum width for each column in pixels.\n\nThe number of columns is determined by the value of this property, the available space,\nand the maximum number of columns as defined by the `columns` property."
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "inlineType": {
+        "name": "ColumnLayoutProps.Variant",
+        "type": "union",
+        "values": [
+          "default",
+          "text-grid"
+        ]
+      },
+      "optional": true,
+      "description": "Specifies the content type. This determines the spacing of the grid.",
+      "defaultValue": "'default'"
+    }
+  ],
+  "events": [],
+  "_meta": {
+    "component": "column-layout",
+    "source": "column-layout.js",
+    "extracted_at": "/Users/troymolander/Development/cloudscape-design/components/lib/components-definitions/components/column-layout.js"
+  }
+}

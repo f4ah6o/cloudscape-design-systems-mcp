@@ -172,6 +172,49 @@ For more details on each phase, see the phase summary files:
 - `docs/phase3-summary.md`
 - `docs/phase4-summary.md`
 
+## FastMCP Implementation
+
+This project uses the FastMCP framework, which provides a more structured and type-safe approach to building MCP servers. FastMCP offers several advantages over traditional MCP implementations:
+
+### Key Features
+
+- **Simplified tool and resource definition**: Easier API for defining MCP tools and resources
+- **Built-in support for authentication**: Streamlined authentication handling
+- **Session management**: Automatic session tracking and management
+- **Image and audio content handling**: Support for multimedia content types
+- **Improved logging**: Enhanced logging capabilities for debugging and monitoring
+- **Better error handling**: More robust error handling and reporting
+- **Support for SSE (Server-Sent Events)**: Real-time communication capabilities
+- **CORS support**: Built-in Cross-Origin Resource Sharing support
+- **Progress notifications**: Ability to send progress updates for long-running operations
+- **Typed server events**: Type-safe event handling
+- **Prompt argument auto-completion**: Enhanced development experience
+
+### Transport Types
+
+The FastMCP server supports two transport types:
+
+1. **stdio (default)**: Standard input/output transport for local server communication
+2. **SSE (Server-Sent Events)**: HTTP-based transport for web applications and remote clients
+
+#### Running with stdio Transport
+
+```bash
+npm start
+# or
+npm run dev
+```
+
+#### Running with SSE Transport
+
+```bash
+npm run dev:sse
+```
+
+### Implementation Details
+
+For detailed technical information about the FastMCP implementation, including tool and resource registration patterns, see [FastMCP Implementation Guide](docs/fastmcp-implementation.md).
+
 ## Node.js 24.x Compatibility
 
 This project requires Node.js 24.0.1 or higher. If you encounter any issues related to the Node.js version, please refer to the [Node.js 24 Upgrade Guide](docs/nodejs-24-upgrade-guide.md) for detailed information about compatibility considerations and potential issues.

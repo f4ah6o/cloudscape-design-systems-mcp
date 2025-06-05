@@ -144,21 +144,7 @@ For information on building and publishing the Docker image to GitHub Container 
 
 ## FastMCP Implementation
 
-This project uses the FastMCP framework, which provides a more structured and type-safe approach to building MCP servers. FastMCP offers several advantages:
-
-- Simplified tool and resource definition
-- Built-in support for authentication
-- Session management
-- Image and audio content handling
-- Improved logging
-- Better error handling
-- Support for SSE (Server-Sent Events)
-- CORS support
-- Progress notifications
-- Typed server events
-- Prompt argument auto-completion
-
-For more information about the FastMCP implementation, see [FastMCP Migration](docs/fastmcp-migration.md).
+This project uses the FastMCP framework for a more structured and type-safe approach to building MCP servers. For detailed information about the FastMCP implementation and development setup, see [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Available Tools and Resources
 

@@ -1,6 +1,6 @@
 {
   "name": "@agentience/react-design-systems-mcp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Model Context Protocol (MCP) server that provides comprehensive information about design systems created for React, currently focusing on AWS Cloudscape Design System",
   "main": "dist/index.js",
   "bin": {

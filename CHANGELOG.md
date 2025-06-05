@@ -1,3 +1,27 @@
+# React Design Systems MCP v1.0.7
+
+## Summary
+This release focuses on documentation improvements and project organization, including standardizing the changelog format and better separation of user vs. developer documentation.
+
+## Documentation Improvements
+- **Standardized Changelog**: Renamed `release-notes.md` to `CHANGELOG.md` following widely accepted conventions
+- **Enhanced Documentation Structure**: Moved development-specific content from README.md to DEVELOPMENT.md
+- **Improved Documentation Separation**: Better distinction between end-user and developer-facing documentation
+- **Complete Version History**: Added missing v1.0.5 release information to changelog
+
+## Project Organization
+- Moved development installation instructions from README.md to DEVELOPMENT.md
+- Moved development usage instructions (running, testing, building) from README.md to DEVELOPMENT.md
+- Streamlined README.md to focus on end-user installation and configuration
+- Enhanced DEVELOPMENT.md with comprehensive development workflow information
+
+## File Changes
+- `release-notes.md` → `CHANGELOG.md` (renamed and enhanced)
+- README.md: Focused on end-user documentation
+- DEVELOPMENT.md: Consolidated all development-related documentation
+
+---
+
 # React Design Systems MCP v1.0.6
 
 ## Summary

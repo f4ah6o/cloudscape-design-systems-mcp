@@ -116,7 +116,7 @@ ${prop.description}
   const usage = `
 ## Usage Guidelines
 
-- Use ${component.name} for ${component.description.toLowerCase()}
+- Use ${component.name} for ${component.description?.toLowerCase() || 'its intended purpose'}
 - Follow accessibility best practices
 - Ensure proper keyboard navigation
 ${generateComponentSpecificUsageGuidelines(component)}
@@ -380,7 +380,7 @@ function searchDocumentation({ query, scope = 'all', limit = 10 }: SearchDocumen
           type: 'component',
           id: component.id,
           name: component.name,
-          description: component.description,
+          description: component.description || `${component.name} component`,
           relevance: calculateRelevance(documentationText.toLowerCase(), query)
         });
       }

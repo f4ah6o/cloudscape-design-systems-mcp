@@ -36,6 +36,8 @@ export function createFastMCPServer(options: {
     version: options.version as `${number}.${number}.${number}`,
   });
 
+  // Note: port and bind options are used when calling server.start()
+
   // Register tools
   registerTools(server);
 
@@ -156,7 +158,7 @@ function registerTools(server: FastMCP) {
       
       // Include related components if requested
       if (includeRelatedComponents) {
-        componentDetails.relatedComponents = component.relatedComponents.map(id => {
+        componentDetails.relatedComponents = (component.relatedComponents || []).map(id => {
           const relatedComponent = componentRegistry.getComponent(id);
           return {
             id,
@@ -202,8 +204,223 @@ function registerTools(server: FastMCP) {
     },
   });
 
-  // Add more tools here...
-  // (The rest of the tools implementation would go here)
+  // Tool: generate_component_code
+  server.addTool({
+    name: 'generate_component_code',
+    description: 'Generate code for a component with advanced customization options',
+    parameters: z.object({
+      componentId: z.string().describe('Component ID'),
+      props: z.record(z.any()).optional().describe('Component props'),
+      children: z.string().optional().describe('Component children'),
+      eventHandlers: z.record(z.any()).optional().describe('Component event handlers'),
+      typescript: z.boolean().optional().describe('Whether to generate TypeScript code'),
+      style: z.string().optional().describe('Code style (compact or expanded)'),
+      includeImports: z.boolean().optional().describe('Whether to include imports in the code'),
+    }),
+    execute: async (args) => {
+      const {
+        componentId,
+        props = {},
+        children = '',
+        eventHandlers = {},
+        typescript = true,
+        style = 'expanded',
+        includeImports = true
+      } = args;
+      
+      // Get component details
+      const component = componentRegistry.getComponent(componentId);
+      
+      if (!component) {
+        throw new Error(`Component ${componentId} not found`);
+      }
+      
+      // Generate code
+      const code = codeGenerator.generateComponentCode({
+        componentId,
+        props,
+        children,
+        eventHandlers,
+        typescript,
+        style,
+        includeImports
+      });
+      
+      return {
+        type: 'text',
+        text: code
+      };
+    },
+  });
+
+  // Tool: generate_pattern_code
+  server.addTool({
+    name: 'generate_pattern_code',
+    description: 'Generate code for a common pattern with advanced customization options',
+    parameters: z.object({
+      patternId: z.string().describe('Pattern ID'),
+      customizations: z.record(z.any()).optional().describe('Pattern customizations'),
+      typescript: z.boolean().optional().describe('Whether to generate TypeScript code'),
+      style: z.string().optional().describe('Code style (compact or expanded)'),
+      includeImports: z.boolean().optional().describe('Whether to include imports in the code'),
+    }),
+    execute: async (args) => {
+      const {
+        patternId,
+        customizations = {},
+        typescript = true,
+        style = 'expanded',
+        includeImports = true
+      } = args;
+      
+      // Get pattern details
+      const pattern = componentRegistry.getPattern(patternId);
+      
+      if (!pattern) {
+        throw new Error(`Pattern ${patternId} not found`);
+      }
+      
+      // Generate code
+      const code = codeGenerator.generatePatternCode({
+        patternId,
+        customizations,
+        typescript,
+        style,
+        includeImports
+      });
+      
+      return {
+        type: 'text',
+        text: code
+      };
+    },
+  });
+
+  // Tool: search_documentation
+  server.addTool({
+    name: 'search_documentation',
+    description: 'Search within component documentation',
+    parameters: z.object({
+      query: z.string().describe('Search query'),
+      scope: z.string().optional().describe('Search scope (components, categories, patterns, all)'),
+      limit: z.number().optional().describe('Maximum number of results to return'),
+    }),
+    execute: async (args) => {
+      const {
+        query,
+        scope = 'all',
+        limit = 10
+      } = args;
+      
+      // Search documentation
+      const results = documentationProvider.searchDocumentation({
+        query,
+        scope,
+        limit
+      });
+      
+      return JSON.stringify(results);
+    },
+  });
+
+  // Tool: get_component_properties
+  server.addTool({
+    name: 'get_component_properties',
+    description: 'Retrieve detailed property information for a specific component',
+    parameters: z.object({
+      componentId: z.string().describe('Component ID'),
+      filter: z.object({
+        required: z.boolean().optional().describe('Filter by required status'),
+        deprecated: z.boolean().optional().describe('Filter by deprecated status'),
+        type: z.string().optional().describe('Filter by property type'),
+        namePattern: z.string().optional().describe('Filter by name pattern (regex)'),
+      }).optional().describe('Property filters'),
+    }),
+    execute: async (args) => {
+      const {
+        componentId,
+        filter = {}
+      } = args;
+      
+      // Get component properties
+      const properties = propertyExplorer.getComponentProperties({
+        componentId,
+        filter
+      });
+      
+      return JSON.stringify(properties);
+    },
+  });
+
+  // Tool: get_component_examples
+  server.addTool({
+    name: 'get_component_examples',
+    description: 'Get usage examples for a specific component',
+    parameters: z.object({
+      componentId: z.string().describe('Component ID'),
+      type: z.string().optional().describe('Example type'),
+      limit: z.number().optional().describe('Maximum number of examples to return'),
+      tags: z.array(z.string()).optional().describe('Tags to filter by'),
+    }),
+    execute: async (args) => {
+      const {
+        componentId,
+        type,
+        limit = 5,
+        tags = []
+      } = args;
+      
+      // Get component examples
+      const examples = exampleProvider.getComponentExamples({
+        componentId,
+        type,
+        limit,
+        tags
+      });
+      
+      return JSON.stringify(examples);
+    },
+  });
+
+  // Additional tools
+  server.addTool({
+    name: 'validate_component_props',
+    description: 'Validate if provided props are valid for a component',
+    parameters: z.object({
+      componentId: z.string().describe('Component ID'),
+      props: z.record(z.any()).describe('Component props to validate'),
+    }),
+    execute: async (args) => {
+      const { componentId, props } = args;
+      
+      // Validate component props
+      const validationResult = propertyExplorer.validateComponentProps({
+        componentId,
+        props
+      });
+      
+      return JSON.stringify(validationResult);
+    },
+  });
+
+  server.addTool({
+    name: 'get_component_patterns',
+    description: 'Get common usage patterns for a component',
+    parameters: z.object({
+      componentId: z.string().describe('Component ID'),
+      limit: z.number().optional().describe('Maximum number of patterns to return'),
+    }),
+    execute: async (args) => {
+      const { componentId, limit = 5 } = args;
+      
+      // Get component patterns
+      const patterns = Object.values(componentRegistry.getAllPatterns())
+        .filter(pattern => pattern.components.includes(componentId))
+        .slice(0, limit);
+      
+      return JSON.stringify(patterns);
+    },
+  });
 }
 
 /**
@@ -211,8 +428,139 @@ function registerTools(server: FastMCP) {
  * @param server - FastMCP server instance
  */
 function registerResources(server: FastMCP) {
-  // Register resources here...
-  // (The resources implementation would go here)
+  // Register component details resource
+  server.addResourceTemplate({
+    uriTemplate: 'cloudscape://components/{componentId}',
+    name: 'Component Details',
+    parameters: {
+      componentId: {
+        description: 'Component ID',
+        required: true,
+      },
+    },
+    handler: async (params) => {
+      const { componentId } = params;
+      const component = componentRegistry.getComponent(componentId);
+      
+      if (!component) {
+        throw new Error(`Component ${componentId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: JSON.stringify(component, null, 2),
+      };
+    },
+  });
+
+  // Register category details resource
+  server.addResourceTemplate({
+    uriTemplate: 'cloudscape://categories/{categoryId}',
+    name: 'Category Details',
+    parameters: {
+      categoryId: {
+        description: 'Category ID',
+        required: true,
+      },
+    },
+    handler: async (params) => {
+      const { categoryId } = params;
+      const category = componentRegistry.getCategory(categoryId);
+      
+      if (!category) {
+        throw new Error(`Category ${categoryId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: JSON.stringify(category, null, 2),
+      };
+    },
+  });
+
+  // Register pattern details resource
+  server.addResourceTemplate({
+    uriTemplate: 'cloudscape://patterns/{patternId}',
+    name: 'Pattern Details',
+    parameters: {
+      patternId: {
+        description: 'Pattern ID',
+        required: true,
+      },
+    },
+    handler: async (params) => {
+      const { patternId } = params;
+      const pattern = componentRegistry.getPattern(patternId);
+      
+      if (!pattern) {
+        throw new Error(`Pattern ${patternId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: JSON.stringify(pattern, null, 2),
+      };
+    },
+  });
+
+  // Register example details resource
+  server.addResourceTemplate({
+    uriTemplate: 'cloudscape://examples/{exampleId}',
+    name: 'Example Details',
+    parameters: {
+      exampleId: {
+        description: 'Example ID',
+        required: true,
+      },
+    },
+    handler: async (params) => {
+      const { exampleId } = params;
+      const examples = exampleProvider.getExampleById(exampleId);
+      
+      if (!examples) {
+        throw new Error(`Example ${exampleId} not found`);
+      }
+      
+      return {
+        type: 'text',
+        text: JSON.stringify(examples, null, 2),
+      };
+    },
+  });
+
+  // Register direct resources
+  server.addResource({
+    uri: 'cloudscape://best-practices',
+    name: 'Cloudscape Best Practices',
+    handler: async () => {
+      return {
+        type: 'text',
+        text: documentationProvider.getBestPractices(),
+      };
+    },
+  });
+
+  server.addResource({
+    uri: 'cloudscape://components-overview',
+    name: 'Cloudscape Components Overview',
+    handler: async () => {
+      return {
+        type: 'text',
+        text: documentationProvider.getComponentsOverview(),
+      };
+    },
+  });
+
+  server.addResource({
+    uri: 'cloudscape://frontend-code-setup',
+    name: 'Frontend Code Setup Instructions',
+    handler: async () => {
+      return {
+        type: 'text',
+        text: documentationProvider.getFrontendCodeSetup(),
+      };
+    },
+  });
 }
 
 /**

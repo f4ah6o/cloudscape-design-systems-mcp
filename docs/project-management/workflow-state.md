@@ -4,6 +4,13 @@ This file tracks the decomposition, delegation, and status of tasks for the curr
 
 ## Current Request
 
+**ID:** MCP-001
+**Date:** 2025-06-04
+**Request:** Fix MCP server issues with component search and tool registration
+**Jira Issue:** CA-3 (In Progress)
+
+## Previous Request
+
 **ID:** UPG-001
 **Date:** 2025-05-17
 **Request:** Update the project to use the latest Node.js version 24.0.1
@@ -37,6 +44,14 @@ This file tracks the decomposition, delegation, and status of tasks for the curr
 | | FIX-001 | GitMaster | Completed | REL-002 | Fix GitHub workflow publish.yml file | Updated workflow file, PR #3 | 2025-05-17 | 2025-05-17 | Fixed GitHub workflow by adding explicit chmod command for server.js file |
 | | PUB-001 | Maestro | Completed | FIX-001 | Update GitHub workflow to publish to GitHub Packages | Updated workflow file and documentation | 2025-05-17 | 2025-05-17 | Modified publish.yml to publish to both npm and GitHub Packages, updated related documentation |
 | | GIT-003 | GitMaster | Completed | PUB-001 | Commit GitHub Packages publishing changes | Committed changes | 2025-05-17 | 2025-05-17 | Committed all changes related to GitHub Packages publishing implementation with message "feat: implement GitHub Packages publishing in workflow (CA-2)" |
+| | MCP-001 | Maestro | In Progress | - | Coordinate MCP server fixes for component search and tool registration | Updated task-context-MCP-001.md | 2025-06-04 | - | Identified issues with MCP server implementation |
+| | MCP-002 | JiraManager | Completed | MCP-001 | Create Jira issue for MCP server fixes | Jira issue CA-3 | 2025-06-04 | 2025-06-04 | Created Jira issue CA-3 with detailed description, acceptance criteria, and priority set to High |
+| | MCP-003 | GitMaster | Completed | MCP-002 | Create git branch for MCP server fixes | New branch | 2025-06-04 | 2025-06-04 | Branch created: feature/CA-3-mcp-server-fixes |
+| | MCP-004 | Researcher | In Progress | MCP-003 | Research FastMCP framework API and implementation details | Research findings | 2025-06-04 | - | Research in progress for FastMCP framework API |
+| | MCP-005 | BackendForge | Not Started | MCP-004 | Implement server.ts fixes for tool registration | Updated server.ts | - | - | - |
+| | MCP-008 | JiraManager | Completed | MCP-001 | Update Jira issue CA-3 status to "Development In Progress" | Updated Jira issue | 2025-06-04 | 2025-06-04 | Updated Jira issue CA-3 status from "Backlog" to "Development In Progress" with comment explaining current work |
+| | MCP-006 | BackendInspector | Not Started | MCP-005 | Review and test server implementation | Code review report | - | - | - |
+| | MCP-007 | TestCrafter | Not Started | MCP-006 | Create and run tests for MCP server | Test results | - | - | - |
 
 ## Key Decisions
 

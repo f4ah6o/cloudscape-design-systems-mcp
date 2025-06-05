@@ -1,8 +1,8 @@
 /**
- * Component Registry
+ * Component Registry (New Implementation)
  * 
  * This module provides access to the Cloudscape component metadata using the new documentation format.
- * - Full documentation on all components is now available under src/components/data/{component-name}
+ * - Full documentation on all components is now available under src/components/{component-name}
  * - Each component directory provides:
  *   - examples (directory): Example implementations of specific use cases
  *   - usage.md: Guidelines on how and when to use the component
@@ -137,11 +137,12 @@ const patternCache: Record<string, PatternMetadata> = {};
 
 // Helper function to get component directories
 function getComponentDirectories(): string[] {
-  const componentsDataDir = path.resolve(__dirname, './data');
-  return fs.readdirSync(componentsDataDir)
+  const componentsDir = path.resolve(__dirname, '../components');
+  return fs.readdirSync(componentsDir)
     .filter(item => {
-      const itemPath = path.join(componentsDataDir, item);
+      const itemPath = path.join(componentsDir, item);
       return fs.statSync(itemPath).isDirectory() && 
+             item !== 'data' && // Exclude the data directory
              fs.existsSync(path.join(itemPath, 'api.json')); // Must have api.json
     })
     .map(dir => dir);
@@ -150,7 +151,7 @@ function getComponentDirectories(): string[] {
 // Helper function to load API JSON
 function loadApiJson(componentDir: string): ApiJson | null {
   try {
-    const apiJsonPath = path.resolve(__dirname, './data', componentDir, 'api.json');
+    const apiJsonPath = path.resolve(__dirname, componentDir, 'api.json');
     if (fs.existsSync(apiJsonPath)) {
       const apiJsonContent = fs.readFileSync(apiJsonPath, 'utf8');
       return JSON.parse(apiJsonContent);
@@ -164,7 +165,7 @@ function loadApiJson(componentDir: string): ApiJson | null {
 // Helper function to load usage markdown
 function loadUsageMd(componentDir: string): string | null {
   try {
-    const usageMdPath = path.resolve(__dirname, './data', componentDir, 'usage.md');
+    const usageMdPath = path.resolve(__dirname, componentDir, 'usage.md');
     if (fs.existsSync(usageMdPath)) {
       return fs.readFileSync(usageMdPath, 'utf8');
     }
@@ -177,7 +178,7 @@ function loadUsageMd(componentDir: string): string | null {
 // Helper function to get example files
 function getExampleFiles(componentDir: string): string[] {
   try {
-    const examplesDir = path.resolve(__dirname, './data', componentDir, 'examples');
+    const examplesDir = path.resolve(__dirname, componentDir, 'examples');
     if (fs.existsSync(examplesDir)) {
       return fs.readdirSync(examplesDir)
         .filter(file => file.endsWith('.tsx.d'))
@@ -192,7 +193,7 @@ function getExampleFiles(componentDir: string): string[] {
 // Helper function to load example content
 function loadExampleContent(componentDir: string, exampleFile: string): string | null {
   try {
-    const examplePath = path.resolve(__dirname, './data', componentDir, 'examples', `${exampleFile}.tsx.d`);
+    const examplePath = path.resolve(__dirname, componentDir, 'examples', `${exampleFile}.tsx.d`);
     if (fs.existsSync(examplePath)) {
       return fs.readFileSync(examplePath, 'utf8');
     }
@@ -413,16 +414,7 @@ export function getCategory(categoryId: string): CategoryMetadata | undefined {
  * @returns All patterns
  */
 export function getAllPatterns(): Record<string, PatternMetadata> {
-  if (Object.keys(patternCache).length === 0) {
-    // Load patterns from patterns.ts file
-    try {
-      // Using dynamic import to avoid circular dependencies
-      const patternsModule = require('./data/patterns').default;
-      Object.assign(patternCache, patternsModule);
-    } catch (error) {
-      console.error('Error loading patterns:', error);
-    }
-  }
+  // In a real implementation, you would load patterns from a file or database
   return patternCache;
 }
 

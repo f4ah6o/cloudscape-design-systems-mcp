@@ -1,14 +1,14 @@
-# Cloudscape MCP Server Architecture
+# React Design Systems Architecture
 
-This document outlines the detailed architecture of the Cloudscape MCP Server, which provides comprehensive information about AWS Cloudscape Design System components and code generation capabilities.
+This document outlines the detailed architecture of React Design Systems, which provides comprehensive information about design systems created for React. The current version focuses exclusively on the AWS Cloudscape Design System components, along with code generation capabilities.
 
 ## System Architecture
 
-The Cloudscape MCP Server follows a modular architecture with the following key components:
+React Design Systems follows a modular architecture with the following key components:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                  Cloudscape MCP Server                      │
+│                   React Design Systems                      │
 │                                                             │
 │  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐   │
 │  │   Component   │  │     Search    │  │     Code      │   │
@@ -25,7 +25,7 @@ The Cloudscape MCP Server follows a modular architecture with the following key 
 
 ### Component Registry
 
-The Component Registry is the core of the Cloudscape MCP Server. It stores metadata and documentation for all Cloudscape components.
+The Component Registry is the core of React Design Systems. It stores metadata and documentation for all supported design system components, currently focusing on Cloudscape components.
 
 **Key Responsibilities:**
 - Maintain a comprehensive registry of all 84+ Cloudscape components

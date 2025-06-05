@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * Cloudscape MCP Server
+ * React Design Systems Server
  *
- * This is a Model Context Protocol (MCP) server that provides comprehensive information
- * about AWS Cloudscape Design System components, along with code generation capabilities
- * for common Cloudscape patterns.
+ * This is a Model Context Protocol (MCP) server that provides comprehensive information about design systems 
+ * created for React. The current version focuses exclusively on the AWS Cloudscape Design System 
+ * components, along with code generation capabilities for common patterns.
  *
  * Version 1.0.0
- * - Enhanced with FastMCP framework
+ * - Built with FastMCP framework
  * - Improved error handling and logging
  * - Performance optimizations
  * - Security enhancements
@@ -29,8 +29,8 @@ applyPerformanceOptimizations();
 
 // Create a new FastMCP server
 let server = createFastMCPServer({
-  name: 'cloudscape-assistant',
-  description: 'Cloudscape Design System component information and code generation',
+  name: 'react-design-systems',
+  description: 'React Design Systems - comprehensive information about design systems created for React',
   version: '1.0.0',
   port: config.port,
   bind: config.bind

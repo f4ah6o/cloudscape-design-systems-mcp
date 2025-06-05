@@ -1,6 +1,6 @@
 # Usage Guidelines Feature
 
-The MCP Cloudscape Assistant provides comprehensive access to component usage guidelines through a hybrid approach that combines both MCP resources and tools for maximum flexibility and convenience.
+React Design Systems provides comprehensive access to component usage guidelines through a hybrid approach that combines both MCP resources and tools for maximum flexibility and convenience.
 
 ## Overview
 

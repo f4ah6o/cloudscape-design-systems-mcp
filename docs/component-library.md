@@ -1,10 +1,10 @@
 # Cloudscape Component Library
 
-This document provides an overview of the AWS Cloudscape Design System component library that will be supported by the Cloudscape MCP Server.
+This document provides an overview of the AWS Cloudscape Design System component library that is supported by React Design Systems.
 
 ## Overview
 
-AWS Cloudscape Design System is a collection of reusable components and design guidelines for building intuitive, responsive, and accessible user experiences for AWS web applications. The Cloudscape MCP Server will provide comprehensive information about all Cloudscape components, along with code generation capabilities for common Cloudscape patterns.
+AWS Cloudscape Design System is a collection of reusable components and design guidelines for building intuitive, responsive, and accessible user experiences for AWS web applications. React Design Systems provides comprehensive information about all Cloudscape components, along with code generation capabilities for common Cloudscape patterns.
 
 ## Component Categories
 

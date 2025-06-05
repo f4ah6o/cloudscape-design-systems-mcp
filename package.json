@@ -1,7 +1,7 @@
 {
   "name": "@agentience/react-design-systems-mcp",
   "version": "1.0.5",
-  "description": "MCP server for React design systems, currently supporting AWS Cloudscape with more to come",
+  "description": "Model Context Protocol (MCP) server that provides comprehensive information about design systems created for React, currently focusing on AWS Cloudscape Design System",
   "main": "dist/index.js",
   "bin": {
     "react-design-systems-mcp": "./dist/server.js"
@@ -37,15 +37,18 @@
   },
   "keywords": [
     "mcp",
+    "react",
+    "design-system",
+    "design-systems",
     "cloudscape",
     "aws",
-    "design-system",
     "components",
     "ui",
-    "react",
     "material-ui",
     "chakra-ui",
-    "ant-design"
+    "ant-design",
+    "blueprint",
+    "mantine"
   ],
   "author": "IFTI Development Team",
   "license": "MIT",

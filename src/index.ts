@@ -1,9 +1,9 @@
 /**
- * MCP Cloudscape Assistant
+ * React Design Systems
  * 
- * A Model Context Protocol (MCP) server that provides comprehensive information
- * about AWS Cloudscape Design System components, along with code generation capabilities
- * for common Cloudscape patterns.
+ * A Model Context Protocol (MCP) server that provides comprehensive information about design systems 
+ * created for React. The current version focuses exclusively on the AWS Cloudscape Design System 
+ * components, along with code generation capabilities for common patterns.
  */
 
 import { createFastMCPServer } from './mcp/server';
@@ -13,11 +13,11 @@ import { initializeRooIntegration } from './integration/roo-integration';
 import { applyPerformanceOptimizations } from './optimization/performance';
 
 /**
- * Creates a configured Cloudscape Assistant MCP server
+ * Creates a configured React Design Systems MCP server
  * @param options Configuration options for the server
  * @returns Configured MCP server instance
  */
-export function createCloudscapeAssistant(options: any = {}) {
+export function createReactDesignSystemsServer(options: any = {}) {
   // Apply performance optimizations
   applyPerformanceOptimizations();
 
@@ -26,8 +26,8 @@ export function createCloudscapeAssistant(options: any = {}) {
   
   // Create a new FastMCP server
   let server = createFastMCPServer({
-    name: 'cloudscape-assistant',
-    description: 'Cloudscape Design System component information and code generation',
+    name: 'react-design-systems',
+    description: 'React Design Systems - comprehensive information about design systems created for React',
     version: '1.0.0',
     port: options.port || config.port,
     bind: options.bind || config.bind,
@@ -44,7 +44,10 @@ export function createCloudscapeAssistant(options: any = {}) {
 }
 
 // Export the main function as default
-export default createCloudscapeAssistant;
+export default createReactDesignSystemsServer;
+
+// Legacy export for backward compatibility (deprecated)
+export const createCloudscapeAssistant = createReactDesignSystemsServer;
 
 // Re-export key components for advanced usage
 export { createFastMCPServer } from './mcp/server';

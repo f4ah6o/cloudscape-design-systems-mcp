@@ -1,8 +1,10 @@
-# React Design Systems MCP
+# React Design Systems
 
 [![npm version](https://img.shields.io/npm/v/@agentience/react-design-systems-mcp.svg)](https://www.npmjs.com/package/@agentience/react-design-systems-mcp)
 
-A Model Context Protocol (MCP) server that provides comprehensive information about React design systems, along with code generation capabilities for common UI patterns. Currently supports AWS Cloudscape Design System, with plans to add support for Material UI, Chakra UI, Ant Design, and other popular React design systems in the future.
+React Design Systems is a Model Context Protocol (MCP) server that provides comprehensive information about design systems created for React. The current version focuses exclusively on the AWS Cloudscape Design System components, along with code generation capabilities. It's built using the FastMCP framework and TypeScript.
+
+Future versions will expand to support additional popular React design systems including Material UI, Chakra UI, Ant Design, Blueprint, and Mantine.
 
 ## Features
 
@@ -41,8 +43,8 @@ A Model Context Protocol (MCP) server that provides comprehensive information ab
 
 ```bash
 # Clone the repository
-git clone https://github.com/agentience/mcp-cloudscape-assistant.git
-cd mcp-cloudscape-assistant
+git clone https://github.com/agentience/react-design-systems-mcp.git
+cd react-design-systems-mcp
 
 # Install dependencies
 npm install
@@ -111,8 +113,8 @@ docker run -d -p 3005:3005 --name react-design-systems-mcp ghcr.io/agentience/re
 
 ```bash
 # Clone the repository
-git clone https://github.com/agentience/mcp-cloudscape-assistant.git
-cd mcp-cloudscape-assistant
+git clone https://github.com/agentience/react-design-systems-mcp.git
+cd react-design-systems-mcp
 
 # Start with Docker Compose
 docker-compose up -d
@@ -211,7 +213,7 @@ generate_component_code({"componentId": "button", "variant": "primary"})
 
 ## Roadmap
 
-This MCP server currently supports the AWS Cloudscape Design System, but we plan to expand support to other popular React design systems in the future:
+React Design Systems currently supports the AWS Cloudscape Design System, but we plan to expand support to other popular React design systems in the future:
 
 - **Material UI**: Comprehensive support for Google's Material Design implementation for React
 - **Chakra UI**: Component-focused support for the accessible and customizable Chakra UI library
@@ -227,18 +229,18 @@ When using this package as a dependency in your project, you can import and use 
 
 ```javascript
 // CommonJS
-const { createCloudscapeAssistant } = require('@agentience/react-design-systems-mcp');
+const { createReactDesignSystemsServer } = require('@agentience/react-design-systems-mcp');
 
 // ES Modules
-import { createCloudscapeAssistant } from '@agentience/react-design-systems-mcp';
+import { createReactDesignSystemsServer } from '@agentience/react-design-systems-mcp';
 
-// Create and configure the assistant
-const assistant = createCloudscapeAssistant({
+// Create and configure the server
+const server = createReactDesignSystemsServer({
   // Configuration options
 });
 
-// Start the assistant
-assistant.start();
+// Start the server
+server.start();
 ```
 
 ## Contributing
@@ -255,9 +257,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 MIT - See [LICENSE](LICENSE) for more information.## Available Documentation
 
-- [Cloudscape MCP Assistant Development](./DEVELOPMENT.md)
-- [Docker Deployment for React Design Systems MCP](./DOCKER.md)
-- [React Design Systems MCP v1.0.4](./release-notes.md)
+- [React Design Systems Development](./DEVELOPMENT.md)
+- [Docker Deployment for React Design Systems](./DOCKER.md)
+- [React Design Systems v1.0.4](./release-notes.md)
 
 ## Subdirectories
 

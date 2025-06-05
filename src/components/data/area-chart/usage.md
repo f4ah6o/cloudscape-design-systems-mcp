@@ -9,8 +9,8 @@
 
 ### Don't
 
-  * Don't use area charts to visualize only one data series, use a [line chart](/components/line-chart/) instead.
-  * Don't use area charts when showing negative data. Use a [line](/components/line-chart/) or [bar](/components/bar-chart/) chart instead.
+  * Don't use area charts to visualize only one data series, use a [line chart]({get_link_resource: /components/line-chart/}) instead.
+  * Don't use area charts when showing negative data. Use a [line]({get_link_resource: /components/line-chart/}) or [bar]({get_link_resource: /components/bar-chart/}) chart instead.
   * Don't truncate a data series name if the entire string is necessary to identify the data presented.
 
 
@@ -74,17 +74,17 @@ The legend is optional if the chart includes only one metric and the chart title
 
   * #### Details popover
 
-Provides additional information on specific data points by using a [popover](/components/popover/). There are two main ways to interact with the details popover:
+Provides additional information on specific data points by using a [popover]({get_link_resource: /components/popover/}). There are two main ways to interact with the details popover:
 
     * **On hover  **– When a user hovers on the data area, the popover shows the name and value for each data point.
 
     * **On select  **– If a user selects the data area, the popover fixes in position. This works well for assistive devices and devices without hover states.
 
-The details popover supports all [popover sizes](/components/popover/?example=small&tabId=usage#size-and-position). Use the appropriate popover size based on the amount of information you want to display, such as the length of associated labels. To enable additional actions on the selected data point on a chart, use the footer to add a [button](/components/button/?tabId=playground) or [button dropdown](/components/button-dropdown/?tabId=playground).
+The details popover supports all [popover sizes]({get_link_resource: /components/popover/?example=small&tabId=usage#size-and-position}). Use the appropriate popover size based on the amount of information you want to display, such as the length of associated labels. To enable additional actions on the selected data point on a chart, use the footer to add a [button]({get_link_resource: /components/button/?tabId=playground}) or [button dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground}).
 
   * #### Thresholds \- optional
 
-A threshold is a dashed line shown on a chart’s data area that helps define the metrics immediately preceding or following it. A threshold is a fixed number and does not change across the chart. It can be plotted against the X or Y axis as needed. For information about customizing the threshold color, see [threshold color](/foundation/visual-foundation/data-vis-colors/#threshold-colors).
+A threshold is a dashed line shown on a chart’s data area that helps define the metrics immediately preceding or following it. A threshold is a fixed number and does not change across the chart. It can be plotted against the X or Y axis as needed. For information about customizing the threshold color, see [threshold color]({get_link_resource: /foundation/visual-foundation/data-vis-colors/#threshold-colors}).
 
   * #### Responsive sizing
 
@@ -96,7 +96,7 @@ The chart component has a built-in filter so users can select what data metrics 
 
   * #### Additional filters \- optional
 
-To support users’ data exploration needs, you can add more filters in the chart component. For example: A [date picker](/components/date-picker/) so users can filter data based on different periods of time.
+To support users’ data exploration needs, you can add more filters in the chart component. For example: A [date picker]({get_link_resource: /components/date-picker/}) so users can filter data based on different periods of time.
 
 
 
@@ -128,7 +128,7 @@ The state of the component when there is no data to display. It could occur when
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -174,7 +174,7 @@ The state of the component when there is no data to display. It could occur when
 
 #### Axis labels
 
-  * When writing date and times, follow the guidelines for [timestamps](/patterns/general/timestamps/).
+  * When writing date and times, follow the guidelines for [timestamps]({get_link_resource: /patterns/general/timestamps/}).
 
   * Use common abbreviations to reduce visual complexity and make the visualization easier to scan.
 
@@ -200,7 +200,7 @@ The state of the component when there is no data to display. It could occur when
 
   * Use this text: _Loading chart_
 
-  * Follow the guidelines for [loading states](/patterns/general/loading-and-refreshing/).
+  * Follow the guidelines for [loading states]({get_link_resource: /patterns/general/loading-and-refreshing/}).
 
 
 
@@ -250,9 +250,9 @@ The state of the component when there is no data to display. It could occur when
 
 ### Component-specific guidelines
 
-  * For the default filter, follow the guidelines for [multiselect accessibility](/components/multiselect/?example=default&tabId=usage).
+  * For the default filter, follow the guidelines for [multiselect accessibility]({get_link_resource: /components/multiselect/?example=default&tabId=usage}).
 
-  * Use an accessible color palette for visualizations. Follow the guidelines for [data visualization color](/foundation/visual-foundation/data-vis-colors/#accessibility-guidelines).
+  * Use an accessible color palette for visualizations. Follow the guidelines for [data visualization color]({get_link_resource: /foundation/visual-foundation/data-vis-colors/#accessibility-guidelines}).
 
 
 

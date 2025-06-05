@@ -2,16 +2,16 @@
 
 ### Do
 
-  * Use prompt input component in the [generative AI chat](/patterns/genai/generative-AI-chat/).
-  * To display information regarding [character count](/components/form-field/?tabId=playground&example=with-character-count) in the prompt input, use constraint text in the [form field](/components/form-field/) component.
-  * Every prompt input without an action button should have a visible label. Use the [form field](/components/form-field/) for labelling your prompt inputs. Prompt inputs with action buttons don’t require labels. The action button serves as the label.
+  * Use prompt input component in the [generative AI chat]({get_link_resource: /patterns/genai/generative-AI-chat/}).
+  * To display information regarding [character count]({get_link_resource: /components/form-field/?tabId=playground&example=with-character-count}) in the prompt input, use constraint text in the [form field]({get_link_resource: /components/form-field/}) component.
+  * Every prompt input without an action button should have a visible label. Use the [form field]({get_link_resource: /components/form-field/}) for labelling your prompt inputs. Prompt inputs with action buttons don’t require labels. The action button serves as the label.
   * When the prompt input is in a disabled or read-only state, all content inside `secondaryActions` and `secondaryContent` should also be in that state.
 
 
 
 ### Don't
 
-  * Don’t use prompt input with an action button as a replacement for [input](/components/input/) or [text area](/components/textarea/) in a form. This helps users avoid confusion regarding what is being submitted.
+  * Don’t use prompt input with an action button as a replacement for [input]({get_link_resource: /components/input/}) or [text area]({get_link_resource: /components/textarea/}) in a form. This helps users avoid confusion regarding what is being submitted.
 
 
 
@@ -33,7 +33,7 @@ A hint or suggested action that helps users enter a prompt. For example: _Ask a 
 
   * #### Action button \- optional
 
-An action button that allows users to execute the prompt in the input area. For example, a send icon button to let users send their text prompts as described in [generative AI chat](/patterns/genai/generative-AI-chat/).
+An action button that allows users to execute the prompt in the input area. For example, a send icon button to let users send their text prompts as described in [generative AI chat]({get_link_resource: /patterns/genai/generative-AI-chat/}).
 
   * #### Keyboard navigation
 
@@ -43,7 +43,7 @@ An action button that allows users to execute the prompt in the input area. For 
 
   * #### Secondary actions \- optional
 
-Additional actions that are related to the prompt input. For example, uploading files, switching response contexts, or conversation settings. Recommended components for this slot are the [button group](/components/button-group/) or [icon button](/components/button/?tabId=playground&example=icon-button).
+Additional actions that are related to the prompt input. For example, uploading files, switching response contexts, or conversation settings. Recommended components for this slot are the [button group]({get_link_resource: /components/button-group/}) or [icon button]({get_link_resource: /components/button/?tabId=playground&example=icon-button}).
 
   * #### Secondary content \- optional
 
@@ -67,7 +67,7 @@ Use the disabled state when users cannot interact with input and to prevent user
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -88,14 +88,14 @@ Use the disabled state when users cannot interact with input and to prevent user
 
 #### Placeholder 
 
-  * Follow the writing guidelines for [placeholder text](/patterns/genai/generative-AI-chat/) on generative AI chat pattern.
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /patterns/genai/generative-AI-chat/}) on generative AI chat pattern.
 
 
 
 
 #### Constraint text
 
-  * Follow the writing guidelines for [constraint text](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [constraint text]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -121,7 +121,7 @@ Use the disabled state when users cannot interact with input and to prevent user
 
   * All controls should have a label for screen readers to read on focus.
 
-  * The placeholder disappears when the user has typed in the input area. For important information that you want to persist on the page, use [constraint text](/components/form-field/?tabId=usage#features) instead.
+  * The placeholder disappears when the user has typed in the input area. For important information that you want to persist on the page, use [constraint text]({get_link_resource: /components/form-field/?tabId=usage#features}) instead.
 
   * When adding dismissable content to the `secondaryContent` slot, such as attachments, focus should return to the input if all elements are dismissed. Do this by calling the `focus()` function once all elements are dismissed. Similarly, if an attachment is added, focus should move to the dismiss button of that attachment.
 

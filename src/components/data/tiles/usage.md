@@ -2,15 +2,15 @@
 
 ### Do
 
-  * Use tiles when there are two to seven options in the group. Use a [select](/components/select/) or [autosuggest](/components/autosuggest/) when there are more than eight options.
-  * Use for selections that require additional metadata to compare mutually exclusive options. For boolean options that do not require a description of the off state, use a [toggle](/components/toggle/?tabId=playground) or [checkbox](/components/checkbox/) instead.
+  * Use tiles when there are two to seven options in the group. Use a [select]({get_link_resource: /components/select/}) or [autosuggest]({get_link_resource: /components/autosuggest/}) when there are more than eight options.
+  * Use for selections that require additional metadata to compare mutually exclusive options. For boolean options that do not require a description of the off state, use a [toggle]({get_link_resource: /components/toggle/?tabId=playground}) or [checkbox]({get_link_resource: /components/checkbox/}) instead.
   * When displaying a description, image, or both to differentiate options, use them on every tile. When using a description, keep the length and sentence structure of descriptions consistent for each tile in a group for easy comparison.
   * When using images, make sure that the image formats are consistent. This includes, but is not limited to, ratio, color, and background. For example, if one tile has an image in grayscale, the images on the other tiles also should be in grayscale.
   * If one tile is selected and inactive, always deactivate the other tiles in the group. If possible, provide a description to explain why the group is inactive or how the user may be able to activate it.
-  * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements. If the group of sub-elements contain other [tiles](/components/tiles/?tabId=playground), use [checkbox](/components/checkbox/), [toggle](/components/toggle/?tabId=usage), or [radio group](/components/radio-group/) instead. 
+  * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements. If the group of sub-elements contain other [tiles]({get_link_resource: /components/tiles/?tabId=playground}), use [checkbox]({get_link_resource: /components/checkbox/}), [toggle]({get_link_resource: /components/toggle/?tabId=usage}), or [radio group]({get_link_resource: /components/radio-group/}) instead. 
   * Always provide an option selected by default.
-  * Follow the guidelines for [selection in forms](/patterns/general/selection/).
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [selection in forms]({get_link_resource: /patterns/general/selection/}).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -18,7 +18,7 @@
 
   * To ensure legibility of labels and descriptions, avoid setting the columns to display four tiles in the same row unless absolutely necessary. 
   * Don't use generic icons or imagery for the sake of visual emphasis or decoration. 
-  * To prevent multiple click targets in the same area, don't place links in labels or descriptions. Refer to the [help system](/patterns/general/help-system/) for the appropriate placement of links. 
+  * To prevent multiple click targets in the same area, don't place links in labels or descriptions. Refer to the [help system]({get_link_resource: /patterns/general/help-system/}) for the appropriate placement of links. 
   * Don't place animated images or videos in tiles.
   * Don’t label tiles as optional.
 
@@ -28,7 +28,7 @@
 
   * #### Label
 
-Tiles should be labeled to identify the option each represents. Use a [form field](/components/form-field/) or other label to identify groups of tiles. Make sure the group label is linked to the tiles both visually and for assistive technology.
+Tiles should be labeled to identify the option each represents. Use a [form field]({get_link_resource: /components/form-field/}) or other label to identify groups of tiles. Make sure the group label is linked to the tiles both visually and for assistive technology.
 
   * #### Description \- optional
 
@@ -68,7 +68,7 @@ Use the read-only state when tiles data is not to be modified by the user but th
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -129,14 +129,14 @@ Use the read-only state when tiles data is not to be modified by the user but th
 
   * Ensure that any icons and images have appropriate alternative text.
 
-  * Wrap the component in a [form field](/components/form-field/) to ensure that the group of tiles is correctly labelled. Alternatively, explicitly set properties `ariaLabel` (or `ariaLabelledBy`) and `ariaDescribedBy`.
+  * Wrap the component in a [form field]({get_link_resource: /components/form-field/}) to ensure that the group of tiles is correctly labelled. Alternatively, explicitly set properties `ariaLabel` (or `ariaLabelledBy`) and `ariaDescribedBy`.
 
 
 
 
 #### Labels and descriptions
 
-  * Tile labels and descriptions are part of the clickable/focusable area of the control, so they should not contain interactive content (for example, links). Place links at the [form field](/components/form-field/) level instead.
+  * Tile labels and descriptions are part of the clickable/focusable area of the control, so they should not contain interactive content (for example, links). Place links at the [form field]({get_link_resource: /components/form-field/}) level instead.
 
 
 

@@ -8,11 +8,11 @@
 
 ## Features
 
-The item palette is placed within the [discreet split panel](/components/split-panel/?tabId=usage#features) to provide the ability for users to add items to a [board layout](/components/board/).
+The item palette is placed within the [discreet split panel]({get_link_resource: /components/split-panel/?tabId=usage#features}) to provide the ability for users to add items to a [board layout]({get_link_resource: /components/board/}).
 
   * #### Content area
 
-The content area houses palette items that can be added into the board layout. These provide users the details of the board item and the ability to drag it onto the board. Follow the guidelines for [board items](/components/board-item/).
+The content area houses palette items that can be added into the board layout. These provide users the details of the board item and the ability to drag it onto the board. Follow the guidelines for [board items]({get_link_resource: /components/board-item/}).
 
 
 
@@ -23,7 +23,7 @@ The content area houses palette items that can be added into the board layout. T
 
 A palette's empty state occurs when there are no board items available. Include actions to trigger the creation or processes to make items available. For example, a button that allows users to create a board item.  
   
-Follow the guidelines for [empty states](/patterns/general/empty-states/).  
+Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).  
 
 
   * #### Error state

@@ -2,17 +2,17 @@
 
 ### Do
 
-  * Apply the recommended max content area width and default panel states by setting `contentType='form'` in the [app layout](/components/app-layout/) component. 
+  * Apply the recommended max content area width and default panel states by setting `contentType='form'` in the [app layout]({get_link_resource: /components/app-layout/}) component. 
   * When used within the app layout, `full-page` forms must be the first component in the `content` slot.
-  * If there are [unsaved changes](/patterns/general/unsaved-changes/) invoke a [modal](/components/modal/) when exiting the form.
-  * Apply standard form[ validation](/patterns/resource-management/create/single-page-create/). Use form field (client-side) and/or page level (server-side) validation depending on your use cases. 
-  * Refer to the[ single page create flow ](/patterns/resource-management/create/single-page-create/)for additional design guidance on the pattern. 
+  * If there are [unsaved changes]({get_link_resource: /patterns/general/unsaved-changes/}) invoke a [modal]({get_link_resource: /components/modal/}) when exiting the form.
+  * Apply standard form[ validation]({get_link_resource: /patterns/resource-management/create/single-page-create/}). Use form field (client-side) and/or page level (server-side) validation depending on your use cases. 
+  * Refer to the[ single page create flow ]({get_link_resource: /patterns/resource-management/create/single-page-create/})for additional design guidance on the pattern. 
 
 
 
 ### Don't
 
-  * Don't use the "full-page" `variant` inside of a [content layout](/components/content-layout/) component. 
+  * Don't use the "full-page" `variant` inside of a [content layout]({get_link_resource: /components/content-layout/}) component. 
 
 
 
@@ -20,17 +20,17 @@
 
   * #### Form header
 
-Use the h1 variant of the [header](/components/header/) component in this area. The form header can include:
+Use the h1 variant of the [header]({get_link_resource: /components/header/}) component in this area. The form header can include:
 
     * A title that clearly and concisely describes the purpose of the form.
 
-    * An info link for page level [help content](/patterns/general/help-system/) (optional).
+    * An info link for page level [help content]({get_link_resource: /patterns/general/help-system/}) (optional).
 
     * A description detailing the the form’s purpose (optional).
 
   * #### Form content
 
-Form content is organized into sections using [containers](/components/container/). Each container has a [header](/components/header/?example=with-info-link-and-counter) with a title and an optional description. [Info links](/components/link/?tabId=playground&example=info-link) may also be included and appended to the container header.
+Form content is organized into sections using [containers]({get_link_resource: /components/container/}). Each container has a [header]({get_link_resource: /components/header/?example=with-info-link-and-counter}) with a title and an optional description. [Info links]({get_link_resource: /components/link/?tabId=playground&example=info-link}) may also be included and appended to the container header.
 
   * #### Form actions
 
@@ -54,13 +54,13 @@ There are two available types of forms. These are as follows:
 
       * This variant occupies the full page and applies the high contrast header and content overlap automatically.
 
-      * Use this variant if you are following the single-page [create](/patterns/resource-management/create/single-page-create/) or [edit](/patterns/resource-management/edit/page-edit/) patterns.
+      * Use this variant if you are following the single-page [create]({get_link_resource: /patterns/resource-management/create/single-page-create/}) or [edit]({get_link_resource: /patterns/resource-management/edit/page-edit/}) patterns.
 
     * **Embedded**
 
       * This variant does not contain a high contrast header.
 
-      * Use this variant if the form is used in another context other than a [create](/patterns/resource-management/create/single-page-create/) or [edit](/patterns/resource-management/edit/page-edit/) page, one that doesn’t occupy the full page.
+      * Use this variant if the form is used in another context other than a [create]({get_link_resource: /patterns/resource-management/create/single-page-create/}) or [edit]({get_link_resource: /patterns/resource-management/edit/page-edit/}) page, one that doesn’t occupy the full page.
 
 
 
@@ -71,7 +71,7 @@ There are two available types of forms. These are as follows:
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -103,11 +103,11 @@ There are two available types of forms. These are as follows:
 
   * Use sentence case (not title case).
 
-  * The heading should indicate the main purpose of the form or current step in a [wizard](/components/wizard/).
+  * The heading should indicate the main purpose of the form or current step in a [wizard]({get_link_resource: /components/wizard/}).
 
   * Avoid articles (for example: _a, an, the_) to keep content short and actionable.
 
-  * Include an [Info link](/components/link/) as needed.
+  * Include an [Info link]({get_link_resource: /components/link/}) as needed.
 
   * Don’t use ampersands.
 
@@ -133,7 +133,7 @@ There are two available types of forms. These are as follows:
 
   * Use action verbs that reflect the goal of the form. 
 
-  * Follow the guidelines for [button](/components/button/).
+  * Follow the guidelines for [button]({get_link_resource: /components/button/}).
 
 
 
@@ -162,7 +162,7 @@ There are two available types of forms. These are as follows:
 
 #### Validation form error
 
-  * Follow the guidelines for [error messages](/patterns/general/errors/error-messages/).  
+  * Follow the guidelines for [error messages]({get_link_resource: /patterns/general/errors/error-messages/}).  
 
 
 

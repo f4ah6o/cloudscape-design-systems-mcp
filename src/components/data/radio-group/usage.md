@@ -2,19 +2,19 @@
 
 ### Do
 
-  * Use radio group when only one selection can be made from a group of two to seven options. Use [select](/components/select/?tabId=playground) for groups of eight or more options.
+  * Use radio group when only one selection can be made from a group of two to seven options. Use [select]({get_link_resource: /components/select/?tabId=playground}) for groups of eight or more options.
   * If one item is selected and inactive, always deactivate the other items in the radio group.
-  * Use for a selection between two options that require visible explanation via label and description for both states. Use a [toggle](/components/toggle/?tabId=playground) or [checkbox](/components/checkbox/?tabId=playground) if you need to explain only the active state of a boolean option.
-  * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements. If the group of sub-elements contain other radio groups, use [checkbox](/components/checkbox/?tabId=playground), [toggle](/components/toggle/?tabId=playground), or [tiles](/components/tiles/?tabId=playground) instead. 
+  * Use for a selection between two options that require visible explanation via label and description for both states. Use a [toggle]({get_link_resource: /components/toggle/?tabId=playground}) or [checkbox]({get_link_resource: /components/checkbox/?tabId=playground}) if you need to explain only the active state of a boolean option.
+  * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements. If the group of sub-elements contain other radio groups, use [checkbox]({get_link_resource: /components/checkbox/?tabId=playground}), [toggle]({get_link_resource: /components/toggle/?tabId=playground}), or [tiles]({get_link_resource: /components/tiles/?tabId=playground}) instead. 
   * Optimize form completion by pre-selecting an option, to reduce users effort.
-  * Follow the guidelines for [selection in forms](/patterns/general/selection/).
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [selection in forms]({get_link_resource: /patterns/general/selection/}).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
 ### Don't
 
-  * Don’t use for options that take immediate effect, for example to switch between light and dark mode. Use a [toggle](/components/toggle/?tabId=usage) instead.
+  * Don’t use for options that take immediate effect, for example to switch between light and dark mode. Use a [toggle]({get_link_resource: /components/toggle/?tabId=usage}) instead.
   * Don’t label a radio group as optional. 
 
 
@@ -29,7 +29,7 @@ Make sure to label individual radio buttons, as well as the whole group.
 
   * #### Description \- optional
 
-Use the description to provide a broader explanation of the label. Follow the guidelines for [form field](/components/form-field/).
+Use the description to provide a broader explanation of the label. Follow the guidelines for [form field]({get_link_resource: /components/form-field/}).
 
   * #### Progressive disclosure
 
@@ -57,7 +57,7 @@ Use the read-only state when radio group data is not to be modified by the user 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -86,7 +86,7 @@ Use the read-only state when radio group data is not to be modified by the user 
 
   * Do not include links in individual option labels.
 
-  * Follow the guidelines for [form field](/components/form-field/). 
+  * Follow the guidelines for [form field]({get_link_resource: /components/form-field/}). 
 
 
 
@@ -97,7 +97,7 @@ Use the read-only state when radio group data is not to be modified by the user 
 
   * Do not include links in individual option descriptions.
 
-  * Follow the guidelines for [form field](/components/form-field/).
+  * Follow the guidelines for [form field]({get_link_resource: /components/form-field/}).
 
 
 
@@ -123,14 +123,14 @@ Use the read-only state when radio group data is not to be modified by the user 
 
   * Provide a meaningful label and description for each radio button.
 
-  * Wrap the component in a [form field](/components/form-field/) to ensure that the group of radio buttons is correctly labelled. Alternatively, explicitly set properties `ariaLabel` (or `ariaLabelledBy`) and `ariaDescribedBy`.
+  * Wrap the component in a [form field]({get_link_resource: /components/form-field/}) to ensure that the group of radio buttons is correctly labelled. Alternatively, explicitly set properties `ariaLabel` (or `ariaLabelledBy`) and `ariaDescribedBy`.
 
 
 
 
 #### Labels and descriptions
 
-  * Radio button labels and descriptions are part of the clickable/focusable area of the control, so they should not contain interactive content (for example, links). Place links at the [form field](/components/form-field/) level instead.
+  * Radio button labels and descriptions are part of the clickable/focusable area of the control, so they should not contain interactive content (for example, links). Place links at the [form field]({get_link_resource: /components/form-field/}) level instead.
 
 
 

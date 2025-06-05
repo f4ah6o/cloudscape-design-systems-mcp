@@ -5,20 +5,20 @@
   * Use checkboxes to allow users to select any number of options; including zero, one, or several. 
   * Each checkbox is independent of all other checkboxes in a group, and checking one box doesn’t uncheck the others. 
   * Only use the indeterminate state on the parent checkbox of a nested group or table when at least one nested item is selected.
-  * If only one option can be selected from a group (mutually exclusive selection), use a [radio group](/components/radio-group/). 
-  * If the group of non-mutually exclusive options is higher than seven, use [multiselect](/components/multiselect/).
-  * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements. If the group of sub-elements contains other checkboxes, use [toggle](/components/toggle/), a [radio group](/components/radio-group/), or [tiles](/components/tiles/).
-  * Use where a description of the selected (on/activated/enabled) state is sufficient to understand the implications of the option. Use [tiles](/components/tiles/) or a [radio group](/components/radio-group/) if you need to explicitly describe both the _on_  and _off_  states, for example to describe cost or performance implications.
+  * If only one option can be selected from a group (mutually exclusive selection), use a [radio group]({get_link_resource: /components/radio-group/}). 
+  * If the group of non-mutually exclusive options is higher than seven, use [multiselect]({get_link_resource: /components/multiselect/}).
+  * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements. If the group of sub-elements contains other checkboxes, use [toggle]({get_link_resource: /components/toggle/}), a [radio group]({get_link_resource: /components/radio-group/}), or [tiles]({get_link_resource: /components/tiles/}).
+  * Use where a description of the selected (on/activated/enabled) state is sufficient to understand the implications of the option. Use [tiles]({get_link_resource: /components/tiles/}) or a [radio group]({get_link_resource: /components/radio-group/}) if you need to explicitly describe both the _on_  and _off_  states, for example to describe cost or performance implications.
   * When providing a default selection state, consider what the recommended or most likely choice for a user should be.
-  * Follow the guidelines for [selection in forms](/patterns/general/selection/).
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [selection in forms]({get_link_resource: /patterns/general/selection/}).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
 ### Don't
 
-  * Don’t use for options that require descriptions to understand the implications of both the _on_  and _off_  states. Use a [radio group](/components/radio-group/) or [tiles](/components/tiles/) instead.
-  * Don’t use for options that take immediate effect, for example to switch between light and dark mode. Use a [toggle](/components/toggle/) instead. 
+  * Don’t use for options that require descriptions to understand the implications of both the _on_  and _off_  states. Use a [radio group]({get_link_resource: /components/radio-group/}) or [tiles]({get_link_resource: /components/tiles/}) instead.
+  * Don’t use for options that take immediate effect, for example to switch between light and dark mode. Use a [toggle]({get_link_resource: /components/toggle/}) instead. 
   * Don’t label a checkbox as optional. When the user submits a form with a checkbox, they make a binary choice for that option.
 
 
@@ -65,7 +65,7 @@ Use the read-only state when the checkbox data is not to be modified by the user
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -100,7 +100,7 @@ Use the read-only state when the checkbox data is not to be modified by the user
 
     * For example: I agree to the terms of service. 
 
-    * See a full example of a [terms and conditions form field](/components/form-field/?tabId=playground&example=terms-and-conditions).
+    * See a full example of a [terms and conditions form field]({get_link_resource: /components/form-field/?tabId=playground&example=terms-and-conditions}).
 
 
 
@@ -126,9 +126,9 @@ Use the read-only state when the checkbox data is not to be modified by the user
 
   * Make sure that checkboxes have meaningful labels. Add a description if necessary to provide a broader description of the checkbox.
 
-  * Checkbox labels and descriptions are part of the clickable/focusable area of the control, so they should not contain interactive content (for example, links). Place links at the [form field](/components/form-field/) level instead.
+  * Checkbox labels and descriptions are part of the clickable/focusable area of the control, so they should not contain interactive content (for example, links). Place links at the [form field]({get_link_resource: /components/form-field/}) level instead.
 
-  * Use the [form field component](/components/form-field/) to group multiple checkboxes under a single label.
+  * Use the [form field component]({get_link_resource: /components/form-field/}) to group multiple checkboxes under a single label.
 
 
 

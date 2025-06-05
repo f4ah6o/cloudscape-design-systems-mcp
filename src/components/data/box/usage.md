@@ -1,1 +1,1 @@
-For usage guidelines, see [typography](/foundation/visual-foundation/typography/) and [spacing](/foundation/visual-foundation/spacing/).
+For usage guidelines, see [typography]({get_link_resource: /foundation/visual-foundation/typography/}) and [spacing]({get_link_resource: /foundation/visual-foundation/spacing/}).

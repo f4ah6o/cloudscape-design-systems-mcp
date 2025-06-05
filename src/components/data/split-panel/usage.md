@@ -4,24 +4,24 @@
 
   * Implement both positions when using the component.
   * Allow users to change the default position to better fit their needs. 
-  * Refer to the [split view](/patterns/resource-management/view/split-view/) pattern for additional design guidance on the application of split panel.
+  * Refer to the [split view]({get_link_resource: /patterns/resource-management/view/split-view/}) pattern for additional design guidance on the application of split panel.
   * Hide the split panel on close when an additional trigger is not necessary, and the panel is opened from an on-page action. Common use cases for this are:
     * Adding or editing an element on the page, such as a widget or resource
     * Displaying supplemental content or details
-    * Content similar to a [modal](/components/modal/), where keeping the context of the main page is important
+    * Content similar to a [modal]({get_link_resource: /components/modal/}), where keeping the context of the main page is important
 
 
 
 ### Don't
 
-  * Don’t use the split panel for help content. Use the [help panel](/components/help-panel/) instead. 
-  * Don't use the split panel to replace the [details page](/patterns/resource-management/details/). 
+  * Don’t use the split panel for help content. Use the [help panel]({get_link_resource: /components/help-panel/}) instead. 
+  * Don't use the split panel to replace the [details page]({get_link_resource: /patterns/resource-management/details/}). 
 
 
 
 ## Features
 
-The split panel component and guidelines have two main use cases: to provide or compare contextual resource details in the [split view](/patterns/resource-management/view/split-view/), or to show supplementary information or feature access. In the case where the split panel hides on close, the split panel acts similarly to a modal, but it keeps the main page in view instead of overlaying it. Common use cases here are adding or editing an element on the page, viewing details, or other supplementary content where it is useful to have the main page context.
+The split panel component and guidelines have two main use cases: to provide or compare contextual resource details in the [split view]({get_link_resource: /patterns/resource-management/view/split-view/}), or to show supplementary information or feature access. In the case where the split panel hides on close, the split panel acts similarly to a modal, but it keeps the main page in view instead of overlaying it. Common use cases here are adding or editing an element on the page, viewing details, or other supplementary content where it is useful to have the main page context.
 
   * #### Types of panel
 
@@ -64,7 +64,7 @@ Show the title for the panel. For example, within a configurable dashboard, a po
 
   * #### Content area
 
-Displays the content of the split panel. For example, details about a selected resource. For more content examples and guidelines, see [split view ](/patterns/resource-management/view/split-view/)pattern.  
+Displays the content of the split panel. For example, details about a selected resource. For more content examples and guidelines, see [split view ]({get_link_resource: /patterns/resource-management/view/split-view/})pattern.  
 
 
   * #### Position
@@ -75,7 +75,7 @@ The split panel has two positions: bottom and side. The two positions address di
 
     * **Side position** \- The split panel behaves similarly to the help panel, shifting the page content as it expands. This maintains consistency with how other side panels are used in the system, and ensures that right-aligned action buttons in containers aren't covered by the panel.
 
-Choose the default position that best accommodates the main page content and the content within the panel. For more guidance about which position to set as default on a split view, see [split view ](/patterns/resource-management/view/split-view/)pattern.
+Choose the default position that best accommodates the main page content and the content within the panel. For more guidance about which position to set as default on a split view, see [split view ]({get_link_resource: /patterns/resource-management/view/split-view/})pattern.
 
   * #### Resizing
 
@@ -83,7 +83,7 @@ With the resize handle, users can adjust the size of the split panel. The compon
 
   * #### App layout
 
-Place the split panel in the `splitPanel` region of [app layout](/components/app-layout/).
+Place the split panel in the `splitPanel` region of [app layout]({get_link_resource: /components/app-layout/}).
 
 
 
@@ -94,7 +94,7 @@ Place the split panel in the `splitPanel` region of [app layout](/components/app
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -130,7 +130,7 @@ Place the split panel in the `splitPanel` region of [app layout](/components/app
 
 #### Empty state text
 
-  * Use the empty state text when no selection is made in the resource collection on the [split view](/patterns/resource-management/view/split-view/).
+  * Use the empty state text when no selection is made in the resource collection on the [split view]({get_link_resource: /patterns/resource-management/view/split-view/}).
 
   * When users can only select one resource from the resource collection, use the format: _Select a [resource type] to see its details_
 

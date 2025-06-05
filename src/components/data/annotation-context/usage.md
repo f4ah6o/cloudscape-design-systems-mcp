@@ -2,14 +2,14 @@
 
 ### Do
 
-  * Annotation popovers can only be used in the context of a [hands-on tutorial](/patterns/general/onboarding/hands-on-tutorials/). 
+  * Annotation popovers can only be used in the context of a [hands-on tutorial]({get_link_resource: /patterns/general/onboarding/hands-on-tutorials/}). 
 
 
 
 ### Don't
 
-  * Don’t use annotation popovers for help content that relates to explaining general terms or concepts within the interface. Use the [help panel](/components/help-panel/?example=with-header%2C-content%2C-and-footer) instead. 
-  * Don't launch a [modal](/components/modal/?example=default) from within an annotation popover.
+  * Don’t use annotation popovers for help content that relates to explaining general terms or concepts within the interface. Use the [help panel]({get_link_resource: /components/help-panel/?example=with-header%2C-content%2C-and-footer}) instead. 
+  * Don't launch a [modal]({get_link_resource: /components/modal/?example=default}) from within an annotation popover.
 
 
 
@@ -17,10 +17,10 @@
 
 ### Annotation popover
 
-The invisible annotation context component is responsible for rendering the visible step-by-step guidance of [Hands-on tutorials](/patterns/general/onboarding/hands-on-tutorials/). This guidance is given to users in the form of annotation popovers anchored to hotspot icons. 
+The invisible annotation context component is responsible for rendering the visible step-by-step guidance of [Hands-on tutorials]({get_link_resource: /patterns/general/onboarding/hands-on-tutorials/}). This guidance is given to users in the form of annotation popovers anchored to hotspot icons. 
 
   
-Hotspot icons open and close annotation popovers. Each hotspot icon is rendered by the annotation context. The location of these icons within the interface is determined by a separate component, the [Hotspot](/components/hotspot/?example=around-an-element), with which the annotation context communicates.  
+Hotspot icons open and close annotation popovers. Each hotspot icon is rendered by the annotation context. The location of these icons within the interface is determined by a separate component, the [Hotspot]({get_link_resource: /components/hotspot/?example=around-an-element}), with which the annotation context communicates.  
 
 
   * #### Title
@@ -33,7 +33,7 @@ Provides contextual guidance for decision points in the flow.
 
 **Info link** _**-**_**optional**
 
-Use info links in annotation popovers to lead users to the corresponding help panel content. This content provides additional information about the recommended option and other available options. For more information, see [onboarding](/patterns/general/onboarding/). 
+Use info links in annotation popovers to lead users to the corresponding help panel content. This content provides additional information about the recommended option and other available options. For more information, see [onboarding]({get_link_resource: /patterns/general/onboarding/}). 
 
   * #### Steps
 
@@ -49,14 +49,14 @@ The****_Next_**** button opens the next annotation popover in the sequence. The 
 
   * #### Size
 
-The annotation popover always renders in the medium [popover](/components/popover/?example=medium) variant. 
+The annotation popover always renders in the medium [popover]({get_link_resource: /components/popover/?example=medium}) variant. 
 
 
 
 
 ### Dynamic content of the tutorial panel
 
-The tutorial panel consists of dynamic and static content. The static content is provided by the tutorial panel. It’s the template that structures the panel's information. Follow the guidelines for [tutorial panel](/components/tutorial-panel/?example=first-tutorial-launched). 
+The tutorial panel consists of dynamic and static content. The static content is provided by the tutorial panel. It’s the template that structures the panel's information. Follow the guidelines for [tutorial panel]({get_link_resource: /components/tutorial-panel/?example=first-tutorial-launched}). 
 
   
 Dynamic content is provided by the annotation context. Dynamic content fills the static template to provide guidance specific to a particular tutorial. Dynamic content is different across tutorials and consists of the title of the tutorial, tasks, and steps. The tutorial panel renders this text to make it visible to users.  
@@ -68,7 +68,7 @@ Dynamic content is provided by the annotation context. Dynamic content fills the
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -136,7 +136,7 @@ Dynamic content is provided by the annotation context. Dynamic content fills the
 
 #### Tutorial panel
 
-  * Follow the guidelines for [tutorial panel](/components/tutorial-panel/?example=tutorial-list&tabId=api).
+  * Follow the guidelines for [tutorial panel]({get_link_resource: /components/tutorial-panel/?example=tutorial-list&tabId=api}).
 
 
 

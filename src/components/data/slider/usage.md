@@ -3,8 +3,8 @@
 ### Do
 
   * Use sliders to adjust values within a defined range, such as storage capacity.
-  * When providing a label for the slider, wrap it in a [form field](/components/form-field/) component.
-  * For sliders with large ranges, or where a precise numeric value is required, always include an input (for continuous sliders) or select (for stepped sliders) that also controls the slider value. This helps users choose an exact value and avoid unintended selection. See step 2 of the [wizard demo](/examples/react/wizard.html). 
+  * When providing a label for the slider, wrap it in a [form field]({get_link_resource: /components/form-field/}) component.
+  * For sliders with large ranges, or where a precise numeric value is required, always include an input (for continuous sliders) or select (for stepped sliders) that also controls the slider value. This helps users choose an exact value and avoid unintended selection. See step 2 of the [wizard demo]({get_link_resource: /examples/react/wizard.html}). 
   * In stepped sliders, ensure there is enough space between tick marks. Tick marks are a useful affordance for understanding value increments, but when placed too close together they create clutter and can cause unintended selection.
   * Add reference values when displaying intermediary values along the slider is helpful. For example, in a slider with values from 0 - 100, it may be helpful to add reference values at 25, 50, and 75.
   * For ordinal sliders (for example, sliders with ranges in a series like _None-Low-Medium-High_), every step should have a reference value.
@@ -13,7 +13,7 @@
 
 ### Don't
 
-  * Don't use reference values to show information that is imperative for a user to make a selection, as they are not always visible on smaller viewports. Instead, use the description field of the form field or the [help system](/patterns/general/help-system/). Reference values are meant to show supplementary information only. The only exception to this is the ordinal-value based use case. For example, a stepped slider with the values _None, Low, Medium, High_.
+  * Don't use reference values to show information that is imperative for a user to make a selection, as they are not always visible on smaller viewports. Instead, use the description field of the form field or the [help system]({get_link_resource: /patterns/general/help-system/}). Reference values are meant to show supplementary information only. The only exception to this is the ordinal-value based use case. For example, a stepped slider with the values _None, Low, Medium, High_.
   * Don’t use reference labels for small numeric sliders. For example, a slider from 1-5 with reference labels 2, 3, and 4 will clutter the interface.
 
 
@@ -62,7 +62,7 @@ Use the read-only state when the slider is not to be modified by the user but th
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -81,9 +81,9 @@ Use the read-only state when the slider is not to be modified by the user but th
 
 ### Component-specific guidelines
 
-  * See [form field](/components/form-field/) for guidelines around label, description, and error text when placing the slider inside a form field.
+  * See [form field]({get_link_resource: /components/form-field/}) for guidelines around label, description, and error text when placing the slider inside a form field.
 
-  * Keep reference label content short. There is not adequate space in the slider for lengthy descriptions. Instead, use the description field of the form field or the [help system](/patterns/general/help-system/).
+  * Keep reference label content short. There is not adequate space in the slider for lengthy descriptions. Instead, use the description field of the form field or the [help system]({get_link_resource: /patterns/general/help-system/}).
 
 
 

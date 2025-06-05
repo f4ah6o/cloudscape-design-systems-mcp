@@ -18,7 +18,7 @@
 
       * Enable users to quickly copy a string of text.
 
-        * For example: Copy a long URL within a table or an Amazon Resource Name (ARN) within a list of [key-value pairs](/components/key-value-pairs/) (see live example in the [details page demo](/examples/react/details.html)).
+        * For example: Copy a long URL within a table or an Amazon Resource Name (ARN) within a list of [key-value pairs]({get_link_resource: /components/key-value-pairs/}) (see live example in the [details page demo]({get_link_resource: /examples/react/details.html})).
 
     * **Icon:** When creating a collection of contextual and persistent triggers that enable users to perform a series of actions including copying to clipboard, use the icon variant.
 
@@ -35,7 +35,7 @@ A popover with a status indicator and text string confirms the success of the ac
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -56,7 +56,7 @@ A popover with a status indicator and text string confirms the success of the ac
 
 #### Button label
 
-  * For the [normal button](/components/button/?example=normal-button) used for copying a block of content, use this text: _Copy_
+  * For the [normal button]({get_link_resource: /components/button/?example=normal-button}) used for copying a block of content, use this text: _Copy_
 
 
 

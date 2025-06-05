@@ -4,18 +4,18 @@
 
   * Use for an option that takes effect immediately, for example toggling versioning on an S3 bucket to enable or disable the storage of multiple versions of objects.
   * Use for options that turn a group of elements on or off, for example progressive disclosure of form elements.
-  * Use when a description of the selected (on/activated/enabled) state is sufficient to understand the implications of the option. Use [tiles](/components/tiles/?tabId=playground) or a [radio group](/components/radio-group/?tabId=playground) if you need to explicitly describe both the on __ and off __ states, for example to describe cost or performance implications.
-  * Follow the guidelines for [selection in forms](/patterns/general/selection/).
+  * Use when a description of the selected (on/activated/enabled) state is sufficient to understand the implications of the option. Use [tiles]({get_link_resource: /components/tiles/?tabId=playground}) or a [radio group]({get_link_resource: /components/radio-group/?tabId=playground}) if you need to explicitly describe both the on __ and off __ states, for example to describe cost or performance implications.
+  * Follow the guidelines for [selection in forms]({get_link_resource: /patterns/general/selection/}).
 
 
 
 ### Don't
 
-  * Don’t change the label depending on the switch state. Use a [radio group ](/components/radio-group/?tabId=playground)instead, and display labels and description for both states.
-  * Don't use a toggle for options that are activated at form submission, such as an acknowledgement of EULA or Terms and Conditions. In this case, use a [checkbox](/components/checkbox/).
-  * Don’t use for options that require descriptions to understand the implications of both the on and off states. Use [radio group](/components/radio-group/?tabId=playground) or [tiles](/components/tiles/?tabId=playground) instead.
+  * Don’t change the label depending on the switch state. Use a [radio group ]({get_link_resource: /components/radio-group/?tabId=playground})instead, and display labels and description for both states.
+  * Don't use a toggle for options that are activated at form submission, such as an acknowledgement of EULA or Terms and Conditions. In this case, use a [checkbox]({get_link_resource: /components/checkbox/}).
+  * Don’t use for options that require descriptions to understand the implications of both the on and off states. Use [radio group]({get_link_resource: /components/radio-group/?tabId=playground}) or [tiles]({get_link_resource: /components/tiles/?tabId=playground}) instead.
   * Don’t label a toggle as optional. When the user submits a form with a toggle, they make a binary choice for that option, either on or off.
-  * Don’t use a toggle to turn groups of options on and off that contain other toggles. Instead, use [checkbox](/components/checkbox/), [radio group](/components/radio-group/?tabId=playground), or [tiles](/components/tiles/?tabId=playground) for the group of sub-elements.
+  * Don’t use a toggle to turn groups of options on and off that contain other toggles. Instead, use [checkbox]({get_link_resource: /components/checkbox/}), [radio group]({get_link_resource: /components/radio-group/?tabId=playground}), or [tiles]({get_link_resource: /components/tiles/?tabId=playground}) for the group of sub-elements.
   * Don’t hide the label for toggles in read-only state.
 
 
@@ -53,7 +53,7 @@ Use the read-only state when the toggle is not to be modified by the user but th
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -74,7 +74,7 @@ Use the read-only state when the toggle is not to be modified by the user but th
 
 #### Labels
 
-  * Follow the guidelines for [selection in forms](/patterns/general/selection/).
+  * Follow the guidelines for [selection in forms]({get_link_resource: /patterns/general/selection/}).
 
 
 
@@ -102,7 +102,7 @@ Use the read-only state when the toggle is not to be modified by the user but th
 
   * The label should not change when the toggle state changes.
 
-  * Follow the guidelines for associating multiple toggles with a single form field and to point to hint and error text, in the [API section](/components/toggle/?tabId=api).  
+  * Follow the guidelines for associating multiple toggles with a single form field and to point to hint and error text, in the [API section]({get_link_resource: /components/toggle/?tabId=api}).  
 
 
 

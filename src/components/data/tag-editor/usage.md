@@ -3,7 +3,7 @@
 ### Do
 
   * Display tag editor in loading state until all resource tags have been loaded. 
-  * Use the tag editor to manage tags only in [create](/patterns/resource-management/create/) and [edit](/patterns/resource-management/edit/) flows.
+  * Use the tag editor to manage tags only in [create]({get_link_resource: /patterns/resource-management/create/}) and [edit]({get_link_resource: /patterns/resource-management/edit/}) flows.
   * Always display an error message when tag editor fails to load key or value suggestions. 
   * Always use placeholders. They provide additional information when the labels are out of screen view. 
 
@@ -11,7 +11,7 @@
 
 ## Features
 
-The tag editor component is an extension of [attribute editor](/components/attribute-editor/). It integrates into a service so that your users can manage resource tags.
+The tag editor component is an extension of [attribute editor]({get_link_resource: /components/attribute-editor/}). It integrates into a service so that your users can manage resource tags.
 
   * #### Tags
 
@@ -55,15 +55,15 @@ Users can undo the action of removing a resource tag by using the _Undo_ action.
 
   * #### Validation
 
-    * Validation happens inline for key and value constraints and for empty keys. Follow the [tag editor](/components/tag-editor/?example=default&tabId=usage#writing-guidelines) writing guidelines for specific text strings.
+    * Validation happens inline for key and value constraints and for empty keys. Follow the [tag editor]({get_link_resource: /components/tag-editor/?example=default&tabId=usage#writing-guidelines}) writing guidelines for specific text strings.
 
-    * For specific validation text strings, follow the [tag editor](/components/tag-editor/?example=default&tabId=usage#writing-guidelines) writing guidelines.
+    * For specific validation text strings, follow the [tag editor]({get_link_resource: /components/tag-editor/?example=default&tabId=usage#writing-guidelines}) writing guidelines.
 
-    * For validation rules in form submission, follow the guidelines for [validation](/patterns/general/errors/validation/).
+    * For validation rules in form submission, follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}).
 
   * #### Loading of tag keys and values
 
-    * Tag keys and values are displayed in the suggestion list. If the dataset fails to load, a message communicating the error is displayed. Follow the guidelines for [autosuggest](/components/autosuggest/).
+    * Tag keys and values are displayed in the suggestion list. If the dataset fails to load, a message communicating the error is displayed. Follow the guidelines for [autosuggest]({get_link_resource: /components/autosuggest/}).
 
     * The dataset won’t be loaded when attempting to load too many unique keys or values per tag. Instead, a message is displayed, communicating to the users that the list can't be retrieved. For example, when attempting to load up to 200 unique values per tag.
 
@@ -78,7 +78,7 @@ The state of the tag editor when no tags are associated with the resource.
 
   * #### Loading
 
-The state of the tag editor while the tags are being loaded. In case of loading failure display an error [alert](/components/alert/) communicating to the users the occurred error.
+The state of the tag editor while the tags are being loaded. In case of loading failure display an error [alert]({get_link_resource: /components/alert/}) communicating to the users the occurred error.
 
 
 
@@ -89,7 +89,7 @@ The state of the tag editor while the tags are being loaded. In case of loading 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -114,7 +114,7 @@ The state of the tag editor while the tags are being loaded. In case of loading 
 
   * For tag values, use this text: _Value_
 
-  * Follow the guidelines for [form field](/components/form-field/).
+  * Follow the guidelines for [form field]({get_link_resource: /components/form-field/}).
 
 
 
@@ -125,7 +125,7 @@ The state of the tag editor while the tags are being loaded. In case of loading 
 
   * For tag values, use this text: _Enter value_
 
-  * Follow the guidelines for [form field](/components/form-field/).
+  * Follow the guidelines for [form field]({get_link_resource: /components/form-field/}).
 
 
 
@@ -136,7 +136,7 @@ The state of the tag editor while the tags are being loaded. In case of loading 
 
   * For remove button, use this text: _Remove_
 
-  * Follow the guidelines for [button](/components/button/).
+  * Follow the guidelines for [button]({get_link_resource: /components/button/}).
 
 
 
@@ -182,7 +182,7 @@ The state of the tag editor while the tags are being loaded. In case of loading 
 
     * For tag values: _Tag values could not be retrieved_
 
-  * Follow the guidelines for [autosuggest](/components/autosuggest/).
+  * Follow the guidelines for [autosuggest]({get_link_resource: /components/autosuggest/}).
 
 
 
@@ -230,7 +230,7 @@ The following restrictions apply to tags. Use the respective indicated text:
 
   * When the loading of the component fails, use an alert to communicate the occurred error.
 
-    * Follow the guidelines for [error alert](/components/alert/?example=non-dismissible-error).  
+    * Follow the guidelines for [error alert]({get_link_resource: /components/alert/?example=non-dismissible-error}).  
 
 
 

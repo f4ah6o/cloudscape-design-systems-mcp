@@ -2,7 +2,7 @@
 
 ### Do
 
-  * Use the text filter to provide basic filtering in a collection. The most common use cases are [table](/components/table/) and [card](/components/cards/) collections.
+  * Use the text filter to provide basic filtering in a collection. The most common use cases are [table]({get_link_resource: /components/table/}) and [card]({get_link_resource: /components/cards/}) collections.
   * Always use the filter functionality on the full collection of resources, not just on visible or loaded resources.
   * After a user completes a filter action, display the number of results next to the filter input.
 
@@ -11,8 +11,8 @@
 ### Don't
 
   * Don't use a filter if most of your users have a small collection of resources (fewer than five resources).
-  * Don't use a text filter for collections that have a large set of values; use the [property filter](/components/property-filter/) instead.
-  * Don't use a text filter in combination with the [property filter](/components/property-filter/) pattern. Use only the property filter.
+  * Don't use a text filter for collections that have a large set of values; use the [property filter]({get_link_resource: /components/property-filter/}) instead.
+  * Don't use a text filter in combination with the [property filter]({get_link_resource: /components/property-filter/}) pattern. Use only the property filter.
 
 
 
@@ -39,7 +39,7 @@ Removes the filter that is applied to a collection of resources by removing type
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -84,14 +84,14 @@ Removes the filter that is applied to a collection of resources by removing type
 
 #### Loading state
 
-  * Follow the writing guidelines for [loading state](/patterns/general/loading-and-refreshing/#writing-guidelines/).
+  * Follow the writing guidelines for [loading state]({get_link_resource: /patterns/general/loading-and-refreshing/#writing-guidelines/}).
 
 
 
 
 #### No match state
 
-  * Follow the guidelines for [empty states](/patterns/general/empty-states/).
+  * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 
 

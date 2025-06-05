@@ -2,16 +2,16 @@
 
 ### Do
 
-  * Use [avatars](/components/avatar/) to provide a visual representation of authors in a conversation. They help to differentiate content in a conversation and in turn enhance readability.
-  * When you need to show inline actions in chat bubbles, use [button group](/components/button-group/). 
-  * When building a generative AI chat, follow the guidelines for [generative AI chat](/patterns/genai/generative-AI-chat/).
+  * Use [avatars]({get_link_resource: /components/avatar/}) to provide a visual representation of authors in a conversation. They help to differentiate content in a conversation and in turn enhance readability.
+  * When you need to show inline actions in chat bubbles, use [button group]({get_link_resource: /components/button-group/}). 
+  * When building a generative AI chat, follow the guidelines for [generative AI chat]({get_link_resource: /patterns/genai/generative-AI-chat/}).
 
 
 
 ### Don't
 
-  * Don't display inline actions [button group](/components/button-group/) in a message when it is loading.
-  * Don't display [loading bar](/components/loading-bar/) in the outgoing messages.
+  * Don't display inline actions [button group]({get_link_resource: /components/button-group/}) in a message when it is loading.
+  * Don't display [loading bar]({get_link_resource: /components/loading-bar/}) in the outgoing messages.
 
 
 
@@ -34,7 +34,7 @@ Chat messages received from others.
 
   * #### Avatar
 
-Use avatar to show the identity of authors. Follow the guidelines for [avatar](/components/avatar/).
+Use avatar to show the identity of authors. Follow the guidelines for [avatar]({get_link_resource: /components/avatar/}).
 
   * #### Content
 
@@ -44,15 +44,15 @@ The area for content of a chat message. Common types of content are:
 
     * Media: image, graphics, embedded or linked videos.
 
-    * [Expandable section](/components/expandable-section/): a collapsible section. For example, to display additional options, or sources and citations.
+    * [Expandable section]({get_link_resource: /components/expandable-section/}): a collapsible section. For example, to display additional options, or sources and citations.
 
-    * [Links](/components/link/): Hyperlinks that direct users to sites or pages.
+    * [Links]({get_link_resource: /components/link/}): Hyperlinks that direct users to sites or pages.
 
     * Other: complex UI elements such as list of resources, and code blocks.
 
   * #### Actions \- optional
 
-Use [button group](/components/button-group/) to display inline actions that a user can perform in a chat bubble. 
+Use [button group]({get_link_resource: /components/button-group/}) to display inline actions that a user can perform in a chat bubble. 
 
 
 
@@ -65,9 +65,9 @@ Indicate the incoming message is loading.
 
 To show the loading state of incoming response from generative AI:
 
-    * When generative AI is in processing stage, display a loading [avatar](/components/avatar/) with loading text in the chat bubble.
+    * When generative AI is in processing stage, display a loading [avatar]({get_link_resource: /components/avatar/}) with loading text in the chat bubble.
 
-    * When generative AI response includes other UI elements such as list of resources, display a loading [avatar](/components/avatar/) and show [loading bar](/components/loading-bar/) with loading text. Follow the guidelines for [generative AI loading states](/patterns/genai/genai-loading-states/).
+    * When generative AI response includes other UI elements such as list of resources, display a loading [avatar]({get_link_resource: /components/avatar/}) and show [loading bar]({get_link_resource: /components/loading-bar/}) with loading text. Follow the guidelines for [generative AI loading states]({get_link_resource: /patterns/genai/genai-loading-states/}).
 
 
 
@@ -78,7 +78,7 @@ To show the loading state of incoming response from generative AI:
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -99,14 +99,14 @@ To show the loading state of incoming response from generative AI:
 
 **Inline actions**
 
-  * Follow the writing guidelines for [button group](/components/button-group/).
+  * Follow the writing guidelines for [button group]({get_link_resource: /components/button-group/}).
 
 
 
 
 **Avatar**
 
-  * Follow the writing guidelines for [avatar](/components/avatar/).
+  * Follow the writing guidelines for [avatar]({get_link_resource: /components/avatar/}).
 
 
 

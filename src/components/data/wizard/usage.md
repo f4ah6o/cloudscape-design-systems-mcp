@@ -2,14 +2,14 @@
 
 ### Do
 
-  * Apply the recommended max content area width and default panel states by setting `contentType='wizard'` in the [app layout](/components/app-layout/) component. 
+  * Apply the recommended max content area width and default panel states by setting `contentType='wizard'` in the [app layout]({get_link_resource: /components/app-layout/}) component. 
   * When used within the app layout, the wizard must be the first component in the `content` slot.
-  * Trigger a [modal](/components/modal/) upon exiting the wizard if there are [unsaved changes](/patterns/general/unsaved-changes/) in the flow. 
+  * Trigger a [modal]({get_link_resource: /components/modal/}) upon exiting the wizard if there are [unsaved changes]({get_link_resource: /patterns/general/unsaved-changes/}) in the flow. 
   * Match each navigation step title with the corresponding form header title. 
   * If a step is optional, next to the step number label and form header title, include: _\- optional_
-  * Apply standard form[ validation](/patterns/resource-management/create/multi-page-create/#key-ux-concepts); use form field (client-side) or page-level (server-side) validation depending on your use cases. 
+  * Apply standard form[ validation]({get_link_resource: /patterns/resource-management/create/multi-page-create/#key-ux-concepts}); use form field (client-side) or page-level (server-side) validation depending on your use cases. 
   * Display the choices on the review page in the same order they were presented in the previous steps. 
-  * Refer to the [multipage create ](/patterns/resource-management/create/multi-page-create/)pattern for additional design guidance. 
+  * Refer to the [multipage create ]({get_link_resource: /patterns/resource-management/create/multi-page-create/})pattern for additional design guidance. 
 
 
 
@@ -17,7 +17,7 @@
 
   * Don't use more than seven steps in a wizard flow.
   * Avoid having interactions on the review page, such as inline editing or editing modals. Edits should be made in the pages preceding the review page. 
-  * Don't use the wizard inside of a [content layout](/components/content-layout/) component. 
+  * Don't use the wizard inside of a [content layout]({get_link_resource: /components/content-layout/}) component. 
 
 
 
@@ -25,12 +25,12 @@
 
 ### Navigation pane
 
-The navigation pane is the numbered list of steps that serve as navigation, as well as an overall outline of the user's progress through a [multipage create ](/patterns/resource-management/create/multi-page-create/)pattern.   
+The navigation pane is the numbered list of steps that serve as navigation, as well as an overall outline of the user's progress through a [multipage create ]({get_link_resource: /patterns/resource-management/create/multi-page-create/})pattern.   
 
 
 Upon initial load of the wizard, steps must be visited in chronological order to help guide the user through a complex flow or series of interrelated tasks. 
 
-On smaller screen sizes, the navigation pane is hidden and replaced with a single summary label above the form header. For example: _Step 1 of 4_. See this behavior in action on our [demo page](/examples/react/wizard.html).
+On smaller screen sizes, the navigation pane is hidden and replaced with a single summary label above the form header. For example: _Step 1 of 4_. See this behavior in action on our [demo page]({get_link_resource: /examples/react/wizard.html}).
 
   * #### Step number label
 
@@ -75,7 +75,7 @@ The area at the top of the form that displays the title of the step. Optionally,
 
       * For example:_Configure additional settings - optional_
 
-    * Info link: If you are using the [help panel](/components/help-panel/), add an info link for page level [help content](/patterns/general/help-system/).
+    * Info link: If you are using the [help panel]({get_link_resource: /components/help-panel/}), add an info link for page level [help content]({get_link_resource: /patterns/general/help-system/}).
 
   * #### Form description \- optional
 
@@ -83,13 +83,13 @@ Page-level description text that briefly summarizes the purpose of the step and 
 
   * #### Form content
 
-The main content area of the page where the [form containers](/components/container/), [form fields](/components/form-field/), and form controls such as [inputs](/components/input/) and [radio buttons](/components/radio-group/), are displayed. 
+The main content area of the page where the [form containers]({get_link_resource: /components/container/}), [form fields]({get_link_resource: /components/form-field/}), and form controls such as [inputs]({get_link_resource: /components/input/}) and [radio buttons]({get_link_resource: /components/radio-group/}), are displayed. 
 
-We recommend you make the last page of the wizard a review page that summarizes the choices made in previous steps. A review page ensures users can review their information and quickly go back to any step for edits. Follow the guidelines for [multipage create](/patterns/resource-management/create/multi-page-create/) pattern and see the [demo page](/examples/react/wizard.html) for examples.
+We recommend you make the last page of the wizard a review page that summarizes the choices made in previous steps. A review page ensures users can review their information and quickly go back to any step for edits. Follow the guidelines for [multipage create]({get_link_resource: /patterns/resource-management/create/multi-page-create/}) pattern and see the [demo page]({get_link_resource: /examples/react/wizard.html}) for examples.
 
   * #### Validation error message (server side) \- optional
 
-Text that is rendered inside a page-level [alert](/components/alert/?example=non-dismissible-error) above the form's action buttons. This should be used for overall form submission errors such as recoverable, server-side validation failures.
+Text that is rendered inside a page-level [alert]({get_link_resource: /components/alert/?example=non-dismissible-error}) above the form's action buttons. This should be used for overall form submission errors such as recoverable, server-side validation failures.
 
   * #### Form action buttons
 
@@ -97,7 +97,7 @@ A standard set of actions on each page, displayed below the form content area. T
 
     * **Cancel**
 
-      * Ensures a user can exit the flow. A user should be able to exit the flow at any time. If a user has [unsaved changes](/patterns/general/unsaved-changes/) in the form and attempts to exit before completing the flow, you must prompt them with a modal asking them to confirm that they want to exit the flow. If there is no user input, you may terminate the wizard without a prompt. 
+      * Ensures a user can exit the flow. A user should be able to exit the flow at any time. If a user has [unsaved changes]({get_link_resource: /patterns/general/unsaved-changes/}) in the form and attempts to exit before completing the flow, you must prompt them with a modal asking them to confirm that they want to exit the flow. If there is no user input, you may terminate the wizard without a prompt. 
 
     * **Previous**
 
@@ -144,7 +144,7 @@ There are two optional form action buttons that allow for further customization 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -202,7 +202,7 @@ There are two optional form action buttons that allow for further customization 
 
     * For example:_Review and create_
 
-  * Follow the writing guidelines for [form](/components/form/).
+  * Follow the writing guidelines for [form]({get_link_resource: /components/form/}).
 
 
 
@@ -218,14 +218,14 @@ There are two optional form action buttons that allow for further customization 
 
 #### Form description
 
-  * Follow the writing guidelines for [form](/components/form/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form]({get_link_resource: /components/form/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Form error message (server-side)
 
-  * Follow the guidelines for [validation](/patterns/general/errors/validation/).
+  * Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}).
 
 
 
@@ -242,7 +242,7 @@ There are two optional form action buttons that allow for further customization 
 
     * For example: _Create distribution_
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines) and [form](/components/form/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}) and [form]({get_link_resource: /components/form/?tabId=usage#writing-guidelines}).
 
 
 
@@ -266,7 +266,7 @@ There are two optional form action buttons that allow for further customization 
 
 #### Form guidelines
 
-  * Follow the accessibility guidelines for [forms](/components/form/?tabId=usage#accessibility-guidelines).
+  * Follow the accessibility guidelines for [forms]({get_link_resource: /components/form/?tabId=usage#accessibility-guidelines}).
 
 
 

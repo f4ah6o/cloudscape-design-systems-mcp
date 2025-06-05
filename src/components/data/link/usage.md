@@ -10,7 +10,7 @@
 
 ### Don't
 
-  * Don't use a link for actions. Instead, use a [button](/components/button/).
+  * Don't use a link for actions. Instead, use a [button]({get_link_resource: /components/button/}).
   * Don't use end punctuation for _Info_ or other fragments.
   * Don't use info links in a help panel. Use info links only on the main page content, next to headers.
   * Don't change the size of info links. Use the small size that is set by the info variant.
@@ -30,15 +30,15 @@ The variant determines the visual style of the link.
 
 There are two variants of a normal link: `primary` and `secondary`. To meet accessibility requirements, choose the variant based on the link's context. 
 
-    * A **primary** link is underlined to provide more visual contrast with surrounding context. Use the `primary` variant for a link adjacent to other text, such as inside body text paragraph or a component description, a learn more link in a [container header](/components/header/) or [form field](/components/form-field/) description, a resource ID link in a [table](/components/table/?tabId=playground), a link in a [key-value pair](/components/key-value-pairs/), a link in an [alert](/components/alert/?tabId=playground).
+    * A **primary** link is underlined to provide more visual contrast with surrounding context. Use the `primary` variant for a link adjacent to other text, such as inside body text paragraph or a component description, a learn more link in a [container header]({get_link_resource: /components/header/}) or [form field]({get_link_resource: /components/form-field/}) description, a resource ID link in a [table]({get_link_resource: /components/table/?tabId=playground}), a link in a [key-value pair]({get_link_resource: /components/key-value-pairs/}), a link in an [alert]({get_link_resource: /components/alert/?tabId=playground}).
 
-    * A **secondary** link uses regular font weight. Use the `secondary` variant where its context implies interactivity and users can identify links from other elements in its vicinity easily, such as a list of links in a [container](/components/container/?tabId=playground).
+    * A **secondary** link uses regular font weight. Use the `secondary` variant where its context implies interactivity and users can identify links from other elements in its vicinity easily, such as a list of links in a [container]({get_link_resource: /components/container/?tabId=playground}).
 
 #### Info link
 
-An info link is bold and smaller in size. An info link is technically a button because it doesn't navigate the user to another page. Instead, it invokes the [help panel](/components/help-panel/) to display contextual help related to an element or section of the page. Use the `info` variant only for a link that triggers the help panel.
+An info link is bold and smaller in size. An info link is technically a button because it doesn't navigate the user to another page. Instead, it invokes the [help panel]({get_link_resource: /components/help-panel/}) to display contextual help related to an element or section of the page. Use the `info` variant only for a link that triggers the help panel.
 
-Follow the guidelines for how to use info links in [help system](/patterns/general/help-system/).
+Follow the guidelines for how to use info links in [help system]({get_link_resource: /patterns/general/help-system/}).
 
   * #### External link \- optional
 
@@ -54,7 +54,7 @@ For lists of external links, don't use an icon on each link. Instead, append an 
 
   * #### Size \- optional
 
-The size sets the font size and line height of the link. The options are any of the standard [typography](/foundation/visual-foundation/typography/) styles. 
+The size sets the font size and line height of the link. The options are any of the standard [typography]({get_link_resource: /foundation/visual-foundation/typography/}) styles. 
 
     * If the link is part of a sentence, choose a size that matches the surrounding text size. 
 
@@ -64,7 +64,7 @@ The size sets the font size and line height of the link. The options are any of 
 
   * #### Color \- optional
 
-The color controls the link text color. By default, all links should use the default link color. For links on inverted backgrounds such as [flashbars](/components/flashbar/), use `color="inverted"`.
+The color controls the link text color. By default, all links should use the default link color. For links on inverted backgrounds such as [flashbars]({get_link_resource: /components/flashbar/}), use `color="inverted"`.
 
 
 
@@ -75,7 +75,7 @@ The color controls the link text color. By default, all links should use the def
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

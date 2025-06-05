@@ -13,8 +13,8 @@
 
   * Don’t hide error messages or critical information under an expandable section.
   * Don’t nest expandable sections.
-  * Don’t use expandable sections inside tables. Instead use [table with expandable rows](/components/table/?tabId=playground&example=with-expandable-rows).
-  * Don’t use more than one action in a default expandable section header. If you need more, use a [inline icon button dropdown](/components/button-dropdown/?tabId=playground&example=inline-icon-button-dropdown).
+  * Don’t use expandable sections inside tables. Instead use [table with expandable rows]({get_link_resource: /components/table/?tabId=playground&example=with-expandable-rows}).
+  * Don’t use more than one action in a default expandable section header. If you need more, use a [inline icon button dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground&example=inline-icon-button-dropdown}).
 
 
 
@@ -26,7 +26,7 @@
 
     * **Footer** : intended for containers' footers within forms.
 
-    * **Container** : has its own visual container. It's used within the context of other containers, such as [resource creation flows](/patterns/resource-management/create/). It also allows for additional optional elements in the header: description, counter, info link, and actions.
+    * **Container** : has its own visual container. It's used within the context of other containers, such as [resource creation flows]({get_link_resource: /patterns/resource-management/create/}). It also allows for additional optional elements in the header: description, counter, info link, and actions.
 
     * **Stacked** : optimized to be displayed adjacent to other stacked components.
 
@@ -34,9 +34,9 @@
 
 Actions can be featured in the default and container variants.
 
-    * **Default:** Use the [inline button](/components/button/?tabId=playground) and [inline button dropdown](/components/button-dropdown/?tabId=playground). For example, an action to remove a section.
+    * **Default:** Use the [inline button]({get_link_resource: /components/button/?tabId=playground}) and [inline button dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground}). For example, an action to remove a section.
 
-    * **Container:** Follow the guidelines for [actions in the header](/components/header/).
+    * **Container:** Follow the guidelines for [actions in the header]({get_link_resource: /components/header/}).
 
 
 
@@ -47,7 +47,7 @@ Actions can be featured in the default and container variants.
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

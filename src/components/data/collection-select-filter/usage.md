@@ -8,20 +8,20 @@
 
   * #### Properties
 
-Display the most pertinent properties that users need to find a resource in a collection of resources. Most commonly, those properties refer to the column headers for [table view](/patterns/resource-management/view/table-view/) and content labels for a [cards view](/patterns/resource-management/view/card-view/).  
+Display the most pertinent properties that users need to find a resource in a collection of resources. Most commonly, those properties refer to the column headers for [table view]({get_link_resource: /patterns/resource-management/view/table-view/}) and content labels for a [cards view]({get_link_resource: /patterns/resource-management/view/card-view/}).  
   
 We don't recommend using more than two collection select filters. Used in combination, the two filters behave as an And operator.  
 
 
   * #### Values
 
-    * Using the [select filter](/components/select/), list all finite values that correspond to the property.
+    * Using the [select filter]({get_link_resource: /components/select/}), list all finite values that correspond to the property.
 
       * For example: **Property: Status** ; Values: Error, Loading, Pending, Stopped, and Success.
 
     * Use Any {property} as the default pre-selected option. It takes into account any values that correspond to that property. The collection isn't filtered and displays all items.
 
-    * Follow the guidelines for the [select](/components/select/) component.
+    * Follow the guidelines for the [select]({get_link_resource: /components/select/}) component.
 
 
 
@@ -30,16 +30,16 @@ We don't recommend using more than two collection select filters. Used in combin
 
   * #### Displaying results
 
-The collection is filtered as soon as the user selects a value from a select filter or enters text into the accompanying [text filter](/components/text-filter/). Only resources that match the conditions of the values are displayed. For example: _Engine_  set to _Aurora_ and _Status_  set to _available_ will show the available resources that are running the Aurora engine _._  
+The collection is filtered as soon as the user selects a value from a select filter or enters text into the accompanying [text filter]({get_link_resource: /components/text-filter/}). Only resources that match the conditions of the values are displayed. For example: _Engine_  set to _Aurora_ and _Status_  set to _available_ will show the available resources that are running the Aurora engine _._  
 
 
   * #### Loading state
 
-The state of the collection of resources, such as [table](/components/table/?example=loading-state) or [cards](/components/cards/?example=loading-state), while the filtered dataset is being loaded. Follow the guidelines for [loading state](/patterns/general/loading-and-refreshing/) for collections.
+The state of the collection of resources, such as [table]({get_link_resource: /components/table/?example=loading-state}) or [cards]({get_link_resource: /components/cards/?example=loading-state}), while the filtered dataset is being loaded. Follow the guidelines for [loading state]({get_link_resource: /patterns/general/loading-and-refreshing/}) for collections.
 
   * #### No match state
 
-The state of the collection of resources, such as [table](/components/table/?example=no-match-state) or [cards](/components/cards/?example=no-match-state), after a user applies a filter that does not return any results. In other words, the state when there are no resources that match the filters applied. Follow the guidelines for [empty states](/patterns/general/empty-states/).
+The state of the collection of resources, such as [table]({get_link_resource: /components/table/?example=no-match-state}) or [cards]({get_link_resource: /components/cards/?example=no-match-state}), after a user applies a filter that does not return any results. In other words, the state when there are no resources that match the filters applied. Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 
 
@@ -63,7 +63,7 @@ The state of the collection of resources, such as [table](/components/table/?exa
   * Don't use ﬁltering if the majority of your users operate on small collections of resources (fewer than ﬁve resources).
   * Don’t use a select ﬁlter for collections that have a very large set of values.
   * Don’t use a select ﬁlter if users need to select multiple values that correspond to one property. Use a property filter instead.
-  * Don’t change the control for the selection mechanism. Always use a [select](/components/select/) component.
+  * Don’t change the control for the selection mechanism. Always use a [select]({get_link_resource: /components/select/}) component.
   * Don’t change table column headers after a user has completed a filter action.
 
 
@@ -74,7 +74,7 @@ The state of the collection of resources, such as [table](/components/table/?exa
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -95,7 +95,7 @@ The state of the collection of resources, such as [table](/components/table/?exa
 
 #### Placeholder text
 
-  * Follow the writing guidelines for [placeholder text](/components/input/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}).
 
   * Don’t use terminal punctuation.
 
@@ -104,35 +104,35 @@ The state of the collection of resources, such as [table](/components/table/?exa
 
 #### Label
 
-  * Follow the writing guidelines for [select](/components/select/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [select]({get_link_resource: /components/select/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Select
 
-  * Follow the writing guidelines for [select](/components/select/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [select]({get_link_resource: /components/select/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Results counter
 
-  * Follow the writing guidelines for [table resource counter](/components/table/?example=common-table&tabId=usage#features).
+  * Follow the writing guidelines for [table resource counter]({get_link_resource: /components/table/?example=common-table&tabId=usage#features}).
 
 
 
 
 #### Loading state
 
-  * Follow the writing guidelines for [loading and refreshing](/patterns/general/loading-and-refreshing/#writing-guidelines/).
+  * Follow the writing guidelines for [loading and refreshing]({get_link_resource: /patterns/general/loading-and-refreshing/#writing-guidelines/}).
 
 
 
 
 #### No match state
 
-  * Follow the guidelines for [empty states](/patterns/general/empty-states/#writing-guidelines/).
+  * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/#writing-guidelines/}).
 
 
 
@@ -156,7 +156,7 @@ The state of the collection of resources, such as [table](/components/table/?exa
 
 #### Alternative text
 
-  * Follow the accessibility guidelines for [select](/components/select/?tabId=usage#accessibility-guidelines).
+  * Follow the accessibility guidelines for [select]({get_link_resource: /components/select/?tabId=usage#accessibility-guidelines}).
 
 
 

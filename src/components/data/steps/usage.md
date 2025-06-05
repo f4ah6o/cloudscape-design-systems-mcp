@@ -16,15 +16,15 @@
 
   * #### Status
 
-The status of a step conveyed via corresponding [status indicator](/components/status-indicator/).
+The status of a step conveyed via corresponding [status indicator]({get_link_resource: /components/status-indicator/}).
 
   * #### Header
 
-A brief summary of the step to provide more context to users. It can be used to display the name of a task being performed, a [popover](/components/popover/) that contains the step details, and a [link](/components/link/) to a resource as needed. 
+A brief summary of the step to provide more context to users. It can be used to display the name of a task being performed, a [popover]({get_link_resource: /components/popover/}) that contains the step details, and a [link]({get_link_resource: /components/link/}) to a resource as needed. 
 
   * #### Details \- optional
 
-A slot to display additional information corresponding to the step. For example, a description or list of sub-tasks being performed, a [link](/components/link/) to navigate to a resource, or a [button](/components/button/) to let users perform an action on that step. 
+A slot to display additional information corresponding to the step. For example, a description or list of sub-tasks being performed, a [link]({get_link_resource: /components/link/}) to navigate to a resource, or a [button]({get_link_resource: /components/button/}) to let users perform an action on that step. 
 
 
 
@@ -35,7 +35,7 @@ A slot to display additional information corresponding to the step. For example,
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -56,7 +56,7 @@ A slot to display additional information corresponding to the step. For example,
 
 #### Status indicator
 
-  * Follow the writing guidelines for [status indicator](/components/status-indicator/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [status indicator]({get_link_resource: /components/status-indicator/?tabId=usage#writing-guidelines}).
 
 
 

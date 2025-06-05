@@ -18,7 +18,7 @@
 
   * #### Icon
 
-The icon brings visual emphasis to the severity or type of status, making it faster for the user to recognize and easier to understand. These can either be one of the seven [status icons](/foundation/visual-foundation/iconography/#status-icons) or a [spinner](/components/spinner/) when using the component for a loading state.
+The icon brings visual emphasis to the severity or type of status, making it faster for the user to recognize and easier to understand. These can either be one of the seven [status icons]({get_link_resource: /foundation/visual-foundation/iconography/#status-icons}) or a [spinner]({get_link_resource: /components/spinner/}) when using the component for a loading state.
 
   * #### Text
 
@@ -51,7 +51,7 @@ The component comes with the following predefined mappings of icon and text colo
 
 The resource or process failed or is in a critical state. Can be used when a metric crosses a user-specified threshold. For example: A resource or process has failed and cannot recover without user intervention.
 
-If necessary, use [popover](/components/popover/?tabId=playground) to provide additional contextual information for status indicator. For example, to communicate a server-side error status in a [key-value pairs](/components/key-value-pairs/). In this case, you might show a popover with additional error description on error status indicator.  
+If necessary, use [popover]({get_link_resource: /components/popover/?tabId=playground}) to provide additional contextual information for status indicator. For example, to communicate a server-side error status in a [key-value pairs]({get_link_resource: /components/key-value-pairs/}). In this case, you might show a popover with additional error description on error status indicator.  
 
 
   * #### Warning
@@ -80,7 +80,7 @@ The process is underway and running without errors.
 
   * #### Loading
 
-The resource data is being fetched and is waiting for the information to be returned. This type uses a spinner instead of a status icon and should be used for component loading states or other operations that are under 10 seconds. Follow the guidelines for [spinner](/components/spinner/?example=default&tabId=usage).
+The resource data is being fetched and is waiting for the information to be returned. This type uses a spinner instead of a status icon and should be used for component loading states or other operations that are under 10 seconds. Follow the guidelines for [spinner]({get_link_resource: /components/spinner/?example=default&tabId=usage}).
 
 
 
@@ -91,7 +91,7 @@ The resource data is being fetched and is waiting for the information to be retu
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

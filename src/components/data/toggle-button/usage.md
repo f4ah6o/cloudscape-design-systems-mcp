@@ -10,10 +10,10 @@
 
 ### Don't
 
-  * Don’t use a toggle button for actions that affect system-wide settings, such as turning a group of elements on or off, or UI such as light mode or dark mode. Instead, use [toggle](/components/toggle/).
-  * Don’t use a toggle button to change the way a piece of content or data is formatted on the page. Instead use [segmented control](/components/segmented-control/).
-  * Don’t use for options that require descriptions to understand the implications of both the pressed and not pressed states. Use a [radio group](/components/radio-group/) or [tiles](/components/tiles/) instead.
-  * Don't use a toggle button in a form. Follow [selection in forms](/patterns/general/selection/) guidelines. 
+  * Don’t use a toggle button for actions that affect system-wide settings, such as turning a group of elements on or off, or UI such as light mode or dark mode. Instead, use [toggle]({get_link_resource: /components/toggle/}).
+  * Don’t use a toggle button to change the way a piece of content or data is formatted on the page. Instead use [segmented control]({get_link_resource: /components/segmented-control/}).
+  * Don’t use for options that require descriptions to understand the implications of both the pressed and not pressed states. Use a [radio group]({get_link_resource: /components/radio-group/}) or [tiles]({get_link_resource: /components/tiles/}) instead.
+  * Don't use a toggle button in a form. Follow [selection in forms]({get_link_resource: /patterns/general/selection/}) guidelines. 
 
 
 
@@ -38,7 +38,7 @@ __
 
 Icons are used to reinforce toggle button states by using both outline and filled versions.
 
-    * For example: a toggle button that has been pressed could be represented by the `star-filled` icon, while a toggle button that has not been pressed could be represented by the `star` icon. Follow the [guidelines for iconography](/foundation/visual-foundation/iconography/).
+    * For example: a toggle button that has been pressed could be represented by the `star-filled` icon, while a toggle button that has not been pressed could be represented by the `star` icon. Follow the [guidelines for iconography]({get_link_resource: /foundation/visual-foundation/iconography/}).
 
   * #### Disabled reason \- optional
 
@@ -77,7 +77,7 @@ You can use a tooltip with disabled toggle button to explain why the action is u
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -102,7 +102,7 @@ You can use a tooltip with disabled toggle button to explain why the action is u
 
     * For example: _Save_ for both the pressed label and not pressed label.
 
-  * Follow writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 

@@ -4,7 +4,7 @@
 
   * Display buttons for frequently performed actions as standalone items in the button group. Move other actions to the overflow menu.
   * Group related actions within the button group. This helps users distinguish between actions that are related to each other and standalone. 
-  * Use button group component in the [generative AI chat bubbles](/patterns/genai/generative-AI-chat/). 
+  * Use button group component in the [generative AI chat bubbles]({get_link_resource: /patterns/genai/generative-AI-chat/}). 
 
 
 
@@ -19,15 +19,15 @@
 
   * #### Icon buttons
 
-Display [icon buttons](/components/button/?tabId=playground&example=icon-button) to enable users to perform specific actions. The icons used for buttons should be easy to understand without visible labels. 
+Display [icon buttons]({get_link_resource: /components/button/?tabId=playground&example=icon-button}) to enable users to perform specific actions. The icons used for buttons should be easy to understand without visible labels. 
 
   * #### Toggle buttons
 
-Display [toggle buttons](/components/toggle-button/?tabId=usage#writing-guidelines) to immediately trigger binary, mutually exclusive actions and persist the action performed. For example, use a toggle button for thumbs up and down feedback actions.
+Display [toggle buttons]({get_link_resource: /components/toggle-button/?tabId=usage#writing-guidelines}) to immediately trigger binary, mutually exclusive actions and persist the action performed. For example, use a toggle button for thumbs up and down feedback actions.
 
   * #### Overflow menu
 
-Display additional actions in an [icon button dropdown](/components/button-dropdown/?tabId=playground&example=icon-button-dropdown). Actions in the dropdown do not support feedback via a popover. 
+Display additional actions in an [icon button dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground&example=icon-button-dropdown}). Actions in the dropdown do not support feedback via a popover. 
 
   * #### Tooltip
 
@@ -35,7 +35,7 @@ Display the label associated with the action of a visible icon button in the too
 
   * #### Popover \- optional
 
-Display feedback associated with the action performed by the user in a popover using [status indicators](/components/status-indicator/). For example, successfully copied content to the clipboard. 
+Display feedback associated with the action performed by the user in a popover using [status indicators]({get_link_resource: /components/status-indicator/}). For example, successfully copied content to the clipboard. 
 
   * #### Grouped buttons \- optional
 
@@ -52,7 +52,7 @@ You can use a tooltip with disabled icon buttons, toggle buttons or icon button 
 
   * #### Disabled
 
-Display a button in [disabled state ](/patterns/general/disabled-and-read-only-states/)to prevent users from being able to act on it.
+Display a button in [disabled state ]({get_link_resource: /patterns/general/disabled-and-read-only-states/})to prevent users from being able to act on it.
 
   * #### Loading
 
@@ -67,7 +67,7 @@ Display the button in loading state to inform users that the action is in-progre
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -88,15 +88,15 @@ Display the button in loading state to inform users that the action is in-progre
 
 #### Button labels 
 
-Follow the writing guidelines for [buttons](/components/button/?tabId=usage#writing-guidelines). 
+Follow the writing guidelines for [buttons]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}). 
 
 #### Popover
 
-Follow the writing guidelines for [popover](/components/popover/?tabId=usage#writing-guidelines). 
+Follow the writing guidelines for [popover]({get_link_resource: /components/popover/?tabId=usage#writing-guidelines}). 
 
 #### Toggle button
 
-Follow the writing guidelines for [toggle button.](/components/toggle-button/?tabId=usage#writing-guidelines)  
+Follow the writing guidelines for [toggle button.]({get_link_resource: /components/toggle-button/?tabId=usage#writing-guidelines})  
 
 
 ## Accessibility guidelines

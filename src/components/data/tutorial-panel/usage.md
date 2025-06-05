@@ -2,10 +2,10 @@
 
 ### Do
 
-  * Always implement a tutorial panel with an accompanying help panel. Follow the guidelines for [help system](/patterns/general/help-system/).
+  * Always implement a tutorial panel with an accompanying help panel. Follow the guidelines for [help system]({get_link_resource: /patterns/general/help-system/}).
   * Display the tutorial panel as open by default whenever a new tutorial is introduced. After a user closes the panel, it should stay closed. Make sure to store your users' preferences. 
   * When a tutorial is launched, keep the tutorial panel open through all relevant pages as users move through the workflow.
-  * When first introducing the tutorial panel, add a _-new_ label to the tab header and display it for 30 days. For more information, see [announcing new features](/patterns/general/announcing-new-features/).
+  * When first introducing the tutorial panel, add a _-new_ label to the tab header and display it for 30 days. For more information, see [announcing new features]({get_link_resource: /patterns/general/announcing-new-features/}).
 
 
 
@@ -22,7 +22,7 @@
 
   * #### App layout
 
-Place the tutorial panel in the `tools` region of the [app layout](/components/app-layout/). 
+Place the tutorial panel in the `tools` region of the [app layout]({get_link_resource: /components/app-layout/}). 
 
 **Collapse button**
 
@@ -54,7 +54,7 @@ After the user completes the tutorial, this state displays a congratulatory mess
 
   * #### Exit tutorial button
 
-    * When the tutorial has been launched or completed, the _Exit tutorial_****[button](/components/button/?example=icon-button) returns users to the tutorials list state. 
+    * When the tutorial has been launched or completed, the _Exit tutorial_****[button]({get_link_resource: /components/button/?example=icon-button}) returns users to the tutorials list state. 
 
     * Choosing the _Exit tutorial_ button dismisses any active tutorial. 
 
@@ -63,7 +63,7 @@ After the user completes the tutorial, this state displays a congratulatory mess
 
 ### Tutorial list content
 
-In the tutorial list state, all the content is static. Because the tutorial isn’t launched, all of the content in this view is provided by the tutorial panel itself and not the [annotation context](/components/annotation-context/?example=default). The role of the annotation context is to provide information to the tutorial panels that’s specific to a launched tutorial.
+In the tutorial list state, all the content is static. Because the tutorial isn’t launched, all of the content in this view is provided by the tutorial panel itself and not the [annotation context]({get_link_resource: /components/annotation-context/?example=default}). The role of the annotation context is to provide information to the tutorial panels that’s specific to a launched tutorial.
 
   * #### Title
 
@@ -85,11 +85,11 @@ Use a Download button to provide a text equivalent for non-interactive tutorials
 
     * **Card description** -**** Gives a brief overview of the tasks needed to complete the learning objective of the tutorial. 
 
-    * ****[**External link**](/components/link/?example=external-link) _**-**_**optional**
+    * ****[**External link**]({get_link_resource: /components/link/?example=external-link}) _**-**_**optional**
 
       * Provide an external link to any external help content or pricing related documentation, if available. 
 
-    * ****[**Prerequisites alert**](/components/alert/?example=info)**-**_****_**optional**
+    * ****[**Prerequisites alert**]({get_link_resource: /components/alert/?example=info})**-**_****_**optional**
 
       * An info alert is used to communicate prerequisites for for tutorials that can't be launched until the prerequisites are complete. Not all tutorials have prerequisites. 
 
@@ -101,11 +101,11 @@ __
 
   * #### Learn more external link
 
-A learn more [external link](/components/link/?example=external-link) leads users to more information about the particular flow by opening the associated help documentation page in a new tab. 
+A learn more [external link]({get_link_resource: /components/link/?example=external-link}) leads users to more information about the particular flow by opening the associated help documentation page in a new tab. 
 
   * #### Start tutorial button 
 
-    * A tutorial is launched from the _Start tutorial_ [button](/components/button/?example=normal-button). 
+    * A tutorial is launched from the _Start tutorial_ [button]({get_link_resource: /components/button/?example=normal-button}). 
 
     * If the corresponding tutorial can’t be launched yet because of pending prerequisites, show the _Start tutorial_ button in an inactive state, along with an info alert in the tutorial card. 
 
@@ -121,7 +121,7 @@ In the launched state, the tutorial panel consists of static and dynamic content
 
 
 
-The [annotation context](/components/annotation-context/?example=default) provides the dynamic content to the tutorial panel. Dynamic content changes across tutorials because it's specific to the user's goal. Dynamic content consists of the title of the tutorial, tasks, and steps. 
+The [annotation context]({get_link_resource: /components/annotation-context/?example=default}) provides the dynamic content to the tutorial panel. Dynamic content changes across tutorials because it's specific to the user's goal. Dynamic content consists of the title of the tutorial, tasks, and steps. 
 
   * For example:_Host a static website, Catalog audio archives._
 
@@ -148,14 +148,14 @@ List out the steps required to complete a task.
 
   * #### Dismiss tutorial button
 
-The _Dismiss tutorial_ button dismisses the tutorial. It removes the hotspots and annotation popovers from the page and brings users back to the [tutorials list](/components/tutorial-panel/?example=tutorial-list&tabId=playground). 
+The _Dismiss tutorial_ button dismisses the tutorial. It removes the hotspots and annotation popovers from the page and brings users back to the [tutorials list]({get_link_resource: /components/tutorial-panel/?example=tutorial-list&tabId=playground}). 
 
 
 
 
 ### Tutorial completed content
 
-The [annotation context](/components/annotation-context/?example=default) injects the title and completed screen description text into the tutorial panel. The tutorial panel then renders this text. 
+The [annotation context]({get_link_resource: /components/annotation-context/?example=default}) injects the title and completed screen description text into the tutorial panel. The tutorial panel then renders this text. 
 
   * #### Title
 
@@ -182,7 +182,7 @@ The feedback link opens a feedback mechanism so that users can provide insights 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -201,7 +201,7 @@ The feedback link opens a feedback mechanism so that users can provide insights 
 
 ### Component-specific guidelines
 
-  * Follow the guidelines for [annotation context](/components/annotation-context/?example=default).
+  * Follow the guidelines for [annotation context]({get_link_resource: /components/annotation-context/?example=default}).
 
 
 
@@ -216,7 +216,7 @@ The feedback link opens a feedback mechanism so that users can provide insights 
 
   * **Tutorial launched title:**
 
-    * Follow the guidelines for [annotation context](/components/annotation-context/?example=default).
+    * Follow the guidelines for [annotation context]({get_link_resource: /components/annotation-context/?example=default}).
 
   * **Tutorial completion page title:**
 

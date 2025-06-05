@@ -20,13 +20,13 @@ A title is a piece of text that summarizes the content below.
 
   * #### Description \- optional
 
-Since descriptions in the UI directly impact content density, only share information necessary for the user to inform their action in the corresponding section or element. Ensure that links in the description use the [primary link](/components/link/?tabId=playground&example=primary-link) variant.
+Since descriptions in the UI directly impact content density, only share information necessary for the user to inform their action in the corresponding section or element. Ensure that links in the description use the [primary link]({get_link_resource: /components/link/?tabId=playground&example=primary-link}) variant.
 
-Follow UX guidelines and writing guidelines for description content in [help system.](/patterns/general/help-system/)
+Follow UX guidelines and writing guidelines for description content in [help system.]({get_link_resource: /patterns/general/help-system/})
 
   * #### Buttons \- optional
 
-Add actions as [buttons](/components/button/) or [button dropdowns](/components/button-dropdown/) if users can perform actions on the underlying content. For multiple button elements, use the [space between](/components/space-between/?example=with-buttons) component to properly space the buttons from one another.
+Add actions as [buttons]({get_link_resource: /components/button/}) or [button dropdowns]({get_link_resource: /components/button-dropdown/}) if users can perform actions on the underlying content. For multiple button elements, use the [space between]({get_link_resource: /components/space-between/?example=with-buttons}) component to properly space the buttons from one another.
 
 **Order of actions**
 
@@ -54,7 +54,7 @@ On mobile viewports with more than one non-primary action, consider moving these
 
 **Pagination and preferences**
 
-    * When a table does not have filtering or header actions, place pagination and collection preferences components in the actions slot, instead of the corresponding slots on the table. If using both, use a [space between](/components/space-between/?example=with-buttons) component to properly space them.
+    * When a table does not have filtering or header actions, place pagination and collection preferences components in the actions slot, instead of the corresponding slots on the table. If using both, use a [space between]({get_link_resource: /components/space-between/?example=with-buttons}) component to properly space them.
 
       * This will ensure that there is no unused space in the table header.
 
@@ -66,13 +66,13 @@ On mobile viewports with more than one non-primary action, consider moving these
 
       * For example: _(1/150)_
 
-    * For resource counters in tables, [follow the guidelines](/components/table/?tabId=usage).
+    * For resource counters in tables, [follow the guidelines]({get_link_resource: /components/table/?tabId=usage}).
 
   * #### Info \- optional
 
 The area to render an [info link ](https://cloudscape.aws.dev/patterns/general/help-system/#medium-snack). Use an info link on h1 headers to display default page-level help panel content.
 
-For more information about using the help panel, follow the guidelines for [help system](/patterns/general/help-system/).
+For more information about using the help panel, follow the guidelines for [help system]({get_link_resource: /patterns/general/help-system/}).
 
 
 
@@ -83,7 +83,7 @@ For more information about using the help panel, follow the guidelines for [help
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -123,7 +123,7 @@ For more information about using the help panel, follow the guidelines for [help
 
   * Descriptions should have end punctuation, with the only exception being if a description ends with an external link icon, which should not have a period after it. 
 
-  * Follow UX guidelines and writing guidelines for description content in [help system.](/patterns/general/help-system/)
+  * Follow UX guidelines and writing guidelines for description content in [help system.]({get_link_resource: /patterns/general/help-system/})
 
 
 
@@ -150,7 +150,7 @@ For more information about using the help panel, follow the guidelines for [help
 
   * Don’t include articles (_a_ , _an_ , or _the_) in button labels.
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 

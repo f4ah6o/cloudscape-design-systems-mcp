@@ -4,14 +4,14 @@ The Hotspot component provides both the annotation popover and the hotspot affor
 
 ### Do
 
-  * Use hotspots only in the context of a [hands-on tutorial](/patterns/general/onboarding/hands-on-tutorials/).
+  * Use hotspots only in the context of a [hands-on tutorial]({get_link_resource: /patterns/general/onboarding/hands-on-tutorials/}).
 
 
 
 ### Don't
 
   * Avoid placing hotspots next to inactive elements. Placing hotspots with inactive elements can cause confusion, because inactive elements aren’t interactive. 
-  * Don't place hotspots in [modals](/components/modal/?example=default).
+  * Don't place hotspots in [modals]({get_link_resource: /components/modal/?example=default}).
 
 
 
@@ -19,7 +19,7 @@ The Hotspot component provides both the annotation popover and the hotspot affor
 
   * #### Hotspot icon 
 
-Hotspot icons are visual affordances that open and close annotation popovers. After a tutorial is launched, the [annotation context](/components/annotation-context/?example=default) automatically renders hotspot icons for any hotspots that belong to that tutorial. When the tutorial is dismissed, the icons disappear.
+Hotspot icons are visual affordances that open and close annotation popovers. After a tutorial is launched, the [annotation context]({get_link_resource: /components/annotation-context/?example=default}) automatically renders hotspot icons for any hotspots that belong to that tutorial. When the tutorial is dismissed, the icons disappear.
 
   * #### Side
 
@@ -27,7 +27,7 @@ Specify where the hotspot should be placed in relation to a page element. The ho
 
   * #### Direction
 
-Specify the direction that the associated annotation popover should open in. To learn more about the features of annotation popovers, follow the guidelines for [annotation context. ](/components/annotation-context/?example=default)
+Specify the direction that the associated annotation popover should open in. To learn more about the features of annotation popovers, follow the guidelines for [annotation context. ]({get_link_resource: /components/annotation-context/?example=default})
 
 
 

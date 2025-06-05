@@ -9,7 +9,7 @@
   * Use hyphen (-) for any empty values.
   * Use manual filtering, configured to support server-side asynchronous fetching of options, to improve loading times when there are 50 or more options to choose from.
   * If possible, try to avoid mixing groups and non grouped options.
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
   * Use select all to improve efficiency when users are likely to choose all options.
 
 
@@ -31,11 +31,11 @@ With this feature, the user can filter through a list of items by label or addit
 
     * Automatic filtering _-_ default
 
-      * Use [automatic filtering](/components/multiselect/?example=with-auto-filtering) when the list of options typically takes only one API call to be fetched completely.
+      * Use [automatic filtering]({get_link_resource: /components/multiselect/?example=with-auto-filtering}) when the list of options typically takes only one API call to be fetched completely.
 
     * Manual filtering
 
-      * Use [manual filtering](/components/multiselect/?example=default&tabId=api#code-examples) when the list of options is fetched asynchronously as the user scrolls or types.
+      * Use [manual filtering]({get_link_resource: /components/multiselect/?example=default&tabId=api#code-examples}) when the list of options is fetched asynchronously as the user scrolls or types.
 
 Note that when an Option Group is matched in automatic filtering, all of its nested Options are returned.
 
@@ -60,7 +60,7 @@ Each option can have additional filterable metadata to help the user's decision 
 
     * Descriptions can add extra information for a user to read and understand and can impede decision making if they’re not necessary to the interaction.
 
-    * Icons are displayed on the left side of the label. View available Cloudscape icons in [iconography](/foundation/visual-foundation/iconography/).
+    * Icons are displayed on the left side of the label. View available Cloudscape icons in [iconography]({get_link_resource: /foundation/visual-foundation/iconography/}).
 
     * Tags are used to display comparable metadata across options.
 
@@ -95,7 +95,7 @@ With this feature, users can select all available items within a list. Disabled 
     * An error state occurs when the control fails at fetching options (for example, if the API fails to load the   
 next set of options in the list).
 
-    * Provide a [recovery action](/components/select/?example=error) in the error state, as a recovery mechanism. 
+    * Provide a [recovery action]({get_link_resource: /components/select/?example=error}) in the error state, as a recovery mechanism. 
 
   * #### Finished
 
@@ -109,7 +109,7 @@ The state when the user’s entered query does not match any of the options.
 
     * The state when there are no options to choose from. 
 
-    * Follow the guidelines for [empty states](/patterns/general/empty-states/).
+    * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
   * #### Disabled
 
@@ -151,7 +151,7 @@ By default, all tokens are visible and shown below the trigger. Token visibility
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -192,7 +192,7 @@ By default, all tokens are visible and shown below the trigger. Token visibility
 
   * Use the format: _Loading [options type]_
 
-  * Follow the guidelines for [loading states](/patterns/general/loading-and-refreshing/).
+  * Follow the guidelines for [loading states]({get_link_resource: /patterns/general/loading-and-refreshing/}).
 
 
 
@@ -203,13 +203,13 @@ By default, all tokens are visible and shown below the trigger. Token visibility
 
     * Use the format: _Error fetching [options type]_
 
-    * Follow the guidelines for [validation](/patterns/general/errors/validation/) and [alert](/components/alert/). 
+    * Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}) and [alert]({get_link_resource: /components/alert/}). 
 
   * Recovery action
 
     * Use this text: _Retry_
 
-    * Follow the writing guidelines for [buttons](/components/button/?example=primary-button&tabId=usage#writing-guidelines).
+    * Follow the writing guidelines for [buttons]({get_link_resource: /components/button/?example=primary-button&tabId=usage#writing-guidelines}).
 
 
 
@@ -227,7 +227,7 @@ By default, all tokens are visible and shown below the trigger. Token visibility
 
 #### Zero results state
 
-  * Follow the guidelines for [empty states](/patterns/general/empty-states/).
+  * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 
 
@@ -247,7 +247,7 @@ By default, all tokens are visible and shown below the trigger. Token visibility
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines). 
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}). 
 
 
 

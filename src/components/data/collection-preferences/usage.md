@@ -4,7 +4,7 @@
 
   * Ensure data symmetry by aligning the order of visible content options with the order in which corresponding content appears in the collection view.
   * Store all the table preferences when the user leaves the page and restore them when the user comes back to the same page.
-  * Use wrap lines, zebra stripes, content density, sticky columns and column reordering only in [table views](/patterns/resource-management/view/table-view/).
+  * Use wrap lines, zebra stripes, content density, sticky columns and column reordering only in [table views]({get_link_resource: /patterns/resource-management/view/table-view/}).
 
 
 
@@ -26,11 +26,11 @@ The user can choose how many items are shown per page. You can set the default n
 
   * #### Column display preferences (table)
 
-Users can choose which columns to display in a [table view](/patterns/resource-management/view/table-view/).
+Users can choose which columns to display in a [table view]({get_link_resource: /patterns/resource-management/view/table-view/}).
 
     * **Column reordering** \- optional 
 
-      * The default column order is set up from the input groups order used in the create flow. Users can reorder the columns in the column preferences list to build a customized view. Reordering is performed via [drag and drop](/patterns/general/service-dashboard/configurable-dashboard/#drag-and-drop), columns can be moved up or down within the list, and a drop zone indicates the new location of the dragged item.
+      * The default column order is set up from the input groups order used in the create flow. Users can reorder the columns in the column preferences list to build a customized view. Reordering is performed via [drag and drop]({get_link_resource: /patterns/general/service-dashboard/configurable-dashboard/#drag-and-drop}), columns can be moved up or down within the list, and a drop zone indicates the new location of the dragged item.
 
     * **Text filtering** \- optional 
 
@@ -38,7 +38,7 @@ Users can choose which columns to display in a [table view](/patterns/resource-m
 
   * #### Visible content preferences (cards)
 
-Users can choose which content to display in a [card view](/patterns/resource-management/view/card-view/).
+Users can choose which content to display in a [card view]({get_link_resource: /patterns/resource-management/view/card-view/}).
 
 The default is to show all the main properties, and hide the secondary properties. The main properties come from the input groups used in the create flow in the primary section. The secondary properties come from the inputs in the create flow, in the additional configuration expanding section.
 
@@ -48,7 +48,7 @@ Users can choose to have long text in table cells displayed on one line and trun
 
   * #### View as \- optional
 
-Users can choose to display the collection in different formats. For example: [table view](/patterns/resource-management/view/table-view/) or [card view](/patterns/resource-management/view/card-view/).
+Users can choose to display the collection in different formats. For example: [table view]({get_link_resource: /patterns/resource-management/view/table-view/}) or [card view]({get_link_resource: /patterns/resource-management/view/card-view/}).
 
   * #### Striped rows \- optional
 
@@ -79,7 +79,7 @@ An area at the top of the modal which can be used to display additional informat
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

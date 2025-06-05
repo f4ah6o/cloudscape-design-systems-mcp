@@ -6,9 +6,9 @@
   * Use two to seven tabs in a tab view. This practice maintains uncluttered UI and reduces cognitive load for users. 
   * Disable the icon button or icon button dropdown in the action slot if the tab is disabled.
   * When providing dismissible tabs and the user closes all tabs, provide a clear and informative empty state with next steps.
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
-  * Follow the guidelines for [announcing new features](/patterns/general/announcing-new-features/) to communicate if the tab is new, and follow the guidelines for [announcing beta and preview features](/patterns/general/announcing-beta-preview-features/) to communicate if the tab is in beta or preview.
-  * Use [badge](/components/badge/) after the tab label to display critical, actionable information, such as counts of unread messages or notifications.
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
+  * Follow the guidelines for [announcing new features]({get_link_resource: /patterns/general/announcing-new-features/}) to communicate if the tab is new, and follow the guidelines for [announcing beta and preview features]({get_link_resource: /patterns/general/announcing-beta-preview-features/}) to communicate if the tab is in beta or preview.
+  * Use [badge]({get_link_resource: /components/badge/}) after the tab label to display critical, actionable information, such as counts of unread messages or notifications.
 
 
 
@@ -40,11 +40,11 @@ A set of tabs can have only one active tab, the selected one. The remaining tabs
 
   * #### Header actions \- optional
 
-Add a single [button](/components/button/) or [button dropdown](/components/button-dropdown/) to enable actions on the entire set of tabs. For example, creating a new tab.
+Add a single [button]({get_link_resource: /components/button/}) or [button dropdown]({get_link_resource: /components/button-dropdown/}) to enable actions on the entire set of tabs. For example, creating a new tab.
 
   * #### Tab actions \- optional
 
-Add actions as [inline icon buttons](/components/button/?tabId=playground&example=inline-icon-button) or [inline icon button dropdowns](/components/button-dropdown/?tabId=playground&example=inline-icon-button-dropdown) if users can perform actions on the tab. For example, dismissing a tab.  
+Add actions as [inline icon buttons]({get_link_resource: /components/button/?tabId=playground&example=inline-icon-button}) or [inline icon button dropdowns]({get_link_resource: /components/button-dropdown/?tabId=playground&example=inline-icon-button-dropdown}) if users can perform actions on the tab. For example, dismissing a tab.  
   
 **Number and order of actions**
 
@@ -80,7 +80,7 @@ We don't recommend disabling tabs. If your content is coming soon, or if it's si
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -131,7 +131,7 @@ We don't recommend disabling tabs. If your content is coming soon, or if it's si
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 

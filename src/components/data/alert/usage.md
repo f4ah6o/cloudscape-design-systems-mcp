@@ -38,7 +38,7 @@ Include a header in the alert when you want to catch the user’s attention or i
 
   * #### Content
 
-Use the content area to provide details about the alert. If more information about the topic is needed, use `primary` variant of inline [normal links](/components/link/?tabId=playground&example=primary-link) or Learn more [external links](/components/link/?example=external-link) to relevant documentation.
+Use the content area to provide details about the alert. If more information about the topic is needed, use `primary` variant of inline [normal links]({get_link_resource: /components/link/?tabId=playground&example=primary-link}) or Learn more [external links]({get_link_resource: /components/link/?example=external-link}) to relevant documentation.
 
 When there is a significant amount of content that is not immediately critical, consider placing the content in an expandable section. This helps maintain focus on the most important information, and conserves space while still making additional details accessible.
 
@@ -53,7 +53,7 @@ If an alert requires an action from the user, display it in form of an action bu
 
   * #### Error
 
-Use for [errors messages](/patterns/general/errors/error-messages/), malfunctions, unsuccessful actions, and critical issues.
+Use for [errors messages]({get_link_resource: /patterns/general/errors/error-messages/}), malfunctions, unsuccessful actions, and critical issues.
 
   * #### Warning
 
@@ -76,7 +76,7 @@ Use to display static success messages about completion and success.
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -124,7 +124,7 @@ Use to display static success messages about completion and success.
 
   * Add links to any additional documentation users can read to learn more if needed.
 
-  * Follow the writing guidelines for [error messages](/patterns/general/errors/error-messages/).
+  * Follow the writing guidelines for [error messages]({get_link_resource: /patterns/general/errors/error-messages/}).
 
 
 

@@ -3,9 +3,9 @@
 ### Do
 
   * Always provide a label with the text area.
-  * When there is a character amount constraint, use constraint text in the [form field](/components/form-field/) component to provide this information to the user. 
+  * When there is a character amount constraint, use constraint text in the [form field]({get_link_resource: /components/form-field/}) component to provide this information to the user. 
   * Provide a text input area large enough to accommodate the information. Avoid scrolling as much as possible. 
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 

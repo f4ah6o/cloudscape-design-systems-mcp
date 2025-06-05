@@ -3,13 +3,13 @@
 ### Do
 
   * Always provide the full name associated with the user profile or generative AI entity in a tooltip. It helps inform users about the entity that avatar represents. For example, in conversational experiences, avatar shows the identity of authors. 
-  * When using an icon inside the avatar, ensure the size of the avatar complements the icon size, which will scale according to one of the [sizes offered by the system](/foundation/visual-foundation/iconography/#icon-set). 
+  * When using an icon inside the avatar, ensure the size of the avatar complements the icon size, which will scale according to one of the [sizes offered by the system]({get_link_resource: /foundation/visual-foundation/iconography/#icon-set}). 
 
 
 
 ### Don't
 
-  * Avoid using a custom size for the avatar in [chat experiences](/patterns/genai/generative-AI-chat/). 
+  * Avoid using a custom size for the avatar in [chat experiences]({get_link_resource: /patterns/genai/generative-AI-chat/}). 
 
 
 
@@ -50,7 +50,7 @@ The avatar has a default and minimum size of 28px, which can be increased based 
 
   * #### Loading state
 
-Indicates that an action is being performed by the entity it belongs to. For example, a loading state is displayed when generative AI is generating a response based on the user prompt. Find more guidelines in [generative AI loading states](/patterns/genai/genai-loading-states/).
+Indicates that an action is being performed by the entity it belongs to. For example, a loading state is displayed when generative AI is generating a response based on the user prompt. Find more guidelines in [generative AI loading states]({get_link_resource: /patterns/genai/genai-loading-states/}).
 
 
 
@@ -61,7 +61,7 @@ Indicates that an action is being performed by the entity it belongs to. For exa
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -80,7 +80,7 @@ Indicates that an action is being performed by the entity it belongs to. For exa
 
 #### Loading state
 
-  * Follow the guidelines for [generative AI loading states.](/patterns/genai/genai-loading-states/)
+  * Follow the guidelines for [generative AI loading states.]({get_link_resource: /patterns/genai/genai-loading-states/})
 
 
 
@@ -102,7 +102,7 @@ Indicates that an action is being performed by the entity it belongs to. For exa
 
 ### Component-specific guidelines
 
-  * Use a [live region component](/components/live-region/) to announce avatar's loading state changes.
+  * Use a [live region component]({get_link_resource: /components/live-region/}) to announce avatar's loading state changes.
 
   * When more than one avatar is used, provide a unique `ariaLabel` for each. For example, "Avatar of John Doe" or "Avatar of generative AI assistant". If `tooltipText` is used make sure to include it in the `ariaLabel`.
 

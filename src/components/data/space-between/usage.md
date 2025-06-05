@@ -1,4 +1,4 @@
-For usage, see the [](/foundation/visual-foundation/visual-style/)[spacing](/foundation/visual-foundation/spacing/) guidelines.
+For usage, see the []({get_link_resource: /foundation/visual-foundation/visual-style/})[spacing]({get_link_resource: /foundation/visual-foundation/spacing/}) guidelines.
 
 ## Features
 

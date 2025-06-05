@@ -2,7 +2,7 @@
 
 ### Do
 
-  * Use to display read-only code snippets. For code editing use [code editor](/components/code-editor/?tabId=usage) instead.
+  * Use to display read-only code snippets. For code editing use [code editor]({get_link_resource: /components/code-editor/?tabId=usage}) instead.
 
 
 
@@ -10,7 +10,7 @@
 
   * #### Action buttons \- optional
 
-Enables users to perform actions, such as copy or download the code snippet. Follow the guidelines for[ copy to clipboard](/components/copy-to-clipboard/).
+Enables users to perform actions, such as copy or download the code snippet. Follow the guidelines for[ copy to clipboard]({get_link_resource: /components/copy-to-clipboard/}).
 
   * #### Syntax highlight \- optional
 
@@ -35,7 +35,7 @@ With line wrapping, users can have visibility over the source code content withi
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -71,9 +71,9 @@ With line wrapping, users can have visibility over the source code content withi
 
 #### Button
 
-  * Follow the accessibility guidelines for [buttons](/components/button/).
+  * Follow the accessibility guidelines for [buttons]({get_link_resource: /components/button/}).
 
-  * Follow the accessibility guidelines for [copy to clipboard.](/components/copy-to-clipboard/)
+  * Follow the accessibility guidelines for [copy to clipboard.]({get_link_resource: /components/copy-to-clipboard/})
 
 
 

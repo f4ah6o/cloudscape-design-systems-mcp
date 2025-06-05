@@ -1101,6 +1101,303 @@ function registerTools(server: FastMCP) {
       };
     },
   });
+
+  // Tool: get_link_resource
+  server.addTool({
+    name: 'get_link_resource',
+    description: 'Resolve links from usage.md files to appropriate backend resources',
+    parameters: z.object({
+      link: z.string().describe('The link to resolve (e.g., "/components/button/?example=primary-button")'),
+    }),
+    execute: async (args) => {
+      const { link } = args;
+      
+      const linkResult = parseLinkToResource(link);
+      
+      if (!linkResult.success) {
+        throw new Error(`Unable to resolve link: ${link}. ${linkResult.error}`);
+      }
+      
+      // Execute the appropriate backend call based on the parsed link
+      switch (linkResult.type) {
+        case 'component_example':
+          if (!linkResult.exampleId) {
+            throw new Error('Example ID is required for component_example type');
+          }
+          const example = componentRegistry.getExampleById(linkResult.exampleId);
+          if (!example) {
+            throw new Error(`Example ${linkResult.exampleId} not found`);
+          }
+          return {
+            type: 'text',
+            text: JSON.stringify({
+              linkType: 'component_example',
+              originalLink: link,
+              resolvedTo: {
+                componentId: linkResult.componentId,
+                exampleId: linkResult.exampleId,
+                tabId: linkResult.tabId,
+                example: {
+                  id: example.id,
+                  name: example.name,
+                  description: example.description,
+                  component: example.component,
+                  type: example.type,
+                  tags: example.tags,
+                  code: example.code
+                }
+              }
+            }, null, 2)
+          };
+          
+        case 'component_details':
+          if (!linkResult.componentId) {
+            throw new Error('Component ID is required for component_details type');
+          }
+          const component = componentRegistry.getComponent(linkResult.componentId);
+          if (!component) {
+            throw new Error(`Component ${linkResult.componentId} not found`);
+          }
+          
+          // Build response based on tabId
+          let componentData: any = {
+            id: component.id,
+            name: component.name,
+            category: component.category,
+            description: component.description,
+            importPath: component.importPath,
+            version: component.version,
+            isExperimental: component.isExperimental,
+            tags: component.tags,
+          };
+          
+          if (linkResult.tabId === 'api' || !linkResult.tabId) {
+            componentData.properties = Object.values(component.properties).map(property => ({
+              name: property.name,
+              type: property.type,
+              description: property.description,
+              defaultValue: property.defaultValue,
+              required: property.required,
+              acceptedValues: property.acceptedValues,
+              isDeprecated: property.isDeprecated,
+              examples: property.examples || [],
+            }));
+          }
+          
+          if (linkResult.tabId === 'usage' || !linkResult.tabId) {
+            const usageContent = componentRegistry.getComponentUsage(linkResult.componentId);
+            if (usageContent) {
+              componentData.usage = usageContent;
+            }
+          }
+          
+          return {
+            type: 'text',
+            text: JSON.stringify({
+              linkType: 'component_details',
+              originalLink: link,
+              resolvedTo: {
+                componentId: linkResult.componentId,
+                tabId: linkResult.tabId,
+                component: componentData
+              }
+            }, null, 2)
+          };
+          
+        case 'pattern':
+          if (!linkResult.patternId) {
+            throw new Error('Pattern ID is required for pattern type');
+          }
+          const pattern = componentRegistry.getPattern(linkResult.patternId);
+          if (!pattern) {
+            throw new Error(`Pattern ${linkResult.patternId} not found`);
+          }
+          return {
+            type: 'text',
+            text: JSON.stringify({
+              linkType: 'pattern',
+              originalLink: link,
+              resolvedTo: {
+                patternId: linkResult.patternId,
+                pattern: {
+                  id: pattern.id,
+                  name: pattern.name,
+                  description: pattern.description,
+                  components: pattern.components,
+                  customizationOptions: pattern.customizationOptions,
+                  code: pattern.code
+                }
+              }
+            }, null, 2)
+          };
+          
+        case 'foundation':
+          return {
+            type: 'text',
+            text: JSON.stringify({
+              linkType: 'foundation',
+              originalLink: link,
+              resolvedTo: {
+                topic: linkResult.topic,
+                category: linkResult.category,
+                message: `Foundation resource for ${linkResult.category}/${linkResult.topic}`,
+                note: 'Foundation resources are informational references to design principles and guidelines'
+              }
+            }, null, 2)
+          };
+          
+        case 'external':
+          return {
+            type: 'text',
+            text: JSON.stringify({
+              linkType: 'external',
+              originalLink: link,
+              resolvedTo: {
+                url: linkResult.url,
+                message: 'External link - no backend resource available',
+                note: 'This is an external reference that should be accessed directly'
+              }
+            }, null, 2)
+          };
+          
+        default:
+          throw new Error(`Unsupported link type: ${linkResult.type}`);
+      }
+    },
+  });
+}
+
+/**
+ * Parse a link from usage.md files to determine the appropriate backend resource
+ * @param link - The link to parse
+ * @returns Parsed link information
+ */
+function parseLinkToResource(link: string): {
+  success: boolean;
+  type?: string;
+  componentId?: string;
+  exampleId?: string;
+  tabId?: string;
+  patternId?: string;
+  topic?: string;
+  category?: string;
+  url?: string;
+  error?: string;
+} {
+  try {
+    // Handle external links
+    if (link.startsWith('http://') || link.startsWith('https://')) {
+      return {
+        success: true,
+        type: 'external',
+        url: link
+      };
+    }
+
+    // Remove leading slash if present
+    const cleanLink = link.startsWith('/') ? link.substring(1) : link;
+
+    // Parse component links: components/{component-name}/?param=value
+    const componentMatch = cleanLink.match(/^components\/([^/?]+)(?:\/)?(?:\?(.+))?$/);
+    if (componentMatch) {
+      const componentId = componentMatch[1];
+      const queryString = componentMatch[2];
+      
+      let tabId: string | undefined;
+      let exampleName: string | undefined;
+      
+      // Parse query parameters
+      if (queryString) {
+        const params = new URLSearchParams(queryString);
+        tabId = params.get('tabId') || undefined;
+        exampleName = params.get('example') || undefined;
+      }
+      
+      // If example is specified, return component_example type
+      if (exampleName) {
+        const exampleId = `${componentId}-${exampleName.replace(/_/g, '-')}`;
+        return {
+          success: true,
+          type: 'component_example',
+          componentId,
+          exampleId,
+          tabId
+        };
+      }
+      
+      // Otherwise return component_details type
+      return {
+        success: true,
+        type: 'component_details',
+        componentId,
+        tabId
+      };
+    }
+
+    // Parse pattern links: patterns/{category}/{subcategory}/{pattern-name}/
+    const patternMatch = cleanLink.match(/^patterns\/([^/]+)\/([^/]+)\/([^/]+)(?:\/)?$/);
+    if (patternMatch) {
+      const [, category, subcategory, patternName] = patternMatch;
+      const patternId = `${category}-${subcategory}-${patternName}`.replace(/\//g, '-');
+      
+      return {
+        success: true,
+        type: 'pattern',
+        patternId
+      };
+    }
+
+    // Parse simple pattern links: patterns/{category}/{pattern-name}/
+    const simplePatternMatch = cleanLink.match(/^patterns\/([^/]+)\/([^/]+)(?:\/)?$/);
+    if (simplePatternMatch) {
+      const [, category, patternName] = simplePatternMatch;
+      const patternId = `${category}-${patternName}`.replace(/\//g, '-');
+      
+      return {
+        success: true,
+        type: 'pattern',
+        patternId
+      };
+    }
+
+    // Parse foundation links: foundation/{category}/{topic}/
+    const foundationMatch = cleanLink.match(/^foundation\/([^/]+)\/([^/#]+)(?:\/)?(?:#(.+))?$/);
+    if (foundationMatch) {
+      const [, category, topic, anchor] = foundationMatch;
+      
+      return {
+        success: true,
+        type: 'foundation',
+        category,
+        topic: anchor ? `${topic}#${anchor}` : topic
+      };
+    }
+
+    // Parse example/demo links: examples/{type}/{demo-name}.html
+    const exampleMatch = cleanLink.match(/^examples\/([^/]+)\/([^.]+)\.html$/);
+    if (exampleMatch) {
+      const [, type, demoName] = exampleMatch;
+      
+      // For demo links, we'll treat them as external references since they're HTML files
+      return {
+        success: true,
+        type: 'external',
+        url: link
+      };
+    }
+
+    // If no patterns match, return an error
+    return {
+      success: false,
+      error: `Unrecognized link pattern: ${link}`
+    };
+
+  } catch (error) {
+    return {
+      success: false,
+      error: `Error parsing link: ${error instanceof Error ? error.message : 'Unknown error'}`
+    };
+  }
 }
 
 /**

@@ -25,9 +25,9 @@ There are two variants of column layout:
 
     * **Default** – The default column layout allows you to add vertical or horizontal borders as well as removing the gutters around the columns.
 
-    * **Text grid** – The [text-grid](/components/column-layout/?example=with-text-grids) is conceived for column layouts containing text. All spacing and borders are predefined and can't be customized. 
+    * **Text grid** – The [text-grid]({get_link_resource: /components/column-layout/?example=with-text-grids}) is conceived for column layouts containing text. All spacing and borders are predefined and can't be customized. 
 
-      * For example: [key-value pairs](/components/key-value-pairs/) on a resource detail page.
+      * For example: [key-value pairs]({get_link_resource: /components/key-value-pairs/}) on a resource detail page.
 
 
 

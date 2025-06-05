@@ -2,16 +2,16 @@
 
 ### Do
 
-  * Use support prompt group in [generative AI chat](/patterns/genai/generative-AI-chat/).
+  * Use support prompt group in [generative AI chat]({get_link_resource: /patterns/genai/generative-AI-chat/}).
   * Hide previous support prompts once a message is sent in the chat. Once a message is sent, the conversation progresses, and the context changes. As a result, the older support prompts may not be relevant to the user anymore.
-  * Once support prompt text is sent as a message, follow guidelines for generating a response in [generative AI loading states](/patterns/genai/genai-loading-states/).
+  * Once support prompt text is sent as a message, follow guidelines for generating a response in [generative AI loading states]({get_link_resource: /patterns/genai/genai-loading-states/}).
 
 
 
 ### Don't
 
   * Don’t display more than five support prompts at a time to avoid cognitive overload.
-  * Don't use support prompt group to show selected items from a list, instead use [token group](/components/token-group/).
+  * Don't use support prompt group to show selected items from a list, instead use [token group]({get_link_resource: /components/token-group/}).
 
 
 
@@ -21,9 +21,9 @@
 
 The text in a support prompt can be used in two ways:
 
-    * The text is sent immediately as a [chat bubble](/components/chat-bubble/).
+    * The text is sent immediately as a [chat bubble]({get_link_resource: /components/chat-bubble/}).
 
-    * The text fills a [prompt input](/components/prompt-input/), and is not sent immediately. Use this option when it is likely that users will want to edit the text before sending it.
+    * The text fills a [prompt input]({get_link_resource: /components/prompt-input/}), and is not sent immediately. Use this option when it is likely that users will want to edit the text before sending it.
 
   * #### Alignment
 

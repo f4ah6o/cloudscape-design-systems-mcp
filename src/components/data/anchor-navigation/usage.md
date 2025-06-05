@@ -11,7 +11,7 @@
 
 ### Don't
 
-  * Don’t use anchor navigation to represent the information architecture of your service. Use [side navigation](/components/side-navigation/?tabId=playground) instead.
+  * Don’t use anchor navigation to represent the information architecture of your service. Use [side navigation]({get_link_resource: /components/side-navigation/?tabId=playground}) instead.
   * Don’t use anchor navigation to represent a list of filters for page content. 
 
 
@@ -44,7 +44,7 @@ The combination of anchor navigation and heading is intended to look similar on 
 
     * **Desktop:** You can pair the anchor navigation component with a heading, for example, _On this page_ , to provide context for the list of links that follow.
 
-    * **Mobile:** You can include the anchor navigation within an [expandable section](/components/expandable-section/?tabId=playground). Stack it as the first element of the content area, and collapse the expandable section by default. 
+    * **Mobile:** You can include the anchor navigation within an [expandable section]({get_link_resource: /components/expandable-section/?tabId=playground}). Stack it as the first element of the content area, and collapse the expandable section by default. 
 
   * #### Motion
 
@@ -59,7 +59,7 @@ You can add a scroll motion to the content area, however be mindful of users wit
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

@@ -4,8 +4,8 @@
 
   * Avoid linking outside of your service from the side navigation. If you need to do that, add the flag _external_ to navigation links.
   * Sparingly use dividers to separate sets of links that are fundamentally not related to each other. 
-  * Follow the guidelines for [service navigation](/patterns/general/service-navigation/) on how to structure your navigation information architecture and map it to breadcrumbs.
-  * Use _New_ labels in the side navigation to mark new pages. See the guidance for [announcing new features](/patterns/general/announcing-new-features/). 
+  * Follow the guidelines for [service navigation]({get_link_resource: /patterns/general/service-navigation/}) on how to structure your navigation information architecture and map it to breadcrumbs.
+  * Use _New_ labels in the side navigation to mark new pages. See the guidance for [announcing new features]({get_link_resource: /patterns/general/announcing-new-features/}). 
   * If needing to place both a badge, such as a notifications badge, and a _New_ label next to the same navigational link, place the _New_ label to the right of the badge.
   * Use SVG format for logos.
 
@@ -29,7 +29,7 @@ The service or console name is displayed at the top of the navigation panel, so 
   * #### Items control \- optional
 
 The side navigation provides an area below the header and above the items, where a custom item control can be added.   
-For example, adding a [select](/components/select/) or [segmented control](/components/segmented-control/) to let users toggle the content of the side navigation.
+For example, adding a [select]({get_link_resource: /components/select/}) or [segmented control]({get_link_resource: /components/segmented-control/}) to let users toggle the content of the side navigation.
 
   * #### Link structure
 
@@ -61,11 +61,11 @@ Use badges in the navigation to flag actionable areas. For example, you can use 
 
   * #### New labels
 
-Place New labels next to newly launched pages in the service, and keep them for 30 days. Follow the guidelines for [announcing new features](/patterns/general/announcing-new-features/).
+Place New labels next to newly launched pages in the service, and keep them for 30 days. Follow the guidelines for [announcing new features]({get_link_resource: /patterns/general/announcing-new-features/}).
 
   * #### App layout
 
-Place the side navigation in the `navigation` region of [app layout](/components/app-layout/).
+Place the side navigation in the `navigation` region of [app layout]({get_link_resource: /components/app-layout/}).
 
 
 
@@ -76,7 +76,7 @@ Place the side navigation in the `navigation` region of [app layout](/components
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -125,7 +125,7 @@ Place the side navigation in the `navigation` region of [app layout](/components
 
 #### Roles and landmarks
 
-  * Side navigation does not come with its own `navigation` role, because this is already provided by an enclosing [app layout component](/components/app-layout/).
+  * Side navigation does not come with its own `navigation` role, because this is already provided by an enclosing [app layout component]({get_link_resource: /components/app-layout/}).
 
   * If you wish to use side navigation outside of app layout, make sure that you wrap it inside a properly labelled `<nav>` block.  
 

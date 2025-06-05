@@ -6,14 +6,14 @@
   * A button can be primary, secondary, or tertiary, depending on its importance in the hierarchy of decision-making. 
   * Use the attention-grabbing primary button to communicate the most recommended action on the page. 
   * Primary buttons are like[ The Highlander ](https://en.wikipedia.org/wiki/Highlander_\(film\)), there can be only one. Use only one primary button per page. 
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
 ### Don't
 
   * Don't hide buttons. Deactivate buttons when an action cannot be taken in a certain context. For example: deactivate a delete button when no resource has been selected, because a user must first select which resource to delete.
-  * Don't deactivate submit buttons in forms with multiple fields. Instead, use[ validation](/patterns/general/errors/validation/). Users choose the _Submit_ button, which invokes [validation](/patterns/general/errors/validation/). When multiple fields are present, it's not always clear to the user what they need to do to activate the button. 
+  * Don't deactivate submit buttons in forms with multiple fields. Instead, use[ validation]({get_link_resource: /patterns/general/errors/validation/}). Users choose the _Submit_ button, which invokes [validation]({get_link_resource: /patterns/general/errors/validation/}). When multiple fields are present, it's not always clear to the user what they need to do to activate the button. 
   * Don't use icons for decoration. Only use icons in addition to text when the text for the action is ambiguous or unusual. 
 
 
@@ -24,15 +24,15 @@
 
 There are six types of buttons:
 
-    * **Primary** – The [primary button](/components/button/?tabId=playground&example=primary-button) is used to call out the most common action that users will take on the page (only one per page).
+    * **Primary** – The [primary button]({get_link_resource: /components/button/?tabId=playground&example=primary-button}) is used to call out the most common action that users will take on the page (only one per page).
 
       * For example: _Create_ (for a table), or _Submit_ (for a form)
 
-    * **Normal** – [Normal buttons](/components/button/?tabId=playground&example=normal-button) are the default button type. You can use normal buttons for most secondary actions on the page. 
+    * **Normal** – [Normal buttons]({get_link_resource: /components/button/?tabId=playground&example=normal-button}) are the default button type. You can use normal buttons for most secondary actions on the page. 
 
       * For example, on a resource detail page: _Edit_ or _Modify_
 
-    * **Link** – [Link buttons](/components/button/?tabId=playground&example=link-button) are equivalent to tertiary actions.
+    * **Link** – [Link buttons]({get_link_resource: /components/button/?tabId=playground&example=link-button}) are equivalent to tertiary actions.
 
       * For example, in a modal: _Cancel_
 
@@ -40,17 +40,17 @@ There are six types of buttons:
 
       * For example: A download button placed in table cells within the actions column in a table.
 
-    * **Icon** – An [icon button](/components/button/?tabId=playground&example=icon-button) is an [action icon](/foundation/visual-foundation/iconography/#action-icons) that is displayed as a standalone trigger for an element or action. Icon buttons should be clear enough without text. If you feel like the icon can’t speak for itself, do not use a standalone icon button.
+    * **Icon** – An [icon button]({get_link_resource: /components/button/?tabId=playground&example=icon-button}) is an [action icon]({get_link_resource: /foundation/visual-foundation/iconography/#action-icons}) that is displayed as a standalone trigger for an element or action. Icon buttons should be clear enough without text. If you feel like the icon can’t speak for itself, do not use a standalone icon button.
 
       * For example: The settings icon used to show preferences on a table.
 
-    * **Inline icon** – An [inline icon button](/components/button/) is an icon button that is placed inline next to text or used when space is limited.
+    * **Inline icon** – An [inline icon button]({get_link_resource: /components/button/}) is an icon button that is placed inline next to text or used when space is limited.
 
-      * For example: The copy icon used to [copy one line of text](/components/copy-to-clipboard/).
+      * For example: The copy icon used to [copy one line of text]({get_link_resource: /components/copy-to-clipboard/}).
 
       * For example: A download icon placed in table cells within the actions column in a table.
 
-Buttons can also be used for actions in a [header](/components/header/) component.
+Buttons can also be used for actions in a [header]({get_link_resource: /components/header/}) component.
 
   * #### Icons
 
@@ -58,18 +58,18 @@ While text should be the default label on a button, there are two ways to use ic
 
     * Icons inside primary, normal, or link button variants
 
-      * If the text on a button is not clear enough, you can also include an icon in the button to support the concept. When using icons in addition to text, place the icon before the text (except for [external](/components/button/?tabId=playground&example=external-link-button) icons, which should always appear after the accompanying link or text).
+      * If the text on a button is not clear enough, you can also include an icon in the button to support the concept. When using icons in addition to text, place the icon before the text (except for [external]({get_link_resource: /components/button/?tabId=playground&example=external-link-button}) icons, which should always appear after the accompanying link or text).
 
         * For example: Git actions such as pull-request, merge, or fork could use icons to help users visualize and recognize the terms.
 
-      * When using icons to describe common actions that are grouped with other elements, such as within a [header](/components/header/) component or attached to a [form field](/components/form-field/?example=select-with-refresh) component, place the icon inside a normal button.   
+      * When using icons to describe common actions that are grouped with other elements, such as within a [header]({get_link_resource: /components/header/}) component or attached to a [form field]({get_link_resource: /components/form-field/?example=select-with-refresh}) component, place the icon inside a normal button.   
 For very common actions that are clear to the user, text can be omitted as long as you provide alternative text describing the button's purpose. 
 
-        * For example: [refresh on a table](/patterns/general/loading-and-refreshing/).
+        * For example: [refresh on a table]({get_link_resource: /patterns/general/loading-and-refreshing/}).
 
     * Icons as standalone actions
 
-      * Standalone actions, such as table preferences, should use the [icon button](/components/button/?example=icon-button) type. These should only be used for actions that are clear without text; do not add accompanying text.
+      * Standalone actions, such as table preferences, should use the [icon button]({get_link_resource: /components/button/?example=icon-button}) type. These should only be used for actions that are clear without text; do not add accompanying text.
 
   * #### Full width buttons \- optional
 
@@ -97,7 +97,7 @@ Use the disabled state to prevent the user from initiating an action, as well as
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -149,7 +149,7 @@ Use the disabled state to prevent the user from initiating an action, as well as
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 

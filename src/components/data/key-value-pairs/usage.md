@@ -12,7 +12,7 @@
 ### Don't
 
   * Don't collapse data using ellipses (...) or other characters; always show the full string for both label and value.
-  * Don't use key-value pairs to display read-only controls in forms. Instead, follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Don't use key-value pairs to display read-only controls in forms. Instead, follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -20,7 +20,7 @@
 
   * #### Layout
 
-The layout is based on our [column layout](/components/column-layout/?tabId=playground), and can have between one and four columns. The types of layout are:  
+The layout is based on our [column layout]({get_link_resource: /components/column-layout/?tabId=playground}), and can have between one and four columns. The types of layout are:  
 
 
     * **Default layout:** Key-value pairs are displayed without any additional visual grouping.
@@ -40,17 +40,17 @@ The value of key-value pairs can be any elements, but recommended patterns inclu
 
     * Text string or number: For example, the distribution ID.
 
-    * [Status indicator](/components/status-indicator/): For example, to show the status of a task, failed or successful.
+    * [Status indicator]({get_link_resource: /components/status-indicator/}): For example, to show the status of a task, failed or successful.
 
-    * [Link](/components/link/?tabId=playground&example=primary-link): For example, linking to a resource to view more details.
+    * [Link]({get_link_resource: /components/link/?tabId=playground&example=primary-link}): For example, linking to a resource to view more details.
 
-    * Copy to clipboard: For example, copying a ARN. Use [inline copy to clipboard](/components/copy-to-clipboard/?tabId=playground&example=inline-variant) variant to enable users to quickly copy a string of text.
+    * Copy to clipboard: For example, copying a ARN. Use [inline copy to clipboard]({get_link_resource: /components/copy-to-clipboard/?tabId=playground&example=inline-variant}) variant to enable users to quickly copy a string of text.
 
-    * [Progress bar](/components/progress-bar/?tabId=playground&example=within-key%2Fvalue-pairs-pattern): When using a progress bar to inform users of an operation within a value, ensure only one label is used, either on the key-value pairs or on the progress bar component.
+    * [Progress bar]({get_link_resource: /components/progress-bar/?tabId=playground&example=within-key%2Fvalue-pairs-pattern}): When using a progress bar to inform users of an operation within a value, ensure only one label is used, either on the key-value pairs or on the progress bar component.
 
   * #### Info link \- optional
 
-Next to the label, an additional [info link](/components/link/?tabId=playground&example=info-link) can be displayed to provide further information. Follow the guidelines for [info link](/components/link/?tabId=playground&example=info-link).
+Next to the label, an additional [info link]({get_link_resource: /components/link/?tabId=playground&example=info-link}) can be displayed to provide further information. Follow the guidelines for [info link]({get_link_resource: /components/link/?tabId=playground&example=info-link}).
 
 
 
@@ -59,7 +59,7 @@ Next to the label, an additional [info link](/components/link/?tabId=playground&
 
   * #### Loading
 
-The state of the value while the data is being loaded before being displayed. Follow the guidelines for [spinner](/components/spinner/?tabId=usage).
+The state of the value while the data is being loaded before being displayed. Follow the guidelines for [spinner]({get_link_resource: /components/spinner/?tabId=usage}).
 
   * #### Empty
 
@@ -74,7 +74,7 @@ The state of the component when there is no value to display. Use hyphen (-) for
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -104,14 +104,14 @@ The state of the component when there is no value to display. Use hyphen (-) for
 
   * Place a title above groupings of similar key-value pairs to help the user understand the relationship of the group of pairs.
 
-  * Follow the writing guidelines for [header](/components/header/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [header]({get_link_resource: /components/header/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Links
 
-  * Follow the writing guidelines for [link](/components/link/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [link]({get_link_resource: /components/link/?tabId=usage#writing-guidelines}).
 
 
 
@@ -135,14 +135,14 @@ The state of the component when there is no value to display. Use hyphen (-) for
 
 #### Icons
 
-  * Follow the accessibility guidelines for [icon](/components/icon/?tabId=usage#accessibility-guidelines).
+  * Follow the accessibility guidelines for [icon]({get_link_resource: /components/icon/?tabId=usage#accessibility-guidelines}).
 
 
 
 
 #### Links
 
-  * Follow the accessibility guidelines for [link](/components/link/?tabId=usage#accessibility-guidelines).
+  * Follow the accessibility guidelines for [link]({get_link_resource: /components/link/?tabId=usage#accessibility-guidelines}).
 
 
 

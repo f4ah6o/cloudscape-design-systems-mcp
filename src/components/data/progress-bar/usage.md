@@ -3,10 +3,10 @@
 ### Do
 
   * Use a progress bar for operations longer than 10 seconds with a foreseeable point in time for completion. 
-  * If the operation is contextual, place the progress bar in context of the element. If the operation is global or not related to a specific page element, place the progress bar in a [flash message](/components/flashbar/). 
-  * Display the matching result state once the operation has completed. Follow the guidelines for [status indicator](/components/status-indicator/). 
+  * If the operation is contextual, place the progress bar in context of the element. If the operation is global or not related to a specific page element, place the progress bar in a [flash message]({get_link_resource: /components/flashbar/}). 
+  * Display the matching result state once the operation has completed. Follow the guidelines for [status indicator]({get_link_resource: /components/status-indicator/}). 
   * In case of transient errors, display a button for the user to retry the operation by using the result button. 
-  * When using the progress bar within a dismissible flash message, make sure that users understand the status of the operation even after the flash message has been dismissed. To do so, pair the operation with a contextual status indicator in, for example, a table cell or a [key-value pair](/components/key-value-pairs/). 
+  * When using the progress bar within a dismissible flash message, make sure that users understand the status of the operation even after the flash message has been dismissed. To do so, pair the operation with a contextual status indicator in, for example, a table cell or a [key-value pair]({get_link_resource: /components/key-value-pairs/}). 
   * For operations on table items, use the progress bar in a flash message and place corresponding status indicators in the table cells. 
   * When the operation is successful and the page reloads, remove the status indicator. 
 
@@ -14,7 +14,7 @@
 
 ### Don't
 
-  * Don't use a progress bar for indeterminate actions. Instead, use a different [feedback mechanism](/patterns/general/user-feedback/). 
+  * Don't use a progress bar for indeterminate actions. Instead, use a different [feedback mechanism]({get_link_resource: /patterns/general/user-feedback/}). 
   * Don't use a progress bar for operations that consist of separate manual steps. 
   * Don't use multiple progress bars to communicate the status of one operation. 
   * Don't display the success state before the progress bar has reached 100%. 
@@ -53,7 +53,7 @@ Short description of the outcome of the operation.
 
 A button for when the operation has finished. For example, this could be used for a _retry_ button for a failed operation.
 
-If you place the progress bar in a [flash message](/components/flashbar/), use the action button of the flash message rather than the built-in result button functionality.
+If you place the progress bar in a [flash message]({get_link_resource: /components/flashbar/}), use the action button of the flash message rather than the built-in result button functionality.
 
 
 
@@ -64,7 +64,7 @@ If you place the progress bar in a [flash message](/components/flashbar/), use t
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -115,7 +115,7 @@ If you place the progress bar in a [flash message](/components/flashbar/), use t
 
 #### Description
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -129,7 +129,7 @@ If you place the progress bar in a [flash message](/components/flashbar/), use t
 
 #### Error and success messages
 
-  * Follow the writing guidelines for [error messages](/patterns/general/errors/error-messages/#writing-guidelines).
+  * Follow the writing guidelines for [error messages]({get_link_resource: /patterns/general/errors/error-messages/#writing-guidelines}).
 
 
 

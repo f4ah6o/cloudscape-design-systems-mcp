@@ -2,7 +2,7 @@
 
 ### Do
 
-  * Use an action button to act on the entire contents of a modal. For example: _Save_ , _OK_ , _Done_ , _Canceled_. Use a [flash message](/components/flashbar/) to confirm the result of committing modal data. 
+  * Use an action button to act on the entire contents of a modal. For example: _Save_ , _OK_ , _Done_ , _Canceled_. Use a [flash message]({get_link_resource: /components/flashbar/}) to confirm the result of committing modal data. 
   * Use a modal primarily to confirm or cancel a choice For example: _Delete instance_. 
   * Keep the text short and interactions to a minimum. Try to avoid scrolling content. 
 
@@ -12,7 +12,7 @@
 
   * Avoid tabs, or expanded sections in modal which overload the interface. 
   * Never launch another modal from within a modal. 
-  * Do not chain together a sequence of modals. Instead of using a sequence of modals with multiple steps over multiple pages, use the[ multipage create flow](/patterns/resource-management/create/multi-page-create/).
+  * Do not chain together a sequence of modals. Instead of using a sequence of modals with multiple steps over multiple pages, use the[ multipage create flow]({get_link_resource: /patterns/resource-management/create/multi-page-create/}).
 
 
 
@@ -30,15 +30,15 @@ Provides a short summary of the requested user action.
 
 The area for modal content. Common content types of a modal are:
 
-    * [Alert](/components/alert/?tabId=playground) and description to inform the consequences of the user actions, for example, in [delete](/patterns/resource-management/delete/) pattern to provide details of a delete action and in [communicating unsaved changes](/patterns/general/unsaved-changes/) to communicate unsaved changes.
+    * [Alert]({get_link_resource: /components/alert/?tabId=playground}) and description to inform the consequences of the user actions, for example, in [delete]({get_link_resource: /patterns/resource-management/delete/}) pattern to provide details of a delete action and in [communicating unsaved changes]({get_link_resource: /patterns/general/unsaved-changes/}) to communicate unsaved changes.
 
-    * [Input fields](/components/input/?tabId=playground) and simple [selects](/components/select/?tabId=playground) to create resource, for example, in [create resource flow](/patterns/resource-management/create/).
+    * [Input fields]({get_link_resource: /components/input/?tabId=playground}) and simple [selects]({get_link_resource: /components/select/?tabId=playground}) to create resource, for example, in [create resource flow]({get_link_resource: /patterns/resource-management/create/}).
 
-    * [Simple table](/components/table/?tabId=playground&example=simple) to present data, for example, in [S3 resource selector](/components/s3-resource-selector/?tabId=playground) to list S3 buckets.
+    * [Simple table]({get_link_resource: /components/table/?tabId=playground&example=simple}) to present data, for example, in [S3 resource selector]({get_link_resource: /components/s3-resource-selector/?tabId=playground}) to list S3 buckets.
 
-    * [Tiles ](/components/tiles/?tabId=playground)and description to facilitate comparison, for example, in [density settings](/patterns/general/density-settings/) to compare content density modes and in [split panel](/components/split-panel/?tabId=api) to compare display modes.
+    * [Tiles ]({get_link_resource: /components/tiles/?tabId=playground})and description to facilitate comparison, for example, in [density settings]({get_link_resource: /patterns/general/density-settings/}) to compare content density modes and in [split panel]({get_link_resource: /components/split-panel/?tabId=api}) to compare display modes.
 
-    * [Checkboxes](/components/checkbox/?tabId=playground), [radio groups](/components/radio-group/?tabId=playground), and [toggles](/components/toggle/?tabId=playground) to change preference settings, for example, in [collection preferences](/components/collection-preferences/?tabId=playground) for table and cards.
+    * [Checkboxes]({get_link_resource: /components/checkbox/?tabId=playground}), [radio groups]({get_link_resource: /components/radio-group/?tabId=playground}), and [toggles]({get_link_resource: /components/toggle/?tabId=playground}) to change preference settings, for example, in [collection preferences]({get_link_resource: /components/collection-preferences/?tabId=playground}) for table and cards.
 
   * #### Dismiss button
 
@@ -67,7 +67,7 @@ Sets the width of the modal. The default is **medium**. **Max** varies to fit th
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -112,7 +112,7 @@ Sets the width of the modal. The default is **medium**. **Max** varies to fit th
 
     * For example: in a modal that prompts users to confirm a system reboot, use _Reboot_
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 

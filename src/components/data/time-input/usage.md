@@ -2,15 +2,15 @@
 
 ### Do
 
-  * Use time input in forms, such as in [create flow](/patterns/resource-management/create/) and [edit flow](/patterns/resource-management/edit/). 
+  * Use time input in forms, such as in [create flow]({get_link_resource: /patterns/resource-management/create/}) and [edit flow]({get_link_resource: /patterns/resource-management/edit/}). 
   * Always use placeholder text to show the required input format, and use constraint text to show any constraints.
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
 ### Don't
 
-  * Don't use a time input for fields that require relative timestamps, such as _in 30 mins_. Instead, use [input](/components/input/) or [select](/components/select/). 
+  * Don't use a time input for fields that require relative timestamps, such as _in 30 mins_. Instead, use [input]({get_link_resource: /components/input/}) or [select]({get_link_resource: /components/select/}). 
   * Don't add logic for time formatting, rely instead on the default behavior for colon insertion and capped values for hours, minutes and seconds. 
 
 
@@ -33,7 +33,7 @@ to format times tailored to the customer's region.
 Use placeholder text to indicate the time format granularity. For example: `hh:mm` for hours and minutes,  
 or `hh:mm:ss` if the user should also enter seconds.
 
-Follow the guidelines for the [input](/components/input/) component for other features.
+Follow the guidelines for the [input]({get_link_resource: /components/input/}) component for other features.
 
 
 
@@ -57,7 +57,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -86,7 +86,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Don't use _timestamp_ to label fields for time inputs.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -95,7 +95,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Avoid directive text that states the obvious, such as _Enter a time_.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -106,7 +106,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     * For example:_Use 24-hour format._
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -117,14 +117,14 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     * For example: _hh:mm:ss_
 
-  * Follow the writing guidelines for [input](/components/input/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [input]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Error text
 
-  * Follow the general guidelines for [validation](/patterns/general/errors/validation/).
+  * Follow the general guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}).
 
 
 

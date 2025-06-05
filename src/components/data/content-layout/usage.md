@@ -3,7 +3,7 @@
 ### Do
 
   * Use only one content layout component per page.
-  * Reserve header styling (for example, with color, gradients, or images) to draw users attention to a specific message (for example, a call to action), or build brand equity. Consult the [hero header](/patterns/general/hero-header/) pattern for more guidelines.
+  * Reserve header styling (for example, with color, gradients, or images) to draw users attention to a specific message (for example, a call to action), or build brand equity. Consult the [hero header]({get_link_resource: /patterns/general/hero-header/}) pattern for more guidelines.
   * Reserve header styling for use cases with low levels of interactivity, and where information density is not critical.
   * Reserve header styling for specific use cases, as opposed to using across your entire application.
   * Use the high-contrast `headerVariant `when applying a dark background to the header.
@@ -14,7 +14,7 @@
 
 ### Don't
 
-  * Don't use the content layout component for productive use cases such as [resources creation](/patterns/resource-management/create/), [view](/patterns/resource-management/view/), [edit](/patterns/resource-management/edit/), and [delete](/patterns/resource-management/delete/).
+  * Don't use the content layout component for productive use cases such as [resources creation]({get_link_resource: /patterns/resource-management/create/}), [view]({get_link_resource: /patterns/resource-management/view/}), [edit]({get_link_resource: /patterns/resource-management/edit/}), and [delete]({get_link_resource: /patterns/resource-management/delete/}).
   * Don't nest multiple content layout components.
   * Don't use the content layout notifications or breadcrumbs features if you already use those slots in App layout. This results in duplicate content.
   * Don't use the divider headerVariant when the content area starts with containers or tabs.
@@ -25,19 +25,19 @@
 
   * #### Header
 
-The header area contains contains page level information and actions. This can span from a simple page title to more complex scenarios such as a [hero header](/patterns/general/hero-header/). You can configure the visual style of the header area by selecting one of the following variants:
+The header area contains contains page level information and actions. This can span from a simple page title to more complex scenarios such as a [hero header]({get_link_resource: /patterns/general/hero-header/}). You can configure the visual style of the header area by selecting one of the following variants:
 
     * **Default:** no additional styling is applied. The header has the same background as the rest of the page, unless explicitly customized.
 
     * **Divider:** uses a divider to separate the header from the content area. Use this variant when the content of the page starts with blocks of text outside of any container, and there no header styling is needed. The divider spans across the specified maximum content width.
 
-    * **High-contrast:** applies a dark [visual context](/foundation/visual-foundation/visual-context/) to the header.
+    * **High-contrast:** applies a dark [visual context]({get_link_resource: /foundation/visual-foundation/visual-context/}) to the header.
 
 You can further customize the header visual style by setting a custom `headerBackgroundStyle` to add a gradient or an image, to draw users attention to a specific message (for example, a call to action), or build brand equity. The visual treatment spans across 100% of the available space, independently of the maximum content width that you specify. It also covers notifications and breadcrumbs areas that you embed within the component. When customizing the header background style, ensure that the header content meets color contrast requirements.
 
-By default, the header overlaps with the content below it. This is recommended when you place a container in the content area. In other use cases, you can remove the overlap by setting `disableOverlap` to true. For example, see [product detail page](/examples/react/product-detail-page.html).
+By default, the header overlaps with the content below it. This is recommended when you place a container in the content area. In other use cases, you can remove the overlap by setting `disableOverlap` to true. For example, see [product detail page]({get_link_resource: /examples/react/product-detail-page.html}).
 
-For additional guidance, follow the guidelines for [layout](/foundation/visual-foundation/layout/) and [hero header](/patterns/general/hero-header/).
+For additional guidance, follow the guidelines for [layout]({get_link_resource: /foundation/visual-foundation/layout/}) and [hero header]({get_link_resource: /patterns/general/hero-header/}).
 
   * #### Secondary header \- optional
 
@@ -45,11 +45,11 @@ The secondary header area can be used to add complementary page level informatio
 
   * #### Notifications \- optional
 
-The notifications area is a dedicated section at the top of a page that displays notifications such as [flashbars](/components/flashbar/). The background of this area is dictated by the header background style you configured.
+The notifications area is a dedicated section at the top of a page that displays notifications such as [flashbars]({get_link_resource: /components/flashbar/}). The background of this area is dictated by the header background style you configured.
 
   * #### Breadcrumbs \- optional
 
-The breadcrumbs area is a dedicated section at the top of a page that displays [breadcrumbs](/components/breadcrumb-group/). The background of this area is dictated by the header background style you configured.
+The breadcrumbs area is a dedicated section at the top of a page that displays [breadcrumbs]({get_link_resource: /components/breadcrumb-group/}). The background of this area is dictated by the header background style you configured.
 
   * #### Content
 
@@ -68,7 +68,7 @@ The content area displays the main content of the page, where users focus their 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -87,7 +87,7 @@ The content area displays the main content of the page, where users focus their 
 
 ### Component-specific guidelines
 
-  * Follow the writing guidelines for [header](/components/header/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [header]({get_link_resource: /components/header/?tabId=usage#writing-guidelines}).
 
 
 

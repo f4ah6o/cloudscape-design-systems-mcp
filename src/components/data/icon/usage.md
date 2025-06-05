@@ -4,7 +4,7 @@
 
   * Use icons to visually support the communication of a concept or an action. 
   * Use icons to enhance usability, not for decoration.
-  * Follow the guidelines for Cloudscape [iconography](/foundation/visual-foundation/iconography/). 
+  * Follow the guidelines for Cloudscape [iconography]({get_link_resource: /foundation/visual-foundation/iconography/}). 
   * Icons should be accessible, and supported with alternative text. 
 
 
@@ -13,7 +13,7 @@
 
   * #### Size
 
-Icons are available in small, normal, medium, big, or large size. Use the size that best fits the height of the accompanying text. Small icons are the same size as normal icons but they don't have padding so that they align with small text. For more information about supported font sizes and styles, see [typography](/foundation/visual-foundation/typography/).
+Icons are available in small, normal, medium, big, or large size. Use the size that best fits the height of the accompanying text. Small icons are the same size as normal icons but they don't have padding so that they align with small text. For more information about supported font sizes and styles, see [typography]({get_link_resource: /foundation/visual-foundation/typography/}).
 
   * #### Variants
 
@@ -41,7 +41,7 @@ Left-align icons that are used for information purposes in components, such as s
 
   * #### Custom icon
 
-Provide a custom icon if the icon you want isn't available. The custom icon can be either an SVG or any other format (for example: PNG or JPEG). We recommend using SVGs whenever possible, so that the custom icon can inherit the stroke color from the icon variant and the visual mode (light or dark), and adjust to hover and disabled states. Read our guidelines on custom icons in the [iconography article](/foundation/visual-foundation/iconography/#custom-icons).
+Provide a custom icon if the icon you want isn't available. The custom icon can be either an SVG or any other format (for example: PNG or JPEG). We recommend using SVGs whenever possible, so that the custom icon can inherit the stroke color from the icon variant and the visual mode (light or dark), and adjust to hover and disabled states. Read our guidelines on custom icons in the [iconography article]({get_link_resource: /foundation/visual-foundation/iconography/#custom-icons}).
 
 
 

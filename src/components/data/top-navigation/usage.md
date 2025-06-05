@@ -2,7 +2,7 @@
 
 ### Do
 
-  * For guidelines about how to structure the service’s global functionality, see [top navigation](/patterns/general/service-navigation/top-navigation/) pattern.
+  * For guidelines about how to structure the service’s global functionality, see [top navigation]({get_link_resource: /patterns/general/service-navigation/top-navigation/}) pattern.
   * For a dropdown menu with no button text, specify the menu title inside the dropdown menu.
   * Place important actions, such as _Sign out_ , only within your navigation.
   * Use categories to separate sets of links that are unrelated to each other.
@@ -28,40 +28,40 @@
 The service identity tells the user which service they're using. Always link it to the homepage of your particular service, so users can learn more about it.
 
   
-If you are pairing a logo with a service name, the service name is removed on smaller screens to conserve space. Follow the guidelines for [responsive design.](/foundation/core-principles/responsive-design/)
+If you are pairing a logo with a service name, the service name is removed on smaller screens to conserve space. Follow the guidelines for [responsive design.]({get_link_resource: /foundation/core-principles/responsive-design/})
 
   * #### Global search \- optional
 
-    * [Search input](/components/input/?example=disabled-search&props=N4IgLgngDgpiBcIDOMCGAnAxgCxAGhABMBLJVAIwBsZCEAzVSlAqS1TGbAe0sJnQQgAymiy4AvkA)**–** Users can search for global items and resources.
+    * [Search input]({get_link_resource: /components/input/?example=disabled-search&props=N4IgLgngDgpiBcIDOMCGAnAxgCxAGhABMBLJVAIwBsZCEAzVSlAqS1TGbAe0sJnQQgAymiy4AvkA})**–** Users can search for global items and resources.
 
-    * [Autosuggest](/components/autosuggest/?example=with-suggestions)**–** A list of suggestions that users can choose from.
+    * [Autosuggest]({get_link_resource: /components/autosuggest/?example=with-suggestions})**–** A list of suggestions that users can choose from.
 
 When space is reduced, the input is hidden until the user reveals it by using the search icon.
 
   * #### Controls \- optional
 
-To set up the [utility navigation area](/patterns/general/service-navigation/top-navigation/#building-blocks/) in the top navigation component, you can add additional control types. These control types can be linked using:  
+To set up the [utility navigation area]({get_link_resource: /patterns/general/service-navigation/top-navigation/#building-blocks/}) in the top navigation component, you can add additional control types. These control types can be linked using:  
 
 
-    * [Link buttons](/components/button/?example=link-button) \- This control uses button text alone or with a supporting icon. When you pair an icon with button text, you can hide the button text to conserve space if the icon is globally recognizable. 
+    * [Link buttons]({get_link_resource: /components/button/?example=link-button}) \- This control uses button text alone or with a supporting icon. When you pair an icon with button text, you can hide the button text to conserve space if the icon is globally recognizable. 
 
       * For example: Removing the user profile button text when it’s supported with the user profile icon.
 
-    * [External link buttons](/components/button/?example=external-link-button) \- This control links to associated content outside the service, such as help documentation.
+    * [External link buttons]({get_link_resource: /components/button/?example=external-link-button}) \- This control links to associated content outside the service, such as help documentation.
 
-    * [Icon buttons](/components/button/?example=icon-button) \- This control links to external pages. Only use icon buttons if they’re clear to the user without accompanying text. If the icon isn’t clear to the user, use a link button with adjoining button text. 
+    * [Icon buttons]({get_link_resource: /components/button/?example=icon-button}) \- This control links to external pages. Only use icon buttons if they’re clear to the user without accompanying text. If the icon isn’t clear to the user, use a link button with adjoining button text. 
 
       * For example: The notification icon can be used to link to a notification page. 
 
-    * [Badge](/components/button/?tabId=playground) \- Use to indicate a global state change on the icon, such as a badge to signify new messages.
+    * [Badge]({get_link_resource: /components/button/?tabId=playground}) \- Use to indicate a global state change on the icon, such as a badge to signify new messages.
 
-    * [Dropdown](/components/button-dropdown/?tabId=playground) menu - Sets of menu items grouped together under one button. Both icon buttons and link buttons can have dropdown menu items.
+    * [Dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground}) menu - Sets of menu items grouped together under one button. Both icon buttons and link buttons can have dropdown menu items.
 
       * Label**:** Used to describe its content type. Keep it concise, for example: _Settings_
 
       * Description**:** Used to provide more details related to the button label. For example, for the user name: _user id_ or _email address_
 
-      * Link to internal or external pages: Organize links with more frequently used links at the top of the list. For information about creating a user menu, see the [top navigation](/patterns/general/service-navigation/top-navigation/) pattern.
+      * Link to internal or external pages: Organize links with more frequently used links at the top of the list. For information about creating a user menu, see the [top navigation]({get_link_resource: /patterns/general/service-navigation/top-navigation/}) pattern.
 
       * Dividers**:** Provide the ability to organize the menu by separating sets of links that aren’t related to each other.
 
@@ -83,7 +83,7 @@ When space is reduced, controls are moved into the overflow menu in the order th
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

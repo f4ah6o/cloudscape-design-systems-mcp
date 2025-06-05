@@ -11,8 +11,8 @@
 
 ### Don't
 
-  * Don't use _Save_ or _Cancel_ buttons in the attribute editor for creating or editing resources. Use these buttons only for the overall [create](/patterns/resource-management/create/) or [edit](/patterns/resource-management/edit/) flow. 
-  * Don't use additional information to show generic constraints or tips. Instead, use the [help panel](/components/help-panel/) for this information.
+  * Don't use _Save_ or _Cancel_ buttons in the attribute editor for creating or editing resources. Use these buttons only for the overall [create]({get_link_resource: /patterns/resource-management/create/}) or [edit]({get_link_resource: /patterns/resource-management/edit/}) flow. 
+  * Don't use additional information to show generic constraints or tips. Instead, use the [help panel]({get_link_resource: /components/help-panel/}) for this information.
 
 
 
@@ -30,16 +30,16 @@ Attribute labels are visible or hidden depending on the size of the container:
 
     * When the attribute editor is in a small container, labels are visible on every control so that context isn’t only supported by placeholder text.
 
-Follow the guidelines for [form field](/components/form-field/?tabId=usage) labels.  
+Follow the guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage}) labels.  
 
 
   * #### Info link \- optional
 
-Use the info link inform your users about the specific rules and constraints that are applied to keys and values for your service. Follow the guidelines for [info link](/components/link/?tabId=playground&example=info-link).
+Use the info link inform your users about the specific rules and constraints that are applied to keys and values for your service. Follow the guidelines for [info link]({get_link_resource: /components/link/?tabId=playground&example=info-link}).
 
   * #### Controls
 
-You can edit attribute values using all standard controls including,[ input](/components/input/), [autosuggest](/components/autosuggest/), [select](/components/select/), [multiselect](/components/multiselect/), [date picker](/components/date-picker/), [button](/components/button/), [radio group](/components/radio-group/), and others. By default, controls have columns of equal widths. More complex layouts can be achieved by defining custom widths for each control.
+You can edit attribute values using all standard controls including,[ input]({get_link_resource: /components/input/}), [autosuggest]({get_link_resource: /components/autosuggest/}), [select]({get_link_resource: /components/select/}), [multiselect]({get_link_resource: /components/multiselect/}), [date picker]({get_link_resource: /components/date-picker/}), [button]({get_link_resource: /components/button/}), [radio group]({get_link_resource: /components/radio-group/}), and others. By default, controls have columns of equal widths. More complex layouts can be achieved by defining custom widths for each control.
 
   * #### Placeholder
 
@@ -55,16 +55,16 @@ By using the _Add_**** button, users can add as many attribute rows as they need
 Users can remove attribute rows with the _Remove_ button. When all of the rows are removed, the attribute editor is in an empty state.  
 
 
-The _Remove_ button can be hidden, preventing users from removing rows. For example: when a user is marking resource tags for removal in [tag editor](/components/tag-editor/).  
+The _Remove_ button can be hidden, preventing users from removing rows. For example: when a user is marking resource tags for removal in [tag editor]({get_link_resource: /components/tag-editor/}).  
 
 
-Make sure to include a mechanism to unhide the _Remove_ button. For example: the Undo action in [tag editor](/components/tag-editor/).
+Make sure to include a mechanism to unhide the _Remove_ button. For example: the Undo action in [tag editor]({get_link_resource: /components/tag-editor/}).
 
   * #### Constraint text \- optional
 
 Constraint text is a line of text explaining the requirements and constraints of the value control. 
 
-    * Constraints can change based on the user’s selection of the key control. Place constraint text below the value control. Follow the constraint guidelines in [form field](/components/form-field/?tabId=usage&example=with-error).
+    * Constraints can change based on the user’s selection of the key control. Place constraint text below the value control. Follow the constraint guidelines in [form field]({get_link_resource: /components/form-field/?tabId=usage&example=with-error}).
 
     * If the same constraints apply to all value controls, place constraint text below the value control in last row. 
 
@@ -78,18 +78,18 @@ Constraint text is a line of text explaining the requirements and constraints of
 
   * #### Validation
 
-Validation happens per field. Follow the guidelines for [validation](/patterns/general/errors/validation/).
+Validation happens per field. Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}).
 
   * #### Empty state
 
 An empty state is the state of the attribute editor when all rows are removed.   
 
 
-When a users initiates a [creation flow](/patterns/resource-management/create/) or an [editing flow](/patterns/resource-management/edit/), don't display an empty state by default. Instead, display the first attribute row. This prevents an additional step for the user.
+When a users initiates a [creation flow]({get_link_resource: /patterns/resource-management/create/}) or an [editing flow]({get_link_resource: /patterns/resource-management/edit/}), don't display an empty state by default. Instead, display the first attribute row. This prevents an additional step for the user.
 
   * #### Row actions
 
-When additional in-context actions are needed (for example duplicate, move up, move down), use a [button-dropdown with main action](/components/button-dropdown/?tabId=playground&example=primary-button-dropdown-with-main-action&props=N4IglgLgpgtgziAXCA2gAmG6APCiA6IAsgPYBuUaArgA6EA0%2BAdmq2mACYEgzlQC0tQmgC%2B9DFii5EaQqQpoOJAO5MGspp268K-JasJjMOPIQAitADZgAxgENo6rYQ5XbDqIeYBdEPRAcYHB2AEaWUBxIAGZ2lnBQ-lI0dkwcACokAGpgUMo0JABOENGx8YnYyamh4QDiBSS0CIgxcQkgliR2gUwA5iWt-jB2YEwAgjYQYCRMSCDGUqYgAEqwfMIifiBkdgVgKcXITIVDliAiQA). When reducing visual noise and optimizing content density is a priority, use the [icon button dropdown .](/components/button-dropdown/?tabId=playground&example=icon-button-dropdown)
+When additional in-context actions are needed (for example duplicate, move up, move down), use a [button-dropdown with main action]({get_link_resource: /components/button-dropdown/?tabId=playground&example=primary-button-dropdown-with-main-action&props=N4IglgLgpgtgziAXCA2gAmG6APCiA6IAsgPYBuUaArgA6EA0%2BAdmq2mACYEgzlQC0tQmgC%2B9DFii5EaQqQpoOJAO5MGspp268K-JasJjMOPIQAitADZgAxgENo6rYQ5XbDqIeYBdEPRAcYHB2AEaWUBxIAGZ2lnBQ-lI0dkwcACokAGpgUMo0JABOENGx8YnYyamh4QDiBSS0CIgxcQkgliR2gUwA5iWt-jB2YEwAgjYQYCRMSCDGUqYgAEqwfMIifiBkdgVgKcXITIVDliAiQA}). When reducing visual noise and optimizing content density is a priority, use the [icon button dropdown .]({get_link_resource: /components/button-dropdown/?tabId=playground&example=icon-button-dropdown})
 
 
 
@@ -100,7 +100,7 @@ When additional in-context actions are needed (for example duplicate, move up, m
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -142,14 +142,14 @@ When additional in-context actions are needed (for example duplicate, move up, m
 
 #### Labels
 
-  * Follow the writing guidelines for [form field label](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field label]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Info links
 
-  * Follow the writing guidelines for [info links](/components/link/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [info links]({get_link_resource: /components/link/?tabId=usage#writing-guidelines}).
 
 
 
@@ -162,7 +162,7 @@ When additional in-context actions are needed (for example duplicate, move up, m
 
     * [Verb] For example: _Remove_
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 
@@ -176,28 +176,28 @@ When additional in-context actions are needed (for example duplicate, move up, m
 
 #### Placeholder text
 
-  * Follow the writing guidelines for [placeholder text](/components/input/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Autosuggest
 
-  * Follow the writing guidelines for [autosuggest](/components/autosuggest/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [autosuggest]({get_link_resource: /components/autosuggest/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Select
 
-  * Follow the writing guidelines for [select](/components/select/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [select]({get_link_resource: /components/select/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Empty state
 
-  * Follow the writing guidelines for [empty states](/patterns/general/empty-states/#writing-guidelines).  
+  * Follow the writing guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/#writing-guidelines}).  
   
 
 
@@ -228,7 +228,7 @@ Set focus into the first newly created field.
 Set focus on the next attribute input in the list, or the last one if there is only one remaining. If the user has just removed the last item, set focus onto the “Add new item” button.
 
   * **When using custom row actions**  
-Set the focus to an appropriate target after an action is taken. For example, for a "Move down" action in a button dropdown, set the focus onto the button dropdown for the moved item in its new position. For [button dropdown](/components/button-dropdown/) with a main action, choose between `focus` to focus the main action or `focusDropdownTrigger` to focus the dropdown depending on where the action was triggered from.
+Set the focus to an appropriate target after an action is taken. For example, for a "Move down" action in a button dropdown, set the focus onto the button dropdown for the moved item in its new position. For [button dropdown]({get_link_resource: /components/button-dropdown/}) with a main action, choose between `focus` to focus the main action or `focusDropdownTrigger` to focus the dropdown depending on where the action was triggered from.
 
 
 

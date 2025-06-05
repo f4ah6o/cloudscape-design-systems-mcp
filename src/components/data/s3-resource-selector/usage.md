@@ -13,7 +13,7 @@ Amazon Simple Storage Service (Amazon S3) is an object storage service. The basi
 ### Don't
 
   * Don’t use the S3 resource selector in a modal or popover.
-  * Don’t use the S3 resource selector pattern as a generic file resource selector; instead use the [file upload](/components/file-upload/) pattern.
+  * Don’t use the S3 resource selector pattern as a generic file resource selector; instead use the [file upload]({get_link_resource: /components/file-upload/}) pattern.
 
 
 
@@ -56,7 +56,7 @@ Input which helps users to type in or paste the URI of a resource. If users choo
 
     * The URI resource field is validated inline and checks the provided URI against [Amazon S3’s rules for naming resources ](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules).
 
-    * For specific validation text strings, follow the writing guidelines for [S3 resource selector](/components/s3-resource-selector/?tabId=usage#writing-guidelines).
+    * For specific validation text strings, follow the writing guidelines for [S3 resource selector]({get_link_resource: /components/s3-resource-selector/?tabId=usage#writing-guidelines}).
 
   * #### Object version selection - Optional
 
@@ -118,7 +118,7 @@ There are two primary error types that occur in the S3 resource selector:
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -145,7 +145,7 @@ There are two primary error types that occur in the S3 resource selector:
 
     * _Object Version_ for the version select label.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -158,7 +158,7 @@ There are two primary error types that occur in the S3 resource selector:
 
     * _Use s3://bucket/prefix format_ for the Resource URI field in write mode.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -173,7 +173,7 @@ There are two primary error types that occur in the S3 resource selector:
 
     * Choose version _f_ or the object version select.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -192,7 +192,7 @@ There are two primary error types that occur in the S3 resource selector:
 
     * _Cancel_ for the button that cancels the selection and closes the modal.
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 
@@ -203,7 +203,7 @@ There are two primary error types that occur in the S3 resource selector:
 
     * For example: _Choose audio file in Amazon S3._
 
-  * Follow the writing guidelines for [modal](/components/modal/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [modal]({get_link_resource: /components/modal/?tabId=usage#writing-guidelines}).
 
 
 
@@ -228,9 +228,9 @@ There are two primary error types that occur in the S3 resource selector:
 
     * For version creation time: _Creation time_
 
-  * For table columns with dates or times, follow the guidelines for [timestamps](/patterns/general/timestamps/).
+  * For table columns with dates or times, follow the guidelines for [timestamps]({get_link_resource: /patterns/general/timestamps/}).
 
-  * Follow the writing guidelines for [table](/components/table/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [table]({get_link_resource: /components/table/?tabId=usage#writing-guidelines}).
 
 
 
@@ -239,7 +239,7 @@ There are two primary error types that occur in the S3 resource selector:
 
 #### Empty state
 
-For empty states, such as the _Resource URI_ input, _Object version_ select, and _browse S3 resources_ table, follow the guidelines for [empty states](/patterns/general/empty-states/).
+For empty states, such as the _Resource URI_ input, _Object version_ select, and _browse S3 resources_ table, follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 #### Loading
 
@@ -280,7 +280,7 @@ For empty states, such as the _Resource URI_ input, _Object version_ select, and
 
       * Description: _You might not have permissions to retrieve object versions. Contact your account administrator to request necessary permissions_
 
-  * Follow the writing guidelines for [alert](/components/alert/?tabId=usage#writing-guidelines).  
+  * Follow the writing guidelines for [alert]({get_link_resource: /components/alert/?tabId=usage#writing-guidelines}).  
 
 
 
@@ -305,7 +305,7 @@ For empty states, such as the _Resource URI_ input, _Object version_ select, and
 
 #### Alternative text
 
-  * For the respective parts of the S3 resource selector, reference the alternative text guidelines for [alert](/components/alert/?tabId=usage#accessibility-guidelines), [breadcrumbs](/components/breadcrumb-group/?tabId=usage#accessibility-guidelines), [modal](/components/modal/?tabId=usage#accessibility-guidelines), [table](/components/table/?tabId=usage#accessibility-guidelines), and [pagination](/components/pagination/?tabId=usage#accessibility-guidelines).
+  * For the respective parts of the S3 resource selector, reference the alternative text guidelines for [alert]({get_link_resource: /components/alert/?tabId=usage#accessibility-guidelines}), [breadcrumbs]({get_link_resource: /components/breadcrumb-group/?tabId=usage#accessibility-guidelines}), [modal]({get_link_resource: /components/modal/?tabId=usage#accessibility-guidelines}), [table]({get_link_resource: /components/table/?tabId=usage#accessibility-guidelines}), and [pagination]({get_link_resource: /components/pagination/?tabId=usage#accessibility-guidelines}).
 
 
 

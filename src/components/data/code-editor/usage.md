@@ -2,14 +2,14 @@
 
 ### Do
 
-  * Use the [unsaved changes](/patterns/general/unsaved-changes/) pattern to prevent data loss.
+  * Use the [unsaved changes]({get_link_resource: /patterns/general/unsaved-changes/}) pattern to prevent data loss.
   * Minimize the number of code editors displayed on a page. More than 20 code editors on a single page lead to performance issues.
 
 
 
 ### Don't
 
-  * Don’t use the code editor component to display non-editable code snippets. This component exceeds the functional requirements for read only purposes and is not optimized to support code viewing alone. Use the [code view](/components/code-view/) component instead.
+  * Don’t use the code editor component to display non-editable code snippets. This component exceeds the functional requirements for read only purposes and is not optimized to support code viewing alone. Use the [code view]({get_link_resource: /components/code-view/}) component instead.
   * Don't use the code editor in a modal. This component includes features that can compromise the user experience when launched in the context of a modal, such as resizing, preferences modal, and the errors and warnings summary pane.
   * Unless modified by a user, avoid changing the default configuration set in the preferences modal to ensure a consistent end user experience. 
 
@@ -76,7 +76,7 @@ An open summary pane can be dismissed in two ways:
 
     * Users can change the height of this pane by dragging the resize**** icon.
 
-The component does not support localization of error or warning description text. For more information about localization, see the [development guidelines for code editor](/components/code-editor/?&tabId=api#development-guidelines).
+The component does not support localization of error or warning description text. For more information about localization, see the [development guidelines for code editor]({get_link_resource: /components/code-editor/?&tabId=api#development-guidelines}).
 
  
 
@@ -135,7 +135,7 @@ A loading state is displayed while the Ace library loads and the component is re
 
   * #### Error
 
-An error state is displayed when the component fails to load. When the code editor is in an error state, add error state text. Provide a recovery action in the [error state](/components/code-editor/?tabId=playground&example=error-state), as a recovery mechanism.
+An error state is displayed when the component fails to load. When the code editor is in an error state, add error state text. Provide a recovery action in the [error state]({get_link_resource: /components/code-editor/?tabId=playground&example=error-state}), as a recovery mechanism.
 
 
 
@@ -146,7 +146,7 @@ An error state is displayed when the component fails to load. When the code edit
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

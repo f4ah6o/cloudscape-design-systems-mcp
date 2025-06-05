@@ -8,8 +8,8 @@
   * Use additional metadata per option only if absolutely necessary. Adding extra information may impede decision-making if not necessary to the interaction. 
   * Use minus sign (-) for any empty values.
   * Use manual filtering, configured to support server-side asynchronous fetching of options, to improve loading times when there are 50 or more options to choose from. 
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
-  * Always include a visible label. In forms, use the [form field](/components/form-field/). In filtering use cases such as the [collection select filter](/components/collection-select-filter/), or when vertical space is limited, use an inline label.
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
+  * Always include a visible label. In forms, use the [form field]({get_link_resource: /components/form-field/}). In filtering use cases such as the [collection select filter]({get_link_resource: /components/collection-select-filter/}), or when vertical space is limited, use an inline label.
 
 
 
@@ -20,12 +20,12 @@
 Labels are a requirement for a11y compliance. There are two ways to display a label with a select input:  
   
 **Form field label**  
-When used in forms, wrap the select in a [form field](/components/form-field/). This provides a label above the input along with a description and validation. For example, when setting permissions, a select dropdown allows users to choose role or policy.  
+When used in forms, wrap the select in a [form field]({get_link_resource: /components/form-field/}). This provides a label above the input along with a description and validation. For example, when setting permissions, a select dropdown allows users to choose role or policy.  
   
 **Inline label**  
 When used as a filter, use the `inlineLabelText` property to display a label inline. This helps to minimize the vertical space. For example, applying a region filter to a resource table allows users to limit the list of resources in a region.  
   
-Follow the guidelines for the [collection select filter](/components/collection-select-filter/).  
+Follow the guidelines for the [collection select filter]({get_link_resource: /components/collection-select-filter/}).  
 
 
 
@@ -37,11 +37,11 @@ Follow the guidelines for the [collection select filter](/components/collection-
 
 The trigger variant determines what information is visible for the selected item.
 
-    * [Label](/components/select/?example=with-tags&tabId=playground) \- default
+    * [Label]({get_link_resource: /components/select/?example=with-tags&tabId=playground}) \- default
 
       * Only the label of the selected item is visible in the control. 
 
-    * [Option](/components/select/?example=with-features&tabId=playground)
+    * [Option]({get_link_resource: /components/select/?example=with-features&tabId=playground})
 
       * All of the associated metadata for the selected item is visible in the control. 
 
@@ -51,11 +51,11 @@ With the select feature, users can filter through the list of items by label or 
 
     * Automatic filtering _-_ default
 
-      * Use [automatic filtering](/components/select/?tabId=playground&example=with-auto-filtering) when the list of options usually takes only one API call to be fetched completely. 
+      * Use [automatic filtering]({get_link_resource: /components/select/?tabId=playground&example=with-auto-filtering}) when the list of options usually takes only one API call to be fetched completely. 
 
     * Manual filtering
 
-      * Use [manual filtering](/components/select/?tabId=playground&example=default) when the list of options is fetched asynchronously as the user scrolls or types.
+      * Use [manual filtering]({get_link_resource: /components/select/?tabId=playground&example=default}) when the list of options is fetched asynchronously as the user scrolls or types.
 
   * #### Placeholder \- optional
 
@@ -78,7 +78,7 @@ Each option can have additional, filterable metadata to help the user's decision
 
     * Descriptions can add extra information for a user to read and understand. They can also impede decision making if they’re not necessary to the interaction.
 
-    * Icons are displayed on the left side of the label. View available icons in our [iconography](/foundation/visual-foundation/iconography/) article.
+    * Icons are displayed on the left side of the label. View available icons in our [iconography]({get_link_resource: /foundation/visual-foundation/iconography/}) article.
 
     * Tags are used to display comparable metadata across options.
 
@@ -107,7 +107,7 @@ You can use a tooltip with a disabled option in the list to explain why this is 
 
     * An error state occurs when the control fails at fetching options (for example, if the API fails to load the next set of options in the list).
 
-    * Provide a [recovery action](/components/select/?tabId=playground&example=error-state) in the error state, as a recovery mechanism.
+    * Provide a [recovery action]({get_link_resource: /components/select/?tabId=playground&example=error-state}) in the error state, as a recovery mechanism.
 
   * #### Finished
 
@@ -121,7 +121,7 @@ The state when the user’s entered query does not match any of the options.
 
     * The state when there are no options to choose from. 
 
-    * Follow the guidelines for [empty states](/patterns/general/empty-states/). 
+    * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}). 
 
   * #### Disabled
 
@@ -144,7 +144,7 @@ Use the read-only state when the select data is not to be modified by the user b
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -167,7 +167,7 @@ Use the read-only state when the select data is not to be modified by the user b
 
   * Names of options in a list should be concise, typically from one to three words.
 
-  * Names of inputs are a short description of the corresponding control, follow the guidelines for [form field labels](/components/form-field/?tabId=usage).
+  * Names of inputs are a short description of the corresponding control, follow the guidelines for [form field labels]({get_link_resource: /components/form-field/?tabId=usage}).
 
 
 
@@ -187,7 +187,7 @@ Use the read-only state when the select data is not to be modified by the user b
 
   * Use the format: _Loading [options type]_
 
-  * Follow the guidelines for [loading states](/patterns/general/loading-and-refreshing/).
+  * Follow the guidelines for [loading states]({get_link_resource: /patterns/general/loading-and-refreshing/}).
 
 
 
@@ -198,13 +198,13 @@ Use the read-only state when the select data is not to be modified by the user b
 
     * Use the format: _Error fetching [options type]_
 
-    * Follow the guidelines for [validation](/patterns/general/errors/validation/) and [alerts and error messages](/components/alert/). 
+    * Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}) and [alerts and error messages]({get_link_resource: /components/alert/}). 
 
   * Recovery action
 
     * Use this text: _Retry_
 
-    * Follow the writing guidelines for [buttons](/components/button/?example=primary-button&tabId=usage#writing-guidelines).
+    * Follow the writing guidelines for [buttons]({get_link_resource: /components/button/?example=primary-button&tabId=usage#writing-guidelines}).
 
 
 
@@ -222,14 +222,14 @@ Use the read-only state when the select data is not to be modified by the user b
 
 #### Zero results state
 
-  * Follow the guidelines for [empty states](/patterns/general/empty-states/).
+  * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 
 
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 

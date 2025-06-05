@@ -4,7 +4,7 @@
 
   * Always use the filter functionality on the full collection of resources, not just on visible or loaded resources.
   * Use a property filter if users need to select multiple values for one property.
-  * Use a property filter pattern if users need more than two properties to find a specific item. If only two are required, use the [collection select filter](/components/collection-select-filter/) instead.
+  * Use a property filter pattern if users need more than two properties to find a specific item. If only two are required, use the [collection select filter]({get_link_resource: /components/collection-select-filter/}) instead.
   * After a user completes a filter action, display the number of results next to the search filter input.
   * When implementing a custom property form, consider using embeddable components for create flow, and dropdown-based components for token edit flow. For example, to support date properties we recommend using date input and calendar for create flow, and date picker for token edit flow.
   * Use date-only forms for properties requiring day precision, and date-time forms for those requiring time precision. It is recommended to keep all the days active in the calendar. Exclude `=` and `!=` operators for date-time properties.
@@ -32,11 +32,11 @@ The property filter provides a variety of ways for users to filter the results i
 
   * #### Properties
 
-A list of properties of the data set is displayed when the user triggers the search input field. Usually, properties refer to the column headers for a [table view](/patterns/resource-management/view/table-view/), and content labels for a [cards view](/patterns/resource-management/view/card-view/).
+A list of properties of the data set is displayed when the user triggers the search input field. Usually, properties refer to the column headers for a [table view]({get_link_resource: /patterns/resource-management/view/table-view/}), and content labels for a [cards view]({get_link_resource: /patterns/resource-management/view/card-view/}).
 
   * #### Values
 
-The corresponding list of finite values is displayed when the user chooses one of the properties and an operator. Usually, values refer to the content of table cells in the [table view](/patterns/resource-management/view/table-view/), and card contents in the [cards view](/patterns/resource-management/view/card-view/).
+The corresponding list of finite values is displayed when the user chooses one of the properties and an operator. Usually, values refer to the content of table cells in the [table view]({get_link_resource: /patterns/resource-management/view/table-view/}), and card contents in the [cards view]({get_link_resource: /patterns/resource-management/view/card-view/}).
 
   * #### Comparison operators
 
@@ -111,7 +111,7 @@ As the user types, the characters matching the query are highlighted in properti
 
   * #### Search input states
 
-The property filter uses the [autosuggest](/components/autosuggest/) for the search input. Refer to the [autosuggest usage guidance](/components/autosuggest/?tabId=usage) for more information on property filter input states, such as error, loading, async loading.
+The property filter uses the [autosuggest]({get_link_resource: /components/autosuggest/}) for the search input. Refer to the [autosuggest usage guidance]({get_link_resource: /components/autosuggest/?tabId=usage}) for more information on property filter input states, such as error, loading, async loading.
 
 
 
@@ -132,7 +132,7 @@ The user can apply a set of filters. Once a user applies a filter, a filtering t
 
 Filtering tokens can be individually edited and removed, and all tokens can be removed using the **Clear filters** button.
 
-Tokens default to containing a single value per property, but can also be multi-select. **Multi-select tokens** allow users to select multiple values when filtering by that property. See [development guidelines](/components/property-filter/?tabId=api) for how to implement this feature.
+Tokens default to containing a single value per property, but can also be multi-select. **Multi-select tokens** allow users to select multiple values when filtering by that property. See [development guidelines]({get_link_resource: /components/property-filter/?tabId=api}) for how to implement this feature.
 
   * #### Token join operator
 
@@ -144,7 +144,7 @@ When a user has multiple search filtering tokens, they are joined by an operator
 
   * #### Token editing
 
-Once a token has been added, it can be edited by clicking on the token text. This opens a[ popover](/components/popover/), where the property, operator, and value can be changed.
+Once a token has been added, it can be edited by clicking on the token text. This opens a[ popover]({get_link_resource: /components/popover/}), where the property, operator, and value can be changed.
 
   * #### Token visibility and placement
 
@@ -162,7 +162,7 @@ By default, all tokens are visible and shown below the trigger. Token visibility
 
 For more complex queries that require combining both AND and OR operators, the property filter has token groups. Token groups allow users to group together two or more tokens, so that it’s possible to filter by more complex queries. For example, `Status = Critical OR (Status = High AND Created at < 07-07-2023)`.
 
-Token groups can be created by making updates to an existing token, first selecting the token text, then selecting _Add new filter_. This creates a filter group with the edited token, so that you can add new filters directly to that group.. To add an existing filter to a group, select an existing filter in the _Add new filter_ button dropdown. You can also delete filters entirely, or remove filters from a group in the overflow menu of each filter within the edit popover. See this behavior in action in the [property filter demo](/examples/react/table-property-filter.html).
+Token groups can be created by making updates to an existing token, first selecting the token text, then selecting _Add new filter_. This creates a filter group with the edited token, so that you can add new filters directly to that group.. To add an existing filter to a group, select an existing filter in the _Add new filter_ button dropdown. You can also delete filters entirely, or remove filters from a group in the overflow menu of each filter within the edit popover. See this behavior in action in the [property filter demo]({get_link_resource: /examples/react/table-property-filter.html}).
 
 
 
@@ -173,13 +173,13 @@ Token groups can be created by making updates to an existing token, first select
 
 The property filter provides an area before the search input, where a custom control element can be added. 
 
-    * For example, showing a [select](/components/select/?tabId=playground) for quick access to saved filter sets in the [saved filter sets](/patterns/general/filter-patterns/saved-filter-sets/) pattern.
+    * For example, showing a [select]({get_link_resource: /components/select/?tabId=playground}) for quick access to saved filter sets in the [saved filter sets]({get_link_resource: /patterns/general/filter-patterns/saved-filter-sets/}) pattern.
 
   * #### Custom filter actions \- optional
 
 The property filter allows to provide a custom filter actions control that replaces the standard _Clear filters_ button. Make sure to still provide a mechanism to clear all filters when using this.
 
-    * For example, showing a [button dropdown](/components/button-dropdown/) with main action to display additional filter actions for the [saved filter sets](/patterns/general/filter-patterns/saved-filter-sets/) pattern.
+    * For example, showing a [button dropdown]({get_link_resource: /components/button-dropdown/}) with main action to display additional filter actions for the [saved filter sets]({get_link_resource: /patterns/general/filter-patterns/saved-filter-sets/}) pattern.
 
   * #### Constraint text \- optional
 
@@ -196,11 +196,11 @@ The collection of resources is filtered as soon as the user enters a property fi
 
   * #### Loading state
 
-The state of the collection of resources, either [table](/components/table/?example=loading-state) or [cards](/components/cards/?example=loading-state), while the filtered dataset is being loaded. Follow the guidelines for [loading state](/patterns/general/loading-and-refreshing/) for collections.
+The state of the collection of resources, either [table]({get_link_resource: /components/table/?example=loading-state}) or [cards]({get_link_resource: /components/cards/?example=loading-state}), while the filtered dataset is being loaded. Follow the guidelines for [loading state]({get_link_resource: /patterns/general/loading-and-refreshing/}) for collections.
 
   * #### Zero results state
 
-The state of the collection of resources, either [table](/components/table/?example=no-match-state) or [cards](/components/cards/?example=no-match-state), after a user applies a filter that does not return any items in the collection. Follow the guidelines for [empty states](/patterns/general/empty-states/).
+The state of the collection of resources, either [table]({get_link_resource: /components/table/?example=no-match-state}) or [cards]({get_link_resource: /components/cards/?example=no-match-state}), after a user applies a filter that does not return any items in the collection. Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 
 
@@ -211,7 +211,7 @@ The state of the collection of resources, either [table](/components/table/?exam
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -276,21 +276,21 @@ The state of the collection of resources, either [table](/components/table/?exam
 
 #### Results counter
 
-  * Follow the writing guidelines for [text filter](/components/text-filter/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [text filter]({get_link_resource: /components/text-filter/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Loading state
 
-  * Follow the writing guidelines for [loading state](/patterns/general/loading-and-refreshing/#writing-guidelines/).
+  * Follow the writing guidelines for [loading state]({get_link_resource: /patterns/general/loading-and-refreshing/#writing-guidelines/}).
 
 
 
 
 #### No match state
 
-  * Follow the guidelines for [empty states](/patterns/general/empty-states/).
+  * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
 
 

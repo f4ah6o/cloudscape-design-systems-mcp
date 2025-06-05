@@ -16,7 +16,7 @@ The available horizontal space is determined by the size of the grid itself rath
 
 Colspan is the number of columns (out of 12) that a grid element should span. These are set in percentages, so they are always fluid and are sized relative to the width of their parent element, irrespective of the viewport's width.
 
-    * To create more complex layouts such as the [dashboard](/examples/react/dashboard.html), you can create a nested grid or combine the grid with [column layout](/components/column-layout/). To adjust your colspans based on the space available, use the breakpoints feature.
+    * To create more complex layouts such as the [dashboard]({get_link_resource: /examples/react/dashboard.html}), you can create a nested grid or combine the grid with [column layout]({get_link_resource: /components/column-layout/}). To adjust your colspans based on the space available, use the breakpoints feature.
 
   * #### Columns
 
@@ -24,7 +24,7 @@ Columns divide the grid into vertical sections, allowing for horizontal distribu
 
 For example: If you want two equally sized columns, apply a colspan of six to both elements. Similarily, if you want three equally sized columns, apply a colspan of four to each of the three elements, and so on.
 
-**Note:** If you want a layout of up to four equal-sized columns, we recommend using the [column layout](/components/column-layout/) component for out-of-the-box breakpoint responsiveness.
+**Note:** If you want a layout of up to four equal-sized columns, we recommend using the [column layout]({get_link_resource: /components/column-layout/}) component for out-of-the-box breakpoint responsiveness.
 
   * #### Rows
 

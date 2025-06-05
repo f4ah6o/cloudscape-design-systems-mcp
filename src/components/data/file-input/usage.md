@@ -2,8 +2,8 @@
 
 ### Do
 
-  * Use only when the file upload can’t be used. For example, in [prompt input](/components/prompt-input/).
-  * Use in combination with [file token group](/components/file-token-group/) and [file dropzone](/components/file-dropzone/) to build a custom file uploading experience for users.
+  * Use only when the file upload can’t be used. For example, in [prompt input]({get_link_resource: /components/prompt-input/}).
+  * Use in combination with [file token group]({get_link_resource: /components/file-token-group/}) and [file dropzone]({get_link_resource: /components/file-dropzone/}) to build a custom file uploading experience for users.
 
 
 
@@ -26,7 +26,7 @@ There are two types of file inputs:
 
     * **Icon** \- Icon file inputs do not have accompanying text. Use when space does not allow for a button file input.
 
-      * For example, in the secondary actions slot of a [prompt input](/components/prompt-input/)
+      * For example, in the secondary actions slot of a [prompt input]({get_link_resource: /components/prompt-input/})
 
   * #### Single file upload
 
@@ -45,7 +45,7 @@ Use to allow the selection of multiple files for upload. Additional files will b
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

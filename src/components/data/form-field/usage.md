@@ -3,7 +3,7 @@
 ### Do
 
   * Provide a label for every form control.
-  * Use[ error text](/patterns/general/errors/error-messages/) for server-side validation.
+  * Use[ error text]({get_link_resource: /patterns/general/errors/error-messages/}) for server-side validation.
   * Indicate optional form fields by adding _optional_ on the label. Mandatory fields don't need to be marked. 
   * Always use the same icon for form field validation. Don't switch icons based on the status of the error message. 
 
@@ -20,7 +20,7 @@ Use error validation for non-blocking messages. Use warning validation instead.
 
 A form field label is a short description of the corresponding control. Labels are displayed above the control or the form field description, if any exist.
 
-When a label is supported with an [info link](/components/link/?tabId=usage) a divider separates the two elements. 
+When a label is supported with an [info link]({get_link_resource: /components/link/?tabId=usage}) a divider separates the two elements. 
 
   * #### Description \- optional
 
@@ -30,7 +30,7 @@ A form field description is a broader explanation of the label.
 
     * Don’t include any images or formatted text.
 
-    * Ensure links in the description use the [primary link](/components/link/?tabId=playground&example=primary-link) variant.
+    * Ensure links in the description use the [primary link]({get_link_resource: /components/link/?tabId=playground&example=primary-link}) variant.
 
   * #### Form control
 
@@ -38,11 +38,11 @@ A form control is any control that allows users to input data.
 
   * #### Error text
 
-An error text is an explanation for a validation error that is displayed below the form field. It's utilized for notifying users about issues such as missing required fields, incorrect value formatting, and unacknowledged confirmation fields. Refer to [validation guidelines](/patterns/general/errors/validation/) for further details on its usage in forms.
+An error text is an explanation for a validation error that is displayed below the form field. It's utilized for notifying users about issues such as missing required fields, incorrect value formatting, and unacknowledged confirmation fields. Refer to [validation guidelines]({get_link_resource: /patterns/general/errors/validation/}) for further details on its usage in forms.
 
   * #### Warning text
 
-A warning is an explanation for a validation warning that is displayed below the form field. It's employed when certain conditions are present that don’t result in errors, but are occurrences users should be mindful of. For example: _The name has empty (space) characters._ Refer to [validation guidelines](/patterns/general/errors/validation/) for further details on its usage in forms.
+A warning is an explanation for a validation warning that is displayed below the form field. It's employed when certain conditions are present that don’t result in errors, but are occurrences users should be mindful of. For example: _The name has empty (space) characters._ Refer to [validation guidelines]({get_link_resource: /patterns/general/errors/validation/}) for further details on its usage in forms.
 
   * #### Constraint text \- optional
 
@@ -65,7 +65,7 @@ By default the form field will take up 66% of its container width. Enabling the 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -120,7 +120,7 @@ By default the form field will take up 66% of its container width. Enabling the 
 
 #### Error text
 
-  * Follow the guidelines for [error messages](/patterns/general/errors/error-messages/).
+  * Follow the guidelines for [error messages]({get_link_resource: /patterns/general/errors/error-messages/}).
 
   * **Required field:**
 
@@ -214,7 +214,7 @@ By default the form field will take up 66% of its container width. Enabling the 
 
 #### Placeholder text
 
-  * Follow the writing guidelines for [placeholder text](/components/input/?tabId=usage#writing-guidelines). 
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}). 
 
 
 

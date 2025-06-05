@@ -2,9 +2,9 @@
 
 ### Do
 
-  * Set the help panel closed by default, except if a [tutorial](/components/tutorial-panel/) panel is implemented.
+  * Set the help panel closed by default, except if a [tutorial]({get_link_resource: /components/tutorial-panel/}) panel is implemented.
   * Persist the user preference for panel open or closed when users navigate across pages that have help content.
-  * Always use info links to open the help panel. Follow the guidelines for [help system](/patterns/general/help-system/).
+  * Always use info links to open the help panel. Follow the guidelines for [help system]({get_link_resource: /patterns/general/help-system/}).
   * The _Info_ link can be used multiple times within a page. The information in the corresponding help panel that opens when interacting with the _Info_ link should match the header or label topic directly next to the _Info_ link. 
 
 
@@ -14,7 +14,7 @@
   * Don’t invoke the help panel from a modal.
   * Don’t use more than one `<h2>` per panel.
   * Don't display resource-specific meta data, forms, or tools in the help panel.
-  * Don’t use the help panel for providing step-by-step guidance on how to complete a task, instead use the [hands-on tutorials](/patterns/general/onboarding/hands-on-tutorials/) instead. Follow the guidelines for [onboarding](/patterns/general/onboarding/). 
+  * Don’t use the help panel for providing step-by-step guidance on how to complete a task, instead use the [hands-on tutorials]({get_link_resource: /patterns/general/onboarding/hands-on-tutorials/}) instead. Follow the guidelines for [onboarding]({get_link_resource: /patterns/general/onboarding/}). 
 
 
 
@@ -26,7 +26,7 @@ The help panel header must match the topic header of the _Info_ link. The header
 
   * #### Help content area
 
-    * Supported content types for the main content area include the following: paragraphs, links, heading levels: 3, 4, and 5, unordered and ordered lists, code, preformatted text, description lists, dividers, line breaks, bold text, and italic text. For the full list of accepted HTML elements, see the [API documentation](/components/help-panel/?tabId=api).
+    * Supported content types for the main content area include the following: paragraphs, links, heading levels: 3, 4, and 5, unordered and ordered lists, code, preformatted text, description lists, dividers, line breaks, bold text, and italic text. For the full list of accepted HTML elements, see the [API documentation]({get_link_resource: /components/help-panel/?tabId=api}).
 
     * Links to related external documentation can be embedded in the main content area, as well as placed in the _Learn more_ footer. 
 
@@ -42,15 +42,15 @@ Use dividers to separate sections that are fundamentally not related to each oth
 
 The footer is the last section in the panel that contains a list of additional links to relevant help topics. Typically these links should lead to external documentation.
 
-    * The header for the _Learn more_ footer should display an external [icon](/components/icon/) at the end.
+    * The header for the _Learn more_ footer should display an external [icon]({get_link_resource: /components/icon/}) at the end.
 
     * The _Learn more_ footer should provide 1-3 links to additional relevant or related documentation for users who have more questions or need further explanations of the corresponding help panel topics. 
 
-Follow the guidelines for [help system](/patterns/general/help-system/).
+Follow the guidelines for [help system]({get_link_resource: /patterns/general/help-system/}).
 
   * #### App layout
 
-Place help panel in the `tools` region of [app layout](/components/app-layout/) to get properties such as default panel width and dismiss control functionality.
+Place help panel in the `tools` region of [app layout]({get_link_resource: /components/app-layout/}) to get properties such as default panel width and dismiss control functionality.
 
 
 
@@ -61,7 +61,7 @@ Place help panel in the `tools` region of [app layout](/components/app-layout/) 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -104,7 +104,7 @@ Place help panel in the `tools` region of [app layout](/components/app-layout/) 
 
   * To keep text concise, rely on page element context as much as possible for the placement of info links and associated help panel content.
 
-  * Follow UX guidelines and writing guidelines for help panel content in [help system.](/patterns/general/help-system/)
+  * Follow UX guidelines and writing guidelines for help panel content in [help system.]({get_link_resource: /patterns/general/help-system/})
 
 
 

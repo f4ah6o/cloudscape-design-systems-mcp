@@ -12,7 +12,7 @@
 
 ### Don't
 
-  * Don't put containers inside containers. If you need to group information inside a container, consider using the [header component](/components/header/) to create sections within the container.
+  * Don't put containers inside containers. If you need to group information inside a container, consider using the [header component]({get_link_resource: /components/header/}) to create sections within the container.
   * Don’t use containers simply for page hierarchy or for general page-layout purposes.
 
 
@@ -23,25 +23,25 @@
 
 Use the header to display the title of the container. Additionally, you can include information and actions that apply to the entire content of the container, such as description, action stripe, counter, or an info link.  
   
-The h2 variant of the [header](/components/header/?example=container-header) component is designed to be used in this component.
+The h2 variant of the [header]({get_link_resource: /components/header/?example=container-header}) component is designed to be used in this component.
 
   * #### Content
 
 The area for primary container content. Common content types of a container are:
 
-    * [Form fields](/components/form-field/?example=default) for [creation](/patterns/resource-management/create/) and [edit](/patterns/resource-management/edit/) flows. Use the main content of a container for primary and required fields of a single resource configuration. 
+    * [Form fields]({get_link_resource: /components/form-field/?example=default}) for [creation]({get_link_resource: /patterns/resource-management/create/}) and [edit]({get_link_resource: /patterns/resource-management/edit/}) flows. Use the main content of a container for primary and required fields of a single resource configuration. 
 
-    * [Key-value pairs](/components/key-value-pairs/) for [detail](/patterns/resource-management/details/) pages. Use the main content area to display key-value pairs that describe a single resource’s configuration.
+    * [Key-value pairs]({get_link_resource: /components/key-value-pairs/}) for [detail]({get_link_resource: /patterns/resource-management/details/}) pages. Use the main content area to display key-value pairs that describe a single resource’s configuration.
 
-    * [Charts](/components/charts/) for [dashboard](/patterns/general/service-dashboard/) pages. Use the main content area to display the visualization.
+    * [Charts]({get_link_resource: /components/charts/}) for [dashboard]({get_link_resource: /patterns/general/service-dashboard/}) pages. Use the main content area to display the visualization.
 
-    * [Tables](/components/table/?example=common-table) that are displayed with other content, such as [key-value pairs](/components/key-value-pairs/) and supporting text. Use the `embedded variant` of the table in this case. 
+    * [Tables]({get_link_resource: /components/table/?example=common-table}) that are displayed with other content, such as [key-value pairs]({get_link_resource: /components/key-value-pairs/}) and supporting text. Use the `embedded variant` of the table in this case. 
 
   * #### Footer \- optional
 
-Use a footer for secondary content. For example, in a [creation flow](/patterns/resource-management/create/), this area often contains an [expandable section](/components/expandable-section/?example=footer) with advanced configuration options. Alternatively, the [details as a hub](/patterns/resource-management/details/details-page-as-hub/) pattern uses this area for a _View all_ link that takes the user to a new page with the complete resource list.
+Use a footer for secondary content. For example, in a [creation flow]({get_link_resource: /patterns/resource-management/create/}), this area often contains an [expandable section]({get_link_resource: /components/expandable-section/?example=footer}) with advanced configuration options. Alternatively, the [details as a hub]({get_link_resource: /patterns/resource-management/details/details-page-as-hub/}) pattern uses this area for a _View all_ link that takes the user to a new page with the complete resource list.
 
-The footer can also contain elements like[ button icons](/components/button/?tabId=playground&example=icon-button) (for example, share or download).
+The footer can also contain elements like[ button icons]({get_link_resource: /components/button/?tabId=playground&example=icon-button}) (for example, share or download).
 
   * #### Media \- optional
 
@@ -59,7 +59,7 @@ The footer can also contain elements like[ button icons](/components/button/?tab
 
     * **Default** : used in standalone context.
 
-    * **Stacked** : optimized to be displayed adjacent to other stacked components, see an example of [key-value pairs in a container with a table](/components/key-value-pairs/).
+    * **Stacked** : optimized to be displayed adjacent to other stacked components, see an example of [key-value pairs in a container with a table]({get_link_resource: /components/key-value-pairs/}).
 
 
 
@@ -70,7 +70,7 @@ The footer can also contain elements like[ button icons](/components/button/?tab
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -108,7 +108,7 @@ The footer can also contain elements like[ button icons](/components/button/?tab
 
     * If the image is accompanied by text in the container that describes it sufficiently, there is no need to add alternative text to the image itself.
 
-    * When providing alternative text, make sure to follow the [alternative text guidelines.](/foundation/core-principles/accessibility/#alternative-text)
+    * When providing alternative text, make sure to follow the [alternative text guidelines.]({get_link_resource: /foundation/core-principles/accessibility/#alternative-text})
 
   * If the image has important visual cues or content that needs to be exposed to the user (such as text) make sure it’s not cropped when the screen size changes.
 

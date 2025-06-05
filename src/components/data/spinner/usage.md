@@ -4,7 +4,7 @@
 
   * Use a spinner instead of a progress bar when the length of the operation is unknown. 
   * Use a spinner when the operation is short (under 10 seconds); use a progress bar or non-blocking notification for longer operations. 
-  * If the operation occurs after the user takes action with a button, embed the spinner within the [button](/components/button/). 
+  * If the operation occurs after the user takes action with a button, embed the spinner within the [button]({get_link_resource: /components/button/}). 
 
 
 
@@ -27,7 +27,7 @@
 
 #### Alternative text
 
-  * You can provide alternative text to communicate loading status by adding a hidden [live region component](/components/live-region/).
+  * You can provide alternative text to communicate loading status by adding a hidden [live region component]({get_link_resource: /components/live-region/}).
 
     * For example:  
 `<LiveRegion hidden={true}>Loading table content.</LiveRegion>`

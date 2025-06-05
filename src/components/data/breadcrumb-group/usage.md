@@ -11,7 +11,7 @@
 
   * #### Navigation
 
-Each breadcrumb item should be a link that takes the user to the page named by the breadcrumb item text. Exception: The breadcrumb item for the page the user is currently viewing should be inactive (not contain an active link). When space is limited in narrow viewports, breadcrumb items collapse into a [button dropdown](/components/button-dropdown/) and are displayed in ascending order. For more info see [service navigation](/patterns/general/service-navigation/).
+Each breadcrumb item should be a link that takes the user to the page named by the breadcrumb item text. Exception: The breadcrumb item for the page the user is currently viewing should be inactive (not contain an active link). When space is limited in narrow viewports, breadcrumb items collapse into a [button dropdown]({get_link_resource: /components/button-dropdown/}) and are displayed in ascending order. For more info see [service navigation]({get_link_resource: /patterns/general/service-navigation/}).
 
 
 
@@ -22,7 +22,7 @@ Each breadcrumb item should be a link that takes the user to the page named by t
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

@@ -2,10 +2,10 @@
 
 ### Do
 
-  * Use autosuggest if the user can input any value in the field to proceed. If the user must select one option from a list in order to proceed, use [select](/components/select/). 
-  * Every input field should have a label. Use the [form field](/components/form-field/) for labeling your inputs. 
+  * Use autosuggest if the user can input any value in the field to proceed. If the user must select one option from a list in order to proceed, use [select]({get_link_resource: /components/select/}). 
+  * Every input field should have a label. Use the [form field]({get_link_resource: /components/form-field/}) for labeling your inputs. 
   * Use groups if the suggestions belong to different categories. Also consider using groups if there are more than 16 suggestions. 
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -43,11 +43,11 @@ A line of text that is visible in the first row within the dropdown above the su
 
 There are two ways of loading suggestions. You can decide either to have the full list of suggestions available on the client side (static), or to fetch the suggestions asynchronously from the server.
 
-    * [Static suggestions](/components/autosuggest/) \- default
+    * [Static suggestions]({get_link_resource: /components/autosuggest/}) \- default
 
       * Use this when the full list of suggestions takes only one API call to be fetched.
 
-    * [Asynchronously fetched suggestions](/components/autosuggest/?tabId=api#code-examples)
+    * [Asynchronously fetched suggestions]({get_link_resource: /components/autosuggest/?tabId=api#code-examples})
 
       * Use this when multiple API calls need to be made to fetch all the suggestions, such as when the list is very long or contains many similar entries.  
 Suggestions are displayed after the user types or scrolls.
@@ -60,7 +60,7 @@ Each suggestion can have additional filterable metadata to help the user's decis
 
     * Descriptions can add extra information for a user to read and understand. They can also impede decision making if they’re not necessary to the interaction.
 
-    * Icons are placed on the left side of the suggestion. View available icons in [Iconography](/foundation/visual-foundation/iconography/).
+    * Icons are placed on the left side of the suggestion. View available icons in [Iconography]({get_link_resource: /foundation/visual-foundation/iconography/}).
 
     * Tags are used to display comparable metadata across suggestions.
 
@@ -89,7 +89,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     * Use the empty state when there are no suggestions to display.
 
-    * Follow the guidelines for [empty states](/patterns/general/empty-states/).
+    * Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
 
   * #### Error
 
@@ -112,7 +112,7 @@ The finished state communicates to the user that they have reached the end of th
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -133,7 +133,7 @@ The finished state communicates to the user that they have reached the end of th
 
 #### Placeholder
 
-  * Follow the writing guidelines for [placeholder text](/components/input/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}).
 
 
 
@@ -167,7 +167,7 @@ The finished state communicates to the user that they have reached the end of th
 
 #### Empty state
 
-  * Follow the writing guidelines for [empty states](/patterns/general/empty-states/#writing-guidelines).
+  * Follow the writing guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/#writing-guidelines}).
 
 
 
@@ -176,11 +176,11 @@ The finished state communicates to the user that they have reached the end of th
 
   * For error message use the format: _Error fetching [suggestion type]_
 
-  * Follow the guidelines for [validation](/patterns/general/errors/validation/) and [alert](/components/alert/).
+  * Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}) and [alert]({get_link_resource: /components/alert/}).
 
   * For recovery action use this text: _Retry_
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 
@@ -219,7 +219,7 @@ The finished state communicates to the user that they have reached the end of th
 
   * If custom icons for options are used, make sure to provide an alternative text for screen readers to read on focus.
 
-  * For additional accessibility guidelines, follow the [select](/components/select/) component guidelines.
+  * For additional accessibility guidelines, follow the [select]({get_link_resource: /components/select/}) component guidelines.
 
 
 

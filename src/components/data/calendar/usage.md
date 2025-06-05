@@ -2,9 +2,9 @@
 
 ### Do
 
-  * Only use the calendar when the [date picker](/components/date-picker/) cannot be used.
-  * Only use the calendar in combination with a [date input](/components/date-input/).
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Only use the calendar when the [date picker]({get_link_resource: /components/date-picker/}) cannot be used.
+  * Only use the calendar in combination with a [date input]({get_link_resource: /components/date-input/}).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -67,7 +67,7 @@ The calendar automatically determines the locale from the page and browser, so i
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -86,7 +86,7 @@ The calendar automatically determines the locale from the page and browser, so i
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 

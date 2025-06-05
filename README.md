@@ -95,6 +95,26 @@ npm run dev:sse
 npm test
 ```
 
+### Building
+
+The build process includes automatic processing of usage.md files to convert internal links:
+
+```bash
+# Full build with link processing
+npm run build
+
+# Individual build steps
+npm run prepare      # Compile TypeScript
+npm run update-links # Process markdown links
+npm run postbuild    # Copy data files
+
+# Link processing utilities
+npm run update-links:dry-run    # Preview changes without modifying files
+npm run update-links:verbose    # Show detailed processing information
+```
+
+The build automatically converts internal markdown links in usage.md files from regular format to the `get_link_resource` tool call format, enabling the MCP server to resolve component, pattern, and foundation references.
+
 ## Docker Deployment
 
 This project can be deployed using Docker. For detailed instructions, see [Docker Deployment Guide](DOCKER.md).
@@ -171,6 +191,7 @@ For more information about the FastMCP implementation, see [FastMCP Migration](d
 - `compare_components` - Compare multiple components and their capabilities
 - `generate_layout_code` - Generate multi-component layouts
 - `get_frontend_setup` - Get setup instructions for frontend-code mode
+- `get_link_resource` - Resolve internal links from usage.md files to appropriate backend resources
 
 ### MCP Resources
 

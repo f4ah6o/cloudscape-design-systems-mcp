@@ -2,15 +2,15 @@
 
 ### Do
 
-  * When defining segment colors, ensure that the order of colors defined in the [color palette](/foundation/visual-foundation/data-vis-colors/) is maintained across the order of segments in the pie or donut chart.
-  * Use a pie or donut chart to visualize up to 5 data metrics. If more than 5 data metrics need to be visualized, use a [stacked bar chart](/components/bar-chart/?example=multiple-data-series%2C-stacked) instead. 
+  * When defining segment colors, ensure that the order of colors defined in the [color palette]({get_link_resource: /foundation/visual-foundation/data-vis-colors/}) is maintained across the order of segments in the pie or donut chart.
+  * Use a pie or donut chart to visualize up to 5 data metrics. If more than 5 data metrics need to be visualized, use a [stacked bar chart]({get_link_resource: /components/bar-chart/?example=multiple-data-series%2C-stacked}) instead. 
   * Try to limit the number of items in a metric breakdown to seven to help conserve space. Prioritize content that adds value to the user.
 
 
 
 ### Don't
 
-  * Don't use a pie or donut chart to visualize time series. Use a [bar chart](/components/bar-chart/?example=single-data-series) or [line chart](/components/line-chart/?example=single-data-series) instead.
+  * Don't use a pie or donut chart to visualize time series. Use a [bar chart]({get_link_resource: /components/bar-chart/?example=single-data-series}) or [line chart]({get_link_resource: /components/line-chart/?example=single-data-series}) instead.
   * Don’t use a pie chart to visualize a single data metric as they are meant to show part to whole relationship which needs at least 2 metrics.
   * Avoid truncating names describing data metrics. If truncation is necessary, ensure that unique identifiers included in the string are visible to users. For example: a chart showing S3 resources where segment labels include long ARNs. Ensure that the portion of an ARN which helps users identify the resource is visible after truncation. 
   * In chart series detail don't add links to both metric key and metric value. Instead, pick one or the other.
@@ -79,7 +79,7 @@ Provide an additional unit or short description corresponding to the inner metri
 
   * #### Details popover
 
-Information about a segment such as the name, value, and percentage of the associated data metric are displayed in a popover as key-value pairs, use [links](/components/link/) or text. By default, the associated value and percentage is displayed for each segment. More key-value pairs can also be displayed to better understand the breakdown of a segment's data.
+Information about a segment such as the name, value, and percentage of the associated data metric are displayed in a popover as key-value pairs, use [links]({get_link_resource: /components/link/}) or text. By default, the associated value and percentage is displayed for each segment. More key-value pairs can also be displayed to better understand the breakdown of a segment's data.
 
 There are two main ways to interact with the details popover:
 
@@ -111,7 +111,7 @@ To enable additional actions and drill down on the selected metric you can use t
 
     * **Actions:** Up to two buttons. When you have more than two buttons group these in a button dropdown to conserve space.
 
-    * **Drill down:** Drill down functionality such as filters and text. See [chart metric drill down](/patterns/general/data-vis/chart-metric-drill-down/) for further information.
+    * **Drill down:** Drill down functionality such as filters and text. See [chart metric drill down]({get_link_resource: /patterns/general/data-vis/chart-metric-drill-down/}) for further information.
 
   * #### Legend \- optional
 
@@ -135,7 +135,7 @@ Use a filter in a pie or donut chart when the source data set has at least three
 
   * #### Additional filters \- optional
 
-To support users’ data exploration needs, you can add more filters in the chart component. For example: A [date picker](/components/date-picker/) so users can filter data based on different periods of time.
+To support users’ data exploration needs, you can add more filters in the chart component. For example: A [date picker]({get_link_resource: /components/date-picker/}) so users can filter data based on different periods of time.
 
 
 
@@ -193,7 +193,7 @@ The state of the component when there is no data to display. It could occur when
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -279,7 +279,7 @@ The state of the component when there is no data to display. It could occur when
 
   * Use this text: _Loading chart_
 
-  * Follow the guidelines for [loading states](/patterns/general/loading-and-refreshing/).
+  * Follow the guidelines for [loading states]({get_link_resource: /patterns/general/loading-and-refreshing/}).
 
 
 
@@ -290,13 +290,13 @@ The state of the component when there is no data to display. It could occur when
 
     * Use this text: _The data couldn't be fetched. Try again later._
 
-    * Follow the guidelines for [validation](/patterns/general/errors/validation/) and [alert](/components/alert/).
+    * Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}) and [alert]({get_link_resource: /components/alert/}).
 
   * **Recovery action**
 
     * Use this text: _Retry_
 
-    * Follow the writing guidelines for [button](/components/button/?example=primary-button&tabId=usage#writing-guidelines).
+    * Follow the writing guidelines for [button]({get_link_resource: /components/button/?example=primary-button&tabId=usage#writing-guidelines}).
 
 
 
@@ -307,7 +307,7 @@ The state of the component when there is no data to display. It could occur when
 
     * Use this text: _There is no matching data found_
 
-    * Follow the guidelines for [empty states.](/patterns/general/empty-states/)
+    * Follow the guidelines for [empty states.]({get_link_resource: /patterns/general/empty-states/})
 
   * **Description** \- _optional_
 
@@ -317,11 +317,11 @@ The state of the component when there is no data to display. It could occur when
 
   * **Action button**
 
-    * Provides an action button to set the visualization back to the default state. This should always be a [secondary button](/components/button/?example=normal-button).
+    * Provides an action button to set the visualization back to the default state. This should always be a [secondary button]({get_link_resource: /components/button/?example=normal-button}).
 
     * Use this text: _Clear filter_
 
-    * Follow the writing guidelines for [button](/components/button/?example=primary-button&tabId=usage#writing-guidelines).
+    * Follow the writing guidelines for [button]({get_link_resource: /components/button/?example=primary-button&tabId=usage#writing-guidelines}).
 
 
 
@@ -332,7 +332,7 @@ The state of the component when there is no data to display. It could occur when
 
     * Use this text: _There is no data available_
 
-    * Follow the guidelines for [empty states.](/patterns/general/empty-states/)
+    * Follow the guidelines for [empty states.]({get_link_resource: /patterns/general/empty-states/})
 
   * **Description** \- _optional_
 
@@ -360,9 +360,9 @@ The state of the component when there is no data to display. It could occur when
 
 ### Component-specific guidelines
 
-  * For the default filter, follow the guidelines for [multiselect accessibility](/components/multiselect/?example=default&tabId=usage).
+  * For the default filter, follow the guidelines for [multiselect accessibility]({get_link_resource: /components/multiselect/?example=default&tabId=usage}).
 
-  * Use an accessible color palette for visualizations. Follow the guidelines for [data visualization color](/foundation/visual-foundation/data-vis-colors/#accessibility-guidelines).
+  * Use an accessible color palette for visualizations. Follow the guidelines for [data visualization color]({get_link_resource: /foundation/visual-foundation/data-vis-colors/#accessibility-guidelines}).
 
 
 

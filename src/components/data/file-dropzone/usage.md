@@ -2,14 +2,14 @@
 
 ### Do
 
-  * Use only when the [file upload](/components/file-upload/) can’t be used, such as with [prompt input](/components/prompt-input/).
-  * Use in combination with [file input](/components/file-input/) and [file token group](/components/file-token-group/) to configure the file uploading experience for users.
+  * Use only when the [file upload]({get_link_resource: /components/file-upload/}) can’t be used, such as with [prompt input]({get_link_resource: /components/prompt-input/}).
+  * Use in combination with [file input]({get_link_resource: /components/file-input/}) and [file token group]({get_link_resource: /components/file-token-group/}) to configure the file uploading experience for users.
 
 
 
 ### Don't
 
-  * Don’t put anything inside the file dropzone other than description text or a [file input](/components/file-input/).
+  * Don’t put anything inside the file dropzone other than description text or a [file input]({get_link_resource: /components/file-input/}).
 
 
 
@@ -17,7 +17,7 @@
 
   * #### Visibility
 
-By default, the file dropzone is always visible. Hide the dropzone until a file is being dragged into the browser when file upload is a secondary action, or when space is limited, such as in the [prompt input](/components/prompt-input/). See [development guidelines](/components/file-dropzone/?tabId=api#development-guidelines) for more details on how to toggle visibility.
+By default, the file dropzone is always visible. Hide the dropzone until a file is being dragged into the browser when file upload is a secondary action, or when space is limited, such as in the [prompt input]({get_link_resource: /components/prompt-input/}). See [development guidelines]({get_link_resource: /components/file-dropzone/?tabId=api#development-guidelines}) for more details on how to toggle visibility.
 
 Note that in the file upload component, the file dropzone is invisible until a file is being dragged. 
 
@@ -30,7 +30,7 @@ Note that in the file upload component, the file dropzone is invisible until a f
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

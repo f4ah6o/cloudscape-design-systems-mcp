@@ -3,8 +3,8 @@
 ### Do
 
   * Persist the user preference for drawer open or closed when users navigate across pages.
-  * For drawers that are opened from an on-page action and need an empty state as a default state, display an empty state in the drawer. Follow the guidelines for [empty states](/patterns/general/empty-states/).
-  * For more information on the use of drawer, help panel, and split panel, see [secondary panels](/patterns/general/secondary-panels/).
+  * For drawers that are opened from an on-page action and need an empty state as a default state, display an empty state in the drawer. Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).
+  * For more information on the use of drawer, help panel, and split panel, see [secondary panels]({get_link_resource: /patterns/general/secondary-panels/}).
 
 
 
@@ -12,8 +12,8 @@
 
   * Don’t put critical content in a drawer. Content in a drawer should be supplemental and not required for a user to complete their task.
   * Don’t trigger a drawer from a modal.
-  * Don't put help content or tutorial content in a drawer, instead use [help panel](/components/help-panel/) or [tutorial panel](/components/tutorial-panel/).
-  * Don’t use a drawer for resource selection, instead use a [split panel](/components/split-panel/).
+  * Don't put help content or tutorial content in a drawer, instead use [help panel]({get_link_resource: /components/help-panel/}) or [tutorial panel]({get_link_resource: /components/tutorial-panel/}).
+  * Don’t use a drawer for resource selection, instead use a [split panel]({get_link_resource: /components/split-panel/}).
   * Don't overwhelm users with information. Be selective on the content of the drawer and keep it concise to minimize cognitive load.
 
 
@@ -38,7 +38,7 @@ Drawer content is a space for supplementary features or assistance in task compl
 
   * #### App layout
 
-Place a drawer in the `drawers` region of [app layout](/components/app-layout/) to get properties such as default drawer width and dismiss control functionality.
+Place a drawer in the `drawers` region of [app layout]({get_link_resource: /components/app-layout/}) to get properties such as default drawer width and dismiss control functionality.
 
 
 
@@ -49,7 +49,7 @@ Place a drawer in the `drawers` region of [app layout](/components/app-layout/) 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -89,7 +89,7 @@ Place a drawer in the `drawers` region of [app layout](/components/app-layout/) 
 
   * Provide keyboard functionality to all available content in a logical and predictable order. The flow of information should make sense.
 
-  * [More accessibility guidelines](/foundation/core-principles/accessibility/)
+  * [More accessibility guidelines]({get_link_resource: /foundation/core-principles/accessibility/})
 
 
 

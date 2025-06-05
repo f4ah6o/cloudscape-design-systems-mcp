@@ -10,7 +10,7 @@
 
 ### Don't
 
-  * Don’t feature more than one action in the header. If you need more actions, place these in an [icon dropdown](/components/button-dropdown/?tabId=playground&example=icon-button-dropdown).
+  * Don’t feature more than one action in the header. If you need more actions, place these in an [icon dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground&example=icon-button-dropdown}).
   * Don’t introduce complex interactivity in your board items, such as complex filtering on a table or a graph. Instead, link to a page where users can carry out this action.
   * Don’t use expandable footers.
 
@@ -20,13 +20,13 @@
 
   * #### Types
 
-There are two types of configuration with a board item. These can be configured to create the items that live within the [configurable dashboard layout](/patterns/general/service-dashboard/configurable-dashboard/) and [item palette](/components/items-palette/). 
+There are two types of configuration with a board item. These can be configured to create the items that live within the [configurable dashboard layout]({get_link_resource: /patterns/general/service-dashboard/configurable-dashboard/}) and [item palette]({get_link_resource: /components/items-palette/}). 
 
 **Dashboard item**  
-This gives the user the ability to move a board item and to increase its size by using the re-size action. Follow the guidelines for [dashboard items](/patterns/general/service-dashboard/dashboard-items/).  
+This gives the user the ability to move a board item and to increase its size by using the re-size action. Follow the guidelines for [dashboard items]({get_link_resource: /patterns/general/service-dashboard/dashboard-items/}).  
   
 **Palette item**  
-When a board item is placed within an item palette the content should be kept to a minimum. Follow the guidelines for [configurable dashboard layout](/patterns/general/service-dashboard/configurable-dashboard/).
+When a board item is placed within an item palette the content should be kept to a minimum. Follow the guidelines for [configurable dashboard layout]({get_link_resource: /patterns/general/service-dashboard/configurable-dashboard/}).
 
   * #### Sizes
 
@@ -42,17 +42,17 @@ Board items can have different sizes depending on the content they need to repre
 
     * XL - takes up 4 / 4 columns of board layout
 
-Follow the guidelines for [dashboard items](/patterns/general/service-dashboard/dashboard-items/) and [board](/patterns/general/service-dashboard/configurable-dashboard/).
+Follow the guidelines for [dashboard items]({get_link_resource: /patterns/general/service-dashboard/dashboard-items/}) and [board]({get_link_resource: /patterns/general/service-dashboard/configurable-dashboard/}).
 
 **Palette items**
 
-Takes up the available width in the item palette. See [item palette](/components/items-palette/) for more details.
+Takes up the available width in the item palette. See [item palette]({get_link_resource: /components/items-palette/}) for more details.
 
   * #### Header
 
 Use the header to display the title of the board item. Additionally, you can include information that applies to the entire content of the item, such as description, counter, or an info link.  
   
-Use the h2 variant of the [header](/components/header/?example=container-header) component for board items. 
+Use the h2 variant of the [header]({get_link_resource: /components/header/?example=container-header}) component for board items. 
 
 When combining multiple content types into one board item where it requires additional titles, use the h3 variant of the header component.  
   
@@ -61,13 +61,13 @@ When combining multiple content types into one board item where it requires addi
   * #### Actions \- optional
 
 **Dashboard item**  
-Add actions as a [button](/components/button/) or icon [button dropdowns](/components/button-dropdown/?tabId=playground&example=icon-button-dropdown) if users can perform actions on the underlying content. Feature one key action in the header and then place additional actions in the icon button dropdown.
+Add actions as a [button]({get_link_resource: /components/button/}) or icon [button dropdowns]({get_link_resource: /components/button-dropdown/?tabId=playground&example=icon-button-dropdown}) if users can perform actions on the underlying content. Feature one key action in the header and then place additional actions in the icon button dropdown.
 
-    * [Normal button](/components/button/?tabId=playground&example=normal-button) \- Use this for a key user action that applies to the underlying content.
+    * [Normal button]({get_link_resource: /components/button/?tabId=playground&example=normal-button}) \- Use this for a key user action that applies to the underlying content.
 
-    * [Icon button dropdown](/components/button-dropdown/?tabId=playground&example=icon-button-dropdown) \- Sets of actions grouped together under one button. The icon button dropdown is fixed to the top right of the container.
+    * [Icon button dropdown]({get_link_resource: /components/button-dropdown/?tabId=playground&example=icon-button-dropdown}) \- Sets of actions grouped together under one button. The icon button dropdown is fixed to the top right of the container.
 
-    * **Preferences** \- Allows users to manage the display of the board item content for properties such as visible or hidden content sections. This action opens the [Preferences](/components/collection-preferences/) modal. 
+    * **Preferences** \- Allows users to manage the display of the board item content for properties such as visible or hidden content sections. This action opens the [Preferences]({get_link_resource: /components/collection-preferences/}) modal. 
 
     * **Resize** \- Providing the user with the ability to change the size of the item to show and hide content.
 
@@ -79,7 +79,7 @@ Only include a drag action to allow users to add items to the board. Avoid addit
   * #### Filtering \- optional
 
 **Dashboard item**  
-Filtering allows users to find a specific resource. Supported filter types are [text filtering](/components/text-filter/), [select](/components/select/?tabId=playground) and [date](/components/date-picker/?tabId=playground) or [date range picker](/components/date-range-picker/?tabId=playground). For example, filtering all data within a board item content by a date range.
+Filtering allows users to find a specific resource. Supported filter types are [text filtering]({get_link_resource: /components/text-filter/}), [select]({get_link_resource: /components/select/?tabId=playground}) and [date]({get_link_resource: /components/date-picker/?tabId=playground}) or [date range picker]({get_link_resource: /components/date-range-picker/?tabId=playground}). For example, filtering all data within a board item content by a date range.
 
 **Palette item**  
 Do not include filtering.  
@@ -90,13 +90,13 @@ Do not include filtering.
 **Dashboard item**  
 The area for primary container content. Common content types of a container are:
 
-    * [Tables](/components/table/?tabId=playground) \- Display a collection of resources in a tabular format.
+    * [Tables]({get_link_resource: /components/table/?tabId=playground}) \- Display a collection of resources in a tabular format.
 
       * Board items introduce overflow to ensure table content remains accessible in responsive layouts.
 
-    * [Key-value pairs](/components/key-value-pairs/) \- Display key-value pairs that can, for example, describe a single resource’s configuration.
+    * [Key-value pairs]({get_link_resource: /components/key-value-pairs/}) \- Display key-value pairs that can, for example, describe a single resource’s configuration.
 
-    * [Charts](/components/charts/) \- Display data visualizations. These can be line, area, or pie charts.
+    * [Charts]({get_link_resource: /components/charts/}) \- Display data visualizations. These can be line, area, or pie charts.
 
       * To ensure charts adjust to their container, set the `fitHeight` property to `true`. You can use the `height` property to define the minimum allowed height in pixels.
 
@@ -128,18 +128,18 @@ Use a footer for secondary content. For example, a view all link that takes the 
 
 An empty state occurs when users haven't created a resource, have deleted all resources, or a configuration is needed in order to display content. Include actions to trigger the population of data in the component. For example, a button that allows for cross-service navigation to set up alarms.  
   
-Follow the guidelines for [empty states](/patterns/general/empty-states/).  
+Follow the guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/}).  
 
 
   * #### Error state
 
 State when a problem occurred fetching resources. Provide thorough explanations for errors, suggestions, and actions on how to remedy.  
   
-Supported with an [alert ](/components/alert/)to notify the user in case of request timed-out or no access.
+Supported with an [alert ]({get_link_resource: /components/alert/})to notify the user in case of request timed-out or no access.
 
   * #### Loading state
 
-The state when data is loading. Follow the guidelines for [loading and refresh](/patterns/general/loading-and-refreshing/).
+The state when data is loading. Follow the guidelines for [loading and refresh]({get_link_resource: /patterns/general/loading-and-refreshing/}).
 
 
 
@@ -150,7 +150,7 @@ The state when data is loading. Follow the guidelines for [loading and refresh](
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -171,23 +171,23 @@ The state when data is loading. Follow the guidelines for [loading and refresh](
 
 #### Board item header
 
-  * Follow the writing guidelines for [header](/components/header/?tabId=usage#writing-guidelines). 
+  * Follow the writing guidelines for [header]({get_link_resource: /components/header/?tabId=usage#writing-guidelines}). 
 
 
 
 
 #### Text filters
 
-  * Follow the writing guidelines for [text filters](/components/text-filter/?tabId=usage#writing-guidelines). 
+  * Follow the writing guidelines for [text filters]({get_link_resource: /components/text-filter/?tabId=usage#writing-guidelines}). 
 
 
 
 
 #### Board item content
 
-  * **Charts:** Follow the writing guidelines for [charts](/components/charts/).
+  * **Charts:** Follow the writing guidelines for [charts]({get_link_resource: /components/charts/}).
 
-  * **Tables:** Follow the writing guidelines for [tables](/components/table/?tabId=usage#writing-guidelines).
+  * **Tables:** Follow the writing guidelines for [tables]({get_link_resource: /components/table/?tabId=usage#writing-guidelines}).
 
 
 
@@ -204,14 +204,14 @@ The state when data is loading. Follow the guidelines for [loading and refresh](
 
       *  _Remove_
 
-  * Follow the writing guidelines for [button](/components/button/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Empty states
 
-  * Follow the writing guidelines for [empty states](/patterns/general/empty-states/#writing-guidelines).
+  * Follow the writing guidelines for [empty states]({get_link_resource: /patterns/general/empty-states/#writing-guidelines}).
 
 
 
@@ -220,7 +220,7 @@ The state when data is loading. Follow the guidelines for [loading and refresh](
 
   * Use concise and clear language for your custom message in cases of zero results resulting from the text filter. 
 
-  * Follow the writing guidelines for [zero results](/patterns/general/empty-states/#writing-guidelines).
+  * Follow the writing guidelines for [zero results]({get_link_resource: /patterns/general/empty-states/#writing-guidelines}).
 
 
 

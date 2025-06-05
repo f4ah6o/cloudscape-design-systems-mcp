@@ -2,12 +2,12 @@
 
 ### Do
 
-  * Every input field should have a label. Use the [form field](/components/form-field/) component for labeling your inputs. 
+  * Every input field should have a label. Use the [form field]({get_link_resource: /components/form-field/}) component for labeling your inputs. 
   * In general, the length of an input field should accommodate 1-40 characters. You can shorten the length of a specific field if users typically will use fewer characters than 40. 
   * If users will need to copy and paste long text strings, your input field doesn't need to accommodate the entire string; instead, show only enough to allow users to determine whether what they've entered is correct. 
   * Remember to provide space for extra characters when localized into other languages. 
-  * When there is a character amount constraint, use constraint text in the [form field](/components/form-field/) component to provide this information to the user. 
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * When there is a character amount constraint, use constraint text in the [form field]({get_link_resource: /components/form-field/}) component to provide this information to the user. 
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -56,7 +56,7 @@ Indicates a condition regarding user-input in the field, which doesn't generate 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

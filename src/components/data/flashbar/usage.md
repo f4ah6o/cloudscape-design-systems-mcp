@@ -34,7 +34,7 @@ When there is a significant amount of content that is not immediately critical, 
 
   * #### Action button \- optional
 
-The flash message may optionally provide a single [action button](/components/button/?example=normal-button). For example, if a resource has just been created, and the user wants to do further configuration of this resource or a related resource, an action button can take the user to the appropriate page to do this, or directly launch the operation.
+The flash message may optionally provide a single [action button]({get_link_resource: /components/button/?example=normal-button}). For example, if a resource has just been created, and the user wants to do further configuration of this resource or a related resource, an action button can take the user to the appropriate page to do this, or directly launch the operation.
 
   * #### Secondary action \- optional
 
@@ -46,7 +46,7 @@ Flash messages fall into five general types:
 
     * Information – A special circumstance or a service change has occurred or will occur.
 
-    * [Error](/patterns/general/errors/error-messages/) – The current action can’t be completed.
+    * [Error]({get_link_resource: /patterns/general/errors/error-messages/}) – The current action can’t be completed.
 
     * Success – A user has completed an action.
 
@@ -80,7 +80,7 @@ The sticky flashbar feature allows for all flashbars to stay at the top of the p
 
   * #### App layout
 
-Place the flashbar in the `notification` region of [app layout](/components/app-layout/).
+Place the flashbar in the `notification` region of [app layout]({get_link_resource: /components/app-layout/}).
 
 
 
@@ -91,7 +91,7 @@ Place the flashbar in the `notification` region of [app layout](/components/app-
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -147,7 +147,7 @@ Place the flashbar in the `notification` region of [app layout](/components/app-
 
   * Add links to any additional documentation users can read to learn more if needed.
 
-  * Follow the writing guidelines for [error messages](/patterns/general/errors/error-messages/).
+  * Follow the writing guidelines for [error messages]({get_link_resource: /patterns/general/errors/error-messages/}).
 
 
 
@@ -169,7 +169,7 @@ Place the flashbar in the `notification` region of [app layout](/components/app-
 
 #### Loading
 
-  * For loading message, follow the writing guidelines for [loading](/patterns/general/loading-and-refreshing/#writing-guidelines).
+  * For loading message, follow the writing guidelines for [loading]({get_link_resource: /patterns/general/loading-and-refreshing/#writing-guidelines}).
 
 
 

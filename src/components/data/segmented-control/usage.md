@@ -6,14 +6,14 @@
   * Use icons consistently for all segments. Either include icons for all segments or don't include icons at all. 
   * Place the segmented control above the content it's related to. Keep it close enough to the content area so that the visual relationship is clear to users. 
   * When a view type isn’t available, we recommend to still allow users to trigger that segment and communicate the reasons why it’s unavailable in the content area. If this practice isn't applicable, you can deactivate the segment in the segmented control.
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
 ### Don't
 
-  * Don’t use segmented control as [tabs](/components/tabs/) or [actions in headers](/components/header/). 
-  * Avoid using more than three segments within one segmented control. If there are more than three viewing options, use a [select](/components/select/) instead. 
+  * Don’t use segmented control as [tabs]({get_link_resource: /components/tabs/}) or [actions in headers]({get_link_resource: /components/header/}). 
+  * Avoid using more than three segments within one segmented control. If there are more than three viewing options, use a [select]({get_link_resource: /components/select/}) instead. 
   * Don't deactivate more than one segment. Make sure users have at least two options to choose from. 
 
 
@@ -30,9 +30,9 @@ Each segmented control should have a label for the entire control. In the standa
 
   * #### Icon \- optional
 
-Icons can be used to help users visualize and recognize the concepts. When the icons are self-explanatory enough, text can be omitted as long as you provide alternative text describing the view type. The alternative text is crucial since it’s displayed on the interface as the label of each option when the segmented control gets replaced with a [select](/components/select/) component in narrow containers.
+Icons can be used to help users visualize and recognize the concepts. When the icons are self-explanatory enough, text can be omitted as long as you provide alternative text describing the view type. The alternative text is crucial since it’s displayed on the interface as the label of each option when the segmented control gets replaced with a [select]({get_link_resource: /components/select/}) component in narrow containers.
 
-For example: The horizontal view, vertical view, and full view icons in the [icon set](/foundation/visual-foundation/iconography/) can be used to represent the respective layout type.
+For example: The horizontal view, vertical view, and full view icons in the [icon set]({get_link_resource: /foundation/visual-foundation/iconography/}) can be used to represent the respective layout type.
 
   * #### Disabled reason \- optional
 
@@ -66,7 +66,7 @@ The segment that can't be selected by users. Use the disabled state to prevent t
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -98,7 +98,7 @@ The segment that can't be selected by users. Use the disabled state to prevent t
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 
@@ -135,7 +135,7 @@ The segment that can't be selected by users. Use the disabled state to prevent t
 
   * When a segment has an icon without `text`, make sure you define `iconAlt` text for the segment.
 
-  * Define a label for the entire segmented control either with the `label` or `ariaLabelledBy` property, see [the API ](/components/segmented-control/?example=default&tabId=api)for the descriptions of both. Don't use both `label` and `ariaLabelledBy` at the same time.
+  * Define a label for the entire segmented control either with the `label` or `ariaLabelledBy` property, see [the API ]({get_link_resource: /components/segmented-control/?example=default&tabId=api})for the descriptions of both. Don't use both `label` and `ariaLabelledBy` at the same time.
 
 
 

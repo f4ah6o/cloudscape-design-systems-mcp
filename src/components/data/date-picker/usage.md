@@ -2,9 +2,9 @@
 
 ### Do
 
-  * When using a date picker along with a [time input](/components/time-input/), use only one label and description for both date and time, and place the date picker before the time input. For more information, see the [API documentation](/components/date-picker/?example=standard&tabId=api) and [single page create example](/examples/react/form.html).
+  * When using a date picker along with a [time input]({get_link_resource: /components/time-input/}), use only one label and description for both date and time, and place the date picker before the time input. For more information, see the [API documentation]({get_link_resource: /components/date-picker/?example=standard&tabId=api}) and [single page create example]({get_link_resource: /examples/react/form.html}).
   * Always include the required input format in the constraint text, along with any other format constraints. You should also include the format in the placeholder text.
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -18,7 +18,7 @@ Users can input a date in two ways: by entering a date in the input field or by 
 
     * Other delimiters such as hyphens (-), periods (.), and spaces ( ) are also accepted, but will be replaced by a forward slash (/).
 
-Follow the guidelines for [input](/components/input/?tabId=usage).
+Follow the guidelines for [input]({get_link_resource: /components/input/?tabId=usage}).
 
   * #### Granularity
 
@@ -38,7 +38,7 @@ Use placeholder text to indicate the accepted date format.
 
     * For example: _YYYY/MM_
 
-Follow the guidelines for [input](/components/input/?tabId=usage).
+Follow the guidelines for [input]({get_link_resource: /components/input/?tabId=usage}).
 
   * #### Calendar overlay
 
@@ -70,7 +70,7 @@ An disabled date is any date that cannot be selected by the user. Disabled dates
 
 Use disabled dates to reinforce constraints for dates that will not be accepted. For example: If an acceptable date can only be in the future, you could make days prior to today disabled.
 
-Note that this only makes dates disabled in the calendar. A user could still type an disabled date into the input, so you should always re-validate user input and provide [validation feedback](/patterns/general/errors/validation/).
+Note that this only makes dates disabled in the calendar. A user could still type an disabled date into the input, so you should always re-validate user input and provide [validation feedback]({get_link_resource: /patterns/general/errors/validation/}).
 
   * #### Locale \- optional
 
@@ -84,14 +84,14 @@ Start of the week determines which day denotes the first day of a week. This val
 
   * #### Validation \- optional
 
-Error and warning messages are displayed per input field, below the input field, and above any constraint text. Use standard form field [validation](/patterns/general/errors/validation/).
+Error and warning messages are displayed per input field, below the input field, and above any constraint text. Use standard form field [validation]({get_link_resource: /patterns/general/errors/validation/}).
 
 
 
 
 ### Additional building blocks
 
-The items listed below are part of the [form field](/components/form-field/) component, which should be used together with the date picker component. Follow the guidelines for[ form fields](/components/form-field/?tabId=usage).
+The items listed below are part of the [form field]({get_link_resource: /components/form-field/}) component, which should be used together with the date picker component. Follow the guidelines for[ form fields]({get_link_resource: /components/form-field/?tabId=usage}).
 
   * #### Form field label
 
@@ -127,7 +127,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -160,7 +160,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
       *  _API expiration_
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -169,14 +169,14 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Avoid directive text that states the obvious, such as _Enter a date_.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Constraint text
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -187,21 +187,21 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     * For example: _YYYY/MM/DD_ in English.
 
-  * Follow the writing guidelines for [placeholder text](/components/input/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}).
 
 
 
 
 #### Error text
 
-  * Follow the guidelines for [validation](/patterns/general/errors/validation/).
+  * Follow the guidelines for [validation]({get_link_resource: /patterns/general/errors/validation/}).
 
 
 
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 

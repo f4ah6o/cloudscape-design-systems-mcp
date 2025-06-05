@@ -2,8 +2,8 @@
 
 ### Do
 
-  * Use only when the [file upload](/components/file-upload/) cannot be used. For example, with [prompt input](/components/prompt-input/).
-  * Use in combination with [file input](/components/file-input/) and [file dropzone](/components/file-dropzone/) to configure the file uploading experience for users.
+  * Use only when the [file upload]({get_link_resource: /components/file-upload/}) cannot be used. For example, with [prompt input]({get_link_resource: /components/prompt-input/}).
+  * Use in combination with [file input]({get_link_resource: /components/file-input/}) and [file dropzone]({get_link_resource: /components/file-dropzone/}) to configure the file uploading experience for users.
   * By default, tokens stack vertically to allow for easy scanning. In layouts where more compact, horizontal tokens would be beneficial, use horizontal alignment. For example, in the prompt input.
 
 
@@ -58,7 +58,7 @@ Shows a loading spinner when a file is in the process of being uploaded.
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -103,5 +103,5 @@ Specify alternative text for the remove icon in the tokens.
 
 ####  Announcing files uploading
 
-When uploading files, set the `loading` property per file token, and use the [live region](/components/live-region/) component to announce the loading state. When uploading multiple files, use a single announcement message, for example: "Uploading 2 files".  
+When uploading files, set the `loading` property per file token, and use the [live region]({get_link_resource: /components/live-region/}) component to announce the loading state. When uploading multiple files, use a single announcement message, for example: "Uploading 2 files".  
 

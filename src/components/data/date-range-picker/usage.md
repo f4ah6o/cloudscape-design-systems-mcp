@@ -2,20 +2,20 @@
 
 ### Do
 
-  * The component can be used as a ﬁlter on a collection of resources such as[ table](/components/table/) and [card](/components/cards/). See the demo for [table view with date range picker filter](/examples/react/table-date-filter.html).
+  * The component can be used as a ﬁlter on a collection of resources such as[ table]({get_link_resource: /components/table/}) and [card]({get_link_resource: /components/cards/}). See the demo for [table view with date range picker filter]({get_link_resource: /examples/react/table-date-filter.html}).
   * When there is a default value of date and time range applied across a dataset, ensure that this value is represented in the date range picker as well. 
   * Activate both relative and absolute date-time range selection in the overlay if a user can use either selection mechanisms for the use case. Otherwise, activate only absolute or only relative date range selection as required.
   * For scenarios using absolute date-time range selection: always include the required input format in the constraint text, along with any other format constraints. Provide information about any other constraints in the placeholder text.
   * Use client side validation to prevent an inverted range submission (when an end date is before a start date).
   * When using relative range, set the pre-configured ranges based on the majority of the users’ most frequent choices. 
-  * Follow the guidelines for [timestamps](/patterns/general/timestamps/) to decide which format to use.
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [timestamps]({get_link_resource: /patterns/general/timestamps/}) to decide which format to use.
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
 ### Don't
 
-  * If a use case does not require users to set a custom absolute or relative range, don't use the date range picker component. Instead, to provide pre-configured relative ranges only, use the [select](/components/select/?example=default) component.
+  * If a use case does not require users to set a custom absolute or relative range, don't use the date range picker component. Instead, to provide pre-configured relative ranges only, use the [select]({get_link_resource: /components/select/?example=default}) component.
 
 
 
@@ -78,7 +78,7 @@ The overlay displays different controls so users can configure a date and time r
 
   * #### Selection mechanism
 
-A [segmented control](/components/segmented-control/?example=default) that allows users to toggle between selecting a date and time range using the absolute or the relative range.
+A [segmented control]({get_link_resource: /components/segmented-control/?example=default}) that allows users to toggle between selecting a date and time range using the absolute or the relative range.
 
   * #### Absolute range
 
@@ -100,7 +100,7 @@ Each date in the grid can be in any of the following states:
 
       * In-between dates: Dates within the selected date range.
 
-    * **Disabled:** Dates that cannot be selected by the user. For more information about disabled dates, follow the guidelines for [date picker](/components/date-picker/?example=standard&tabId=usage).
+    * **Disabled:** Dates that cannot be selected by the user. For more information about disabled dates, follow the guidelines for [date picker]({get_link_resource: /components/date-picker/?example=standard&tabId=usage}).
 
     * **Disabled with reason:** You can use a tooltip with disabled dates to explain why they are unavailable.
 
@@ -110,7 +110,7 @@ Each date in the grid can be in any of the following states:
 
 Users can enter or modify the start and end date and the start and end time for the absolute date and time range in these inputs. When users select the start and end dates in the calendar, the selected values are automatically reflected in the date inputs. 
 
-    * The component uses [time input](/components/time-input/?example=with-placeholder) for start and end time and [date picker](/components/date-picker/?example=standard&tabId=usage) input for start and end dates. 
+    * The component uses [time input]({get_link_resource: /components/time-input/?example=with-placeholder}) for start and end time and [date picker]({get_link_resource: /components/date-picker/?example=standard&tabId=usage}) input for start and end dates. 
 
     * Use form field labels to clearly communicate to users the purpose of each input. 
 
@@ -153,7 +153,7 @@ Validate a selection after users apply a date and time range.
 
   * #### Client side errors
 
-If the date and time range applied by users returns an error after client side validation occurs**,** show a contextual [alert](/components/alert/?example=info) above the overlay footer to display the error message. For example:
+If the date and time range applied by users returns an error after client side validation occurs**,** show a contextual [alert]({get_link_resource: /components/alert/?example=info}) above the overlay footer to display the error message. For example:
 
     * The selected date range is too large. Select a range smaller than 30 days.
 
@@ -185,7 +185,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -219,11 +219,11 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     * For example: _Provide the date and time range for service maintenance window. Users will be unable to access the service during this time._
 
-  * Don't use the description to show constraints on date and time range. Use [constraint text](/components/form-field/?tabId=usage#features) instead. 
+  * Don't use the description to show constraints on date and time range. Use [constraint text]({get_link_resource: /components/form-field/?tabId=usage#features}) instead. 
 
   * Avoid directive text that states the obvious, such as _Enter a date and time range_.
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -243,7 +243,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Use the text: Absolute range and Relative range for the respective segments. 
 
-  * Follow writing guidelines for [segmented control](/components/segmented-control/?example=default&tabId=usage#writing-guidelines). 
+  * Follow writing guidelines for [segmented control]({get_link_resource: /components/segmented-control/?example=default&tabId=usage#writing-guidelines}). 
 
 
 
@@ -254,7 +254,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Use this text: _Choose a range_
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -273,7 +273,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
       * For example: _Set a custom range in the past_
 
-  * Follow the writing guidelines for [radio group](/components/radio-group/?example=default&tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [radio group]({get_link_resource: /components/radio-group/?example=default&tabId=usage#writing-guidelines}).
 
 
 
@@ -338,7 +338,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     * For example: _hh:mm:ss_ in English.
 
-  * Follow the writing guidelines for [placeholder text](/components/input/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [placeholder text]({get_link_resource: /components/input/?tabId=usage#writing-guidelines}).
 
 
 
@@ -351,7 +351,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Keep constraint text brief and up to two lines. 
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -360,7 +360,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
   * Use complete sentences and terminal punctuation for error text.
 
-  * Follow the writing guidelines for [error messages](/patterns/general/errors/error-messages/#writing-guidelines).
+  * Follow the writing guidelines for [error messages]({get_link_resource: /patterns/general/errors/error-messages/#writing-guidelines}).
 
 
 
@@ -375,14 +375,14 @@ Use the read-only state when the input data is not to be modified by the user bu
 
     *  _Apply_
 
-  * Follow the writing guidelines for [button](/components/button/).
+  * Follow the writing guidelines for [button]({get_link_resource: /components/button/}).
 
 
 
 
 #### Disabled reasons
 
-  * Follow the guidelines for [short in-context disabled reasons](/patterns/general/disabled-and-read-only-states/#writing-guidelines).
+  * Follow the guidelines for [short in-context disabled reasons]({get_link_resource: /patterns/general/disabled-and-read-only-states/#writing-guidelines}).
 
 
 
@@ -404,7 +404,7 @@ Use the read-only state when the input data is not to be modified by the user bu
 
 ### Component-specific guidelines
 
-  * Follow the accessibility guidelines for [form field](/components/form-field/?tabId=usage#accessibility-guidelines).
+  * Follow the accessibility guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#accessibility-guidelines}).
 
 
 

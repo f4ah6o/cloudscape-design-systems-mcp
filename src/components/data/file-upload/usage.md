@@ -20,15 +20,15 @@ Use to allow the selection of multiple files for upload from the user's local dr
 
   * #### Label
 
-Use the label to describe the file type or its purpose. Follow the guidelines for [form field](/components/form-field/?tabId=usage). For example: _User data_
+Use the label to describe the file type or its purpose. Follow the guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage}). For example: _User data_
 
   * #### Description \- optional
 
-Use the description to state what the action will do in the context for the form. Follow the guidelines for [form field](/components/form-field/?tabId=usage). For example: _The files selected will be uploaded to this S3 bucket._
+Use the description to state what the action will do in the context for the form. Follow the guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage}). For example: _The files selected will be uploaded to this S3 bucket._
 
   * #### Hint text \- optional
 
-Include all constraints that the file must match in the hint text, such as size or file type. Make sure to specify and implement validation for which file types are acceptable. Activate or deactivate non-compliant files in the folder window. Follow the guidelines for [form field](/components/form-field/?tabId=usage).
+Include all constraints that the file must match in the hint text, such as size or file type. Make sure to specify and implement validation for which file types are acceptable. Activate or deactivate non-compliant files in the folder window. Follow the guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage}).
 
   * #### Drag and drop
 
@@ -70,7 +70,7 @@ There are two types of validation for the file upload component, which are frequ
 
         * For example: _The combined file size can not exceed 200 MB._
 
-After selection, the upload of the files is completed only when the user submits the form that contains the file upload component. For detailed information about how to communicate [error](/patterns/general/errors/error-messages/) and success messages after the form submission, see [create flow](/patterns/resource-management/create/) or [edit flow](/patterns/resource-management/edit/).
+After selection, the upload of the files is completed only when the user submits the form that contains the file upload component. For detailed information about how to communicate [error]({get_link_resource: /patterns/general/errors/error-messages/}) and success messages after the form submission, see [create flow]({get_link_resource: /patterns/resource-management/create/}) or [edit flow]({get_link_resource: /patterns/resource-management/edit/}).
 
 
 
@@ -81,7 +81,7 @@ After selection, the upload of the files is completed only when the user submits
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 
@@ -104,7 +104,7 @@ After selection, the upload of the files is completed only when the user submits
 
   * For example: _User data._
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -113,7 +113,7 @@ After selection, the upload of the files is completed only when the user submits
 
   * For example: _The files selected will be uploaded to this S3 bucket._
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 
@@ -124,7 +124,7 @@ After selection, the upload of the files is completed only when the user submits
 
     * For example:_The file must be .jpg or .png. 500 KB max file size._
 
-  * Follow the writing guidelines for [form field](/components/form-field/?tabId=usage#writing-guidelines).
+  * Follow the writing guidelines for [form field]({get_link_resource: /components/form-field/?tabId=usage#writing-guidelines}).
 
 
 

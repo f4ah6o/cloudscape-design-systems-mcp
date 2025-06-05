@@ -9,7 +9,7 @@
   * Use label tags for calling out comparable and scannable information across the list of items. 
   * When using filtering controls, make sure the metadata displayed in each individual token is indexed and searchable. 
   * Use icons in token to enhance usability, clarity, and recollection of the items, not for decoration. When using icons, make sure they are distinct from one another. 
-  * Follow the guidelines for [disabled and read-only states](/patterns/general/disabled-and-read-only-states/).
+  * Follow the guidelines for [disabled and read-only states]({get_link_resource: /patterns/general/disabled-and-read-only-states/}).
 
 
 
@@ -38,7 +38,7 @@ A label is the name or identifier of the individual selected item.
 A label tag is displayed on the right side of the label, apart from the remaining information. Use it to display a unique piece of information that should stand out, for quicker recollection and decision making.
 
   
-For example: For [file upload](/components/file-upload/), the file size metadata can help to identify the selected files.
+For example: For [file upload]({get_link_resource: /components/file-upload/}), the file size metadata can help to identify the selected files.
 
   * #### Description \- optional
 
@@ -53,7 +53,7 @@ For example: _vCPU_ and _RAM_ for instance types.
 
   * #### Icons \- optional
 
-Icons are displayed on the left side of the label. Use Cloudscape icons or custom icons to support distinguishing the items. When using icons, follow the guidelines for [icons](/components/icon/).
+Icons are displayed on the left side of the label. Use Cloudscape icons or custom icons to support distinguishing the items. When using icons, follow the guidelines for [icons]({get_link_resource: /components/icon/}).
 
   * #### Remove button
 
@@ -68,11 +68,11 @@ Users can dismiss individual tokens by tapping the _X_ icon.
 
     * Tokens are aligned horizontally by default. Use the default alignment for an unordered set of tokens.
 
-      * For example: [multi-select](/components/multiselect/).
+      * For example: [multi-select]({get_link_resource: /components/multiselect/}).
 
     * Set the token group to be aligned vertically when it is important to compare a set of selected items.
 
-      * For example: For [file upload](/components/file-upload/) to distinguish file names, size or formats.
+      * For example: For [file upload]({get_link_resource: /components/file-upload/}) to distinguish file names, size or formats.
 
 
 
@@ -115,7 +115,7 @@ Set tokens to read-only when the control is read-only. Read-only tokens can’t 
 
   * Use sentence case, but continue to capitalize proper nouns and brand names correctly in context.
 
-  * Use end punctuation, except in [headers](/components/header/?tabId=usage) and [buttons](/components/button/?tabId=usage). Don’t use exclamation points.
+  * Use end punctuation, except in [headers]({get_link_resource: /components/header/?tabId=usage}) and [buttons]({get_link_resource: /components/button/?tabId=usage}). Don’t use exclamation points.
 
   * Use present-tense verbs and active voice.
 

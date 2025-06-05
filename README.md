@@ -115,6 +115,102 @@ npm run update-links:verbose    # Show detailed processing information
 
 The build automatically converts internal markdown links in usage.md files from regular format to the `get_link_resource` tool call format, enabling the MCP server to resolve component, pattern, and foundation references.
 
+## Claude Desktop Configuration
+
+To use React Design Systems with Claude Desktop, you can configure it as an MCP server using the npm package. This allows Claude Desktop to automatically launch the server when needed.
+
+### Configuration File
+
+Add the following configuration to your Claude Desktop MCP settings file:
+
+**Location:**
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+**Configuration:**
+```json
+{
+  "mcpServers": {
+    "react-design-systems": {
+      "command": "npx",
+      "args": [
+        "@agentience/react-design-systems-mcp"
+      ]
+    }
+  }
+}
+```
+
+### Command Line Parameters
+
+The server supports the following command line parameters:
+
+- `--transport <type>` or `-t <type>`: Transport type (`stdio` or `sse`). Default: `stdio`
+- `--port <number>` or `-p <number>`: Port for SSE transport. Default: `3001`
+- `--bind <address>` or `-b <address>`: Bind address for SSE transport. Default: `0.0.0.0`
+
+### Advanced Configuration Examples
+
+#### With Custom Parameters
+
+```json
+{
+  "mcpServers": {
+    "react-design-systems": {
+      "command": "npx",
+      "args": [
+        "@agentience/react-design-systems-mcp",
+        "--transport",
+        "stdio"
+      ]
+    }
+  }
+}
+```
+
+#### Using Local Installation
+
+If you have the package installed globally or locally:
+
+```json
+{
+  "mcpServers": {
+    "react-design-systems": {
+      "command": "react-design-systems-mcp"
+    }
+  }
+}
+```
+
+#### Development Configuration
+
+For development with a local build:
+
+```json
+{
+  "mcpServers": {
+    "react-design-systems": {
+      "command": "node",
+      "args": [
+        "/path/to/react-design-systems-mcp/dist/server.js"
+      ],
+      "cwd": "/path/to/react-design-systems-mcp"
+    }
+  }
+}
+```
+
+### Verification
+
+After adding the configuration:
+
+1. Restart Claude Desktop
+2. Start a new conversation
+3. The React Design Systems MCP server should be automatically available
+4. You can use tools like `search_components` to verify the connection
+
+For troubleshooting connection issues, see the [MCP Protocol Guide](docs/mcp-protocol-guide.md).
+
 ## Docker Deployment
 
 This project can be deployed using Docker. For detailed instructions, see [Docker Deployment Guide](DOCKER.md).

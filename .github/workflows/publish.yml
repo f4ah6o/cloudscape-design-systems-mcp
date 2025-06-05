@@ -55,33 +55,3 @@ jobs:
           fi
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          
-  publish-github:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '24.x'
-          registry-url: 'https://npm.pkg.github.com/'
-          scope: '@agentience'
-      - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            echo "Found package-lock.json, using npm ci"
-            npm ci
-          else
-            echo "No package-lock.json found, using npm install"
-            npm install
-          fi
-      - run: npm run build
-      # Ensure the server file is executable
-      - name: Make server file executable
-        run: chmod +x dist/server.js
-      
-      # Publish package to GitHub Packages
-      - name: Publish package to GitHub Packages
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

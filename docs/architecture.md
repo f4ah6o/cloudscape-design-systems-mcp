@@ -160,9 +160,12 @@ The Example Provider offers usage examples for components.
 The React Design Systems MCP server integrates with Roo through the Model Context Protocol (MCP). It provides the following tools and resources:
 
 ```mermaid
-graph LR
-    subgraph MCP["MCP Server API"]
-        subgraph Tools["🛠️ Tools"]
+graph TB
+    RC[Roo Client]
+    
+    subgraph MCP[MCP Server API]
+        direction TB
+        subgraph Tools[Tools]
             T1[search_components]
             T2[get_component_details]
             T3[generate_component_code]
@@ -170,17 +173,25 @@ graph LR
             T5[get_component_examples]
         end
         
-        subgraph Resources["📚 Resources"]
-            R1[cloudscape://components/{id}]
-            R2[cloudscape://usage/{id}]
-            R3[cloudscape://categories/{id}]
-            R4[cloudscape://patterns/{id}]
-            R5[cloudscape://examples/{id}]
+        subgraph Resources[Resources]
+            R1["cloudscape://components/{id}"]
+            R2["cloudscape://usage/{id}"]
+            R3["cloudscape://categories/{id}"]
+            R4["cloudscape://patterns/{id}"]
+            R5["cloudscape://examples/{id}"]
         end
     end
     
-    RC[Roo Client] --> Tools
-    RC --> Resources
+    RC --> T1
+    RC --> T2
+    RC --> T3
+    RC --> T4
+    RC --> T5
+    RC --> R1
+    RC --> R2
+    RC --> R3
+    RC --> R4
+    RC --> R5
     
     style MCP fill:#e3f2fd
     style Tools fill:#f3e5f5

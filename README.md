@@ -7,7 +7,7 @@ React Design Systems is a Model Context Protocol (MCP) server that provides comp
 Future versions will expand to support additional popular React design systems including Material UI, Chakra UI, Ant Design, Blueprint, and Mantine.
 
 ## Change Log
-See [CHANGELOG.md]
+See [CHANGELOG.md](CHANGELOG.md)
 
 ## Features
 
